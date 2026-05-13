@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head}">
+    <title>Política de Privacidad | La Luz</title>
+</head>
+
+<body style="padding-top: 100px;">
+
+<!-- Navbar -->
+<div th:replace="~{fragments/layout :: navbar(isWhite=true)}"></div>
+
+<!-- SECCIÓN DE ENCABEZADO MEJORADA -->
+<header class="legal-header">
+    <div class="container" data-aos="fade-up">
+        <span class="label">Compromiso de Seguridad</span>
+        <h1 class="hero-title">Política de <em>Privacidad</em></h1>
+        <div class="gold-line mx-auto mt-3" style="width: 60px;"></div>
+        <p class="update-date">Última actualización: Mayo 2026</p>
+    </div>
+</header>
+
+<!-- CUERPO LEGAL -->
+<main class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="legal-container bg-white p-5 shadow-sm rounded-4" data-aos="fade-up"
+                 style="border-top: 4px solid var(--gold);">
+                <div class="legal-body-text">
+                    <p class="lead mb-5 text-center">
+                        En <strong>La Luz Asistencia Integral</strong>, la privacidad y seguridad de sus datos
+                        personales son una prioridad absoluta.
+                    </p>
+
+                    <div class="mb-4">
+                        <h2 class="h4 fw-bold" style="color: var(--dark-coffee);">1. Responsable del Tratamiento</h2>
+                        <p>
+                            El responsable del tratamiento de sus datos personales es <strong>La Luz
+                            Asistencial</strong>. Puede contactar a nuestro equipo legal para cualquier solicitud en:
+                            <a href="mailto:privacidad@laluz.com" class="text-decoration-none"
+                               style="color: var(--gold); font-weight: 600;">privacidad@laluz.com</a>.
+                        </p>
+                    </div>
+
+                    <div class="mb-4">
+                        <h2 class="h4 fw-bold" style="color: var(--dark-coffee);">2. Datos que Recolectamos</h2>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-check2-circle text-gold me-2"></i><strong>Datos de
+                                identificación:</strong> Nombre completo y documento de identidad.
+                            </li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-gold me-2"></i><strong>Datos de
+                                contacto:</strong> Teléfono, correo y dirección para la gestión de servicios exequiales.
+                            </li>
+                            <li class="mb-2"><i class="bi bi-check2-circle text-gold me-2"></i><strong>Datos
+                                financieros:</strong> Procesados de forma segura mediante pasarelas certificadas.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h2 class="h4 fw-bold" style="color: var(--dark-coffee);">3. Finalidad del Tratamiento</h2>
+                        <p>Sus datos serán utilizados exclusivamente para:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="bi bi-dot text-gold fs-4"></i>Gestión de afiliaciones y planes de
+                                previsión.
+                            </li>
+                            <li class="mb-2"><i class="bi bi-dot text-gold fs-4"></i>Habilitar la consulta de estados de
+                                cuenta.
+                            </li>
+                            <li class="mb-2"><i class="bi bi-dot text-gold fs-4"></i>Notificación de servicios y
+                                atención inmediata.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="legal-footer mt-5 pt-4 border-top text-center">
+                        <p class="mb-4 small text-muted font-italic">Este documento cumple con la normativa vigente de
+                            protección de datos personales.</p>
+                        <a th:href="@{/}" class="btn btn-outline-dark px-4 py-2 text-uppercase fw-bold"
+                           style="letter-spacing: 1px; border-radius: 50px;">
+                            <i class="bi bi-arrow-left me-2"></i>Volver al Inicio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<div th:replace="~{fragments/layout :: footer}"></div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({duration: 1000, once: true, easing: 'ease-out-quad'});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

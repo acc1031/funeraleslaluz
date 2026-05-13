@@ -1,0 +1,1040 @@
+/* ============================================================
+   LA LUZ ASISTENCIA INTEGRAL — Sistema de Diseño Premium
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+    --gold: #C9A96E;
+    --dark-coffee: #3B3024;
+    --dark: #0F0F0F;
+    --cream: #F9F7F2;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--cream);
+    color: var(--dark);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* --- ESTRUCTURA BASE (Dimensiones fijas para evitar saltos) --- */
+.navbar {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%) !important;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    /* Mantenemos la misma altura y padding en ambos estados */
+    padding: 1.2rem 0 !important;
+    height: 140px; /* Forzamos una altura fija para que no se mueva el contenido */
+    display: flex;
+    align-items: center;
+
+    transition: background 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+}
+
+/* Contenedor interno para asegurar que el ancho no varíe */
+.navbar .container-fluid {
+    padding-left: 5% !important;
+    padding-right: 5% !important;
+    max-width: 100%; /* Evita que el scrollbar mueva el contenido */
+}
+
+/* Logo con tamaño bloqueado */
+.navbar .nav-logo {
+    height: 90px !important;
+    width: auto;
+    transition: none; /* Quitamos transición en tamaño para evitar el efecto de 'movimiento' */
+}
+
+/* --- LÓGICA DE INTERCAMBIO DE LOGOS --- */
+
+.navbar .nav-logo {
+    height: 85px !important; /* Altura idéntica para ambos */
+    width: 220px !important; /* Ancho fijo para evitar que el menú central se mueva */
+    object-fit: contain;     /* Mantiene la proporción sin deformar */
+    transition: none !important;
+    display: block;
+}
+
+/* --- CONTROL DE DIMENSIONES --- */
+
+/* Estilo base para ambos logos */
+.navbar .nav-logo {
+    height: 90px !important; /* Altura de referencia */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease; /* Suaviza el cambio si fuera necesario */
+}
+
+/* AJUSTE ESPECÍFICO:
+   Como el logo de color (image_840eb7.png) tiene más aire interno,
+   lo agrandamos un poco con 'scale' para que iguale visualmente al blanco. */
+.logo-dark {
+    display: none !important;
+    transform: scale(1.25); /* Aumenta el tamaño un 25% */
+    transform-origin: left center; /* Asegura que crezca hacia la derecha para no solapar el borde */
+}
+
+/* --- LÓGICA DE INTERCAMBIO (Mantener igual) --- */
+
+.logo-light {
+    display: block;
+}
+
+.navbar-scrolled .logo-light,
+.navbar-white .logo-light {
+    display: none !important;
+}
+
+.navbar-scrolled .logo-dark,
+.navbar-white .logo-dark {
+    display: block !important;
+}
+
+.navbar .nav-link {
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* --- ESTADO SCROLLED (Solo cambia el color, no las dimensiones) --- */
+.navbar.navbar-scrolled {
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #eee !important;
+    /* Mantenemos el mismo padding y altura que el estado inicial */
+    padding: 1.2rem 0 !important;
+}
+
+.navbar.navbar-scrolled .nav-link {
+    color: #4a4a4a !important;
+    text-shadow: none;
+}
+
+/* --- DETALLES QUE EVITAN EL DESPLAZAMIENTO --- */
+.navbar-nav {
+    /* Aseguramos que la lista de links no cambie su alineación */
+    align-items: center;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    background-color: var(--gold);
+    transition: width 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 25px;
+}
+
+/* Reduce la separación del menú desplegable */
+.navbar .dropdown-menu {
+    margin-top: 0 !important; /* Elimina márgenes superiores */
+    top: 80% !important;     /* Ajusta este porcentaje para subir o bajar el menú */
+    border-top: 2px solid var(--gold); /* Opcional: una línea dorada para que se vea elegante */
+}
+
+/* Si usas la animación slideIn, asegúrate de que no empiece desde muy abajo */
+.animate.slideIn {
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Ajuste específico para cuando la navbar está en modo normal (140px) */
+.navbar:not(.navbar-scrolled) .dropdown-menu {
+    top: 70% !important; /* Lo sube un poco más cuando el cabecero es alto */
+}
+
+/* Ajuste para cuando la navbar se achica con el scroll */
+.navbar-scrolled .dropdown-menu {
+    top: 90% !important;
+}
+
+/* --- DROPDOWN SIN MOVIMIENTO --- */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover > .dropdown-menu {
+        display: block;
+        animation: slideIn 0.2s ease forwards;
+        margin-top: 0;
+        border: none;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Esto asegura que si la clase existe, los colores cambien sin esperar al scroll */
+.navbar-white {
+    background: #ffffff !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+    padding: 1.2rem 0 !important;
+}
+
+.navbar-white .nav-link {
+    color: #4a4a4a !important; /* Texto oscuro para fondo blanco */
+    text-shadow: none !important;
+}
+
+.navbar-white .nav-logo {
+    height: 90px !important;
+}
+
+/* ============================================================
+   ESTADO ACTIVO (Dorado permanente para la página actual)
+   ============================================================ */
+
+/* 1. Forzamos el color dorado al texto cuando el link está activo */
+.navbar .nav-link.active {
+    color: var(--gold) !important;
+    font-weight: 600 !important;
+    text-shadow: none !important; /* Limpieza visual en fondos oscuros */
+}
+
+/* 2. Mantenemos la línea dorada visible (el subrayado corto) */
+.navbar .nav-link.active::after {
+    width: 25px !important; /* El tamaño exacto de tu diseño boutique */
+    background-color: var(--gold) !important;
+}
+
+/* 3. Aseguramos que el estado activo sea respetado tanto en transparente como en blanco */
+.navbar.navbar-scrolled .nav-link.active,
+.navbar-white .nav-link.active {
+    color: var(--gold) !important;
+}
+
+/* 4. Evitamos que el hover cambie el color si ya está activo (mantiene consistencia) */
+.navbar .nav-link.active:hover {
+    color: var(--gold) !important;
+    transform: scale(1.05);
+}
+
+
+/* --- HERO DINÁMICO --- */
+.hero-zen {
+    height: 100vh;
+    display: flex;
+    align-items: flex-end; /* Empuja el contenido hacia abajo */
+    padding-bottom: 25vh;  /* Espacio desde el borde inferior para que no pegue al suelo */
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+/* Capa para las imágenes que rotan */
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 40%; /* Ajuste sutil para centrar el punto de contacto */
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 0;
+}
+.hero-slide.active {
+    opacity: 1;
+}
+
+/* El Overlay: Eliminamos el café para que los colores sean naturales */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    /* Usamos un degradado negro casi invisible (20%) solo para legibilidad del texto */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 100%);
+    z-index: 1;
+}
+
+/* El Contenido: Texto y botones */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin-bottom: 0; /* Eliminamos márgenes superiores previos */
+}
+/* Tipografía elegante y minimalista */
+.hero-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -1px;
+    /* Sombra muy suave para separar el texto del fondo claro */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.btn-group-custom {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* --- BOTONES CON ANIMACIÓN SCALE (Sin Java Script) --- */
+/* Clase base para todos los botones premium */
+.btn-gold, .btn-outline, .btn-cafe-outline, .btn-premium {
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efecto elástico suave */
+    display: inline-block;
+    border-radius: 0;
+}
+
+/* Botón visible por defecto (Dorado sólido -> Transparente) */
+.btn-gold {
+    background: var(--gold);
+    color: var(--dark-coffee) !important;
+    border: 1px solid var(--gold);
+}
+
+/* Botón transparente por defecto (Transparente -> Dorado sólido) */
+.btn-outline {
+    background: rgba(255,255,255,0.1);
+    color: white !important;
+    border: 1px solid white;
+    backdrop-filter: blur(5px);
+}
+
+/* EFECTO CRECER Y SOMBRA AL PASAR PUNTERO */
+.btn-gold:hover, .btn-outline:hover, .btn-cafe-outline:hover, .btn-premium:hover {
+    transform: scale(1.1); /* Crece un 10% */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Comportamiento específico de hover para botones del Hero */
+.btn-gold:hover {
+    background: transparent;
+    color: var(--gold) !important;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--dark-coffee) !important;
+}
+
+/* --- BOTONES PREMIUM MÁS GRANDES Y TÁCTILES --- */
+.btn-premium {
+    /* Tamaño aumentado para mayor impacto visual */
+    padding: 14px 25px !important;
+    font-size: 1.1rem !important;
+    min-width: 200px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animación elástica */
+    cursor: pointer;
+}
+
+/* Efecto Hover: Elevación y Sombra */
+.btn-premium:hover {
+    transform: translateY(-4px); /* Se eleva un poco más para destacar */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+
+/* Efecto Click (Feedback táctil que enviaste) */
+.btn-premium:active {
+    transform: scale(0.95) translateY(0); /* Se encoge y baja a su posición original */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.1s ease; /* Respuesta inmediata al clic */
+}
+
+/* Asegurar que el outline mantenga el estilo fino pero grande */
+.btn-outline {
+    border: 2px solid #ffffff !important;
+    background: transparent;
+    color: #ffffff !important;
+}
+
+.btn-outline:hover {
+    background: #ffffff !important;
+    color: #4a4a4a !important;
+}
+
+/* --- TARJETAS --- */
+.card-minimal {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.05);
+    padding: 3rem 2.5rem !important; /* Más espacio lateral y vertical interno */
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    cursor: pointer;
+    position: relative; /* Necesario para el stretched-link del HTML */
+}
+
+.card-minimal:hover {
+    border-color: var(--dark-coffee);
+    transform: translateY(-8px); /* Elevación elegante */
+    box-shadow: 0 15px 35px rgba(77, 47, 0, 0.15); /* Sombra color café sutil */
+    background-color: #fff;
+    z-index: 10; /* Se asegura de estar por encima al elevarse */
+}
+
+/* Efecto activo al hacer clic (feedback táctil) */
+.card-minimal:active {
+    transform: translateY(-2px);
+    transition: all 0.1s ease;
+}
+
+/* --- DROPDOWN PREMIUM --- */
+/* Flecha personalizada usando Bootstrap Icons */
+.dropdown-toggle::after {
+    border: none;
+    content: "\F282";
+    font-family: "bootstrap-icons";
+    vertical-align: middle;
+    margin-left: 5px;
+    font-size: 0.7rem;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    margin-top: 15px !important;
+    border-top: 3px solid var(--gold) !important; /* Línea dorada distintiva */
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.dropdown-item {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: var(--dark-coffee);
+    transition: all 0.3s ease;
+}
+
+/* Efecto Café y Dorado al pasar el puntero */
+.dropdown-item:hover {
+    background-color: var(--dark-coffee); /* #4D2F00 */
+    color: var(--gold) !important;       /* #C9A96E */
+    padding-left: 2rem; /* Efecto de desplazamiento al pasar el mouse */
+}
+
+/* --- BOTÓN DE COMUNIDAD (Personalizado para ser Café) --- */
+.btn-cafe-outline {
+    color: var(--dark-coffee);
+    border: 2px solid var(--dark-coffee);
+    background-color: transparent;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-cafe-outline:hover {
+    background-color: var(--dark-coffee); /* Se llena de café */
+    color: var(--gold) !important;       /* Texto a dorado */
+    border-color: var(--dark-coffee);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(77, 47, 0, 0.2);
+}
+
+/* --- SECCIÓN ASISTENCIA (¿Necesitas asistencia inmediata...?) --- */
+.bg-dark {
+    background-color: var(--dark-coffee) !important; /* Unificamos con el café de identidad */
+}
+
+/* --- COMPORTAMIENTO ESPECÍFICO: Botón dorado en franja oscura (BLANCO AL HOVER) --- */
+.bg-dark .btn-gold:hover {
+    background-color: #ffffff !important; /* El fondo se vuelve blanco sólido */
+    color: var(--dark-coffee) !important; /* El texto se vuelve café para que se pueda leer */
+    border-color: #ffffff !important;     /* El borde también se vuelve blanco */
+}
+
+/* --- ESTILOS ADICIONALES --- */
+/* Contenedor principal de la sección de servicios */
+.section-padding {
+    padding: 100px 0; /* Aumentamos de 80px a 100px para más aire arriba y abajo */
+}
+
+/* Espacio entre el título ("Nuestra Asistencia Integral") y las tarjetas */
+.section-padding .text-center.mb-5 {
+    margin-bottom: 4rem !important; /* Aumentamos la separación del título */
+}
+
+.text-gold {
+    color: var(--gold);
+}
+
+.gold-line {
+    width: 50px;
+    height: 2px;
+    background: var(--gold);
+    margin: 20px 0;
+}
+
+.label {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--gold);
+}
+
+/* --- LOGO Y RESPONSIVE --- */
+/* Estilos para el nuevo Logo */
+.nav-logo {
+    height: 100px; /* Aumentado a 95px para mayor jerarquía */
+    width: auto;  /* Mantiene la proporción original */
+    transition: transform 0.3s ease;
+}
+
+/* Ajuste para el contenedor del logo */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    padding: 0; /* Quitamos padding para que el logo mande en el espacio */
+}
+
+/* Efecto sutil al pasar el mouse */
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
+@keyframes slideIn {
+    0% { transform: translateY(1rem); opacity: 0; }
+    100% { transform: translateY(0rem); opacity: 1; }
+}
+
+/* Ajuste para móviles */
+@media (max-width: 768px) {
+    .nav-logo {
+        height: 80px; /* Aumentado a 65px para móviles */
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2rem; /* Título más pequeño en móvil */
+    }
+
+    .btn-gold, .btn-outline {
+        width: 100%; /* Botones de ancho completo en móvil */
+        margin-bottom: 10px;
+    }
+}
+
+/* --- ANIMACIONES (AOS Fallback) --- */
+/* Ajuste sutil para evitar clics accidentales durante la animación */
+[data-aos] {
+    pointer-events: none;
+}
+
+[data-aos].aos-animate {
+    pointer-events: auto;
+}
+
+
+:root {
+    /* Paleta de colores */
+    --gold: #c5a861;          /* Dorado institucional */
+    --dark-coffee: #2c211b;   /* Café oscuro para textos/títulos */
+    --cream: #f9f7f2;         /* Color crema para fondos */
+
+    /* Tipografías */
+    --font-serif: 'Playfair Display', serif; /* Para títulos elegantes */
+    --font-sans: 'Roboto', sans-serif;       /* Para textos normales */
+    --font-body: 'Roboto', sans-serif;       /* Otra opción para textos base */
+}
+
+/* --- ESTILOS DE TARJETAS MINIMALISTAS --- */
+.card-minimal {
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    background-color: white;
+    transition: all 0.4s ease-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+}
+
+.card-minimal:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* --- ESTILOS DE BOTONES "LA LUZ" --- */
+.btn-laluz {
+    border-radius: 0;
+    padding: 12px 30px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+/* Botón Sólido Dorado */
+.btn-solid-gold {
+    background-color: var(--gold);
+    color: white !important;
+    border: 1px solid var(--gold);
+}
+
+.btn-solid-gold:hover {
+    background-color: white;
+    color: var(--gold) !important;
+}
+
+/* Botón Outline Oscuro */
+.btn-outline-dark {
+    background-color: transparent;
+    color: var(--dark-coffee) !important;
+    border: 1px solid var(--dark-coffee);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--dark-coffee);
+    color: white !important;
+}
+
+/* Evita que el diseño salte mientras los números crecen */
+.counter {
+    display: inline-block;
+    min-width: 0.6em;
+    font-variant-numeric: tabular-nums; /* Mantiene el ancho de los números fijo */
+}
+
+.counter-section h2 {
+    font-family: var(--font-sans); /* O var(--font-serif) si prefieres el estilo elegante */
+    font-weight: 300;
+    letter-spacing: -1px;
+}
+
+/* --- SECCIÓN DE ENCABEZADO (Header) --- */
+.sedes-header {
+    background: linear-gradient(rgba(59, 48, 36, 0.88), rgba(59, 48, 36, 0.88)),
+    url('https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?auto=format&fit=crop&q=80');
+    background-size: cover;
+    background-position: center;
+    padding-top: 180px !important;
+    padding-bottom: 100px !important;
+    text-align: center;
+}
+
+.sedes-header .label {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.sedes-header .hero-title {
+    color: white;
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    margin: 0;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+.sedes-header .hero-title em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* --- MAPA Y CONTENEDORES --- */
+.map-container-wrapper {
+    border: 2px solid var(--gold);
+    height: 650px;
+    position: relative;
+}
+
+.map-overlay-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 1.5rem;
+    padding: 0.75rem 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    border-left: 5px solid var(--gold);
+    z-index: 10;
+}
+
+/* --- TARJETAS DE INFORMACIÓN (image_693a95.png) --- */
+.card-info-sede {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 2rem;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.card-info-sede:hover {
+    transform: translateY(-5px);
+}
+
+.card-info-sede .info-label {
+    font-weight: bold;
+    display: block;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: #6c757d; /* text-muted */
+    margin-top: 1rem;
+}
+
+.card-info-sede p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    color: var(--dark-coffee);
+}
+
+
+/* Hereda los estilos de sedes-header pero puedes cambiar la imagen de fondo si deseas */
+.legal-header {
+    background: linear-gradient(rgba(59, 48, 36, 0.9), rgba(59, 48, 36, 0.9)),
+    url('https://images.unsplash.com/photo-1557597774-9d2739f82a92?auto=format&fit=crop&q=80'); /* Imagen tipo textura o papel */
+    background-size: cover;
+    background-position: center;
+    padding-top: 180px !important;
+    padding-bottom: 100px !important;
+    text-align: center;
+}
+
+.legal-header .label {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.legal-header .hero-title {
+    color: white;
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+.legal-header .hero-title em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.legal-header .update-date {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+
+/* Efecto de marca de agua interna para las tarjetas */
+.card-digital-management {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid rgba(197, 168, 97, 0.2);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+}
+
+.card-digital-management:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(59, 48, 36, 0.1);
+    border-color: var(--gold);
+}
+
+/* Contenedor de imagen premium para tarjetas */
+.image-wrapper-premium {
+    width: 100%;
+    height: 180px; /* Altura fija para consistencia visual */
+    overflow: hidden;
+    border-radius: 15px; /* Bordes suaves */
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(197, 168, 97, 0.2); /* Borde sutil dorado */
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.05); /* Sombra interna suave */
+}
+
+.image-wrapper-premium img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen llene el espacio sin deformarse */
+    transition: transform 0.5s ease;
+}
+
+/* Efecto de zoom al hover en la tarjeta */
+.card-digital-management:hover .image-wrapper-premium img {
+    transform: scale(1.05);
+}
+
+
+/* --- Variables de Color (Asegúrate de que coincidan con tu marca) --- */
+:root {
+    --gold: #c5a861;
+    --dark-coffee: #3d2b1f;
+    --cream: #fdfbf7;
+}
+
+/* --- Estilos de la Sección y Fondo --- */
+.section-padding {
+    padding: 100px 0;
+    position: relative;
+}
+
+/* Efecto de patrón geométrico sutil */
+.section-digital-bg {
+    background-color: var(--cream);
+    background-image: radial-gradient(rgba(197, 168, 97, 0.12) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+/* --- Tarjetas de Gestión Digital --- */
+.card-digital-management {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(197, 168, 97, 0.2);
+    overflow: hidden;
+}
+
+.card-digital-management:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+    border-color: var(--gold);
+}
+
+/* Efecto de Zoom en la imagen al pasar el mouse */
+.card-digital-management:hover .image-wrapper-premium img {
+    transform: scale(1.1);
+}
+
+/* Marca de agua decorativa interna */
+.card-watermark {
+    pointer-events: none;
+    user-select: none;
+    transition: all 0.6s ease;
+}
+
+.card-digital-management:hover .card-watermark {
+    transform: scale(1.2) rotate(-10deg);
+    color: rgba(197, 168, 97, 0.08) !important;
+}
+
+/* --- Botones Personalizados --- */
+.btn-laluz {
+    transition: all 0.3s ease;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+}
+
+.btn-solid-gold:hover {
+    background-color: var(--dark-coffee) !important;
+    transform: scale(1.02);
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--dark-coffee) !important;
+    color: white !important;
+    transform: scale(1.02);
+}
+
+/* --- Tarjetas de Planes --- */
+.card-minimal {
+    background: #fff;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.card-minimal:hover {
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.text-gold {
+    color: var(--gold);
+}
+
+/* --- Ajustes Responsivos --- */
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 2rem !important;
+    }
+
+    .card-digital-management {
+        margin-bottom: 20px;
+        padding: 2rem !important; /* Menos padding en móviles */
+    }
+}
+
+
+.counter-section h2 {
+    letter-spacing: -1px;
+}
+
+.counter-section small {
+    font-size: 1.5rem;
+    vertical-align: middle;
+    opacity: 0.8;
+}
+
+/* Efecto hover sutil */
+.counter-section .col-6:hover i {
+    opacity: 1;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
+
+/* Estilo base de la imagen */
+.img-interactive {
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1); /* Transición suave y orgánica */
+    cursor: pointer;
+    backface-visibility: hidden; /* Evita parpadeos en la animación */
+}
+
+/* Efecto al pasar el mouse (Hover) */
+.img-interactive:hover {
+    transform: scale(1.05); /* Se agranda un 5% */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important; /* La sombra se vuelve más profunda */
+    filter: brightness(1.02); /* Brillo sutil para que resalte */
+}
+
+/* Efecto al hacer clic (Opcional) */
+.img-interactive:active {
+    transform: scale(0.98); /* Se encoge un poco al presionar */
+    transition: all 0.1s ease;
+}
+
+/* Personalización del zoom de AOS para el mapa */
+[data-aos="zoom-in"] {
+    transform: scale(0.5); /* Empieza a la mitad de su tamaño */
+    transition-property: transform, opacity;
+}
+
+[data-aos="zoom-in"].aos-animate {
+    transform: scale(1); /* Crece a su tamaño natural */
+}
+
+
+/* Línea dorada superior */
+.gold-line-divider {
+    width: 60px;
+    height: 2px;
+    background-color: #c5a059; /* Tono dorado de la imagen */
+    border-radius: 2px;
+}
+
+/* Tarjeta de estadísticas */
+.stats-card {
+    background-color: #faf9f6; /* Fondo crema muy suave */
+    border-left: 3px solid #c5a059;
+    border-radius: 0 15px 15px 0;
+    max-width: 400px;
+}
+
+.stat-item {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 8px;
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1a1a1a;
+    min-width: 60px;
+}
+
+.stat-label {
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: #666;
+    padding-left: 15px;
+    border-left: 1px solid #ddd;
+}
+
+/* Botón Ver Sedes */
+.btn-outline-dark-custom {
+    display: inline-block;
+    padding: 12px 40px;
+    border: 1.5px solid #1a1a1a;
+    background: transparent;
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-dark-custom:hover {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* Limpia cualquier espacio residual para que LinkedIn llegue al borde del padding */
+.social-icons-nav a.nav-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    line-height: 1;
+}
+
+/* El último icono no debe tener margen a la derecha bajo ninguna circunstancia */
+.social-icons-nav a:last-child {
+    margin-right: 0 !important;
+}
+
+/* Mantén la lógica de colores que ya tienes */
+.nav-social-link {
+    color: #ffffff !important;
+    transition: all 0.4s ease;
+    text-decoration: none;
+}
+
+.navbar-scrolled .nav-social-link,
+.navbar-white .nav-social-link {
+    color: var(--dark-coffee) !important;
+}
+
+.nav-social-link:hover {
+    color: var(--gold) !important;
+    transform: translateY(-2px);
+}

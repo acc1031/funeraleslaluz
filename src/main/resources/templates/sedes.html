@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/layout :: head}">
+    <title>Nuestras Sedes | La Luz</title>
+</head>
+
+<body style="padding-top: 100px;">
+
+<!-- Navbar -->
+<div th:replace="~{fragments/layout :: navbar(isWhite=true)}"></div>
+
+<!-- Encabezado de la Página -->
+<header class="sedes-header">
+    <div class="container" data-aos="fade-up">
+        <span class="label">Presencia Regional</span>
+        <h1 class="hero-title">Nuestras <em>Sedes</em></h1>
+        <div class="gold-line mx-auto mt-4" style="width: 80px;"></div>
+    </div>
+</header>
+
+<!-- SECCIÓN: MAPA UNIFICADO -->
+<section class="section-padding bg-cream">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="label mb-2" style="letter-spacing: 4px;">Red de Asistencia Integral</h2>
+            <h1 class="section-title"
+                style="font-family: var(--font-serif); font-size: 3rem; color: var(--dark-coffee);">
+                Nuestra Presencia en <em>Cundinamarca</em>
+            </h1>
+            <div class="gold-line mx-auto mt-3" style="width: 100px; height: 3px;"></div>
+        </div>
+
+        <div class="row shadow-lg rounded-4 overflow-hidden g-0 map-container-wrapper" data-aos="zoom-in">
+            <div class="col-12 h-100">
+                <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d85834.73516544522!2d-74.05351865!3d4.7001254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sFunerales+La+Luz+Calle+100+y+Funeraria+Avellaneda+La+Calera!5e0!3m2!1ses!2sco!4v1715000000000!5m2!1ses!2sco"
+                        width="100%" height="100%" style="border:0; filter: contrast(1.1);" allowfullscreen=""
+                        loading="lazy">
+                </iframe>
+
+                <div class="map-overlay-tag d-none d-md-block shadow">
+                    <p class="mb-0 small fw-bold text-uppercase" style="color: var(--dark-coffee);">
+                        <i class="bi bi-geo-alt-fill text-gold"></i> Sedes Sincronizadas
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- TARJETAS DE INFORMACIÓN (image_69424e.png) -->
+        <div class="row mt-5 g-4 justify-content-center">
+
+            <!-- Sede La Calera -->
+            <div class="col-md-5" data-aos="fade-right">
+                <div class="card-info-sede shadow-sm">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-geo-alt-fill fs-2 mb-2" style="color: var(--gold);"></i>
+                        <h4 class="fw-bold" style="color: var(--dark-coffee);">Sede La Calera</h4>
+                        <p class="text-muted small">Atención inmediata en el casco urbano</p>
+                        <div class="gold-line mx-auto" style="width: 50px;"></div>
+                    </div>
+
+                    <span class="info-label">Dirección:</span>
+                    <p>Carrera 3 No. 2-13 Avenida Paseo Real</p>
+
+                    <span class="info-label">Celulares:</span>
+                    <p>310 5729883 - 310 8167656<br>311 4811691</p>
+
+                    <span class="info-label">Email:</span>
+                    <p class="text-break">servicioalcliente@funeraleslaluz.com</p>
+                </div>
+            </div>
+
+            <!-- Sede Bogotá Norte -->
+            <div class="col-md-5" data-aos="fade-left">
+                <div class="card-info-sede shadow-sm">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-geo-alt-fill fs-2 mb-2" style="color: var(--dark-coffee);"></i>
+                        <h4 class="fw-bold" style="color: var(--dark-coffee);">Sede Bogotá Norte</h4>
+                        <p class="text-muted small">Ubicación estratégica sobre la Av. 68</p>
+                        <div class="gold-line mx-auto" style="width: 50px;"></div>
+                    </div>
+
+                    <span class="info-label">Dirección:</span>
+                    <p>Calle 33 A No. 13-31 Centro Internacional</p>
+
+                    <span class="info-label">Teléfonos Fijos:</span>
+                    <p>(601) 17462112 - (601) 7946551</p>
+
+                    <span class="info-label">Celulares:</span>
+                    <p>310 5729883 - 310 8167656<br>311 4811691 - 310 3969356</p>
+
+                    <span class="info-label">Email:</span>
+                    <p class="text-break">comercial@laluzasistenciaintegral.com</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<div th:replace="~{fragments/layout :: footer}"></div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({duration: 1000, once: true, easing: 'ease-out-quad'});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
