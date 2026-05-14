@@ -1,4 +1,6 @@
-/* Estilos Publicitarios de Alto Impacto - Funerales La Luz */
+/* ============================================================
+   LA LUZ — SECCIÓN CONTACTO (ESPECÍFICO)
+   ============================================================ */
 
 .contact-hero {
     /* Textura de papel premium con degradados sutiles */
@@ -48,12 +50,14 @@
     padding: 14px;
     border-radius: 8px;
     background-color: #fbfbfb;
+    transition: all 0.3s ease;
 }
 
 .custom-input:focus {
     border-color: var(--gold);
     background-color: #fff;
     box-shadow: 0 0 0 0.25rem rgba(197, 168, 97, 0.1);
+    outline: none;
 }
 
 /* Botón Publicitario de Conversión */
@@ -72,4 +76,22 @@
 .btn-gold-advert:hover {
     background-color: var(--dark-coffee);
     transform: scale(1.03);
+}
+
+.border-radius-20 {
+    border-radius: 20px;
+}
+
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.text-gold {
+    color: var(--gold);
 }

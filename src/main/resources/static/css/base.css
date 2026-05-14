@@ -1,0 +1,37 @@
+/* ============================================================
+   ESTILOS BASE Y VARIABLES — LA LUZ
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital@0;1&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --gold: #C9A96E;
+    --gold-alt: #c5a861;
+    --dark-coffee: #3B3024;
+    --dark-coffee-deep: #2c211b;
+    --dark: #0F0F0F;
+    --cream: #F9F7F2;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--cream);
+    color: var(--dark);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Utilidades Comunes */
+.text-gold { color: var(--gold); }
+.section-padding { padding: 100px 0; }
+.gold-line { width: 50px; height: 2px; background: var(--gold); margin: 20px 0; }
+
+.label {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--gold);
+}
