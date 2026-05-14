@@ -42,11 +42,22 @@ El proyecto sigue el estándar de **Maven** y una arquitectura **MVC (Modelo-Vis
 │   │   └── resources/
 │   │       ├── static/                # Archivos públicos
 │   │       │   ├── css/               # Hojas de estilo segmentadas (mascotas, contacto)
-│   │       │   └── img/               # Recursos gráficos y logos
+│   │       │   └── img/               # Recursos gráficos, logos y material visual
 │   │       ├── templates/             # Vistas dinámicas con Thymeleaf
-│   │       │   ├── fragments/         # Componentes reutilizables (layout.html)
+│   │       │   ├── fragmentos/        # Componentes reutilizables (layout.html)
 │   │       │   ├── servicios/         # Vistas de servicios especializados
-│   │       │   ├── index.html         # Landing page principal
-│   │       │   └── ...                # Vistas de Sedes, Obituarios y Planes
-│   │       └── application.properties # Configuración global del sistema
-└── pom.xml                            # Gestión de dependencias de Maven
+│   │       │   │   ├── atencion-inmediata.html
+│   │       │   │   ├── conmemoraciones.html
+│   │       │   │   ├── internacionales.html
+│   │       │   │   ├── repatriacion.html
+│   │       │   │   └── tradicionales.html
+│   │       │   ├── contacto.html          # Formulario de contacto
+│   │       │   ├── index.html             # Landing page principal
+│   │       │   ├── mascotas.html          # Sección "Huella de Luz"
+│   │       │   ├── obituarios.html        # Consulta de servicios fúnebres
+│   │       │   ├── planes.html            # Información de planes exequiales
+│   │       │   ├── prevision-empresarial.html
+│   │       │   ├── proteccion-datos.html  # Políticas de privacidad
+│   │       │   └── sedes.html             # Ubicación de instalaciones
+│   │       └── application.properties     # Configuración global del sistema
+└── pom.xml                                # Gestión de dependencias de Maven
