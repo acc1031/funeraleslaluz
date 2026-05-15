@@ -8,27 +8,26 @@
 <div th:replace="~{fragments/layout :: navbar}"></div>
 
 <section class="hero-zen">
-    <!--    <div class="hero-slide active" th:style="'background-image: url(' + @{/img/image_e45fa2.jpg} + ');'"></div>-->
+    <div class="hero-slide active"
+         style="background-image: url('/img/paisaje.png');"></div>
 
     <div class="hero-slide"
          style="background-image: url('https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?&fit=crop&h=1000&w=2000&q=80');"></div>
 
     <div class="hero-slide"
          style="background-image: url('/img/dog.png');"></div>
+
     <div class="hero-overlay"></div>
 
     <div class="container hero-content text-center">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="btn-group-custom d-flex justify-content-center gap-3">
-                    <!-- Bontón Planes -->
                     <a th:href="@{/planes}"
                        class="btn-premium btn-solid-gold text-uppercase tracking-widest fw-bold py-3 px-4 shadow-sm text-decoration-none"
                        style="border-radius: 4px !important;">
                         Conocer Planes
                     </a>
-
-                    <!-- Bontón Homenajes -->
                     <a href="https://laluzasistencialweb.piscotics.com:9060/PiscoWebObituario/Obituarios"
                        class="btn-premium btn-outline-white-hero text-uppercase tracking-widest fw-bold py-3 px-4">
                         Ver Homenajes
@@ -37,6 +36,7 @@
             </div>
         </div>
     </div>
+</section>
 </section>
 
 <script>
@@ -53,71 +53,60 @@
 
 
 <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.hero-slide');
+    document.addEventListener("DOMContentLoaded", function() {
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
 
-    function nextSlide() {
-        // Quitamos la clase active de la imagen actual
-        slides[currentSlide].classList.remove('active');
+        function nextSlide() {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
 
-        // Pasamos a la siguiente
-        currentSlide = (currentSlide + 1) % slides.length;
-
-        // Agregamos active a la nueva
-        slides[currentSlide].classList.add('active');
-    }
-
-    // Cambia cada 5 segundos
-    setInterval(nextSlide, 5000);
+        // Cambia cada 5 segundos
+        setInterval(nextSlide, 5000);
+    });
 </script>
-<section class="py-5 counter-section"
-         style="background-color: #fdfbf7; border-top: 1px solid rgba(197, 168, 97, 0.1); border-bottom: 1px solid rgba(197, 168, 97, 0.1);">
-    <div class="container">
-        <div class="row text-center g-4">
-            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
-                <div class="p-3">
-                    <i class="bi bi-award mb-2 d-block opacity-50" style="color: var(--gold); font-size: 1.5rem;"></i>
-                    <h2 class="display-5 fw-bold mb-0" style="color: var(--gold); font-family: var(--font-serif);">
-                        <span class="counter" data-target="25">0</span><small class="ms-1">+</small>
-                    </h2>
-                    <p class="small text-uppercase fw-bold text-muted mt-2" style="letter-spacing: 1px;">Años de
-                        Trayectoria</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
-                <div class="p-3">
-                    <i class="bi bi-map mb-2 d-block opacity-50" style="color: var(--gold); font-size: 1.5rem;"></i>
-                    <h2 class="display-5 fw-bold mb-0" style="color: var(--gold); font-family: var(--font-serif);">
-                        <span class="counter" data-target="100">0</span><small class="ms-1">%</small>
-                    </h2>
-                    <p class="small text-uppercase fw-bold text-muted mt-2" style="letter-spacing: 1px;">Cobertura
-                        Nacional</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
-                <div class="p-3">
-                    <i class="bi bi-clock-history mb-2 d-block opacity-50"
-                       style="color: var(--gold); font-size: 1.5rem;"></i>
-                    <h2 class="display-5 fw-bold mb-0" style="color: var(--gold); font-family: var(--font-serif);">
-                        <span class="counter" data-target="24">0</span><small class="ms-1">/7</small>
-                    </h2>
-                    <p class="small text-uppercase fw-bold text-muted mt-2" style="letter-spacing: 1px;">Atención
-                        Inmediata</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
-                <div class="p-3">
-                    <i class="bi bi-people mb-2 d-block opacity-50" style="color: var(--gold); font-size: 1.5rem;"></i>
-                    <h2 class="display-5 fw-bold mb-0" style="color: var(--gold); font-family: var(--font-serif);">
-                        <span class="counter" data-target="10">0</span><small class="ms-1">k+</small>
-                    </h2>
-                    <p class="small text-uppercase fw-bold text-muted mt-2" style="letter-spacing: 1px;">Familias
-                        Protegidas</p>
-                </div>
-            </div>
+<section class="py-5 allies-section" style="background-color: #fdfbf7; border-top: 1px solid rgba(197, 168, 97, 0.1); border-bottom: 1px solid rgba(197, 168, 97, 0.1); overflow: hidden;">
+    <div class="container mb-5" data-aos="fade-up">
+        <div class="text-center">
+        <span class="text-gold text-uppercase tracking-widest-extra d-block mb-2 fw-bold"
+              style="font-size: 0.8rem; letter-spacing: 6px;">
+            Respaldo Institucional
+        </span>
+
+            <h2 class="display-serif text-dark-coffee mb-3"
+                style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 400;">
+                Aliados que Confían en Nosotros
+            </h2>
+
+            <div class="divider-gold-zen mx-auto"></div>
+
+            <p class="text-muted mt-4 mx-auto" style="max-width: 600px; font-size: 1.1rem; font-style: italic;">
+                Trabajamos de la mano con las instituciones más importantes del país para brindar excelencia y seguridad.
+            </p>
+        </div>
+    </div>
+
+    <div class="allies-slider">
+        <div class="allies-track">
+            <div class="ally-logo"><img src="/img/aliados/feis-logo.png" alt="FEIS"></div>
+            <div class="ally-logo"><img src="/img/aliados/MinDefensa_(Colombia)_logo.png" alt="MinDefensa"></div>
+            <div class="ally-logo"><img src="/img/aliados/fuerzasMilitares.svg" alt="Fuerzas Militares"></div>
+            <div class="ally-logo"><img src="/img/aliados/cremil.png" alt="CREMIL"></div>
+            <div class="ally-logo"><img src="/img/aliados/casur.png" alt="CASUR"></div>
+
+            <div class="ally-logo"><img src="/img/aliados/feis-logo.png" alt="FEIS"></div>
+            <div class="ally-logo"><img src="/img/aliados/MinDefensa_(Colombia)_logo.png" alt="MinDefensa"></div>
+            <div class="ally-logo"><img src="/img/aliados/fuerzasMilitares.svg" alt="Fuerzas Militares"></div>
+            <div class="ally-logo"><img src="/img/aliados/cremil.png" alt="CREMIL"></div>
+            <div class="ally-logo"><img src="/img/aliados/casur.png" alt="CASUR"></div>
         </div>
     </div>
 </section>
+
+
+
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const counters = document.querySelectorAll('.counter');
@@ -174,11 +163,17 @@
 
 <section class="section-padding container">
     <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="label mb-2" style="font-size: 1.2rem;">Excelencia en el Servicio</h2>
+        <div class="d-flex align-items-center justify-content-center gap-3 mb-2">
+            <div class="small-line"></div>
+            <span class="label-muted text-uppercase" style="letter-spacing: 2px; font-size: 0.8rem; color: #8a8a8a;">
+            Desde 1999
+        </span>
+            <div class="small-line"></div>
+        </div>
         <h2 class="section-title"
-            style="font-family: var(--font-serif); font-size: 2.5rem; color: var(--dark-coffee);">Nuestra Asistencia
-            Integral</h2>
-        <div class="gold-line mx-auto mt-3"></div>
+            style="font-family: var(--font-serif); font-size: 3rem; color: var(--dark-coffee); text-shadow: 0 10px 20px rgba(0,0,0,0.05);">
+            Asistencia Integral
+        </h2>
     </div>
 
     <div class="row g-4">
@@ -258,6 +253,7 @@
         </div>
     </div>
 </section>
+
 <section class="section-padding bg-white" style="overflow: hidden;">
     <div class="container">
         <div class="row align-items-center g-5">

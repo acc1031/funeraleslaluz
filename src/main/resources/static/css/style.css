@@ -4,6 +4,7 @@
 
 /* --- HERO DINÁMICO --- */
 .hero-zen {
+    background-color: #fdfbf7; /* El color crema de tu marca para que no sea gris */
     height: 100vh;
     display: flex;
     align-items: flex-end;
@@ -16,7 +17,7 @@
     position: absolute;
     inset: 0;
     background-size: cover;
-    background-position: center 40%;
+    background-position: center; /* Mejorado para centrar el paisaje */
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
     z-index: 0;
@@ -26,7 +27,7 @@
 .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, rgba(0,0,0,0.3) 100%);
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(59, 48, 36, 0.05) 100%);
     z-index: 1;
 }
 
@@ -42,7 +43,49 @@
     letter-spacing: -1px;
     text-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
+/*------------------------------------------------------------------------------------------------*/
+/*TEXTO*/
+.text-gold { color: var(--gold); }
+.tracking-widest { letter-spacing: 5px; }
 
+.gold-line-premium {
+    width: 60px;
+    height: 1px; /* Más fina es más elegante */
+    background: var(--gold);
+    position: relative;
+}
+
+/* Un pequeño detalle: un rombo en medio de la línea */
+.gold-line-premium::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+}
+/*------------------------------------------------------------------------------------------------*/
+/*CARRUSEL ALIADOS ESTRATEGICOS*/
+
+.display-serif {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: #3b3024;
+}
+
+.gold-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+}
+
+.tracking-widest {
+    letter-spacing: 3px;
+}
+
+/*------------------------------------------------------------------------------------------------*/
 /* --- BOTONES PREMIUM --- */
 .btn-premium, .btn-gold, .btn-outline, .btn-cafe-outline, .btn-laluz {
     padding: 1rem 2rem;
@@ -193,6 +236,64 @@
     color: var(--gold) !important;
     padding-left: 2rem;
 }
+/*-----------------------------------------------------------------------------------------------*/
+/* --- ESTILOS DE ALIADOS --- */
+
+.allies-slider {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* Asegura que nada sobresalga */
+}
+
+.allies-track {
+    display: flex;
+    /* 250px * 10 logos = 2500px */
+    width: calc(250px * 10);
+    animation: scroll 35s linear infinite;
+    /* Aceleración de hardware para suavidad total */
+    will-change: transform;
+}
+
+.ally-logo {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ally-logo img {
+    max-width: 160px; /* Tamaño optimizado */
+    height: auto;
+    filter: none; /* ELIMINADO EL GRIS para ver colores reales */
+    opacity: 0.9; /* Un toque sutil de transparencia para elegancia */
+    transition: all 0.3s ease;
+}
+
+.ally-logo img:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Animación de desplazamiento: Se mueve exactamente la mitad del ancho total */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Desplazamos solo el primer bloque (5 logos): 250px * 5 = 1250px */
+        transform: translateX(calc(-250px * 5));
+    }
+}
+
+/* Pausar al pasar el mouse para que el usuario pueda ver bien los logos */
+.allies-slider:hover .allies-track {
+    animation-play-state: paused;
+}
+/*-----------------------------------------------------------------------------------------------*/
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {

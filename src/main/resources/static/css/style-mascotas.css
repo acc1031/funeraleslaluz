@@ -1,12 +1,12 @@
 /* ============================================================
-   LA LUZ — SECCIÓN MASCOTAS (ESPECÍFICO)
+   LA LUZ — SECCIÓN MASCOTAS (VERSIÓN FINAL LIMPIA)
    ============================================================ */
 
 .section-padding {
     padding: 180px 0;
 }
 
-/* Tipografía Premium */
+/* --- TIPOGRAFÍA Y TEXTOS --- */
 .label-gold {
     color: var(--gold);
     text-transform: uppercase;
@@ -14,24 +14,30 @@
     font-weight: 700;
     font-size: 0.85rem;
     display: block;
+    margin-bottom: 1rem;
 }
 
 .display-serif {
     font-family: var(--font-serif);
     color: var(--dark-coffee);
-    font-weight: 800 !important; /* Más negrita */
-    line-height: 1.1;
-    letter-spacing: -1px; /* Para que se vea más compacto como en la imagen 1 */
+    font-weight: 800 !important;
+    font-size: 3.8rem; /* Valor mejorado */
+    line-height: 1.05;
+    letter-spacing: -1px;
 }
 
-/* El párrafo descriptivo: más oscuro (quitar el gris claro) */
+.text-gold {
+    color: var(--gold);
+}
+
 .lead {
-    color: #4a4a4a !important; /* Un gris más oscuro para mejor lectura */
+    color: #4a4a4a !important;
     font-weight: 500;
     line-height: 1.6;
+    font-size: 1.1rem;
 }
 
-/* Contenedor de Imagen */
+/* --- IMÁGENES Y BADGES --- */
 .image-wrapper {
     position: relative;
     border-radius: 20px;
@@ -48,7 +54,6 @@
     transform: scale(1.05);
 }
 
-/* Badge café estilo captura */
 .floating-badge-brown {
     position: absolute;
     bottom: 0;
@@ -60,51 +65,100 @@
     z-index: 10;
 }
 
-/* Cards de Beneficios (Planes) */
+/* --- TARJETAS DE PLANES (BENEFIT CARDS) --- */
+.benefit-card {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+}
+
+.benefit-card .icon-box {
+    width: 55px;
+    height: 55px;
+    background: rgba(197, 160, 89, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: var(--gold);
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+}
+
 .benefit-card h6 {
-    font-size: 1.15rem;
-    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 1rem;
+    font-weight: 700;
     color: var(--dark-coffee);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .benefit-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(59, 48, 36, 0.1) !important;
     border-color: var(--gold);
-    box-shadow: 0 15px 30px rgba(197, 160, 89, 0.1);
 }
 
-.benefit-icon {
-    font-size: 1.8rem;
-    color: var(--gold);
-    margin-bottom: 12px;
-    display: inline-block;
+.benefit-card:hover .icon-box {
+    background: var(--gold);
+    color: #ffffff;
 }
 
-/* La lista de los planes */
+/* --- LISTAS DE BENEFICIOS (CHECKMARKS) --- */
+.plan-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 .plan-list li {
-    font-weight: 500;
-    color: #555 !important;
     font-size: 0.95rem;
-}
-
-.plan-list li {
-    margin-bottom: 8px;
-    padding-left: 15px;
+    color: #555;
+    margin-bottom: 12px;
+    padding-left: 28px;
     position: relative;
+    font-weight: 500;
 }
 
 .plan-list li::before {
-    content: "•";
+    content: "\F26A"; /* Bootstrap Icons Check */
+    font-family: "bootstrap-icons";
     color: var(--gold);
     position: absolute;
     left: 0;
-    font-weight: bold;
+    font-size: 0.9rem;
+    top: 2px;
 }
 
+/* --- BOTÓN CALL TO ACTION --- */
+.btn-gold-outline {
+    display: inline-block;
+    padding: 16px 40px;
+    border: 2px solid var(--gold);
+    color: var(--dark-coffee);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
 
-/* Ajustes Responsive */
+.btn-gold-outline:hover {
+    background: var(--gold);
+    color: #ffffff;
+}
+
+/* --- RESPONSIVE --- */
 @media (max-width: 991px) {
     .section-padding { padding: 120px 0 60px 0; }
     .image-wrapper { height: 450px; margin-bottom: 40px; }
+    .display-serif { font-size: 2.8rem; }
 }

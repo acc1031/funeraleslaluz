@@ -3,7 +3,7 @@
 <head th:fragment="head">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Luz | Asistencia Integral</title>
+    <title>La Luz Asistencia Integral</title>
 
     <!-- Boostrap-->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <!-- Iconos -->
+    <link rel="icon" type="image/png" th:href="@{/img/Luz.png}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
     <!-- Estilos -->
@@ -55,7 +56,9 @@
             <ul class="navbar-nav mx-auto align-items-center">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle px-3 small fw-bold" href="#" role="button"
-                       data-bs-toggle="dropdown">Previsión</a>
+                       data-bs-toggle="dropdown"
+                       th:classappend="${currentUri != null && (currentUri.contains('planes') || currentUri.contains('prevision-empresarial'))} ? 'active-gold' : ''">
+                        Previsión</a>
                     <ul class="dropdown-menu shadow border-0 animate slideIn">
                         <li><a class="dropdown-item" th:href="@{/planes}">Planes</a></li>
                         <li><a class="dropdown-item" th:href="@{/prevision-empresarial}">Previsión Empresarial</a></li>
@@ -63,7 +66,9 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle px-3 small fw-bold" href="#" role="button"
-                       data-bs-toggle="dropdown">Servicios</a>
+                       data-bs-toggle="dropdown"
+                       th:classappend="${currentUri != null && currentUri.contains('servicios')} ? 'active-gold' : ''">
+                    Servicios</a>
                     <ul class="dropdown-menu shadow border-0 animate slideIn">
                         <li><a class="dropdown-item" th:href="@{/servicios/atencion-inmediata}">Atención Inmediata</a>
                         </li>
@@ -85,13 +90,21 @@
                        href="https://laluzasistencialweb.piscotics.com:9060/PiscoWebObituario/Obituarios">Obituarios</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3 small fw-bold" th:href="@{/mascotas}">Mascotas</a>
+                    <a class="nav-link px-3 small fw-bold"
+                       th:href="@{/mascotas}"
+                       th:classappend="${currentUri != null && currentUri.contains('mascotas')} ? 'active-gold' : ''">
+                    Mascotas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3 small fw-bold" th:href="@{/sedes}">Sedes</a>
+                    <a class="nav-link px-3 small fw-bold"
+                       th:href="@{/sedes}"
+                       th:classappend="${currentUri != null && currentUri.contains('sedes')} ? 'active-gold' : ''">
+                    Sedes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3 small fw-bold" th:href="@{contacto}">Contáctenos</a>
+                    <a class="nav-link px-3 small fw-bold" th:href="@{/contacto}"
+                       th:classappend="${currentUri != null && currentUri.contains('contacto')} ? 'active-gold' : ''">
+                    Contáctenos</a>
                 </li>
             </ul>
 
