@@ -2,11 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head}">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/layout-global.css}">
 </head>
 <body style="padding-top: 100px;">
 
 <div th:replace="~{fragments/layout :: navbar(isWhite=true)}"></div>
 
+<!-- SECCIÓN DE GESTIÓN Y AFILIACIÓN DIGITAL -->
 <section class="section-padding position-relative overflow-hidden"
          style="background-color: var(--cream);
                 background-image: radial-gradient(rgba(197, 168, 97, 0.12) 1px, transparent 1px);
@@ -29,6 +31,7 @@
             <div class="gold-line mx-auto mt-3"></div>
         </div>
 
+        <!-- Tarjeta: Afiliación (Enfoque en Empresas/Futuro) -->
         <div class="row g-5 justify-content-center">
 
             <div class="col-lg-5 col-md-6" data-aos="fade-right">
@@ -62,16 +65,18 @@
                         </p>
                     </div>
 
-                    <div class="card-content mt-auto" style="position: relative; z-index: 1;">
-                        <a href="https://laluzasistencialweb.piscotics.com:9074/#/homeFree" target="_blank"
-                           class="btn-laluz btn-solid-gold text-uppercase tracking-widest fw-bold w-100 py-3 shadow-sm"
-                           style="border-radius: 50px; background-color: var(--gold); color: white; border: none; display: block; text-decoration: none;">
+                    <!-- Botón de Afiliar Ahora -->
+                    <div class="card-content mt-auto">
+                        <a href="https://laluzasistencialweb.piscotics.com:9074/#/homeFree"
+                           target="_blank"
+                           class="btn-solid-gold text-uppercase tracking-widest fw-bold w-100 py-3 shadow-sm text-decoration-none">
                             Afiliarme Ahora
                         </a>
                     </div>
                 </div>
             </div>
 
+            <!-- Tarjeta Pagos y Consulta Web -->
             <div class="col-lg-5 col-md-6" data-aos="fade-left">
                 <div class="card-digital-management p-5 h-100 position-relative text-center d-flex flex-column shadow-lg"
                      style="background: rgba(255, 255, 255, 0.85);
@@ -102,11 +107,11 @@
                         </p>
                     </div>
 
+                    <!-- Botón de Consulta Web -->
                     <div class="card-content mt-auto" style="position: relative; z-index: 1;">
                         <a href="https://laluzasistencial.piscotics.com:9065/piscowebconsulta/Afiliacion.aspx"
                            target="_blank"
-                           class="btn-laluz btn-outline-dark text-uppercase tracking-widest fw-bold w-100 py-3"
-                           style="border-radius: 50px; border: 2px solid var(--dark-coffee); color: var(--dark-coffee); display: block; text-decoration: none;">
+                           class="btn-laluz btn-outline-dark text-uppercase tracking-widest fw-bold w-100 py-3 d-block text-decoration-none">
                             Realizar Pago
                         </a>
                     </div>
@@ -117,6 +122,9 @@
     </div>
 </section>
 
+
+
+<!-- SECCIÓN DE PLANES - PREVISIÓN EXEQUIAL -->
 <section class="section-padding bg-white">
     <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
@@ -129,6 +137,7 @@
             <div class="gold-line mx-auto mt-3" style="width: 60px; height: 2px; background-color: var(--gold);"></div>
         </div>
 
+        <!-- PLAN EJECUTIVO -->
         <div class="row g-4 justify-content-center">
 
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
@@ -157,6 +166,8 @@
                 </div>
             </div>
 
+
+            <!-- PLAN EXCELENCIA -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="card-minimal p-4 h-100 border-top border-3 position-relative shadow-lg"
                      style="border-top-color: var(--gold) !important; background-color: #fff9f0; transform: scale(1.05); z-index: 2; border-radius: 10px;">
@@ -186,6 +197,8 @@
                 </div>
             </div>
 
+
+            <!-- PLAN PREFERENCIAL -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
                 <div class="card-minimal p-4 h-100 border-top border-3 shadow-sm"
                      style="border-top-color: #d4af37 !important; border-radius: 10px; background: #fff;">
@@ -214,6 +227,7 @@
 
         </div>
 
+        <!-- Información de Carencia -->
         <div class="row mt-5">
             <div class="col-12 text-center" data-aos="fade-up">
                 <div class="p-4 rounded-3 shadow-sm"

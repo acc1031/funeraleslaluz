@@ -3,7 +3,7 @@
    ============================================================ */
 
 .section-padding {
-    padding: 100px 0;
+    padding: 180px 0;
 }
 
 /* Tipografía Premium */
@@ -19,8 +19,16 @@
 .display-serif {
     font-family: var(--font-serif);
     color: var(--dark-coffee);
-    font-weight: 700;
-    line-height: 1.2;
+    font-weight: 800 !important; /* Más negrita */
+    line-height: 1.1;
+    letter-spacing: -1px; /* Para que se vea más compacto como en la imagen 1 */
+}
+
+/* El párrafo descriptivo: más oscuro (quitar el gris claro) */
+.lead {
+    color: #4a4a4a !important; /* Un gris más oscuro para mejor lectura */
+    font-weight: 500;
+    line-height: 1.6;
 }
 
 /* Contenedor de Imagen */
@@ -53,13 +61,11 @@
 }
 
 /* Cards de Beneficios (Planes) */
-.benefit-card {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    height: 100%;
+.benefit-card h6 {
+    font-size: 1.15rem;
+    font-weight: 700 !important;
+    color: var(--dark-coffee);
+    margin-bottom: 10px;
 }
 
 .benefit-card:hover {
@@ -75,11 +81,11 @@
     display: inline-block;
 }
 
-.plan-list {
-    list-style: none;
-    padding: 0;
-    font-size: 0.85rem;
-    line-height: 1.5;
+/* La lista de los planes */
+.plan-list li {
+    font-weight: 500;
+    color: #555 !important;
+    font-size: 0.95rem;
 }
 
 .plan-list li {
@@ -96,27 +102,9 @@
     font-weight: bold;
 }
 
-/* Botones */
-.btn-gold-pet {
-    background-color: var(--gold);
-    color: white !important;
-    padding: 15px 40px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    border: 2px solid var(--gold);
-}
-
-.btn-gold-pet:hover {
-    background-color: var(--dark-coffee);
-    border-color: var(--dark-coffee);
-    transform: translateY(-3px);
-}
 
 /* Ajustes Responsive */
 @media (max-width: 991px) {
-    .section-padding { padding: 60px 0; }
+    .section-padding { padding: 120px 0 60px 0; }
     .image-wrapper { height: 450px; margin-bottom: 40px; }
 }

@@ -60,23 +60,6 @@
     outline: none;
 }
 
-/* Botón Publicitario de Conversión */
-.btn-gold-advert {
-    background-color: var(--gold);
-    color: white !important;
-    padding: 16px 30px;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 2px;
-    border-radius: 8px;
-    border: none;
-    transition: all 0.3s ease;
-}
-
-.btn-gold-advert:hover {
-    background-color: var(--dark-coffee);
-    transform: scale(1.03);
-}
 
 .border-radius-20 {
     border-radius: 20px;

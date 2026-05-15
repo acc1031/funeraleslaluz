@@ -1,6 +1,7 @@
 package funeraleslaluz.com.controlador;
 
 import funeraleslaluz.com.servicio.AsistenciaService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +19,8 @@ public class WebController {
     }
 
     @GetMapping("/planes")
-    public String verPlanes(Model model) {
-        model.addAttribute("planes", asistenciaService.obtenerTodosLosPlanes());
+    public String planes(Model model, HttpServletRequest request) {
+        model.addAttribute("currentUri", request.getRequestURI());
         return "planes";
     }
 

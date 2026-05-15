@@ -1,62 +1,103 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head}"></head>
+<head th:replace="~{fragments/layout :: head}">
+    <link rel="stylesheet" th:href="@{/css/layout-global.css}">
+</head>
 <body style="padding-top: 100px;">
 
 <div th:replace="~{fragments/layout :: navbar(isWhite=true)}"></div>
 
-<!-- SECCIÓN: GESTIÓN Y AFILIACIÓN -->
-<section class="section-padding bg-cream" style="background-color: var(--cream);">
-    <div class="container">
+<!-- SECCIÓN DE GESTIÓN Y AFILIACIÓN DIGITAL -->
+<section class="section-padding position-relative overflow-hidden"
+         style="background: linear-gradient(135deg, #fdfbf7 0%, #f5f0e6 100%);">
+
+    <!-- Elementos Decorativos Sutiles -->
+    <div class="position-absolute top-0 end-0 opacity-10" style="transform: rotate(45deg); z-index: 0;">
+        <i class="bi bi-circle-fill" style="font-size: 20rem; color: var(--gold);"></i>
+    </div>
+
+    <div class="container position-relative" style="z-index: 1;">
+        <!-- Encabezado con Diseño Minimalista -->
         <div class="text-center mb-5" data-aos="fade-up">
-            <h2 class="label mb-2" style="font-size: 1.2rem;">Previsión a un clic</h2>
-            <h2 class="section-title"
-                style="font-family: var(--font-serif); font-size: 2.5rem; color: var(--dark-coffee);">Gestión y
-                Afiliación Digital</h2>
-            <div class="gold-line mx-auto mt-3"></div>
+            <span class="text-uppercase tracking-widest fw-bold"
+                  style="color: var(--gold); font-size: 0.85rem; letter-spacing: 3px;">Servicios Digitales</span>
+            <h2 class="section-title mt-2"
+                style="font-family: var(--font-serif); font-size: 2.8rem; color: var(--dark-coffee);">Tranquilidad a un
+                clic de distancia</h2>
+            <p class="text-muted mx-auto mt-3" style="max-width: 600px;">Optimice su tiempo y gestione su protección
+                familiar desde cualquier dispositivo con nuestras herramientas en línea.</p>
         </div>
 
-        <div class="row g-5 justify-content-center">
-            <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="card-minimal p-5 h-100 position-relative text-center d-flex flex-column"
-                     style="border-color: var(--gold); background-color: #fff9f0; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(197, 168, 97, 0.15);">
-                    <div class="mb-4">
-                        <i class="bi bi-person-check fs-1" style="color: var(--gold);"></i>
+        <div class="row g-4 justify-content-center">
+
+            <!-- Tarjeta: Afiliación (Enfoque en Familia/Futuro) -->
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="100">
+                <div class="card border-0 h-100 shadow-sm"
+                     style="border-radius: 25px; transition: transform 0.3s ease, shadow 0.3s ease; overflow: hidden; background: #fff;">
+
+                    <div class="position-relative" style="height: 250px;">
+                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=1200"
+                             alt="Familia protegida"
+                             class="w-100 h-100"
+                             style="object-fit: cover;">
+                        <div class="position-absolute top-0 start-0 w-100 h-100"
+                             style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));"></div>
+                        <div class="position-absolute bottom-0 start-0 p-4">
+                            <span class="badge bg-white text-dark rounded-pill px-3 py-2 fw-bold shadow-sm">Nuevo Ingreso</span>
+                        </div>
                     </div>
-                    <h3 class="mb-3"
-                        style="font-family: var(--font-serif); color: var(--dark-coffee); font-weight: 500;">Afiliación
-                        en Línea</h3>
-                    <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.8;">
-                        Únete a nuestra familia <strong>La Luz</strong> ahora mismo con un proceso 100% digital.
-                    </p>
-                    <a href="https://laluzasistencialweb.piscotics.com:9074/#/homeFree" target="_blank"
-                       class="btn-laluz btn-solid-gold text-uppercase fw-bold w-100">
-                        Afiliarme Ahora
-                    </a>
+
+                    <div class="card-body p-4 text-center">
+                        <h3 class="h4 mb-3" style="font-family: var(--font-serif); color: var(--dark-coffee);">
+                            Afiliación 100% Digital</h3>
+                        <p class="text-muted mb-4">Garantice el respaldo de **La Luz** de forma inmediata. Un proceso
+                            guiado, seguro y sin trámites físicos innecesarios.</p>
+
+                        <a href="https://laluzasistencialweb.piscotics.com:9074/#/homeFree"
+                           target="_blank"
+                           class="btn-solid-gold text-uppercase tracking-widest fw-bold w-100 py-3 shadow-sm text-decoration-none">
+                            Iniciar Afiliación
+                        </a>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="card-minimal p-5 h-100 position-relative text-center d-flex flex-column">
-                    <div class="mb-4">
-                        <i class="bi bi-wallet2 fs-1" style="color: var(--gold);"></i>
+            <!-- Tarjeta: Pagos (Enfoque en Tecnología/Seguridad) -->
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="200">
+                <div class="card border-0 h-100 shadow-sm"
+                     style="border-radius: 25px; transition: transform 0.3s ease, shadow 0.3s ease; overflow: hidden; background: #fff;">
+
+                    <div class="position-relative" style="height: 250px;">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=1200"
+                             alt="Pago digital seguro"
+                             class="w-100 h-100"
+                             style="object-fit: cover;">
+                        <div class="position-absolute top-0 start-0 w-100 h-100"
+                             style="background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));"></div>
+                        <div class="position-absolute bottom-0 start-0 p-4">
+                            <span class="badge bg-white text-dark rounded-pill px-3 py-2 fw-bold shadow-sm">Gestión Rápida</span>
+                        </div>
                     </div>
-                    <h3 class="mb-3"
-                        style="font-family: var(--font-serif); color: var(--dark-coffee); font-weight: 500;">Consulta y
-                        Pago Web</h3>
-                    <p class="text-muted small mb-4 flex-grow-1" style="line-height: 1.8;">
-                        Gestiona tu plan de previsión sin filas. Consulta el estado de tu afiliación o realiza pagos.
-                    </p>
-                    <a href="https://laluzasistencial.piscotics.com:9065/piscowebconsulta/Afiliacion.aspx"
-                       target="_blank"
-                       class="btn-laluz btn-outline-dark text-uppercase fw-bold w-100">
-                        Realizar Pago
-                    </a>
+
+                    <div class="card-body p-4 text-center">
+                        <h3 class="h4 mb-3" style="font-family: var(--font-serif); color: var(--dark-coffee);">Portal de
+                            Pagos y Consultas</h3>
+                        <p class="text-muted mb-4">Acceda a su estado de cuenta, verifique beneficiarios de su plan y
+                            realice pagos seguros con total respaldo tecnológico.</p>
+
+                        <a href="https://laluzasistencial.piscotics.com:9065/piscowebconsulta/Afiliacion.aspx"
+                           target="_blank"
+                           class="btn-laluz btn-outline-dark text-uppercase tracking-widest fw-bold w-100 py-3 d-block text-decoration-none">
+                            Consultar o Pagar
+                        </a>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
+
 
 <!-- SECCIÓN: PLANES EXEQUIALES -->
 <section class="section-padding bg-white">
@@ -70,7 +111,7 @@
         </div>
 
         <div class="row g-4 justify-content-center">
-            <!-- Plan Ejecutivo -->
+            <!-- PLAN EJECUTIVO -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                 <div class="card-minimal p-4 h-100 border-top border-3" style="border-top-color: #e0e0e0 !important;">
                     <h3 class="text-center" style="font-family: var(--font-serif); color: var(--dark-coffee);">
@@ -83,7 +124,7 @@
                 </div>
             </div>
 
-            <!-- Plan Excelencia -->
+            <!-- PLAN EXCELENCIA -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="card-minimal p-4 h-100 border-top border-3 position-relative"
                      style="border-top-color: var(--gold) !important; background-color: #fff9f0; transform: scale(1.05); z-index: 2;">
@@ -101,9 +142,9 @@
                 </div>
             </div>
 
-            <!-- Plan Preferencial -->
+            <!-- PLAN PREFERENCIAL -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="card-minimal p-4 h-100 border-top border-3" style="border-top-color: #d4af37 !important;">
+                <div class="card-minimal p-4 h-100">
                     <h3 class="text-center" style="font-family: var(--font-serif); color: var(--dark-coffee);">
                         Preferencial</h3>
                     <ul class="list-unstyled mt-4 small">

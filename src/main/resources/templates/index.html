@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head}"></head>
+<head th:replace="~{fragments/layout :: head}">
+    <link rel="preload" as="image" href="/img/dogBanner.png">
+</head>
 <body>
 
 <div th:replace="~{fragments/layout :: navbar}"></div>
 
 <section class="hero-zen">
     <!--    <div class="hero-slide active" th:style="'background-image: url(' + @{/img/image_e45fa2.jpg} + ');'"></div>-->
-
-    <div class="hero-slide"
-         style="background-image: url('/img/dogBanner.png');"></div>
-    <div class="hero-overlay"></div>
 
     <div class="hero-slide"
          style="background-image: url('https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?&fit=crop&h=1000&w=2000&q=80');"></div>
@@ -22,11 +20,19 @@
     <div class="container hero-content text-center">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="btn-group-custom d-flex justify-content-center gap-3"><a th:href="@{/planes}"
-                                                                                     class="btn-premium btn-gold">Conocer
-                    Planes</a>
+                <div class="btn-group-custom d-flex justify-content-center gap-3">
+                    <!-- Bontón Planes -->
+                    <a th:href="@{/planes}"
+                       class="btn-premium btn-solid-gold text-uppercase tracking-widest fw-bold py-3 px-4 shadow-sm text-decoration-none"
+                       style="border-radius: 4px !important;">
+                        Conocer Planes
+                    </a>
+
+                    <!-- Bontón Homenajes -->
                     <a href="https://laluzasistencialweb.piscotics.com:9060/PiscoWebObituario/Obituarios"
-                       class="btn-premium btn-outline">Ver Homenajes</a>
+                       class="btn-premium btn-outline-white-hero text-uppercase tracking-widest fw-bold py-3 px-4">
+                        Ver Homenajes
+                    </a>
                 </div>
             </div>
         </div>
@@ -310,8 +316,7 @@
                     </div>
                 </div>
 
-                <a th:href="@{/sedes}" class="btn-premium btn-cafe-outline w-100 py-3 text-center fw-bold"
-                   style="letter-spacing: 2px;">
+                <a th:href="@{/sedes}" class="btn-premium btn-cafe-outline w-100 py-3 fw-bold">
                     VER SEDES <i class="bi bi-arrow-right ms-2"></i>
                 </a>
             </div>

@@ -19,92 +19,232 @@ body {
     margin: 0;
     overflow-x: hidden;
 }
+/* ============================================================
+   LA LUZ — NAVBAR MASTER CONFIG (DISEÑO PROFESIONAL)
+   ============================================================ */
 
-/* --- NAVBAR BASE --- */
 .navbar {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%) !important;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
     position: fixed;
     width: 100%;
     top: 0;
     left: 0;
     z-index: 1000;
-    padding: 1.2rem 0 !important;
-    height: 140px;
+    height: 120px; /* Reducimos altura para que se vea más estilizada */
+    padding: 0 !important;
     display: flex;
     align-items: center;
-    transition: background 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-scrolled,
+.navbar-white {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05) !important;
+    height: 120px !important;
 }
 
 .navbar .container-fluid {
+    display: flex !important;
+    /* CLAVE: Empuja el logo a un extremo y las redes al otro, dejando el menú al centro */
+    justify-content: space-between !important;
+    align-items: center !important;
+    height: 100% !important;
     padding-left: 5% !important;
     padding-right: 5% !important;
 }
 
-/* --- LOGOS --- */
+/* --- LOGOS (Jerarquía Visual) --- */
 .navbar .nav-logo {
-    height: 90px !important;
     width: auto;
     object-fit: contain;
-    transition: transform 0.3s ease;
-    display: block;
+    transition: all 0.3s ease;
+}
+
+/* 2. Animación al pasar el puntero (Hover) */
+.navbar .nav-logo:hover {
+    /* Crece un 5% sin mover el resto de la navbar */
+    transform: scale(1.05) !important;
+
+    /* Le da un sutil brillo para que resalte el dorado/blanco */
+    filter: brightness(1.1) drop-shadow(0 0 8px rgba(201, 169, 110, 0.2));
+}
+
+/* 3. Efecto al hacer clic (opcional, para feedback táctil) */
+.navbar .nav-logo:active {
+    transform: scale(0.95) !important;
+}
+
+.logo-light {
+    display: block !important;
+    height: 70px !important; /* Logo más pequeño para que la barra se vea lujosa */
+    transform: translate(0px, 2px) !important;
+    margin-left: 20px !important;
 }
 
 .logo-dark {
     display: none !important;
-    transform: scale(1.25);
-    transform-origin: left center;
+    height: 90px !important; /* Ligeramente más pequeño para compensar el contraste del color */
+    transform: translate(0px, 0px) !important;
 }
 
-.navbar-scrolled .logo-light,
-.navbar-white .logo-light {
-    display: none !important;
+.navbar-scrolled .logo-light, .navbar-white .logo-light { display: none !important; }
+.navbar-scrolled .logo-dark, .navbar-white .logo-dark { display: block !important; }
+
+/* --- NAVEGACIÓN (Espaciado Senior) --- */
+.navbar-nav {
+    display: flex !important;
+    align-items: center !important;
+    gap: 35px; /* Espacio amplio entre palabras para evitar el efecto 'amontonado' */
+    margin: 0 auto !important; /* Centra el menú perfectamente entre el logo y las redes */
 }
 
-.navbar-scrolled .logo-dark,
-.navbar-white .logo-dark {
-    display: block !important;
-}
-
-/* --- LINKS DE NAVEGACIÓN --- */
 .navbar .nav-link {
     color: #ffffff !important;
-    font-size: 0.95rem;
-    font-weight: 500;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.3);
-    position: relative;
-    transition: color 0.3s ease;
+    font-size: 0.85rem !important; /* Tipografía ligeramente más pequeña pero con tracking (espaciado) */
+    letter-spacing: 0.5px;
+    font-weight: 500 !important;
+    text-transform: none; /* Evita mayúsculas pesadas si no son necesarias */
+    padding: 0 !important;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
 
-.navbar-scrolled, .navbar-white {
-    background: #ffffff !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border-bottom: 1px solid #eee !important;
+.navbar-scrolled .nav-link,
+.navbar-white .nav-link {
+    color: #3b3024 !important; /* Usamos el café oscuro corporativo en lugar de gris genérico */
+    text-shadow: none !important;
 }
 
-.navbar-scrolled .nav-link, .navbar-white .nav-link {
-    color: #4a4a4a !important;
-    text-shadow: none;
+/* --- ICONOS SOCIALES: CONFIGURACIÓN DE COLOR Y SCROLL --- */
+
+/* 1. Estado inicial (Transparente - Iconos Blancos) */
+.social-icons-nav .nav-social-link i {
+    color: #ffffff !important;
+    transition: all 0.4s ease; /* Transición suave para el cambio de color */
 }
 
-.navbar .nav-link.active {
+/* 2. Estado Scrolled o Navbar Blanca (Iconos Oscuros) */
+/* Apuntamos al icono 'i' cuando el padre tiene la clase de scroll */
+.navbar-scrolled .social-icons-nav .nav-social-link i,
+.navbar-white .social-icons-nav .nav-social-link i {
+    color: var(--dark-coffee) !important; /* El color café de la imagen 2 */
+}
+
+/* 3. Hover (Dorado) */
+.social-icons-nav .nav-social-link:hover i {
     color: var(--gold) !important;
-    font-weight: 600 !important;
+    transform: scale(1.1); /* Un pequeño toque de diseño extra */
 }
 
+/* 4. Contenedor de Redes (Ajuste de espacio) */
+.social-icons-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.navbar-scrolled .nav-social-link,
+.navbar-white .nav-social-link {
+    color: var(--dark-coffee) !important;
+}
+
+/* Hover Effect */
+.nav-social-link:hover {
+    transform: translateY(-2px); /* Pequeña interacción de diseño al pasar el mouse */
+}
+
+/* Hover en redes sociales */
+.nav-social-link:hover i {
+    color: var(--gold) !important;
+}
+
+/* Links oscuros sobre fondo blanco */
+.navbar-scrolled .nav-link,
+.navbar-white .nav-link {
+    color: #4a4a4a !important;
+    text-shadow: none !important;
+}
+
+/* --- ESTADO ACTIVO (Underline fino) --- */
 .navbar .nav-link::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: -5px;
+    bottom: -8px;
     left: 50%;
     background-color: var(--gold);
     transition: width 0.3s ease;
     transform: translateX(-50%);
 }
 
-.navbar .nav-link:hover::after, .navbar .nav-link.active::after {
-    width: 25px;
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+    width: 15px; /* Una línea sutil, no un bloque pesado */
+}
+
+/* --- DROPDOWN PERSONALIZADO --- */
+@media (min-width: 992px) {
+    .nav-item.dropdown:hover > .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+.navbar .dropdown-menu {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    min-width: 240px;
+    padding: 0;
+    background-color: #ffffff !important;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+}
+
+.navbar .dropdown-item {
+    padding: 15px 20px;
+    color: #4a4a4a !important;
+    background-color: #ffffff !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.navbar .dropdown-item:first-child:hover {
+    background-color: var(--dark-coffee) !important;
+    color: var(--gold) !important;
+    border-top: 3px solid var(--gold);
+}
+
+.navbar .dropdown-item:not(:first-child):hover {
+    background-color: #fdfaf5 !important;
+    color: var(--dark-coffee) !important;
+    padding-left: 28px;
+
+}
+
+/*-------------------------------------------------------------------------------*/
+/* Enlaces secundarios (Footer/Protección de datos) */
+.link-legal {
+    color: rgba(255, 255, 255, 0.5) !important; /* Blanco suave (text-white-50) */
+    transition: all 0.3s ease-in-out;
+    text-decoration: none !important;
+    font-size: 0.85rem;
+}
+
+.link-legal:hover {
+    color: #ffffff !important; /* Blanco intenso */
+    opacity: 1 !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Efecto de brillo sutil */
 }
 
 /* --- ICONOS SOCIALES --- */
@@ -124,4 +264,202 @@ body {
 .nav-social-link:hover {
     color: var(--gold) !important;
     transform: translateY(-2px);
+}
+
+
+
+/* ============================================================
+   TARJETAS DE PLANES (CARD-MINIMAL)
+   ============================================================ */
+
+/* Base de la tarjeta */
+.card-minimal {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-top: 3px solid #e0e0e0 !important; /* Borde gris por defecto */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 8px; /* Un toque de redondeo para suavizar */
+}
+
+/* Efecto al pasar el puntero (Hover) */
+.card-minimal:hover {
+    border-top-color: var(--gold) !important;
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Variante: Plan Excelencia (Destacado) */
+.card-featured {
+    background-color: #fff9f0 !important;
+    border-top-color: var(--gold) !important;
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 10px 25px rgba(201, 169, 110, 0.1);
+}
+
+.card-featured:hover {
+    transform: scale(1.08) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(201, 169, 110, 0.2) !important;
+}
+
+/* Elementos internos */
+.card-minimal h3 {
+    font-family: var(--font-serif);
+    color: var(--dark-coffee);
+}
+
+.badge-recommended {
+    background-color: var(--gold) !important;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.text-gold {
+    color: var(--gold) !important;
+}
+/*--------------------------------------------------------------------*/
+/* PAGE SEDES */
+/* Esto solo afectará a la página de Sedes */
+/* --- TARJETAS DE INFORMACIÓN DE SEDES --- */
+
+.card-info-sede {
+    background: #ffffff !important;
+    padding: 2.5rem;
+    border-radius: 15px;
+    height: 100%;
+    border-bottom: 4px solid transparent;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+}
+
+.card-info-sede:hover {
+    border-bottom-color: var(--gold) !important; /* El borde dorado que tanto te gusta */
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+}
+
+/* --- RECUPERAR BANNER (Imagen 2) --- */
+.sedes-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?&fit=crop&h=1000&w=2000&q=80") !important; /* Revisa esta ruta */
+    background-size: cover !important;
+    background-position: center !important;
+    padding: 120px 0 80px !important;
+    text-align: center;
+    color: #ffffff !important;
+}
+
+.sedes-header .hero-title {
+    color: #ffffff !important;
+}
+
+/* --- RECUPERAR MAPA --- */
+.map-container-wrapper {
+    height: 500px !important; /* Sin esto, el mapa mide 0px y no se ve */
+    position: relative;
+    background-color: #eee;
+}
+
+/*--------MAPA--------*/
+/* Contenedor principal del mapa */
+.map-container-wrapper {
+    height: 500px !important; /* Altura necesaria para que el mapa sea visible */
+    position: relative;
+    border: 1px solid rgba(197, 168, 97, 0.2); /* Borde dorado muy sutil */
+    background-color: #f0f0f0; /* Color de carga mientras abre el mapa */
+}
+
+/* El tag que dice 'Sedes Sincronizadas' */
+.map-overlay-tag {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    background: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    z-index: 10;
+    border-left: 5px solid var(--gold);
+}
+
+/* Ajustes de tipografía para títulos */
+.section-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+}
+
+.section-title em {
+    font-style: italic;
+    color: var(--gold); /* Un toque de color para resaltar Cundinamarca */
+}
+
+.gold-line {
+    background-color: var(--gold) !important;
+}
+
+
+
+
+
+/* Etiquetas de datos (Dirección, Celulares, etc) */
+.info-label {
+    display: block;
+    font-weight: 700;
+    color: var(--gold); /* Usando el dorado de La Luz */
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.card-info-sede p {
+    color: var(--dark-coffee); /* Café oscuro corporativo */
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+/* Línea decorativa dorada */
+.gold-line {
+    background-color: var(--gold);
+    height: 2px;
+    margin-top: 10px;
+}
+
+
+/* ==========================================================================
+   SECCIÓN: PÁGINAS LEGALES Y SEDES (RECUPERACIÓN DE DISEÑO)
+   ========================================================================== */
+
+/* 1. Encabezados (Header Oscuro) */
+.legal-header, .sedes-header {
+    background-color: var(--dark-coffee) !important;
+    padding: 100px 0 60px !important;
+    text-align: center;
+    color: #ffffff !important;
+}
+
+.legal-header .hero-title, .sedes-header .hero-title {
+    font-family: var(--font-serif);
+    color: #ffffff !important;
+}
+
+/* 2. El Botón Ovalado (Fix de tamaño) */
+.btn-volver {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 35px !important;
+    min-width: 200px;
+    border-radius: 50px !important;
+    border: 1.5px solid var(--dark-coffee) !important;
+    transition: all 0.3s ease;
+}
+
+/* 3. El Contenedor del Mapa */
+.map-container-wrapper {
+    height: 500px !important; /* Altura fija para que no se colapse */
+    position: relative;
+    overflow: hidden;
 }

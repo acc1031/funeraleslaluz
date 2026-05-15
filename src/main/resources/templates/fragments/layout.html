@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Luz | Asistencia Integral</title>
+
+    <!-- Boostrap-->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Agrega esto en tu fragmento head si falta -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Iconos -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/layout-global.css}">
+
+    <!-- Estilos -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/botones.css}">
+    <link rel="stylesheet" th:href="@{/css/style-contacto.css}">
+    <link rel="stylesheet" th:href="@{/css/layout-global.css}">
+
+    <!-- Imagenes-->
+    <link rel="preload" as="image" href="/img/dogBanner.png">
+
 </head>
 <body>
 
@@ -28,7 +41,7 @@
                 <img th:src="@{/img/logoluzblanco.png}" alt="Logo La Luz Blanco" class="nav-logo logo-light">
 
                 <!-- Logo Color -->
-                <img th:src="@{/img/logo-laluz.png}" alt="Logo La Luz Color" class="nav-logo logo-dark">
+                <img th:src="@{/img/logo-laluz1.png}" alt="Logo La Luz Color" class="nav-logo logo-dark">
             </a>
         </div>
 
@@ -85,13 +98,13 @@
             <!-- BLOQUE DERECHO: Redes Sociales (Mismo ancho que el bloque del logo) -->
             <div class="d-none d-lg-flex justify-content-end align-items-center" style="min-width: 250px;">
                 <div class="d-flex gap-4 social-icons-nav">
-                    <a href="https://facebook.com" target="_blank" class="nav-social-link p-0">
+                    <a href="https://www.facebook.com/laluzasistencia/" target="_blank" class="nav-social-link p-0">
                         <i class="bi bi-facebook fs-5"></i>
                     </a>
-                    <a href="https://instagram.com" target="_blank" class="nav-social-link p-0">
+                    <a href="https://www.instagram.com/laluzasistencia/" target="_blank" class="nav-social-link p-0">
                         <i class="bi bi-instagram fs-5"></i>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" class="nav-social-link p-0">
+                    <a href="https://www.linkedin.com/company/la-luz-asistencia-integral" target="_blank" class="nav-social-link p-0">
                         <i class="bi bi-linkedin fs-5"></i>
                     </a>
                 </div>
@@ -202,7 +215,7 @@
 
             <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
 
-                <a th:href="@{/proteccion-datos}" class="small text-white-50 text-decoration-none"
+                <a th:href="@{/proteccion-datos}" class="link-legal"
 
                    style="transition: 0.3s;" onmouseover="this.style.color='var(--gold)'"
 
