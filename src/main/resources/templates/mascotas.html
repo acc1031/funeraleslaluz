@@ -17,8 +17,9 @@
             <div class="row align-items-center g-5">
 
                 <div class="col-lg-6" data-aos="fade-right">
-                    <div class="image-wrapper">
-                        <div class="floating-badge-brown">
+                    <div class="image-wrapper" style="position: relative;">
+
+                        <div class="floating-badge-brown" style="z-index: 3;">
                             <div class="d-flex align-items-center gap-3">
                                 <i class="bi bi-paw-fill fs-2"></i>
                                 <div>
@@ -28,23 +29,48 @@
                             </div>
                         </div>
 
-                        <img th:src="@{/img/cat.png}"
-                             alt="Huella de Luz Mascotas"
-                             class="img-fluid w-100"
-                             style="height: 600px; object-fit: cover;">
-                    </div>
+                        <div id="carouselMascotas" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
+
+                            <div class="carousel-indicators" style="z-index: 3;">
+                                <button type="button" data-bs-target="#carouselMascotas" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselMascotas" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselMascotas" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            </div>
+
+                            <div class="carousel-inner" style="border-radius: 15px; overflow: hidden;">
+                                <div class="carousel-item active">
+                                    <img th:src="@{/img/cat.png}"
+                                         alt="Huella de Luz - Gatos"
+                                         class="img-fluid w-100"
+                                         style="height: 600px; object-fit: cover;">
+                                </div>
+                                <div class="carousel-item">
+                                    <img th:src="@{/img/dog2.jpg}"
+                                         alt="Huella de Luz - Perros"
+                                         class="img-fluid w-100"
+                                         style="height: 600px; object-fit: cover;">
+                                </div>
+                                <div class="carousel-item">
+                                    <img th:src="@{/img/dogandcat.jpg}"
+                                         alt="Huella de Luz - Familia"
+                                         class="img-fluid w-100"
+                                         style="height: 600px; object-fit: cover;">
+                                </div>
+                            </div>
+
+                        </div> </div>
                 </div>
 
-                <div class="col-lg-6 ps-lg-5" data-aos="fade-left">
-                    <span class="label-gold mb-3">Previsión Exequial Mascotas</span>
-                    <h1 class="display-serif mb-4">Un último adiós con <br><span class="text-gold">amor y respeto</span></h1>
+                <div class="col-lg-6 ps-lg-5 content-mascotas" data-aos="fade-left">
+                    <span class="label-gold mb-2">Previsión Exequial Mascotas</span>
+                    <h1 class="display-serif mb-3">Un último adiós con <br><span class="text-gold">amor y respeto</span></h1>
 
-                    <p class="lead mb-5">
+                    <p class="lead mb-4">
                         Porque son familia, cuidamos su partida con la dignidad que merecen.
                         Brindamos acompañamiento integral y calidez humana en cada paso.
                     </p>
 
-                    <div class="row g-4 mb-5">
+                    <div class="row g-4 mb-4">
                         <div class="col-sm-6">
                             <div class="benefit-card">
                                 <div class="icon-box">

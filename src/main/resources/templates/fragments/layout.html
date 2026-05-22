@@ -18,9 +18,9 @@
 
     <!-- Estilos -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <link rel="stylesheet" th:href="@{/css/botones.css}">
     <link rel="stylesheet" th:href="@{/css/style-contacto.css}">
     <link rel="stylesheet" th:href="@{/css/layout-global.css}">
+    <link rel="stylesheet" th:href="@{/css/botones.css}">
 
     <!-- Imagenes-->
     <link rel="preload" as="image" href="/img/dogBanner.png">
@@ -59,7 +59,7 @@
                        data-bs-toggle="dropdown"
                        th:classappend="${currentUri != null && (currentUri.contains('planes') || currentUri.contains('prevision-empresarial'))} ? 'active-gold' : ''">
                         Previsión</a>
-                    <ul class="dropdown-menu shadow border-0 animate slideIn">
+                    <ul class="dropdown-menu">
                         <li><a class="dropdown-item" th:href="@{/planes}">Planes</a></li>
                         <li><a class="dropdown-item" th:href="@{/prevision-empresarial}">Previsión Empresarial</a></li>
                     </ul>
@@ -69,7 +69,7 @@
                        data-bs-toggle="dropdown"
                        th:classappend="${currentUri != null && currentUri.contains('servicios')} ? 'active-gold' : ''">
                     Servicios</a>
-                    <ul class="dropdown-menu shadow border-0 animate slideIn">
+                    <ul class="dropdown-menu">
                         <li><a class="dropdown-item" th:href="@{/servicios/atencion-inmediata}">Atención Inmediata</a>
                         </li>
                         <li><a class="dropdown-item" th:href="@{/servicios/tradicionales}">Servicios Tradicionales</a>
@@ -82,7 +82,6 @@
                         <li><a class="dropdown-item" th:href="@{/servicios/internacionales}">Servicios
                             Internacionales</a></li>
                         <li><a class="dropdown-item" th:href="@{/servicios/conmemoraciones}">Conmemoraciones</a></li>
-                        <li><a class="dropdown-item" th:href="@{/servicios/repatriacion}">Repatriación</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -141,109 +140,73 @@
 </script>
 
 <footer th:fragment="footer" class="py-5 bg-dark text-white mt-5">
-
     <div class="container">
-
         <div class="row gy-4 mb-4">
-
             <div class="col-lg-4 text-center text-lg-start">
-
                 <h2 style="font-family: var(--font-serif); color: var(--gold);">LA LUZ</h2>
-
                 <p class="small text-white-50 mt-3 pe-lg-4">
-
                     Brindamos respaldo profesional y calidez humana para proteger lo que más importa en los momentos
-
                     difíciles.
-
                 </p>
-
             </div>
-
-
             <div class="col-lg-4 col-md-6">
-
                 <h5 class="mb-3"
-
                     style="font-family: var(--font-sans); font-size: 1rem; color: var(--gold); letter-spacing: 1px; text-transform: uppercase;">
-
                     Sede Bogotá
-
                 </h5>
-
                 <ul class="list-unstyled text-white-50 small">
-
                     <li class="mb-2"><strong>Dirección:</strong> Calle 33 A No. 13-31 Centro Internacional</li>
-
                     <li class="mb-2"><strong>Teléfonos Fijos:</strong> <br> (601) 17462112 - (601) 7946551</li>
-
                     <li class="mb-2"><strong>Celulares:</strong> <br> 310 5729883 - 310 8167656 <br> 311 4811691 - 310
-
                         3969356
-
                     </li>
-
                     <li class="mb-2"><strong>Email:</strong> <br> comercial@laluzasistenciaintegral.com</li>
-
                 </ul>
-
             </div>
-
-
             <div class="col-lg-4 col-md-6">
-
                 <h5 class="mb-3"
-
                     style="font-family: var(--font-sans); font-size: 1rem; color: var(--gold); letter-spacing: 1px; text-transform: uppercase;">
-
                     Sede La Calera
-
                 </h5>
-
                 <ul class="list-unstyled text-white-50 small">
-
                     <li class="mb-2"><strong>Dirección:</strong> Carrera 3 No. 2-13 Avenida Paseo Real</li>
-
                     <li class="mb-2"><strong>Celulares:</strong> <br> 310 5729883 - 310 8167656 <br> 311 4811691</li>
-
                     <li class="mb-2"><strong>Email:</strong> <br> servicioalcliente@funeraleslaluz.com</li>
-
                 </ul>
-
             </div>
-
         </div>
-
-
         <hr style="border-color: rgba(255, 255, 255, 0.1);">
 
-
         <div class="row align-items-center pt-3">
-
             <div class="col-md-6 text-center text-md-start">
-
                 <p class="small text-white-50 mb-0">© 2026 Asistencia Integral. Todos los derechos reservados.</p>
-
             </div>
-
             <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
-
                 <a th:href="@{/proteccion-datos}" class="link-legal"
-
                    style="transition: 0.3s;" onmouseover="this.style.color='var(--gold)'"
-
                    onmouseout="this.style.color=''">
-
                     Política de Protección de Datos
-
                 </a>
-
             </div>
-
         </div>
-
     </div>
 
+    <a href="https://wa.me/571234567890?text=Hola,%20deseo%20recibir%20más%20información."
+       class="btn-whatsapp-fixed"
+       target="_blank"
+       rel="noopener noreferrer"
+       title="Contáctanos por WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
 </footer>
+
+<th:block th:fragment="scripts">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, duration: 800, offset: 50 });
+    </script>
+</th:block>
+
 </body>
 </html>

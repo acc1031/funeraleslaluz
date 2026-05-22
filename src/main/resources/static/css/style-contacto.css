@@ -1,80 +1,222 @@
 /* ============================================================
-   LA LUZ — SECCIÓN CONTACTO (ESPECÍFICO)
+   LA LUZ — SECCIÓN CONTACTO (SOLUCIÓN DE VISIBILIDAD)
    ============================================================ */
 
-.contact-hero {
-    /* Textura de papel premium con degradados sutiles */
-    background-color: #faf9f6;
-    background-image: radial-gradient(circle at 2px 2px, rgba(197, 160, 89, 0.05) 1px, transparent 0);
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ============================================================
+   LA LUZ — SECCIÓN CONTACTO (ESPACIADO DE SEGURIDAD NUEVO)
+   ============================================================ */
+
+main.contact-hero {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background-color: #FDFBF7 !important;
+    background-image: radial-gradient(circle at 2px 2px, rgba(197, 160, 89, 0.04) 1px, transparent 0);
     background-size: 24px 24px;
-    position: relative;
-}
-
-/* Degradado suave para que el formulario "flote" */
-.contact-hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(250, 249, 246, 1) 100%);
-    pointer-events: none;
-}
-
-/* Imagen con forma orgánica y suavidad visual */
-.img-asesora-soporte {
     width: 100%;
-    height: 400px;
-    object-fit: cover;
+
+    /* NUEVO: Margen interno de seguridad para empujar el contenido debajo del Navbar fixed */
+    padding-top: 110px !important;
+}
+
+/* --- COLUMNA IZQUIERDA --- */
+.label-zen {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: #C5A059 !important;
+    text-transform: uppercase;
+}
+
+.title-premium {
+    font-family: var(--font-serif);
+    font-size: 3.1rem;
+    line-height: 1.2;
+    color: #3B3024 !important;
+    font-weight: 400;
+}
+
+.title-premium i {
+    font-style: italic;
+    color: #C5A059 !important;
+    font-weight: 400;
+}
+
+/* Contenedor Esférico Redimensionado Estilo Premium */
+.organic-image-container {
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
     border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
-    box-shadow: 20px 20px 60px rgba(77, 47, 0, 0.05);
-    margin-bottom: 2rem;
+    border: 2.5px solid #C5A059;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(59, 48, 36, 0.06);
+    margin: 20px 0;
+}
+
+.organic-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
     display: block;
 }
 
-.assistance-card {
-    border-left: 5px solid var(--gold);
-    background: #fff;
-    padding: 2rem;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
+.zen-message-block {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    max-width: 380px;
 }
 
-.assistance-card:hover {
-    transform: translateY(-5px);
+.zen-message-block .zen-line {
+    width: 3px;
+    height: 55px;
+    background-color: #C5A059;
+    border-radius: 2px;
+    flex-shrink: 0;
 }
 
-.custom-input {
-    border: 1px solid #eaeaea;
-    padding: 14px;
-    border-radius: 8px;
-    background-color: #fbfbfb;
-    transition: all 0.3s ease;
+.text-description-premium {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: #4A4A4A !important;
+    margin: 0;
 }
 
-.custom-input:focus {
-    border-color: var(--gold);
-    background-color: #fff;
-    box-shadow: 0 0 0 0.25rem rgba(197, 168, 97, 0.1);
-    outline: none;
+.highlight-gold {
+    color: #3B3024 !important;
+    font-weight: 600;
+    border-bottom: 2px solid #C5A059;
 }
 
-
-.border-radius-20 {
+/* --- COLUMNA DERECHA (FORMULARIO) --- */
+.contact-form-wrapper {
+    background: #ffffff !important;
+    padding: 40px !important;
     border-radius: 20px;
+    box-shadow: 0 20px 45px rgba(59, 48, 36, 0.06) !important;
+}
+
+/* Tarjeta de Asistencia Telefónica */
+.assistance-card {
+    border-left: 4px solid #C5A059 !important;
+    background: #FAF8F5 !important;
+    padding: 18px 22px;
+    border-radius: 12px;
+    margin-bottom: 28px;
+}
+
+.assistance-title {
+    font-family: var(--font-sans);
+    color: #3B3024 !important;
+    font-weight: 700;
+    font-size: 1.1rem;
 }
 
 .icon-circle {
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    flex-shrink: 0;
+    background-color: #3B3024 !important;
+    color: #ffffff !important;
 }
 
-.text-gold {
-    color: var(--gold);
+.assistance-numbers .phone-main {
+    display: block;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #3B3024 !important;
+    line-height: 1.2;
+}
+
+.assistance-numbers .phone-sub {
+    display: block;
+    text-decoration: none;
+    color: #666666 !important;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-top: 2px;
+}
+
+/* Inputs Premium Estilizados */
+.field-label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #555555 !important;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.custom-input {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    border: 1px solid #DCDCDC !important;
+    padding: 11px 14px !important;
+    border-radius: 8px !important;
+    background-color: #FAFAFA !important;
+    color: #3B3024 !important;
+    transition: all 0.3s ease;
+}
+
+.custom-input:focus {
+    border-color: #C5A059 !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(197, 168, 97, 0.1) !important;
+    outline: none;
+}
+
+.style-policy {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Botón Exequial Dorado */
+.btn-gold-submit {
+    background-color: #C5A059 !important;
+    color: #ffffff !important;
+    border: none !important;
+    letter-spacing: 1.5px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-family: var(--font-sans);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.15);
+}
+
+.btn-gold-submit:hover {
+    background-color: #3B3024 !important;
+    transform: translateY(-1px);
+}
+
+/* --- RESPONSIVE SEGURO --- */
+@media (max-width: 991px) {
+    .title-premium {
+        font-size: 2.3rem;
+        text-align: center;
+    }
+    .organic-image-container {
+        max-width: 280px;
+        margin: 20px auto;
+    }
+    .zen-message-block {
+        margin: 0 auto;
+    }
 }

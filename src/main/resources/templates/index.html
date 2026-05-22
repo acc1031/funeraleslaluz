@@ -7,15 +7,13 @@
 
 <div th:replace="~{fragments/layout :: navbar}"></div>
 
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- SECCIÓN PRIMERA IMAGEN -->
 <section class="hero-zen">
-    <div class="hero-slide active"
-         style="background-image: url('/img/paisaje.png');"></div>
-
+    <div class="hero-slide active" style="background-image: url('/img/paisaje.png');"></div>
     <div class="hero-slide"
          style="background-image: url('https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?&fit=crop&h=1000&w=2000&q=80');"></div>
-
-    <div class="hero-slide"
-         style="background-image: url('/img/dog.png');"></div>
+    <div class="hero-slide" style="background-image: url('/img/dog.png');"></div>
 
     <div class="hero-overlay"></div>
 
@@ -37,186 +35,149 @@
         </div>
     </div>
 </section>
-</section>
 
-<script>
-    window.addEventListener('scroll', function () {
-        const navbar = document.querySelector('.navbar');
-        // Si el usuario baja más de 50px, añade la clase; si sube al inicio, la quita
-        if (window.scrollY > 50) {
-            navbar.classList.add('navbar-scrolled');
-        } else {
-            navbar.classList.remove('navbar-scrolled');
-        }
-    });
-</script>
-
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const slides = document.querySelectorAll('.hero-slide');
-        let currentSlide = 0;
-
-        function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }
-
-        // Cambia cada 5 segundos
-        setInterval(nextSlide, 5000);
-    });
-</script>
-<section class="py-5 allies-section" style="background-color: #fdfbf7; border-top: 1px solid rgba(197, 168, 97, 0.1); border-bottom: 1px solid rgba(197, 168, 97, 0.1); overflow: hidden;">
-    <div class="container mb-5" data-aos="fade-up">
-        <div class="text-center">
-        <span class="text-gold text-uppercase tracking-widest-extra d-block mb-2 fw-bold"
-              style="font-size: 0.8rem; letter-spacing: 6px;">
-            Respaldo Institucional
-        </span>
-
-            <h2 class="display-serif text-dark-coffee mb-3"
-                style="font-family: var(--font-serif); font-size: 2.8rem; font-weight: 400;">
-                Aliados que Confían en Nosotros
-            </h2>
-
-            <div class="divider-gold-zen mx-auto"></div>
-
-            <p class="text-muted mt-4 mx-auto" style="max-width: 600px; font-size: 1.1rem; font-style: italic;">
-                Trabajamos de la mano con las instituciones más importantes del país para brindar excelencia y seguridad.
-            </p>
-        </div>
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- SECCIÓN CARRUSEL CONVENIOS -->
+<section class="section-allies-wrapper">
+    <div class="container text-center text-allies-header">
+        <span class="label-badge-gold">Nuestros Convenios</span>
+        <h2 class="section-main-title">Aliados Estratégicos</h2>
+        <div class="premium-diamond-divider"></div>
     </div>
-
     <div class="allies-slider">
         <div class="allies-track">
-            <div class="ally-logo"><img src="/img/aliados/feis-logo.png" alt="FEIS"></div>
-            <div class="ally-logo"><img src="/img/aliados/MinDefensa_(Colombia)_logo.png" alt="MinDefensa"></div>
-            <div class="ally-logo"><img src="/img/aliados/fuerzasMilitares.svg" alt="Fuerzas Militares"></div>
-            <div class="ally-logo"><img src="/img/aliados/cremil.png" alt="CREMIL"></div>
-            <div class="ally-logo"><img src="/img/aliados/casur.png" alt="CASUR"></div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-ally="FEIS" data-coordinator="Jonathan Martinez" data-commercial="Jairo Aponte" data-phone-1="(+57) 312 445 6900" data-phone-2="(+57) 310 987 6543">
+                <img src="/img/aliados/feis-logo.png" alt="FEIS">
+            </div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-ally="Ministerio de Defensa" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla" data-phone-1="(+57) 312 445 6900" data-phone-2="(+57) 322 8241484">
+                <img src="/img/aliados/MinDefensa_(Colombia)_logo.png" alt="MinDefensa">
+            </div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-ally="Fuerzas Militares" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla" data-phone-1="(+57) 312 445 6900" data-phone-2="(+57) 322 824 1484">
+                <img src="/img/aliados/fuerzasMilitares.svg" alt="Fuerzas Militares">
+            </div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-ally="CREMIL" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla" data-phone-1="(+57) 312 445 6900" data-phone-2="(+57) 322 8241484">
+                <img src="/img/aliados/cremil.png" alt="CREMIL">
+            </div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-ally="CASUR" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla" data-phone-1="(+57) 312 445 6900" data-phone-2="(+57) 322 8241484">
+                <img src="/img/aliados/casur.png" alt="CASUR">
+            </div>
 
-            <div class="ally-logo"><img src="/img/aliados/feis-logo.png" alt="FEIS"></div>
-            <div class="ally-logo"><img src="/img/aliados/MinDefensa_(Colombia)_logo.png" alt="MinDefensa"></div>
-            <div class="ally-logo"><img src="/img/aliados/fuerzasMilitares.svg" alt="Fuerzas Militares"></div>
-            <div class="ally-logo"><img src="/img/aliados/cremil.png" alt="CREMIL"></div>
-            <div class="ally-logo"><img src="/img/aliados/casur.png" alt="CASUR"></div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-ally="FEIS" data-coordinator="Jonathan Martinez" data-commercial="Jairo Aponte" data-phone-1="(+57) 312 445 6900" data-phone-2="(+57) 310 987 6543">
+                <img src="/img/aliados/feis-logo.png" alt="FEIS">
+            </div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-ally="Ministerio de Defensa" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla" data-phone-1="(+57) 312 445 6900" data-phone-2="(+57) 322 8241484">
+                <img src="/img/aliados/MinDefensa_(Colombia)_logo.png" alt="MinDefensa">
+            </div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-ally="Fuerzas Militares" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla" data-phone-1="(+57) 312 445 6900" data-phone-2="(+57) 322 824 1484">
+                <img src="/img/aliados/fuerzasMilitares.svg" alt="Fuerzas Militares">
+            </div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-ally="CREMIL" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla" data-phone-1="(+57) 312 445 6900" data-phone-2="(+57) 322 8241484">
+                <img src="/img/aliados/cremil.png" alt="CREMIL">
+            </div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-ally="CASUR" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla" data-phone-1="(+57) 312 445 6900" data-phone-2="(+57) 322 824 1484">
+                <img src="/img/aliados/casur.png" alt="CASUR">
+            </div>
+
         </div>
     </div>
 </section>
 
+<!-- PANEL DE INFORMACIÓN "COORDINADOR, ASESOR COMERCIAL" -->
+<div class="modal fade" id="allyContactModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content"
+             style="border-radius: 16px; border: 1px solid rgba(197, 169, 110, 0.2); background-color: #ffffff; box-shadow: 0 15px 45px rgba(59, 48, 36, 0.1);">
+            <div class="modal-header border-0 pb-0" style="padding: 24px 24px 10px;">
+                <h5 class="modal-title fw-bold" id="modalAllyName"
+                    style="font-family: var(--font-sans); color: var(--dark-coffee); font-size: 1.25rem;">Atención Convenio</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        style="font-size: 0.8rem; filter: sepia(1) saturate(2) hue-rotate(10deg);"></button>
+            </div>
+            <div class="modal-body" style="padding: 10px 24px 24px;">
+                <p class="text-muted small mb-4" style="font-family: var(--font-sans);">Equipo de atención preferencial asignado para este convenio institucional:</p>
 
+                <div class="row g-3">
+                    <div class="col-12">
+                        <div class="p-3 rounded-3" style="background-color: var(--cream); border-left: 3px solid var(--gold);">
+                            <span class="d-block text-uppercase text-gold fw-bold mb-1" style="font-size: 0.65rem; letter-spacing: 1px;">Coordinador General</span>
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-person-badge text-dark-coffee me-2" style="font-size: 1.1rem;"></i>
+                                <span class="fw-semibold text-dark-coffee" id="modalCoordinatorName" style="font-size: 0.95rem;">-</span>
+                            </div>
+                            <div class="mt-2" style="font-size: 0.85rem;">
+                                <i class="bi bi-telephone text-muted me-1"></i>
+                                <a id="modalPhone1" href="#" class="text-decoration-none fw-bold" style="color: var(--dark-coffee);"></a>
+                            </div>
+                        </div>
+                    </div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const counters = document.querySelectorAll('.counter');
+                    <div class="col-12">
+                        <div class="p-3 rounded-3" style="background-color: var(--cream); border-left: 3px solid var(--dark-coffee);">
+                            <span class="d-block text-uppercase text-muted fw-bold mb-1" style="font-size: 0.65rem; letter-spacing: 1px; color: #7a6e61 !important;">Asesor Comercial</span>
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-person-check-fill text-gold me-2" style="font-size: 1.1rem;"></i>
+                                <span class="fw-semibold text-dark-coffee" id="modalCommercialName" style="font-size: 0.95rem;">-</span>
+                            </div>
+                            <div class="mt-2" style="font-size: 0.85rem;">
+                                <i class="bi bi-telephone text-muted me-1"></i>
+                                <a id="modalPhone2" href="#" class="text-decoration-none fw-bold" style="color: var(--dark-coffee);"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer border-0 pt-0 justify-content-center" style="padding: 0 24px 24px;">
+                <button type="button" class="btn text-white py-2.5 fw-semibold w-100"
+                        data-bs-dismiss="modal"
+                        style="background-color: var(--gold); border-radius: 8px; font-size: 0.85rem; transition: background-color 0.3s ease; max-width: 200px;">
+                    Entendido
+                </button>
+            </div>
 
-        const animateCounter = (el) => {
-            const target = +el.getAttribute('data-target');
-            const duration = 2000;
-            const startTime = performance.now();
-
-            const updateCount = (currentTime) => {
-                // Si el elemento ya no tiene la marca de "animando", detenemos el proceso
-                if (!el.dataset.animating) return;
-
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const easeProgress = progress * (2 - progress);
-                const currentCount = Math.floor(easeProgress * target);
-
-                el.innerText = currentCount;
-
-                if (progress < 1) {
-                    requestAnimationFrame(updateCount);
-                } else {
-                    el.innerText = target;
-                }
-            };
-
-            el.dataset.animating = "true"; // Marcamos que la animación está activa
-            requestAnimationFrame(updateCount);
-        };
-
-        const observerOptions = {
-            threshold: 0.5 // Se activa cuando vemos la mitad de la sección
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Solo disparamos si NO se está animando ya
-                    if (!entry.target.dataset.animating) {
-                        animateCounter(entry.target);
-                    }
-                } else {
-                    // IMPORTANTE: Cuando sale de la pantalla, reseteamos todo
-                    entry.target.innerText = "0";
-                    delete entry.target.dataset.animating; // Borramos la marca para que pueda re-animarse
-                }
-            });
-        }, observerOptions);
-
-        counters.forEach(counter => observer.observe(counter));
-    });
-</script>
-
-<section class="section-padding container">
-    <div class="text-center mb-5" data-aos="fade-up">
-        <div class="d-flex align-items-center justify-content-center gap-3 mb-2">
-            <div class="small-line"></div>
-            <span class="label-muted text-uppercase" style="letter-spacing: 2px; font-size: 0.8rem; color: #8a8a8a;">
-            Desde 1999
-        </span>
-            <div class="small-line"></div>
         </div>
-        <h2 class="section-title"
-            style="font-family: var(--font-serif); font-size: 3rem; color: var(--dark-coffee); text-shadow: 0 10px 20px rgba(0,0,0,0.05);">
-            Asistencia Integral
-        </h2>
+    </div>
+</div>
+
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- SECCIÓN ASISTENCIA INTEGRAL "Prevision, Homenajes y Red Social" -->
+<section class="section-padding container">
+    <div class="container text-center mb-5" style="margin-top: 0px;">
+        <span class="label-badge-gold">Compromiso y Respeto</span>
+        <h2 class="section-main-title">Asistencia Integral</h2>
+        <div class="premium-diamond-divider"></div>
     </div>
 
     <div class="row g-4">
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-minimal h-100 position-relative shadow-sm border-0"
-                 style="border-radius: 15px; overflow: hidden; background: #fff;">
-                <div class="image-wrapper" style="height: 200px; overflow: hidden;">
+            <div class="card-minimal h-100 position-relative shadow-sm">
+                <div class="image-wrapper" style="height: 200px; overflow: hidden; border-radius: 10px 10px 0 0;">
                     <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=800"
                          class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Previsión Exequial">
                 </div>
                 <div class="p-4">
                     <i class="bi bi-shield-check fs-2 text-gold mb-2 d-block"></i>
                     <h4 style="font-family: var(--font-serif); color: var(--dark-coffee);">Previsión Exequial</h4>
-                    <p class="text-muted small">Planes diseñados para proteger el futuro de su familia con cuotas
-                        cómodas y respaldo total.</p>
+                    <p class="text-muted small">Planes diseñados para proteger el futuro de su familia con cuotas cómodas y respaldo total.</p>
                     <hr class="my-3 opacity-10">
-                    <h6 class="label mb-3" style="font-size: 0.7rem; letter-spacing: 1px; color: var(--gold);">CONSULTA
-                        Y PAGA TU PLAN</h6>
+                    <h6 class="label mb-3" style="font-size: 0.7rem; letter-spacing: 1px; color: var(--gold);">CONSULTA Y PAGA TU PLAN</h6>
                     <a href="https://laluzasistencial.piscotics.com:9065/piscowebconsulta/Afiliacion.aspx"
-                       class="stretched-link text-decoration-none small fw-bold text-dark">
-                        Consulta Web →
-                    </a>
+                       class="stretched-link text-decoration-none small fw-bold text-gold">Consulta Web →</a>
                 </div>
             </div>
         </div>
 
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-minimal h-100 position-relative shadow-sm border-0"
-                 style="border-radius: 15px; overflow: hidden; background: #fff;">
-                <div class="image-wrapper" style="height: 200px; overflow: hidden;">
-                    <img th:src="@{/img/homenaje.jpg}"
-                         class="img-fluid w-100 h-100"
-                         style="object-fit: cover;"
+            <div class="card-minimal h-100 position-relative shadow-sm">
+                <div class="image-wrapper" style="height: 200px; overflow: hidden; border-radius: 10px 10px 0 0;">
+                    <img th:src="@{/img/homenaje.jpg}" class="img-fluid w-100 h-100" style="object-fit: cover;"
                          alt="Homenajes de Vida">
                 </div>
                 <div class="p-4">
                     <i class="bi bi-flower1 fs-2 text-gold mb-2 d-block"></i>
                     <h4 style="font-family: var(--font-serif); color: var(--dark-coffee);">Homenajes de Vida</h4>
-                    <p class="text-muted small">Despedidas dignas y personalizadas que honran la memoria y el legado de
-                        sus seres queridos.</p>
+                    <p class="text-muted small">Despedidas dignas y personalizadas que honran la memoria y el legado de sus seres queridos.</p>
                     <hr class="my-3 opacity-10">
-                    <h6 class="label mb-3" style="font-size: 0.7rem; letter-spacing: 1px; color: var(--gold);">EN
-                        MEMORIA DE TU SER QUERIDO</h6>
+                    <h6 class="label mb-3" style="font-size: 0.7rem; letter-spacing: 1px; color: var(--gold);">EN MEMORIA DE TU SER QUERIDO</h6>
                     <a href="https://laluzasistencialweb.piscotics.com:9060/PiscoWebObituario/Obituarios"
                        class="stretched-link text-decoration-none small fw-bold text-dark">
                         Ver Obituarios →
@@ -226,23 +187,19 @@
         </div>
 
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="card-minimal h-100 position-relative shadow-sm border-0"
-                 style="border-radius: 15px; overflow: hidden; background: #f9f9f9;">
-                <div class="image-wrapper" style="height: 200px; overflow: hidden;">
+            <div class="card-minimal h-100 position-relative shadow-sm" style="background: #f9f9f9 !important;">
+                <div class="image-wrapper" style="height: 200px; overflow: hidden; border-radius: 10px 10px 0 0;">
                     <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800"
                          class="img-fluid w-100 h-100" style="object-fit: cover;" alt="Red Social">
                 </div>
                 <div class="p-4">
                     <i class="bi bi-geo-alt fs-2 text-gold mb-2 d-block"></i>
                     <h4 style="font-family: var(--font-serif); color: var(--dark-coffee);">Red Social</h4>
-                    <p class="text-muted small mb-4">Espacios diseñados para brindar paz, ubicados estratégicamente en
-                        todo el país.</p>
+                    <p class="text-muted small mb-4">Espacios diseñados para brindar paz, ubicados estratégicamente en todo el país.</p>
                     <hr class="my-3 opacity-10">
-                    <h6 class="label mb-3" style="font-size: 0.7rem; letter-spacing: 1px; color: var(--gold);">NUESTRA
-                        COMUNIDAD</h6>
+                    <h6 class="label mb-3" style="font-size: 0.7rem; letter-spacing: 1px; color: var(--gold);">NUESTRA COMUNIDAD</h6>
                     <div class="d-flex align-items-center gap-3">
-                        <a href="https://www.instagram.com/laluzasistencia/"
-                           target="_blank"
+                        <a href="https://www.instagram.com/laluzasistencia/" target="_blank"
                            class="stretched-link text-dark text-decoration-none d-flex align-items-center gap-2">
                             <i class="bi bi-instagram fs-4 text-gold"></i>
                             <span class="small fw-bold">@laluzasistencia</span>
@@ -254,18 +211,15 @@
     </div>
 </section>
 
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- SECCIÓN MAPA -->
 <section class="section-padding bg-white" style="overflow: hidden;">
     <div class="container">
         <div class="row align-items-center g-5">
-
-            <div class="col-lg-7 text-center"
-                 data-aos="zoom-in"
-                 data-aos-duration="1200">
+            <div class="col-lg-7 text-center" data-aos="zoom-in" data-aos-duration="1200">
                 <div class="position-relative">
-                    <img th:src="@{/img/Covertura-Nacional.jpg}"
-                         alt="Cobertura Nacional La Luz"
-                         class="img-fluid rounded-4 shadow-lg w-100"
-                         style="max-width: 900px;">
+                    <img th:src="@{/img/Covertura-Nacional.jpg}" alt="Cobertura Nacional La Luz"
+                         class="img-fluid rounded-4 shadow-lg w-100" style="max-width: 900px;">
                 </div>
             </div>
 
@@ -274,14 +228,12 @@
                     <h6 class="label mb-2 text-gold text-uppercase"
                         style="letter-spacing: 2px; font-size: 0.8rem; font-weight: 700;">Nuestra Red</h6>
                     <h2 class="display-5 mb-4"
-                        style="font-family: var(--font-serif); color: var(--dark-coffee); font-weight: 600;">Cobertura
-                        Nacional Total</h2>
+                        style="font-family: var(--font-serif); color: var(--dark-coffee); font-weight: 600;">Cobertura Nacional Total</h2>
                 </div>
 
                 <div class="p-4 mb-4"
                      style="background-color: #faf9f6; border-left: 5px solid var(--gold); border-radius: 0 20px 20px 0;">
                     <div class="row g-4">
-
                         <div class="col-12 border-bottom border-light pb-3 mb-2">
                             <div class="d-flex align-items-center">
                                 <span class="fw-black text-dark"
@@ -308,7 +260,6 @@
                                       style="font-size: 0.75rem; letter-spacing: 1.5px; font-weight: 600;">Familias <br>Protegidas</span>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -316,12 +267,13 @@
                     VER SEDES <i class="bi bi-arrow-right ms-2"></i>
                 </a>
             </div>
-
         </div>
     </div>
 </section>
 
-<section class="bg-dark py-5 text-white">
+<!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
+<!-- SECCÓN LLAMAR AHORA-->
+<section class="section-padding bg-dark py-5 text-white">
     <div class="container py-4">
         <div class="row align-items-center">
             <div class="col-lg-8">
@@ -334,29 +286,106 @@
         </div>
     </div>
 </section>
-</main>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    // Inicializar AOS con configuraciones sutiles
     AOS.init({
-        duration: 1000, // Duración de la animación (1 segundo)
-        once: true,      // La animación solo ocurre una vez al hacer scroll
-        easing: 'ease-out-quad', // Transición suave
+        duration: 1000,
+        once: true,
+        easing: 'ease-out-quad',
+    });
+</script>
+
+<script>
+    window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-scrolled');
+            } else {
+                navbar.classList.remove('navbar-scrolled');
+            }
+        }
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+
+        function nextSlide() {
+            if (slides.length === 0) return;
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        setInterval(nextSlide, 5000);
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const allyModalEl = document.getElementById('allyContactModal');
+        if (!allyModalEl) return;
+
+        const modalAllyName = document.getElementById('modalAllyName');
+        const modalCoordinatorName = document.getElementById('modalCoordinatorName');
+        const modalCommercialName = document.getElementById('modalCommercialName');
+        const modalPhone1 = document.getElementById('modalPhone1');
+        const modalPhone2 = document.getElementById('modalPhone2');
+        const alliesTrack = document.querySelector('.allies-track');
+
+        allyModalEl.addEventListener('show.bs.modal', (event) => {
+            const logo = event.relatedTarget;
+            if (!logo) return;
+
+            // Extracción de todos los Atributos Dinámicos
+            const ally = logo.getAttribute('data-ally');
+            const coordinator = logo.getAttribute('data-coordinator');
+            const commercial = logo.getAttribute('data-commercial');
+            const phone1 = logo.getAttribute('data-phone-1');
+            const phone2 = logo.getAttribute('data-phone-2');
+
+            // Renderizado de Nombres
+            if (modalAllyName) modalAllyName.innerText = `Convenio — ${ally}`;
+            if (modalCoordinatorName) modalCoordinatorName.innerText = coordinator;
+            if (modalCommercialName) modalCommercialName.innerText = commercial;
+
+            // Renderizado Dinámico de Enlaces Telefónicos
+            if (modalPhone1 && phone1) {
+                modalPhone1.href = `tel:${phone1.replace(/\s+/g, '')}`; // Remueve espacios para marcado limpio
+                modalPhone1.innerText = phone1;
+            }
+            if (modalPhone2 && phone2) {
+                modalPhone2.href = `tel:${phone2.replace(/\s+/g, '')}`;
+                modalPhone2.innerText = phone2;
+            }
+
+            // Pausar animación del carrusel infinito
+            if (alliesTrack) {
+                alliesTrack.style.animationPlayState = 'paused';
+            }
+        });
+
+        // Reanudar el carrusel infinito al cerrar el modal
+        allyModalEl.addEventListener('hidden.bs.modal', () => {
+            if (alliesTrack) {
+                alliesTrack.style.animationPlayState = 'running';
+            }
+        });
     });
 </script>
 
 <script>
     document.querySelectorAll('.nav-item.dropdown > .nav-link').forEach(dropdownToggle => {
         dropdownToggle.addEventListener('click', function (e) {
-            // Solo en pantallas grandes (Escritorio)
             if (window.innerWidth > 991) {
-                e.preventDefault(); // Evita que el link navegue si solo queremos abrir el menú
+                e.preventDefault();
                 const parent = this.parentElement;
-
-                // Si ya estaba fijo, lo soltamos; si no, lo fijamos
                 parent.classList.toggle('is-fixed');
 
-                // Cerramos otros menús fijos si existieran
                 document.querySelectorAll('.nav-item.dropdown').forEach(nav => {
                     if (nav !== parent) nav.classList.remove('is-fixed');
                 });
@@ -364,7 +393,6 @@
         });
     });
 
-    // Cerrar el menú si se hace clic en cualquier otra parte de la pantalla
     document.addEventListener('click', function (e) {
         if (!e.target.closest('.nav-item.dropdown')) {
             document.querySelectorAll('.nav-item.dropdown').forEach(nav => {
@@ -375,7 +403,6 @@
 </script>
 
 <div th:replace="~{fragments/layout :: footer}"></div>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

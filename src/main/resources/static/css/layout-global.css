@@ -19,10 +19,10 @@ body {
     margin: 0;
     overflow-x: hidden;
 }
+
 /* ============================================================
    LA LUZ — NAVBAR MASTER CONFIG (DISEÑO PROFESIONAL)
    ============================================================ */
-
 .navbar {
     background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
     position: fixed;
@@ -30,7 +30,7 @@ body {
     top: 0;
     left: 0;
     z-index: 1000;
-    height: 120px; /* Reducimos altura para que se vea más estilizada */
+    height: 120px;
     padding: 0 !important;
     display: flex;
     align-items: center;
@@ -47,7 +47,6 @@ body {
 
 .navbar .container-fluid {
     display: flex !important;
-    /* CLAVE: Empuja el logo a un extremo y las redes al otro, dejando el menú al centro */
     justify-content: space-between !important;
     align-items: center !important;
     height: 100% !important;
@@ -55,149 +54,75 @@ body {
     padding-right: 5% !important;
 }
 
-/* --- LOGOS (Jerarquía Visual) --- */
+/* --- LOGOS --- */
 .navbar .nav-logo {
     width: auto;
     object-fit: contain;
     transition: all 0.3s ease;
 }
 
-/* 2. Animación al pasar el puntero (Hover) */
 .navbar .nav-logo:hover {
-    /* Crece un 5% sin mover el resto de la navbar */
     transform: scale(1.05) !important;
-
-    /* Le da un sutil brillo para que resalte el dorado/blanco */
     filter: brightness(1.1) drop-shadow(0 0 8px rgba(201, 169, 110, 0.2));
 }
 
-/* 3. Efecto al hacer clic (opcional, para feedback táctil) */
 .navbar .nav-logo:active {
     transform: scale(0.95) !important;
 }
 
 .logo-light {
     display: block !important;
-    height: 70px !important; /* Logo más pequeño para que la barra se vea lujosa */
+    height: 70px !important;
     transform: translate(0px, 2px) !important;
     margin-left: 20px !important;
 }
 
 .logo-dark {
     display: none !important;
-    height: 90px !important; /* Ligeramente más pequeño para compensar el contraste del color */
+    height: 90px !important;
     transform: translate(0px, 0px) !important;
 }
 
 .navbar-scrolled .logo-light, .navbar-white .logo-light { display: none !important; }
 .navbar-scrolled .logo-dark, .navbar-white .logo-dark { display: block !important; }
 
-/* --- NAVEGACIÓN (Espaciado Senior) --- */
+/* --- NAVEGACIÓN --- */
 .navbar-nav {
     display: flex !important;
     align-items: center !important;
-    gap: 35px; /* Espacio amplio entre palabras para evitar el efecto 'amontonado' */
-    margin: 0 auto !important; /* Centra el menú perfectamente entre el logo y las redes */
+    gap: 35px;
+    margin: 0 auto !important;
 }
 
 .navbar .nav-link {
     color: #ffffff !important;
-    font-size: 0.85rem !important; /* Tipografía ligeramente más pequeña pero con tracking (espaciado) */
+    font-size: 0.85rem !important;
     letter-spacing: 0.5px;
     font-weight: 500 !important;
-    text-transform: none; /* Evita mayúsculas pesadas si no son necesarias */
+    text-transform: none;
     padding: 0 !important;
     text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    position: relative;
+    display: inline-block !important;
+    width: fit-content !important;
     transition: all 0.3s ease;
 }
 
-/* Color cuando pasas el mouse */
-.navbar-nav .nav-link:hover {
-    color: #c5a059 !important;
-    transition: color 0.3s ease;
-}
-
-/* Clase para mantener el color dorado cuando la página está activa */
+.navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active-gold {
     color: #c5a059 !important;
 }
 
-/* Opcional: Si quieres que la flechita del dropdown también cambie */
-.nav-link.dropdown-toggle::after {
-    vertical-align: middle;
-}
-
 .navbar-scrolled .nav-link,
 .navbar-white .nav-link {
-    color: #3b3024 !important; /* Usamos el café oscuro corporativo en lugar de gris genérico */
-    text-shadow: none !important;
-}
-
-/* --- ICONOS SOCIALES: CONFIGURACIÓN DE COLOR Y SCROLL --- */
-
-/* 1. Estado inicial (Transparente - Iconos Blancos) */
-.social-icons-nav .nav-social-link i {
-    color: #ffffff !important;
-    transition: all 0.4s ease; /* Transición suave para el cambio de color */
-}
-
-/* 2. Estado Scrolled o Navbar Blanca (Iconos Oscuros) */
-/* Apuntamos al icono 'i' cuando el padre tiene la clase de scroll */
-.navbar-scrolled .social-icons-nav .nav-social-link i,
-.navbar-white .social-icons-nav .nav-social-link i {
-    color: var(--dark-coffee) !important; /* El color café de la imagen 2 */
-}
-
-/* 3. Hover (Dorado) */
-.social-icons-nav .nav-social-link:hover i {
-    color: var(--gold) !important;
-    transform: scale(1.1); /* Un pequeño toque de diseño extra */
-}
-
-/* 4. Contenedor de Redes (Ajuste de espacio) */
-.social-icons-nav {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.navbar-scrolled .nav-social-link,
-.navbar-white .nav-social-link {
     color: var(--dark-coffee) !important;
-}
-
-/* Hover Effect */
-.nav-social-link:hover {
-    transform: translateY(-2px); /* Pequeña interacción de diseño al pasar el mouse */
-}
-
-/* Hover en redes sociales */
-.nav-social-link:hover i {
-    color: var(--gold) !important;
-}
-
-/* Links oscuros sobre fondo blanco */
-.navbar-scrolled .nav-link,
-.navbar-white .nav-link {
-    color: #4a4a4a !important;
     text-shadow: none !important;
-}
-
-
-
-/* --- ESTADO INICIAL (OCULTO) --- */
-
-.navbar-nav .nav-link {
-    position: relative;
-    display: inline-block !important; /* Obliga al contenedor a ajustarse al texto */
-    width: fit-content !important;    /* Refuerza que no se estire */
-    margin: 0 auto;                  /* Centra el bloque si es necesario */
 }
 
 .navbar .nav-link::after {
     content: '';
     position: absolute;
-    width: 0; /* CRUCIAL: Empieza en 0 para que no se vea nada */
+    width: 0;
     height: 2px;
     bottom: -5px;
     left: 50%;
@@ -206,32 +131,57 @@ body {
     transform: translateX(-50%);
 }
 
-/* --- ESTADO HOVER (SOLO AL PASAR EL PUNTERO) --- */
-/* Esto activará la línea para TODAS las opciones, incluyendo Previsión y Servicios */
 .navbar .nav-link:hover::after {
-    width: 25px !important; /* Aquí es donde la línea "nace" */
+    width: 25px !important;
     opacity: 1 !important;
     visibility: visible !important;
 }
 
-/* --- LIMPIEZA PARA DROPDOWNS --- */
-/* Evitamos que Bootstrap o algún estilo previo fuerce la línea en los menús desplegables */
 .nav-link.dropdown-toggle::after {
-    /* Si tenías la línea apareciendo fija en Previsión/Servicios, esto lo mata */
     content: none !important;
 }
 
-/* Si quieres mantener el triangulito al lado pero sin la raya de abajo: */
 .nav-link.dropdown-toggle {
     display: flex !important;
     align-items: center;
     gap: 5px;
 }
 
+/* --- ICONOS SOCIALES NAVBAR --- */
+.social-icons-nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
 
+.social-icons-nav .nav-social-link i {
+    color: #ffffff !important;
+    transition: all 0.4s ease;
+}
 
+.navbar-scrolled .social-icons-nav .nav-social-link i,
+.navbar-white .social-icons-nav .nav-social-link i {
+    color: var(--dark-coffee) !important;
+}
 
-/* --- DROPDOWN PERSONALIZADO --- */
+.social-icons-nav .nav-social-link:hover i {
+    color: var(--gold) !important;
+    transform: scale(1.1);
+}
+
+.social-icons-nav a.nav-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    transition: all 0.4s ease;
+}
+
+.nav-social-link:hover {
+    transform: translateY(-2px);
+}
+
+/* --- DROPDOWN PREMIUM --- */
 @media (min-width: 992px) {
     .nav-item.dropdown:hover > .dropdown-menu {
         display: block;
@@ -242,182 +192,195 @@ body {
 }
 
 .navbar .dropdown-menu {
-    border: none;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    min-width: 240px;
-    padding: 0;
-    background-color: #ffffff !important;
     display: block;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(15px);
-    transition: all 0.3s ease;
+    transform: translateY(12px);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 260px;
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(197, 169, 110, 0.15) !important;
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(59, 48, 36, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
 }
 
 .navbar .dropdown-item {
-    padding: 15px 20px;
-    color: #4a4a4a !important;
-    background-color: #ffffff !important;
-    font-size: 0.85rem;
+    padding: 12px 24px;
+    color: var(--dark-coffee) !important;
+    background-color: transparent !important;
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
     font-weight: 500;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    letter-spacing: 0.3px;
+    text-transform: none;
+    border-bottom: none;
+    transition: all 0.25s ease;
 }
 
-.navbar .dropdown-item:first-child:hover {
-    background-color: var(--dark-coffee) !important;
+.navbar .dropdown-item:hover {
+    background-color: #FDFBF7 !important;
     color: var(--gold) !important;
-    border-top: 3px solid var(--gold);
+    padding-left: 30px;
 }
 
-.navbar .dropdown-item:not(:first-child):hover {
-    background-color: #fdfaf5 !important;
-    color: var(--dark-coffee) !important;
-    padding-left: 28px;
-
+.navbar .dropdown-divider {
+    margin: 6px 0;
+    border-color: rgba(197, 169, 110, 0.1);
+    opacity: 1;
 }
 
-
-/*-------------------------------------------------------------------------------*/
-/* Enlaces secundarios (Footer/Protección de datos) */
-.link-legal {
-    color: rgba(255, 255, 255, 0.5) !important; /* Blanco suave (text-white-50) */
-    transition: all 0.3s ease-in-out;
-    text-decoration: none !important;
-    font-size: 0.85rem;
+.nav-link.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.35em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    transition: transform 0.3s ease;
 }
 
-.link-legal:hover {
-    color: #ffffff !important; /* Blanco intenso */
-    opacity: 1 !important;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Efecto de brillo sutil */
+.nav-item.dropdown:hover .dropdown-toggle::after {
+    transform: rotate(180deg);
 }
-
-/* --- ICONOS SOCIALES --- */
-.social-icons-nav a.nav-social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 !important;
-    color: #ffffff !important;
-    transition: all 0.4s ease;
-}
-
-.navbar-scrolled .nav-social-link, .navbar-white .nav-social-link {
-    color: var(--dark-coffee) !important;
-}
-
-.nav-social-link:hover {
-    color: var(--gold) !important;
-    transform: translateY(-2px);
-}
-
-
 
 /* ============================================================
-   TARJETAS DE PLANES (CARD-MINIMAL)
+   LA LUZ — COMPONENTE CENTRAL: TARJETAS (CARD-MINIMAL)
    ============================================================ */
 
-/* Base de la tarjeta */
+/* 1. Base Común para TODAS las tarjetas minimalistas */
 .card-minimal {
-    background-color: #ffffff;
-    border: 1px solid #eee;
-    border-top: 3px solid #e0e0e0 !important; /* Borde gris por defecto */
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border-radius: 8px; /* Un toque de redondeo para suavizar */
+    background: #ffffff;
+    border-radius: 15px;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 2px solid #eef0f2 !important;
+
+    /* FIX CRUCIAL: Permitimos que elementos absolutos (badges) se muestren por fuera */
+    overflow: visible !important;
 }
 
-/* Efecto al pasar el puntero (Hover) */
-.card-minimal:hover {
+/* 2. Configuración para Tarjetas de Planes (Diseño sin Imagen Superior) */
+.card-minimal:not(.card-with-image) {
+    padding: 3rem 2.5rem !important;
+    border-top: 4px solid #dcdfe3 !important;
+}
+
+.card-minimal:not(.card-with-image):hover {
     border-top-color: var(--gold) !important;
+    border-left-color: #eef0f2 !important;
+    border-right-color: #eef0f2 !important;
+    border-bottom-color: #eef0f2 !important;
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 30px rgba(59, 48, 36, 0.08) !important;
 }
 
-/* Variante: Plan Excelencia (Destacado) */
-.card-featured {
+/* 3. Configuración para Plan Excelencia (Destacado) */
+.card-minimal.card-featured {
     background-color: #fff9f0 !important;
     border-top-color: var(--gold) !important;
     transform: scale(1.05);
     z-index: 2;
-    box-shadow: 0 10px 25px rgba(201, 169, 110, 0.1);
 }
 
-.card-featured:hover {
-    transform: scale(1.08) translateY(-5px);
-    box-shadow: 0 15px 35px rgba(201, 169, 110, 0.2) !important;
+.card-minimal.card-featured:hover {
+    transform: scale(1.07) translateY(-5px) !important;
+    box-shadow: 0 15px 35px rgba(201, 169, 110, 0.18) !important;
 }
 
-/* Elementos internos */
-.card-minimal h3 {
-    font-family: var(--font-serif);
-    color: var(--dark-coffee);
+/* 4. Variación para Tarjetas de Asistencia (Con Imagen Superior) */
+.card-minimal.card-with-image {
+    padding: 0 !important;
+    overflow: hidden !important; /* Mantiene recortadas las esquinas superiores de la foto */
 }
 
-.badge-recommended {
-    background-color: var(--gold) !important;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+.card-minimal.card-with-image .p-4 {
+    padding: 2rem 2.2rem !important;
 }
 
-.text-gold {
-    color: var(--gold) !important;
+.card-minimal.card-with-image:hover {
+    border: 2px solid var(--gold) !important;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(201, 169, 110, 0.15) !important;
 }
-/*--------------------------------------------------------------------*/
-/* PAGE SEDES */
-/* Esto solo afectará a la página de Sedes */
-/* --- TARJETAS DE INFORMACIÓN DE SEDES --- */
 
+.card-minimal.card-with-image .image-wrapper img {
+    transition: none !important;
+}
+
+.card-minimal.card-with-image:hover .image-wrapper img {
+    transform: none !important;
+}
+
+.card-with-image:hover .bi-shield-check,
+.card-with-image:hover .bi-flower1,
+.card-with-image:hover .bi-geo-alt {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* ============================================================
+   PÁGINA SEDES Y PÁGINAS LEGALES
+   ============================================================ */
 .card-info-sede {
     background: #ffffff !important;
     padding: 2.5rem;
     border-radius: 15px;
     height: 100%;
-    border-bottom: 4px solid transparent;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+    border: 2px solid #eef0f2 !important;
+    border-bottom: 4px solid #dcdfe3 !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04) !important;
 }
 
 .card-info-sede:hover {
-    border-bottom-color: var(--gold) !important; /* El borde dorado que tanto te gusta */
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
+    border: 2px solid var(--gold) !important;
+    border-bottom: 4px solid var(--gold) !important;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(201, 169, 110, 0.15) !important;
 }
 
-/* --- RECUPERAR BANNER (Imagen 2) --- */
-.sedes-header {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?&fit=crop&h=1000&w=2000&q=80") !important; /* Revisa esta ruta */
-    background-size: cover !important;
-    background-position: center !important;
+.card-info-sede:hover .bi-geo-alt-fill {
+    color: var(--gold) !important;
+    transform: scale(1.1);
+}
+
+.card-info-sede .bi-geo-alt-fill {
+    transition: all 0.3s ease;
+}
+
+.sedes-header, .legal-header {
+    background-color: var(--dark-coffee) !important;
     padding: 120px 0 80px !important;
     text-align: center;
     color: #ffffff !important;
 }
 
-.sedes-header .hero-title {
+.sedes-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?&fit=crop&h=1000&w=2000&q=80") !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+.sedes-header .hero-title, .legal-header .hero-title {
+    font-family: var(--font-serif);
     color: #ffffff !important;
 }
 
-/* --- RECUPERAR MAPA --- */
 .map-container-wrapper {
-    height: 500px !important; /* Sin esto, el mapa mide 0px y no se ve */
+    height: 500px !important;
     position: relative;
-    background-color: #eee;
+    border: 1px solid rgba(197, 168, 97, 0.2);
+    background-color: #f0f0f0;
+    overflow: hidden;
 }
 
-/*--------MAPA--------*/
-/* Contenedor principal del mapa */
-.map-container-wrapper {
-    height: 500px !important; /* Altura necesaria para que el mapa sea visible */
-    position: relative;
-    border: 1px solid rgba(197, 168, 97, 0.2); /* Borde dorado muy sutil */
-    background-color: #f0f0f0; /* Color de carga mientras abre el mapa */
-}
-
-/* El tag que dice 'Sedes Sincronizadas' */
 .map-overlay-tag {
     position: absolute;
     bottom: 30px;
@@ -429,30 +392,10 @@ body {
     border-left: 5px solid var(--gold);
 }
 
-/* Ajustes de tipografía para títulos */
-.section-title {
-    font-family: var(--font-serif);
-    font-weight: 400;
-}
-
-.section-title em {
-    font-style: italic;
-    color: var(--gold); /* Un toque de color para resaltar Cundinamarca */
-}
-
-.gold-line {
-    background-color: var(--gold) !important;
-}
-
-
-
-
-
-/* Etiquetas de datos (Dirección, Celulares, etc) */
 .info-label {
     display: block;
     font-weight: 700;
-    color: var(--gold); /* Usando el dorado de La Luz */
+    color: var(--gold);
     text-transform: uppercase;
     font-size: 0.75rem;
     letter-spacing: 1px;
@@ -461,38 +404,12 @@ body {
 }
 
 .card-info-sede p {
-    color: var(--dark-coffee); /* Café oscuro corporativo */
+    color: var(--dark-coffee);
     margin-bottom: 10px;
     line-height: 1.5;
     font-size: 0.95rem;
 }
 
-/* Línea decorativa dorada */
-.gold-line {
-    background-color: var(--gold);
-    height: 2px;
-    margin-top: 10px;
-}
-
-
-/* ==========================================================================
-   SECCIÓN: PÁGINAS LEGALES Y SEDES (RECUPERACIÓN DE DISEÑO)
-   ========================================================================== */
-
-/* 1. Encabezados (Header Oscuro) */
-.legal-header, .sedes-header {
-    background-color: var(--dark-coffee) !important;
-    padding: 100px 0 60px !important;
-    text-align: center;
-    color: #ffffff !important;
-}
-
-.legal-header .hero-title, .sedes-header .hero-title {
-    font-family: var(--font-serif);
-    color: #ffffff !important;
-}
-
-/* 2. El Botón Ovalado (Fix de tamaño) */
 .btn-volver {
     display: inline-flex !important;
     align-items: center;
@@ -504,9 +421,36 @@ body {
     transition: all 0.3s ease;
 }
 
-/* 3. El Contenedor del Mapa */
-.map-container-wrapper {
-    height: 500px !important; /* Altura fija para que no se colapse */
-    position: relative;
-    overflow: hidden;
+/* ============================================================
+   UTILIDADES VISUALES Y BOTONES PREMIUM
+   ============================================================ */
+.text-gold { color: var(--gold) !important; }
+.badge-recommended {
+    background-color: var(--gold) !important;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+.gold-line {
+    background-color: var(--gold) !important;
+    height: 2px;
+    margin-top: 10px;
+}
+.section-padding { padding: 100px 0; }
+.section-title { font-family: var(--font-serif); font-weight: 400; }
+.section-title em { font-style: italic; color: var(--gold); }
+
+.link-legal {
+    color: rgba(255, 255, 255, 0.5) !important;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none !important;
+    font-size: 0.85rem;
+}
+.link-legal:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+    .section-padding { padding: 60px 0; }
 }

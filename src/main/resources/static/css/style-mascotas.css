@@ -3,7 +3,7 @@
    ============================================================ */
 
 .section-padding {
-    padding: 180px 0;
+    padding: 140px 0 100px 0;
 }
 
 /* --- TIPOGRAFÍA Y TEXTOS --- */
@@ -21,7 +21,7 @@
     font-family: var(--font-serif);
     color: var(--dark-coffee);
     font-weight: 800 !important;
-    font-size: 3.8rem; /* Valor mejorado */
+    font-size: 3.8rem;
     line-height: 1.05;
     letter-spacing: -1px;
 }
@@ -68,7 +68,7 @@
 /* --- TARJETAS DE PLANES (BENEFIT CARDS) --- */
 .benefit-card {
     background: #ffffff;
-    padding: 35px;
+    padding: 28px 30px; /* Reducido de 35px para compactar verticalmente */
     border-radius: 15px;
     border: 1px solid rgba(0,0,0,0.04);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -76,37 +76,38 @@
 }
 
 .benefit-card .icon-box {
-    width: 55px;
-    height: 55px;
+    width: 50px; /* Ajuste sutil de tamaño */
+    height: 50px;
     background: rgba(197, 160, 89, 0.1);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 25px;
+    margin-bottom: 18px; /* Reducido de 25px */
     color: var(--gold);
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     transition: all 0.3s ease;
 }
 
 .benefit-card h6 {
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     color: var(--dark-coffee);
-    margin-bottom: 20px;
+    margin-bottom: 15px; /* Reducido de 20px */
 }
 
+/* === ANIMACIÓN AL PASAR EL PUNTERO (HOVER) === */
 .benefit-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(59, 48, 36, 0.1) !important;
-    border-color: var(--gold);
+    transform: translateY(-10px); /* Eleva la tarjeta suavemente */
+    box-shadow: 0 25px 50px rgba(59, 48, 36, 0.1) !important; /* Añade la sombra profunda */
+    border-color: var(--gold); /* Destaca el borde con el color dorado */
 }
 
 .benefit-card:hover .icon-box {
-    background: var(--gold);
-    color: #ffffff;
+    background: var(--gold); /* Pinta el fondo del icono de dorado */
+    color: #ffffff; /* Cambia el icono interno a blanco */
 }
 
 /* --- LISTAS DE BENEFICIOS (CHECKMARKS) --- */
@@ -117,28 +118,28 @@
 }
 
 .plan-list li {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: #555;
-    margin-bottom: 12px;
-    padding-left: 28px;
+    margin-bottom: 8px; /* Reducido de 12px para ganar espacio */
+    padding-left: 25px;
     position: relative;
     font-weight: 500;
 }
 
 .plan-list li::before {
-    content: "\F26A"; /* Bootstrap Icons Check */
+    content: "\F26A";
     font-family: "bootstrap-icons";
     color: var(--gold);
     position: absolute;
     left: 0;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     top: 2px;
 }
 
 /* --- BOTÓN CALL TO ACTION --- */
 .btn-gold-outline {
     display: inline-block;
-    padding: 16px 40px;
+    padding: 14px 36px; /* Un poco más estilizado */
     border: 2px solid var(--gold);
     color: var(--dark-coffee);
     text-decoration: none;
@@ -148,7 +149,7 @@
     letter-spacing: 2px;
     border-radius: 6px;
     transition: all 0.3s ease;
-    margin-top: 20px;
+    margin-top: 10px; /* Reducido de 20px */
 }
 
 .btn-gold-outline:hover {
@@ -156,7 +157,17 @@
     color: #ffffff;
 }
 
-/* --- RESPONSIVE --- */
+/* --- ENFOQUE ESCRITORIO (SUBIR AMBOS CONTENEDORES) --- */
+@media (min-width: 992px) {
+    .image-wrapper {
+        margin-top: 80px; /* Sube la foto de forma limpia sin repetir propiedades base */
+    }
+    .content-mascotas {
+        margin-top: 80px; /* Nivele el texto a la misma altura exacta */
+    }
+}
+
+/* --- RESPONSIVE MÓVIL --- */
 @media (max-width: 991px) {
     .section-padding { padding: 120px 0 60px 0; }
     .image-wrapper { height: 450px; margin-bottom: 40px; }

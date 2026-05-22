@@ -35,6 +35,14 @@
     text-align: center;
 }
 
+.btn-solid-gold, .btn-outline-dark {
+    font-size: 16px;          /* Ajusta al tamaño que desees */
+    font-weight: 600;         /* Para que tengan el mismo grosor */
+    padding: 12px 24px;       /* Unifica el relleno interno */
+    line-height: normal;      /* Asegura que el texto no varíe por altura de línea */
+    font-family: inherit;     /* Asegura que usen la misma fuente del sitio */
+}
+
 .btn-solid-gold:hover {
     background-color: var(--dark-coffee) !important;
     color: #ffffff !important;
@@ -57,7 +65,9 @@
     border: 2px solid var(--dark-coffee) !important;
     border-radius: 50px !important;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     text-decoration: none;
 }
@@ -188,3 +198,30 @@
     border-color: var(--dark-coffee);
     transform: translateY(-3px);
 }
+/*--------------------------------------------------------------------*/
+/*Botón WhatsApp*/
+.btn-whatsapp-fixed {
+    position: fixed;
+    bottom: 20px;       /* Distancia desde abajo */
+    right: 20px;        /* Distancia desde la derecha */
+    width: 60px;
+    height: 60px;
+    background-color: #25d366; /* Verde oficial de WhatsApp */
+    color: #fff !important;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;    /* Tamaño del icono */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 9999;      /* Se asegura de estar por encima de todo el contenido */
+    transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el cursor (Hover) */
+.btn-whatsapp-fixed:hover {
+    background-color: #20ba5a;
+    transform: scale(1.1); /* Se agranda un poco */
+    color: #fff;
+}
+/*--------------------------------------------------------------------*/
