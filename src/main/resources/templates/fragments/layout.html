@@ -70,17 +70,10 @@
                        th:classappend="${currentUri != null && currentUri.contains('servicios')} ? 'active-gold' : ''">
                     Servicios</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" th:href="@{/servicios/atencion-inmediata}">Atención Inmediata</a>
-                        </li>
-                        <li><a class="dropdown-item" th:href="@{/servicios/tradicionales}">Servicios Tradicionales</a>
-                        </li>
-                        <li><a class="dropdown-item" th:href="@{/servicios/personalizados}">Servicios Personalizados</a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" th:href="@{/servicios/internacionales}">Servicios
-                            Internacionales</a></li>
+                        <li><a class="dropdown-item" th:href="@{/servicios/atencion-inmediata}">Atención Inmediata</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" th:href="@{/servicios/tradicionales}">Servicios Tradicionales</a></li>
+                        <li><a class="dropdown-item" th:href="@{/servicios/internacionales}">Servicios Internacionales</a></li>
                         <li><a class="dropdown-item" th:href="@{/servicios/conmemoraciones}">Conmemoraciones</a></li>
                     </ul>
                 </li>
@@ -179,7 +172,8 @@
 
         <div class="row align-items-center pt-3">
             <div class="col-md-6 text-center text-md-start">
-                <p class="small text-white-50 mb-0">© 2026 Asistencia Integral. Todos los derechos reservados.</p>
+<!--                <p class="small text-white-50 mb-0">© 2026 Asistencia Integral. Todos los derechos reservados.</p>-->
+                <p class="small text-white-50 mb-0">© 2026 Andrés Contreras. Todos los derechos reservados.</p>
             </div>
             <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
                 <a th:href="@{/proteccion-datos}" class="link-legal"
