@@ -4,55 +4,67 @@
 </head>
 <body class="bg-light d-flex flex-column min-vh-100">
 
-<div th:replace="~{fragments/layout :: navbar(isWhite=true)}"></div>
-
 <section class="position-relative d-flex align-items-center"
-         style="min-height: 55vh; background: linear-gradient(rgba(36, 48, 40, 0.65), rgba(36, 48, 40, 0.65)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover; margin-top: 76px;">
+         th:style="|min-height: 55vh; background: linear-gradient(rgba(36, 48, 40, 0.65), rgba(36, 48, 40, 0.65)), url('@{/img/portada-conmemoraciones.jpg}') center/cover; margin-top: 76px;|">
     <div class="container text-center text-white py-5">
-        <h6 class="text-uppercase tracking-widest mb-3" style="color: var(--gold); letter-spacing: 3px; font-weight: 600;" data-aos="fade-down">
+
+        <h6 class="text-uppercase tracking-widest mb-3"
+            style="color: var(--gold); letter-spacing: 3px; font-weight: 600;" data-aos="fade-down">
             Servicios Exclusivos
         </h6>
-        <h1 class="display-3 fw-light mb-3" style="font-family: var(--font-serif);" data-aos="fade-up" data-aos-delay="100">
+        <h1 class="display-3 fw-light mb-3" style="font-family: var(--font-serif);" data-aos="fade-up"
+            data-aos-delay="100">
             Conmemoraciones y Homenajes
         </h1>
-        <p class="lead max-w-2xl mx-auto mb-4 text-white-50" style="max-width: 600px;" data-aos="fade-up" data-aos-delay="200">
+        <p class="lead max-w-2xl mx-auto mb-4 text-white-50" style="max-width: 600px;" data-aos="fade-up"
+           data-aos-delay="200">
             Honramos la historia de sus seres queridos con la dignidad, el respeto y la excelencia que merecen.
         </p>
         <div data-aos="fade-up" data-aos-delay="300">
-            <a href="#contacto" class="btn btn-gold rounded-0 px-4 py-3 me-2 text-uppercase fw-bold shadow-sm" style="background-color: var(--gold); color: #fff; border: 1px solid var(--gold); transition: all 0.3s;">
+            <a href="#contacto" class="btn btn-gold rounded-0 px-4 py-3 me-2 text-uppercase fw-bold shadow-sm"
+               style="background-color: var(--gold); color: #fff; border: 1px solid var(--gold); transition: all 0.3s;">
                 Solicitar Asesoría
             </a>
-            <a href="tel:018000" class="btn btn-outline-light rounded-0 px-4 py-3 text-uppercase fw-bold">
+            <a href="tel:+576017462112" class="btn btn-outline-light rounded-0 px-4 py-3 text-uppercase fw-bold">
                 Línea de Emergencia
             </a>
         </div>
     </div>
 </section>
 
+<div th:replace="~{fragments/layout :: navbar(isWhite=true)}"></div>
+
 <section class="py-5 bg-white">
     <div class="container py-4">
         <div class="row align-items-center g-5">
             <div class="col-lg-6" data-aos="fade-right">
                 <span class="text-muted text-uppercase small tracking-widest d-block mb-2">— Calidez Humana</span>
-                <h2 class="mb-4 display-6" style="color: var(--dark-coffee); font-family: var(--font-serif); font-weight: 400;">
+                <h2 class="mb-4 display-6"
+                    style="color: var(--dark-coffee); font-family: var(--font-serif); font-weight: 400;">
                     Un acompañamiento integral en los momentos que más importa
                 </h2>
                 <p class="text-muted mb-4" style="line-height: 1.8; text-align: justify;">
-                    Sabemos que la pérdida de un ser querido es uno de los desafíos más difíciles de la vida. Nuestro servicio de atención inmediata está diseñado para mitigar cualquier carga logística, legal y operativa, permitiendo que usted y su familia se enfoquen en lo verdaderamente importante: recordar y honrar su legado.
+                    Sabemos que la pérdida de un ser querido es uno de los desafíos más difíciles de la vida. Nuestro
+                    servicio de atención inmediata está diseñado para mitigar cualquier carga logística, legal y
+                    operativa, permitiendo que usted y su familia se enfoquen en lo verdaderamente importante: recordar
+                    y honrar su legado.
                 </p>
                 <p class="text-muted mb-4" style="line-height: 1.8; text-align: justify;">
-                    Desde la primera llamada, un Coordinador de Homenajes de <strong>La Luz</strong> se hará cargo de todo el proceso con absoluta empatía, distinción y transparencia.
+                    Desde la primera llamada, un Coordinador de Homenajes de <strong>La Luz</strong> se hará cargo de
+                    todo el proceso con absoluta empatía, distinción y transparencia.
                 </p>
                 <div class="d-flex align-items-center gap-3 mt-4">
-                    <a href="tel:018000" class="btn btn-outline-dark rounded-0 px-4 py-2 d-inline-flex align-items-center gap-2 fw-bold small">
+                    <a href="tel:+576017462112"
+                       class="btn btn-outline-dark rounded-0 px-4 py-2 d-inline-flex align-items-center gap-2 fw-bold small">
                         <i class="bi bi-telephone-fill" style="color: var(--gold);"></i> ASISTENCIA INMEDIATA 24/7
                     </a>
                 </div>
             </div>
             <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
                 <div class="position-relative p-3">
-                    <div class="position-absolute border border-2 top-0 start-0 w-100 h-100" style="border-color: var(--gold) !important; transform: translate(-10px, -10px); z-index: 0;"></div>
-                    <img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    <div class="position-absolute border border-2 top-0 start-0 w-100 h-100"
+                         style="border-color: var(--gold) !important; transform: translate(-10px, -10px); z-index: 0;"></div>
+                    <img th:src="@{/img/ceremonia2.png}"
                          alt="Atención Inmediata La Luz"
                          class="img-fluid position-relative shadow"
                          style="width: 100%; height: 420px; object-fit: cover; z-index: 1;">
@@ -62,47 +74,73 @@
     </div>
 </section>
 
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
 <section class="py-5 bg-light" style="background-color: #fbfaf8;">
     <div class="container py-4">
         <div class="text-center mb-5" data-aos="fade-up">
-            <h3 class="display-6" style="color: var(--dark-coffee); font-family: var(--font-serif);">¿Qué incluye nuestra Conmemoración?</h3>
+            <h3 class="display-6" style="color: var(--dark-coffee); font-family: var(--font-serif);">¿Qué incluye
+                nuestra Conmemoración?</h3>
             <p class="text-muted">Servicios detallados para garantizar una despedida digna y sin preocupaciones.</p>
             <div class="mx-auto mt-3" style="width: 60px; height: 2px; background-color: var(--gold);"></div>
         </div>
 
-        <ul class="nav nav-tabs justify-content-center border-0 mb-4" id="servicesTab" role="tablist" data-aos="fade-up">
+        <ul class="nav nav-tabs justify-content-center border-0 mb-4" id="servicesTab" role="tablist"
+            data-aos="fade-up">
             <li class="nav-item" role="presentation">
-                <button class="nav-link active rounded-0 text-uppercase px-4 py-3 border-0 fw-bold small text-dark" id="inicial-tab" data-bs-toggle="tab" data-bs-target="#inicial" type="button" role="tab" aria-controls="inicial" aria-selected="true">
+                <button class="nav-link active rounded-0 text-uppercase px-4 py-3 border-0 fw-bold small text-dark"
+                        id="inicial-tab" data-bs-toggle="tab" data-bs-target="#inicial" type="button" role="tab"
+                        aria-controls="inicial" aria-selected="true">
                     1. Fase Inicial y Legal
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link rounded-0 text-uppercase px-4 py-3 border-0 fw-bold small text-dark" id="velacion-tab" data-bs-toggle="tab" data-bs-target="#velacion" type="button" role="tab" aria-controls="velacion" aria-selected="false">
+                <button class="nav-link rounded-0 text-uppercase px-4 py-3 border-0 fw-bold small text-dark"
+                        id="velacion-tab" data-bs-toggle="tab" data-bs-target="#velacion" type="button" role="tab"
+                        aria-controls="velacion" aria-selected="false">
                     2. Velación y Homenaje
                 </button>
             </li>
             <li class="nav-item" role="presentation">
-                <button class="nav-link rounded-0 text-uppercase px-4 py-3 border-0 fw-bold small text-dark" id="destino-tab" data-bs-toggle="tab" data-bs-target="#destino" type="button" role="tab" aria-controls="destino" aria-selected="false">
+                <button class="nav-link rounded-0 text-uppercase px-4 py-3 border-0 fw-bold small text-dark"
+                        id="destino-tab" data-bs-toggle="tab" data-bs-target="#destino" type="button" role="tab"
+                        aria-controls="destino" aria-selected="false">
                     3. Destino Final
                 </button>
             </li>
         </ul>
 
-        <div class="tab-content bg-white p-4 p-md-5 shadow-sm border border-light" id="servicesTabContent" data-aos="fade-up" data-aos-delay="100">
+        <div class="tab-content bg-white p-4 p-md-5 shadow-sm border border-light" id="servicesTabContent"
+             data-aos="fade-up" data-aos-delay="100">
 
             <div class="tab-pane fade show active" id="inicial" role="tabpanel" aria-labelledby="inicial-tab">
                 <div class="row g-4 align-items-center">
                     <div class="col-md-6">
-                        <h4 class="mb-3" style="font-family: var(--font-serif); color: var(--dark-coffee);">Diligencia y Respeto Inmediato</h4>
-                        <p class="text-muted">Nos encargamos de toda la tramitología oficial y la preservación bajo los más altos estándares de calidad.</p>
+                        <h4 class="mb-3" style="font-family: var(--font-serif); color: var(--dark-coffee);">Diligencia y
+                            Respeto Inmediato</h4>
+                        <p class="text-muted">Nos encargamos de toda la tramitología oficial y la preservación bajo los
+                            más altos estándares de calidad.</p>
                         <ul class="list-unstyled space-y-2 text-muted">
-                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Trámites Legales:</strong> Gestión de licencias de inhumación/cremación y registros.</li>
-                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Traslado Nacional:</strong> Transporte del cuerpo desde el lugar de fallecimiento en carrozas fúnebres especializadas.</li>
-                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Tanatopraxia:</strong> Preparación científica y estética realizada por profesionales certificados.</li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Trámites
+                                Legales:</strong> Gestión de licencias de inhumación/cremación y registros.
+                            </li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Traslado
+                                Nacional:</strong> Transporte del cuerpo desde el lugar de fallecimiento en carrozas
+                                fúnebres especializadas.
+                            </li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i>
+                                <strong>Tanatopraxia:</strong> Preparación científica y estética realizada por
+                                profesionales certificados.
+                            </li>
                         </ul>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <i class="bi bi-file-earmark-medical display-1 text-muted opacity-50"></i>
+                    <div class="col-md-6">
+                        <div class="image-wrapper" style="height: 350px; overflow: hidden; border-radius: 10px;">
+                            <img th:src="@{/img/papeleo.png}"
+                                 class="img-fluid w-100 h-100"
+                                 style="object-fit: cover;"
+                                 alt="Gestión de trámites iniciales">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,16 +148,32 @@
             <div class="tab-pane fade" id="velacion" role="tabpanel" aria-labelledby="velacion-tab">
                 <div class="row g-4 align-items-center">
                     <div class="col-md-6">
-                        <h4 class="mb-3" style="font-family: var(--font-serif); color: var(--dark-coffee);">Espacios de Paz y Recordación</h4>
-                        <p class="text-muted">Salas diseñadas para propiciar la oración, el recogimiento familiar y el acompañamiento de amigos allegados.</p>
+                        <h4 class="mb-3" style="font-family: var(--font-serif); color: var(--dark-coffee);">Espacios de
+                            Paz y Recordación</h4>
+                        <p class="text-muted">Salas diseñadas para propiciar la oración, el recogimiento familiar y el
+                            acompañamiento de amigos allegados.</p>
                         <ul class="list-unstyled space-y-2 text-muted">
-                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Salas Premium:</strong> Infraestructura cómoda, ambientes climatizados y servicio de cafetería.</li>
-                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Cofre Fúnebre:</strong> Selección de maderas finas y acabados metálicos elegantes adaptados al plan.</li>
-                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Detalles Conmemorativos:</strong> Arreglos florales, libro de firmas y asesoría en cartelería digital.</li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Salas
+                                Premium:</strong> Infraestructura cómoda, ambientes climatizados y servicio de
+                                cafetería.
+                            </li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Cofre
+                                Fúnebre:</strong> Selección de maderas finas y acabados metálicos elegantes adaptados al
+                                plan.
+                            </li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Detalles
+                                Conmemorativos:</strong> Arreglos florales, libro de firmas y asesoría en cartelería
+                                digital.
+                            </li>
                         </ul>
                     </div>
                     <div class="col-md-6 text-center">
-                        <i class="bi bi-heart-fill display-1 text-muted opacity-50" style="color: var(--gold) !important;"></i>
+                        <div class="image-wrapper" style="height: 350px; overflow: hidden; border-radius: 10px;">
+                            <img th:src="@{/img/sala4.png}"
+                                 class="img-fluid w-100 h-100"
+                                 style="object-fit: cover;"
+                                 alt="Gestión de trámites iniciales">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -127,16 +181,29 @@
             <div class="tab-pane fade" id="destino" role="tabpanel" aria-labelledby="destino-tab">
                 <div class="row g-4 align-items-center">
                     <div class="col-md-6">
-                        <h4 class="mb-3" style="font-family: var(--font-serif); color: var(--dark-coffee);">El Descanso Eterno</h4>
-                        <p class="text-muted">Coordinamos el último paso con solemnidad, ajustándonos a las creencias y voluntades de la familia.</p>
+                        <h4 class="mb-3" style="font-family: var(--font-serif); color: var(--dark-coffee);">El Descanso
+                            Eterno</h4>
+                        <p class="text-muted">Coordinamos el último paso con solemnidad, ajustándonos a las creencias y
+                            voluntades de la familia.</p>
                         <ul class="list-unstyled space-y-2 text-muted">
-                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Cremación:</strong> Servicio automatizado en parques cementerios aliados, entrega de urna cenizaria.</li>
-                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Inhumación:</strong> Gestión de lote o bóveda asignada y asistencia protocolaria durante el entierro.</li>
-                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Ceremonia Exequial:</strong> Coordinación litúrgica o laica antes de la disposición final.</li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Cremación:</strong>
+                                Servicio automatizado en parques cementerios aliados, entrega de urna cenizaria.
+                            </li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Inhumación:</strong>
+                                Gestión de lote o bóveda asignada y asistencia protocolaria durante el entierro.
+                            </li>
+                            <li class="mb-2"><i class="bi bi-check2 text-success me-2"></i> <strong>Ceremonia
+                                Exequial:</strong> Coordinación litúrgica o laica antes de la disposición final.
+                            </li>
                         </ul>
                     </div>
-                    <div class="col-md-6 text-center">
-                        <i class="bi bi-brightness-high display-1 text-muted opacity-50"></i>
+                    <div class="col-md-6">
+                        <div class="image-wrapper" style="height: 350px; overflow: hidden; border-radius: 10px;">
+                            <img th:src="@{/img/ceremonia.png}"
+                                 class="img-fluid w-100 h-100"
+                                 style="object-fit: cover;"
+                                 alt="Gestión de trámites iniciales">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -144,6 +211,10 @@
         </div>
     </div>
 </section>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------------------->
+
+
 
 <section id="contacto" class="py-5 bg-white">
     <div class="container py-4">
@@ -234,7 +305,7 @@
 
 <style>
     .nav-tabs .nav-link.active {
-        background-color: #white !important;
+        background-color: white !important;
         border-bottom: 3px solid var(--gold) !important;
         color: var(--dark-coffee) !important;
     }

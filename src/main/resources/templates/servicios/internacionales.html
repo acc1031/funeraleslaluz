@@ -6,7 +6,7 @@
 <div th:replace="~{fragments/layout :: navbar(isWhite=true)}"></div>
 
 <section class="position-relative d-flex align-items-center justify-content-center"
-         style="height: 45vh; background: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=2070&q=80') center/cover; margin-top: 76px;">
+         style="height: 45vh; background: url('/img/repatriacion.jpg') center/cover; margin-top: 76px;">
     <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(180deg, rgba(36, 48, 40, 0.75) 0%, rgba(20, 28, 23, 0.85) 100%);"></div>
     <div class="container position-relative text-center text-white" data-aos="fade-up">
         <h6 class="text-uppercase tracking-widest mb-2 fw-semibold" style="color: var(--gold); letter-spacing: 3px; font-size: 0.85rem;">Cobertura Global</h6>
@@ -116,7 +116,7 @@
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
                 <div class="card-portfolio h-100 position-relative border-0 shadow-sm overflow-hidden">
                     <div class="img-wrapper" style="height: 200px; overflow: hidden;">
-                        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80&w=800"
+                        <img th:src="@{/img/Homenaje2.png}"
                              class="img-fluid w-100 h-100 portfolio-img" style="object-fit: cover;" alt="Homenajes de Vida">
                     </div>
                     <div class="p-4 bg-white">
@@ -148,7 +148,7 @@
     <div class="container py-3" data-aos="fade-up">
         <h4 class="fw-normal mb-2" style="font-family: var(--font-serif); font-size: 1.8rem;">¿Requiere una Repatriación Inmediata?</h4>
         <p class="text-white-50 small mb-4">Central de atención global disponible las 24 horas del día, los 365 días del año.</p>
-        <a href="tel:018000" class="btn-emergencia-intl text-uppercase">
+        <a href="tel:+576017462112" class="btn-emergencia-intl text-uppercase">
             <i class="bi bi-telephone-outbound me-2"></i> Contactar Coordinador Central
         </a>
     </div>

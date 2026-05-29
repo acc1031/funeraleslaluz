@@ -66,15 +66,16 @@
     height: 8px;
     background: var(--gold);
 }
-/*------------------------------------------------------------------------------------------------*/
-/* --- CARRUSEL ALIADOS ESTRATEGICOS (RECUADRO PREMIUM AUTOMATIZADO) --- */
+/* ============================================================
+   CARRUSEL INFALIBLE DE ALIADOS ESTRATÉGICOS
+   ============================================================ */
 
-.section-allies-wrapper { /* ← CORREGIDO: Añadido el punto (.) */
+.section-allies-wrapper {
     display: block;
     clear: both;
-    margin-top: 40px !important; /* ← CALIBRADO: Margen perfecto respecto al Hero */
-    padding-top: 40px;
-    padding-bottom: 30px;
+    margin-top: 0 !important;
+    padding-top: 60px;
+    padding-bottom: 65px;
     background-color: #fdfbf7;   /* Fondo crema general de la sección */
 }
 
@@ -84,7 +85,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    overflow: hidden; /* Oculta los logos que se salen de la pantalla */
 
     /* El Recuadro Atractivo de borde a borde */
     background: #ffffff;
@@ -118,9 +119,11 @@
     background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
 }
 
+/* EL RIEL: Contiene los 15 logos en total (3 tandas de 5) */
 .allies-track {
     display: flex;
-    width: calc(250px * 15); /* Espacio total optimizado para tus 15 logos clonados */
+    /* Ancho exacto: 250px por cada uno de los 15 logos */
+    width: calc(250px * 15);
     animation: scrollInfinite 25s linear infinite; /* Velocidad constante y fluida */
     will-change: transform;
 }
@@ -145,12 +148,22 @@
     transform: scale(1.1);
 }
 
+/* Pausar animación cuando abres el modal o pasas el cursor */
 .allies-slider:hover .allies-track {
     animation-play-state: paused;
 }
 
-
-
+/* MATEMÁTICA EXACTA: Al completarse el primer bloque de 5 logos (250px * 5 = 1250px),
+   la animación se resetea al 0% instantáneamente. Al ser idéntico al tercer bloque,
+   el ojo humano no percibe el salto. */
+@keyframes scrollInfinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-250px * 5));
+    }
+}
 
 
 /* --- NUEVA ARQUITECTURA TIPOGRÁFICA Y DIRECCIÓN DE ARTE --- */

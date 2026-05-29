@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+
 @Controller
 public class ContactoController {
 
@@ -17,6 +18,7 @@ public class ContactoController {
 
     @PostMapping("/contacto/enviar")
     public String enviarFormulario(@ModelAttribute EmailContacto contacto, RedirectAttributes redirectAttrs) {
+
         try {
             // Delegamos todo al servicio: Guardar en BD y Enviar Email
             emailService.procesarNuevaSolicitud(
@@ -25,6 +27,7 @@ public class ContactoController {
                     contacto.getEmail(),
                     contacto.getMensaje()
             );
+
 
             redirectAttrs.addFlashAttribute("mensajeExito", "Tu solicitud ha sido enviada. Un asesor se comunicará contigo pronto.");
 

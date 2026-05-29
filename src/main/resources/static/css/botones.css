@@ -225,3 +225,43 @@
     color: #fff;
 }
 /*--------------------------------------------------------------------*/
+/*Botón de tradicionales*/
+/* --- BOTÓN DE ATENCIÓN TELEFÓNICA PREMIUM --- */
+.btn-laluz-phone {
+    font-size: 1rem;
+    background-color: var(--dark-coffee, #2b231f) !important;
+    border: 1px solid var(--dark-coffee, #2b231f) !important;
+    color: #ffffff !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* El ícono interno */
+.btn-laluz-phone .icon-phone {
+    color: var(--gold);
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+/* EFECTO HOVER (Al poner el puntero encima) */
+.btn-laluz-phone:hover {
+    background-color: transparent !important;
+    color: var(--dark-coffee, #2b231f) !important;
+    border-color: var(--dark-coffee, #2b231f) !important;
+    transform: translateY(-4px); /* Elevación elegante */
+    box-shadow: 0 10px 20px rgba(59, 48, 36, 0.15) !important;
+}
+
+/* Al cambiar el fondo a transparente, el ícono pasa a ser café oscuro */
+.btn-laluz-phone:hover .icon-phone {
+    color: var(--dark-coffee, #2b231f);
+    transform: scale(1.15) rotate(-10deg); /* Pequeño pulso de atención */
+}
+
+/* Efecto al hacer click */
+.btn-laluz-phone:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(59, 48, 36, 0.1) !important;
+}
+/*--------------------------------------------------------------------*/
