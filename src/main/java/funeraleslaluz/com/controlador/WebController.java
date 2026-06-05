@@ -30,12 +30,6 @@ public class WebController {
         return "prevision-empresarial";
     }
 
-    @GetMapping("/obituarios")
-    public String verObituarios(Model model) {
-        model.addAttribute("obituarios", asistenciaService.obtenerObituariosRecientes());
-        return "obituarios";
-    }
-
 
     @GetMapping("/mascotas")
     public String verMascotas() {

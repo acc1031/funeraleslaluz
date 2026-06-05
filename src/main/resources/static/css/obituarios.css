@@ -1,0 +1,587 @@
+:root {
+    /* Paleta Oficial del Manual de Marca */
+    --brand-green: #004C45;        /* Pantone 3302C - Verde Institucional */
+    --brand-gold: #C48F30;         /* Pantone 7510C - Ocre/Dorado Principal */
+    --brand-dark-brown: #4A2D00;   /* Pantone 4625C - Café Profundo */
+    --brand-medium-brown: #91611E; /* Pantone 1395C - Café Medio */
+    --brand-light-gold: #EACB8D;   /* Pantone 7403C - Dorado Claro/Crema */
+
+    /* Mapeo Sincronizado para el Panel de Obituarios */
+    --laluz-dark: var(--brand-dark-brown);
+    --laluz-gold: var(--brand-gold);
+    --laluz-text: #555e70;
+    --laluz-bg: #fdfbf7;           /* Fondo crema premium uniforme */
+    --laluz-card-bg: #ffffff;
+    --border-radius: 12px;
+}
+
+/* ============================================================
+   1. HERO
+   ============================================================ */
+.obituarios-hero {
+    height: 50vh;
+    min-height: 320px;
+    margin-top: 120px;
+}
+
+/* ============================================================
+   2. PANEL PÚBLICO
+   ============================================================ */
+.obituarios-panel {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 60px 20px;
+}
+
+.panel-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.panel-header h2 {
+    font-family: 'Lora', serif;
+    color: var(--laluz-dark);
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.panel-header p {
+    color: #718096;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.search-container {
+    max-width: 500px;
+    margin: 0 auto 35px auto;
+    position: relative;
+    padding: 0 5px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 13px 20px;
+    padding-right: 50px;
+    border: 1px solid #e2e8f0;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+    border-color: var(--laluz-gold);
+    box-shadow: 0 4px 12px rgba(196, 143, 48, 0.15); /* Sombra suavizada con el nuevo ocre */
+}
+
+/* ============================================================
+   3. GRID DE OBITUARIOS Y TARJETAS
+   ============================================================ */
+.obituarios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 25px;
+}
+
+.obituario-card {
+    background-color: var(--laluz-card-bg);
+    border-radius: var(--border-radius);
+    padding: 28px 22px;
+    box-shadow: 0 4px 20px rgba(74, 45, 0, 0.03); /* Sombra sutil basada en el café oscuro */
+    border: 1px solid #edf2f7;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.obituario-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(196, 143, 48, 0.3);
+    box-shadow: 0 10px 25px rgba(196, 143, 48, 0.08);
+}
+
+.card-top-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.card-spark {
+    background: transparent;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.card-spark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.deceased-name {
+    font-family: 'Lora', serif;
+    font-size: 1.35rem;
+    color: var(--laluz-dark);
+    margin-bottom: 6px;
+    font-weight: 500;
+    line-height: 1.3;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.deceased-dates {
+    font-size: 0.8rem;
+    color: var(--laluz-gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.service-details {
+    border-top: 1px dashed #e2e8f0;
+    border-bottom: 1px dashed #e2e8f0;
+    padding: 15px 0;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 0.88rem;
+}
+
+.detail-row {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: baseline;
+}
+
+.detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    font-weight: 500;
+    color: var(--laluz-dark);
+    width: 80px;
+    flex-shrink: 0;
+}
+
+.detail-value {
+    color: #64748b;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-grow: 1;
+}
+
+.obituario-quote {
+    font-style: italic;
+    margin-bottom: 24px;
+    color: #64748b;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.btn-condolencia {
+    display: inline-block;
+    width: 100%;
+    padding: 11px;
+    background-color: transparent;
+    border: 1px solid var(--laluz-gold); /* Actualizado a Dorado para mayor finura visual */
+    color: var(--brand-medium-brown);
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-condolencia:hover {
+    background-color: var(--brand-gold);
+    color: white;
+    border-color: var(--brand-gold);
+    box-shadow: 0 4px 12px rgba(196, 143, 48, 0.2);
+}
+
+/* ============================================================
+   4. BANNER PREVISIÓN (ACTUALIZADO CON EL VERDE INSTITUCIONAL)
+   ============================================================ */
+.prevision-banner-container .row {
+    min-height: 180px;
+}
+
+.mobile-banner-img {
+    height: 220px;
+}
+
+.btn-prevision-action {
+    background-color: var(--brand-green) !important; /* Cambiado el naranja por el Verde de Marca */
+    border-color: var(--brand-green) !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.btn-prevision-action:hover {
+    background-color: #003631 !important; /* Verde más oscuro de la misma gama */
+    border-color: #003631 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 76, 69, 0.25) !important;
+}
+
+/* ============================================================
+   5. PANEL ADMINISTRATIVO
+   ============================================================ */
+.cards-panel {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e2e8f0;
+    padding: 24px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.cards-panel .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+    text-align: left;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 2px;
+}
+
+.obit-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    text-align: left;
+}
+
+.obit-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--brand-gold);
+    box-shadow: 0 10px 20px rgba(196, 143, 48, 0.05);
+}
+
+.card-top-bar-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.card-btn-delete {
+    color: #ef4444;
+    background: #fef2f2;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.card-btn-delete:hover {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.card-name {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--laluz-dark);
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-date {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--laluz-gold);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+
+.card-details {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 14px;
+}
+
+.card-details .detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+    gap: 10px;
+}
+
+.card-details .detail-row:last-child {
+    margin-bottom: 0;
+}
+
+.card-details .detail-key {
+    font-weight: 500;
+    color: #64748b;
+    flex-shrink: 0;
+}
+
+.card-details .detail-val {
+    color: var(--laluz-dark);
+    font-weight: 500;
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-quote {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #64748b;
+    line-height: 1.4;
+    margin-bottom: 18px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.card-btn {
+    flex: 1;
+    text-align: center;
+    padding: 9px 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    background: #f1f5f9;
+    color: #334155;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.card-btn:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.card-btn-edit {
+    background: var(--brand-green); /* Cambiado a Verde Institucional para consistencia */
+    color: #ffffff;
+}
+
+.card-btn-edit:hover {
+    background: #003631;
+    color: #ffffff;
+}
+
+/* ============================================================
+   6. MEDIA QUERIES
+   ============================================================ */
+@media (min-width: 768px) {
+    .mobile-banner-img {
+        height: 100% !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .obituarios-hero {
+        margin-top: 120px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .obituarios-hero {
+        margin-top: 90px;
+        height: 45vh;
+        min-height: 280px;
+    }
+
+    .obituarios-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* AJUSTES RESPONSIVOS EN MÓVIL */
+@media (max-width: 767.98px) {
+    .obituarios-hero {
+        height: 50vw;
+        min-height: 240px;
+        margin-top: 90px;
+    }
+
+    .obituarios-hero h1 {
+        font-size: 1.8rem !important;
+    }
+
+    .obituarios-hero .lead {
+        font-size: 0.88rem;
+    }
+
+    .obituarios-panel {
+        padding: 20px 12px 40px 12px;
+    }
+
+    .search-container {
+        margin-bottom: 24px;
+    }
+
+    .search-container input {
+        padding: 11px 16px;
+        font-size: 0.9rem;
+    }
+
+    .prevision-banner-container .row {
+        flex-direction: column !important;
+        min-height: auto;
+    }
+
+    .prevision-banner-container .col-md-6:first-child img {
+        height: 190px !important;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .prevision-banner-container .col-md-6.col-lg-5,
+    .prevision-banner-container [class*="col-md-6"][class*="col-lg-5"] {
+        padding: 20px !important;
+    }
+
+    .prevision-banner-container h4 {
+        font-size: 1rem !important;
+    }
+
+    .obituarios-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .obituario-card {
+        padding: 24px 18px;
+    }
+
+    .deceased-name {
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+    }
+
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+        margin-bottom: 12px;
+    }
+
+    .detail-label {
+        width: 100%;
+        font-size: 0.78rem;
+        text-transform: uppercase;
+        color: var(--laluz-gold);
+        letter-spacing: 0.5px;
+    }
+
+    .detail-value {
+        width: 100%;
+        white-space: normal;
+        color: var(--laluz-dark);
+        font-weight: 500;
+    }
+
+    .cards-panel {
+        padding: 16px;
+    }
+
+    .cards-panel .panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .obit-card {
+        padding: 16px;
+        min-height: auto;
+    }
+
+    .card-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .card-btn {
+        width: 100%;
+        padding: 11px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .obituarios-hero h1 {
+        font-size: 1.4rem !important;
+    }
+
+    .obituarios-hero .lead {
+        font-size: 0.8rem;
+    }
+
+    .btn-condolencia {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+}

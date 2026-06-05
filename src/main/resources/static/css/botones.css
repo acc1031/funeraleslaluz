@@ -1,33 +1,38 @@
-
 /*--------------------------------------------------------------------*/
-/* BOTONES */
+/* BOTONES - MANUAL DE MARCA SINCRO */
 
-/* Definición de variables para facilitar cambios futuros */
 :root {
-    --gold-primary: #c5a861; /* El dorado que ya usas */
-    --gold-dark: #b38e45;
-    --dark-coffee: #3d2b1f;
-}
+    /* Paleta Oficial del Manual de Marca */
+    --brand-green: #004C45;        /* Pantone 3302C - Verde Institucional */
+    --brand-gold: #C48F30;         /* Pantone 7510C - Ocre/Dorado Principal */
+    --brand-dark-brown: #4A2D00;   /* Pantone 4625C - Café Profundo */
+    --brand-medium-brown: #91611E; /* Pantone 1395C - Café Medio */
+    --brand-light-gold: #EACB8D;   /* Pantone 7403C - Dorado Claro/Crema */
 
+    /* Mapeos de compatibilidad para herencia de código antiguo */
+    --gold-primary: var(--brand-gold);
+    --gold: var(--brand-gold);
+    --gold-dark: var(--brand-medium-brown);
+    --dark-coffee: var(--brand-dark-brown);
+}
 
 /* Estilo para los botones rectangulares del Hero */
 .btn-premium {
-    border-radius: 4px !important; /* Mantiene el cuadro de la imagen 91a821.png */
+    border-radius: 4px !important;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
     text-decoration: none !important;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 2rem; /* Espaciado interno consistente */
+    padding: 1rem 2rem;
 }
 
 /* Clase global para todos los botones dorados */
-/* Estilo base para el botón dorado */
 .btn-solid-gold {
     background-color: var(--gold) !important;
     color: white !important;
     border: none !important;
-    border-radius: 50px !important; /* Esto da la forma de la imagen */
+    border-radius: 50px !important;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: flex;
     align-items: center;
@@ -36,27 +41,27 @@
 }
 
 .btn-solid-gold, .btn-outline-dark {
-    font-size: 16px;          /* Ajusta al tamaño que desees */
-    font-weight: 600;         /* Para que tengan el mismo grosor */
-    padding: 12px 24px;       /* Unifica el relleno interno */
-    line-height: normal;      /* Asegura que el texto no varíe por altura de línea */
-    font-family: inherit;     /* Asegura que usen la misma fuente del sitio */
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 24px;
+    line-height: normal;
+    font-family: inherit;
+    text-transform: uppercase; /* Toque elegante corporativo */
+    letter-spacing: 0.5px;
 }
 
 .btn-solid-gold:hover {
-    background-color: var(--dark-coffee) !important;
+    background-color: var(--dark-coffee) !important; /* Transición suave a Café Profundo */
     color: #ffffff !important;
     transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(74, 45, 0, 0.15) !important;
 }
 
-/* Efecto opcional: Pulso al hacer clic */
+/* Pulso al hacer clic */
 .btn-solid-gold:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 5px 10px rgba(74, 45, 0, 0.2) !important;
 }
-
-/* Botón Dorado */
-
 
 /* Estilo base para el botón blanco con borde café */
 .btn-outline-dark {
@@ -74,12 +79,11 @@
 
 /* Animación al pasar el puntero (Hover) */
 .btn-outline-dark:hover {
-    background-color: var(--dark-coffee) !important; /* Cambia el fondo a café */
-    color: #ffffff !important;                       /* Cambia la letra a blanca */
-    transform: translateY(-3px);                    /* Efecto de elevación */
-    box-shadow: 0 8px 15px rgba(61, 43, 31, 0.2) !important;
+    background-color: var(--dark-coffee) !important;
+    color: #ffffff !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(74, 45, 0, 0.15) !important; /* Sombra calibrada con Café Profundo */
 }
-
 
 /* Botón Blanco con Borde (Ver Homenajes) */
 .btn-outline-white-hero {
@@ -94,14 +98,12 @@
     border-color: var(--dark-coffee) !important;
     color: #ffffff !important;
     transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2) !important;
 }
 
-
-/*Boton Sedes*/
-/* Botón para fondos claros (como la sección de sedes) */
+/* Botón Sedes */
 .btn-cafe-outline {
     background-color: transparent !important;
-    /* Cambiamos a café oscuro para que se vea sobre fondo blanco */
     color: var(--dark-coffee) !important;
     border: 2px solid var(--dark-coffee) !important;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
@@ -112,11 +114,11 @@
 }
 
 .btn-cafe-outline:hover {
-    color: #ffffff !important; /* Blanco intenso al pasar el puntero */
-    background-color: var(--dark-coffee) !important; /* Se llena de café */
+    color: #ffffff !important;
+    background-color: var(--dark-coffee) !important;
     border-color: var(--dark-coffee) !important;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 15px rgba(74, 45, 0, 0.15);
 }
 
 /* Animación de la flecha */
@@ -125,42 +127,40 @@
 }
 
 .btn-cafe-outline:hover i {
-    transform: translateX(5px); /* La flecha se mueve a la derecha */
+    transform: translateX(5px);
 }
-/*--------------------------------------------------------------------*/
-/*BOTON PRIVACIDAD DE DATOS*/
 
-/* Estilo para el botón de retorno (Imagen 1) */
+/*--------------------------------------------------------------------*/
+/* BOTÓN PRIVACIDAD DE DATOS */
 .btn-volver {
-    /* Estructura y Tamaño */
-    display: inline-flex !important; /* Evita que ocupe el 100% del ancho */
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    padding: 10px 35px !important; /* Más espacio a los lados para que sea ovalado */
-    min-width: 200px; /* Tamaño mínimo para que se vea consistente */
+    padding: 10px 35px !important;
+    min-width: 200px;
 
-    /* Colores y Borde (Basado en la Identidad de La Luz) */
+    /* Colores corporativos */
     background-color: transparent !important;
     color: var(--dark-coffee) !important;
     border: 1.5px solid var(--dark-coffee) !important;
 
-    /* Tipografía y Estética */
     text-transform: uppercase;
     font-weight: 600;
     font-size: 0.85rem;
     text-decoration: none !important;
     transition: all 0.3s ease;
+    border-radius: 50px; /* Asegura suavidad visual */
 }
 
 .btn-volver:hover {
     background-color: var(--dark-coffee) !important;
     color: #ffffff !important;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(74, 45, 0, 0.12);
 }
+
 /*--------------------------------------------------------------------*/
-/* CONTACTO.HTML*/
-/* Botón Publicitario de Conversión */
+/* CONTACTO.HTML */
 .btn-gold-advert {
     background-color: var(--gold);
     color: white !important;
@@ -176,17 +176,19 @@
 .btn-gold-advert:hover {
     background-color: var(--dark-coffee);
     transform: scale(1.03);
+    box-shadow: 0 6px 15px rgba(74, 45, 0, 0.15);
 }
 
 /*--------------------------------------------------------------------*/
-/* MASCOTA*/
-/* Botones */
+/* MASCOTAS */
 .btn-gold-pet {
     background-color: var(--gold);
     color: white !important;
     padding: 15px 40px;
     border-radius: 8px;
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     text-decoration: none;
     display: inline-block;
     transition: all 0.3s ease;
@@ -197,71 +199,69 @@
     background-color: var(--dark-coffee) !important;
     border-color: var(--dark-coffee);
     transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(74, 45, 0, 0.15);
 }
+
 /*--------------------------------------------------------------------*/
-/*Botón WhatsApp*/
+/* BOTÓN WHATSAPP FIXED (Mantiene verde nativo por usabilidad) */
 .btn-whatsapp-fixed {
     position: fixed;
-    bottom: 20px;       /* Distancia desde abajo */
-    right: 20px;        /* Distancia desde la derecha */
+    bottom: 20px;
+    right: 20px;
     width: 60px;
     height: 60px;
-    background-color: #25d366; /* Verde oficial de WhatsApp */
+    background-color: #25d366;
     color: #fff !important;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;    /* Tamaño del icono */
+    font-size: 32px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    z-index: 9999;      /* Se asegura de estar por encima de todo el contenido */
+    z-index: 9999;
     transition: all 0.3s ease;
 }
 
-/* Efecto al pasar el cursor (Hover) */
 .btn-whatsapp-fixed:hover {
     background-color: #20ba5a;
-    transform: scale(1.1); /* Se agranda un poco */
+    transform: scale(1.1);
     color: #fff;
 }
+
 /*--------------------------------------------------------------------*/
-/*Botón de tradicionales*/
-/* --- BOTÓN DE ATENCIÓN TELEFÓNICA PREMIUM --- */
+/* BOTÓN DE ATENCIÓN TELEFÓNICA PREMIUM */
 .btn-laluz-phone {
     font-size: 1rem;
-    background-color: var(--dark-coffee, #2b231f) !important;
-    border: 1px solid var(--dark-coffee, #2b231f) !important;
+    background-color: var(--dark-coffee) !important;
+    border: 1px solid var(--dark-coffee) !important;
     color: #ffffff !important;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
     position: relative;
     overflow: hidden;
 }
 
-/* El ícono interno */
+/* El ícono interno toma el ocre de la marca */
 .btn-laluz-phone .icon-phone {
     color: var(--gold);
     transition: transform 0.3s ease;
     display: inline-block;
 }
 
-/* EFECTO HOVER (Al poner el puntero encima) */
 .btn-laluz-phone:hover {
     background-color: transparent !important;
-    color: var(--dark-coffee, #2b231f) !important;
-    border-color: var(--dark-coffee, #2b231f) !important;
-    transform: translateY(-4px); /* Elevación elegante */
-    box-shadow: 0 10px 20px rgba(59, 48, 36, 0.15) !important;
+    color: var(--dark-coffee) !important;
+    border-color: var(--dark-coffee) !important;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(74, 45, 0, 0.15) !important;
 }
 
-/* Al cambiar el fondo a transparente, el ícono pasa a ser café oscuro */
 .btn-laluz-phone:hover .icon-phone {
-    color: var(--dark-coffee, #2b231f);
-    transform: scale(1.15) rotate(-10deg); /* Pequeño pulso de atención */
+    color: var(--dark-coffee);
+    transform: scale(1.15) rotate(-10deg);
 }
 
-/* Efecto al hacer click */
 .btn-laluz-phone:active {
     transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(59, 48, 36, 0.1) !important;
+    box-shadow: 0 4px 8px rgba(74, 45, 0, 0.1) !important;
 }
 /*--------------------------------------------------------------------*/

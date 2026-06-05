@@ -1,12 +1,12 @@
 /* ============================================================
-   LA LUZ — SECCIÓN MASCOTAS (VERSIÓN FINAL LIMPIA)
+   LA LUZ — SECCIÓN MASCOTAS
    ============================================================ */
 
 .section-padding {
-    padding: 140px 0 100px 0;
+    padding: 160px 0 100px 0;
 }
 
-/* --- TIPOGRAFÍA Y TEXTOS --- */
+/* --- TIPOGRAFÍA --- */
 .label-gold {
     color: var(--gold);
     text-transform: uppercase;
@@ -37,7 +37,7 @@
     font-size: 1.1rem;
 }
 
-/* --- IMÁGENES Y BADGES --- */
+/* --- IMAGEN Y BADGE --- */
 .image-wrapper {
     position: relative;
     border-radius: 20px;
@@ -54,6 +54,13 @@
     transform: scale(1.05);
 }
 
+/* Altura del carousel: controlada por clase, no inline */
+.carousel-img {
+    height: 600px;
+    object-fit: cover;
+    width: 100%;
+}
+
 .floating-badge-brown {
     position: absolute;
     bottom: 0;
@@ -65,10 +72,10 @@
     z-index: 10;
 }
 
-/* --- TARJETAS DE PLANES (BENEFIT CARDS) --- */
+/* --- BENEFIT CARDS --- */
 .benefit-card {
     background: #ffffff;
-    padding: 28px 30px; /* Reducido de 35px para compactar verticalmente */
+    padding: 28px 30px;
     border-radius: 15px;
     border: 1px solid rgba(0,0,0,0.04);
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -76,14 +83,14 @@
 }
 
 .benefit-card .icon-box {
-    width: 50px; /* Ajuste sutil de tamaño */
+    width: 50px;
     height: 50px;
     background: rgba(197, 160, 89, 0.1);
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 18px; /* Reducido de 25px */
+    margin-bottom: 18px;
     color: var(--gold);
     font-size: 1.4rem;
     transition: all 0.3s ease;
@@ -95,22 +102,21 @@
     font-size: 0.95rem;
     font-weight: 700;
     color: var(--dark-coffee);
-    margin-bottom: 15px; /* Reducido de 20px */
+    margin-bottom: 15px;
 }
 
-/* === ANIMACIÓN AL PASAR EL PUNTERO (HOVER) === */
 .benefit-card:hover {
-    transform: translateY(-10px); /* Eleva la tarjeta suavemente */
-    box-shadow: 0 25px 50px rgba(59, 48, 36, 0.1) !important; /* Añade la sombra profunda */
-    border-color: var(--gold); /* Destaca el borde con el color dorado */
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(59, 48, 36, 0.1) !important;
+    border-color: var(--gold);
 }
 
 .benefit-card:hover .icon-box {
-    background: var(--gold); /* Pinta el fondo del icono de dorado */
-    color: #ffffff; /* Cambia el icono interno a blanco */
+    background: var(--gold);
+    color: #ffffff;
 }
 
-/* --- LISTAS DE BENEFICIOS (CHECKMARKS) --- */
+/* --- LISTA DE PLANES --- */
 .plan-list {
     list-style: none;
     padding: 0;
@@ -120,7 +126,7 @@
 .plan-list li {
     font-size: 0.9rem;
     color: #555;
-    margin-bottom: 8px; /* Reducido de 12px para ganar espacio */
+    margin-bottom: 8px;
     padding-left: 25px;
     position: relative;
     font-weight: 500;
@@ -136,10 +142,10 @@
     top: 2px;
 }
 
-/* --- BOTÓN CALL TO ACTION --- */
+/* --- BOTÓN CTA --- */
 .btn-gold-outline {
     display: inline-block;
-    padding: 14px 36px; /* Un poco más estilizado */
+    padding: 14px 36px;
     border: 2px solid var(--gold);
     color: var(--dark-coffee);
     text-decoration: none;
@@ -149,7 +155,7 @@
     letter-spacing: 2px;
     border-radius: 6px;
     transition: all 0.3s ease;
-    margin-top: 10px; /* Reducido de 20px */
+    margin-top: 10px;
 }
 
 .btn-gold-outline:hover {
@@ -157,19 +163,141 @@
     color: #ffffff;
 }
 
-/* --- ENFOQUE ESCRITORIO (SUBIR AMBOS CONTENEDORES) --- */
+/* ============================================================
+   DESKTOP — sube imagen y texto al mismo nivel
+   ============================================================ */
 @media (min-width: 992px) {
     .image-wrapper {
-        margin-top: 80px; /* Sube la foto de forma limpia sin repetir propiedades base */
+        margin-top: 80px;
     }
     .content-mascotas {
-        margin-top: 80px; /* Nivele el texto a la misma altura exacta */
+        margin-top: 80px;
     }
 }
 
-/* --- RESPONSIVE MÓVIL --- */
-@media (max-width: 991px) {
-    .section-padding { padding: 120px 0 60px 0; }
-    .image-wrapper { height: 450px; margin-bottom: 40px; }
-    .display-serif { font-size: 2.8rem; }
+/* ============================================================
+   TABLET (768px – 991px)
+   ============================================================ */
+@media (max-width: 991.98px) {
+    .section-padding {
+        padding: 110px 0 60px 0;
+    }
+
+    .display-serif {
+        font-size: 2.8rem;
+    }
+
+    /* Imagen a altura media en tablet */
+    .carousel-img {
+        height: 420px;
+    }
+
+    .image-wrapper {
+        margin-bottom: 40px;
+    }
+}
+
+/* ============================================================
+   MÓVIL (< 768px)
+   ============================================================ */
+@media (max-width: 767.98px) {
+    .section-padding {
+        padding: 100px 0 50px 0;
+    }
+
+    /* Título más compacto */
+    .display-serif {
+        font-size: 2rem;
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+    }
+
+    .lead {
+        font-size: 0.95rem !important;
+    }
+
+    /* Imagen carousel reducida */
+    .carousel-img {
+        height: 280px;
+    }
+
+    .image-wrapper {
+        margin-bottom: 30px;
+        border-radius: 12px;
+    }
+
+    /* Badge más compacto */
+    .floating-badge-brown {
+        padding: 12px 20px;
+        border-radius: 0 16px 0 0;
+    }
+
+    .floating-badge-brown .bi-paw-fill {
+        font-size: 1.4rem !important;
+    }
+
+    .floating-badge-brown h5 {
+        font-size: 0.95rem;
+    }
+
+    .floating-badge-brown p {
+        font-size: 0.72rem !important;
+    }
+
+    /* Tarjetas lado a lado en móvil grande, apiladas en pequeño */
+    .benefit-card {
+        padding: 20px 18px;
+    }
+
+    .benefit-card .icon-box {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+
+    .benefit-card h6 {
+        font-size: 0.82rem;
+        margin-bottom: 10px;
+    }
+
+    .plan-list li {
+        font-size: 0.82rem;
+        margin-bottom: 6px;
+    }
+
+    /* Botón full-width en móvil */
+    .btn-gold-outline {
+        display: block;
+        text-align: center;
+        padding: 13px 20px;
+        font-size: 0.8rem;
+    }
+
+    /* Quita el gap grande entre columnas en móvil */
+    .row.g-5 {
+        --bs-gutter-y: 1.5rem;
+    }
+}
+
+/* ============================================================
+   MÓVIL MUY PEQUEÑO (< 400px)
+   ============================================================ */
+@media (max-width: 400px) {
+    .display-serif {
+        font-size: 1.7rem;
+    }
+
+    .carousel-img {
+        height: 220px;
+    }
+
+    /* Apila las tarjetas en pantallas muy pequeñas */
+    .col-sm-6 {
+        width: 100% !important;
+    }
+
+    .benefit-card {
+        padding: 16px 14px;
+    }
 }

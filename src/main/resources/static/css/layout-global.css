@@ -1,19 +1,32 @@
 /* ============================================================
-   LA LUZ — LAYOUT GLOBAL (NAVBAR & ESTRUCTURA)
+   LA LUZ — LAYOUT GLOBAL (NAVBAR, ESTRUCTURA Y NUEVA TIPOGRAFÍA)
    ============================================================ */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&family=Roboto:wght@300;400;500&display=swap');
+/* Importación oficial de la tipografía Serif del manual de marca */
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap');
 
 :root {
-    --gold: #C9A96E;
-    --dark-coffee: #3B3024;
+    /* Paleta Corporativa Oficial */
+    --brand-dark-brown: #4A2D00;   /* Pantone 4625C - Café Profundo */
+    --brand-medium-brown: #91611E; /* Pantone 1395C - Café Medio */
+    --brand-gold: #C48F30;         /* Pantone 7510C - Ocre/Dorado Principal */
+    --brand-light-gold: #EACB8D;   /* Pantone 7403C - Dorado Claro/Crema */
+    --brand-green: #004C45;        /* Pantone 3302C - Verde Institucional */
+    --brand-light-green: #E3ECEA;  /* Verde Claro Grisáceo - Fondo Footer */
+
+    /* Sistema Tipográfico Oficial (Sincronizado con image_9a5573.png) */
+    --font-serif: 'ZCOOL XiaoWei', serif;
+    --font-sans: 'Begun SANS', 'Montserrat', sans-serif;
+
+    /* Mapeo de Variables del Layout */
+    --gold: var(--brand-gold);
+    --dark-coffee: var(--brand-dark-brown);
     --dark: #0F0F0F;
     --cream: #F9F7F2;
-    --font-serif: 'Cormorant Garamond', serif;
-    --font-sans: 'Montserrat', sans-serif;
 }
 
 body {
     font-family: var(--font-sans);
+    font-weight: 400; /* Corresponde a Begun SANS Regular */
     background-color: var(--cream);
     color: var(--dark);
     margin: 0;
@@ -24,7 +37,7 @@ body {
    LA LUZ — NAVBAR MASTER CONFIG (DISEÑO PROFESIONAL)
    ============================================================ */
 .navbar {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);
     position: fixed;
     width: 100%;
     top: 0;
@@ -54,6 +67,10 @@ body {
     padding-right: 5% !important;
 }
 
+.logo-container, .social-container {
+    min-width: 220px;
+}
+
 /* --- LOGOS --- */
 .navbar .nav-logo {
     width: auto;
@@ -63,23 +80,19 @@ body {
 
 .navbar .nav-logo:hover {
     transform: scale(1.05) !important;
-    filter: brightness(1.1) drop-shadow(0 0 8px rgba(201, 169, 110, 0.2));
-}
-
-.navbar .nav-logo:active {
-    transform: scale(0.95) !important;
+    filter: brightness(1.1) drop-shadow(0 0 8px rgba(196, 143, 48, 0.2));
 }
 
 .logo-light {
     display: block !important;
-    height: 70px !important;
+    height: 62px !important;
     transform: translate(0px, 2px) !important;
     margin-left: 20px !important;
 }
 
 .logo-dark {
     display: none !important;
-    height: 90px !important;
+    height: 80px !important;
     transform: translate(0px, 0px) !important;
 }
 
@@ -90,27 +103,24 @@ body {
 .navbar-nav {
     display: flex !important;
     align-items: center !important;
-    gap: 35px;
+    gap: 15px;
     margin: 0 auto !important;
 }
 
 .navbar .nav-link {
+    font-family: var(--font-sans);
     color: #ffffff !important;
     font-size: 0.85rem !important;
     letter-spacing: 0.5px;
-    font-weight: 500 !important;
-    text-transform: none;
-    padding: 0 !important;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+    font-weight: 600 !important; /* Mapea a Begun SANS Semibold */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
     position: relative;
-    display: inline-block !important;
-    width: fit-content !important;
     transition: all 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link.active-gold {
-    color: #c5a059 !important;
+    color: var(--gold) !important;
 }
 
 .navbar-scrolled .nav-link,
@@ -131,54 +141,25 @@ body {
     transform: translateX(-50%);
 }
 
-.navbar .nav-link:hover::after {
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active-gold::after {
     width: 25px !important;
-    opacity: 1 !important;
-    visibility: visible !important;
 }
 
 .nav-link.dropdown-toggle::after {
-    content: none !important;
+    display: none ;
+    margin-left: 0.35em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    transition: transform 0.3s ease;
 }
 
-.nav-link.dropdown-toggle {
-    display: flex !important;
-    align-items: center;
-    gap: 5px;
-}
-
-/* --- ICONOS SOCIALES NAVBAR --- */
-.social-icons-nav {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.social-icons-nav .nav-social-link i {
-    color: #ffffff !important;
-    transition: all 0.4s ease;
-}
-
-.navbar-scrolled .social-icons-nav .nav-social-link i,
-.navbar-white .social-icons-nav .nav-social-link i {
-    color: var(--dark-coffee) !important;
-}
-
-.social-icons-nav .nav-social-link:hover i {
-    color: var(--gold) !important;
-    transform: scale(1.1);
-}
-
-.social-icons-nav a.nav-social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 !important;
-    transition: all 0.4s ease;
-}
-
-.nav-social-link:hover {
-    transform: translateY(-2px);
+.nav-item.dropdown:hover .dropdown-toggle::after {
+    transform: rotate(180deg);
 }
 
 /* --- DROPDOWN PREMIUM --- */
@@ -199,25 +180,20 @@ body {
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     min-width: 260px;
     padding: 10px 0;
-    background: rgba(255, 255, 255, 0.96) !important;
+    background: rgba(255, 255, 255, 0.98) !important;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(197, 169, 110, 0.15) !important;
-    border-radius: 14px;
-    box-shadow: 0 15px 35px rgba(59, 48, 36, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
-    overflow: hidden;
+    border: 1px solid rgba(196, 143, 48, 0.15) !important;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(74, 45, 0, 0.08);
 }
 
 .navbar .dropdown-item {
-    padding: 12px 24px;
-    color: var(--dark-coffee) !important;
-    background-color: transparent !important;
     font-family: var(--font-sans);
-    font-size: 0.88rem;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-    text-transform: none;
-    border-bottom: none;
+    padding: 10px 24px;
+    color: var(--dark-coffee) !important;
+    font-size: 0.85rem;
+    font-weight: 500; /* Mapea a Begun SANS Medium */
     transition: all 0.25s ease;
 }
 
@@ -229,104 +205,334 @@ body {
 
 .navbar .dropdown-divider {
     margin: 6px 0;
-    border-color: rgba(197, 169, 110, 0.1);
-    opacity: 1;
+    border-color: rgba(196, 143, 48, 0.1);
 }
 
-.nav-link.dropdown-toggle::after {
-    display: inline-block;
-    margin-left: 0.35em;
-    vertical-align: 0.255em;
-    content: "";
-    border-top: 0.3em solid;
-    border-right: 0.3em solid transparent;
-    border-bottom: 0;
-    border-left: 0.3em solid transparent;
-    transition: transform 0.3s ease;
+/* --- ICONOS SOCIALES NAVBAR --- */
+.social-icons-nav .nav-social-link i {
+    color: #ffffff !important;
+    transition: all 0.3s ease;
 }
 
-.nav-item.dropdown:hover .dropdown-toggle::after {
-    transform: rotate(180deg);
+.navbar-scrolled .social-icons-nav .nav-social-link i,
+.navbar-white .social-icons-nav .nav-social-link i {
+    color: var(--dark-coffee) !important;
+}
+
+.social-icons-nav .nav-social-link:hover i {
+    color: var(--gold) !important;
+    transform: translateY(-2px);
+}
+
+/* --- WHATSAPP FIX BUTTON --- */
+.btn-whatsapp-fixed {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white !important;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 999;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.btn-whatsapp-fixed:hover {
+    transform: scale(1.1);
+    background-color: #20ba59;
 }
 
 /* ============================================================
-   LA LUZ — COMPONENTE CENTRAL: TARJETAS (CARD-MINIMAL)
+   LA LUZ — CONFIGURACIÓN TIPOGRÁFICA DEL FOOTER INSTITUCIONAL
    ============================================================ */
+.footer-brand-title {
+    font-family: var(--font-serif); /* Cambiado a ZCOOL XiaoWei */
+    font-size: 2.2rem;
+    color: var(--brand-green) !important;
+    letter-spacing: 1px;
+}
 
-/* 1. Base Común para TODAS las tarjetas minimalistas */
+.footer-section-title {
+    font-family: var(--font-sans); /* Cambiado a Begun SANS */
+    font-size: 1rem;
+    color: var(--brand-green) !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600; /* Begun SANS Semibold */
+}
+
+.footer-info-list li {
+    font-family: var(--font-sans);
+    font-weight: 300; /* Begun SANS Light para bloques densos de información */
+    line-height: 1.6;
+    color: var(--dark-coffee);
+}
+
+.link-legal {
+    font-family: var(--font-sans);
+    color: var(--brand-green) !important;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none !important;
+    font-size: 0.85rem;
+    font-weight: 600; /* Begun SANS Semibold */
+}
+
+.link-legal:hover {
+    color: var(--gold) !important;
+}
+
+.footer-credits-link {
+    font-family: var(--font-sans);
+    color: var(--brand-green) !important;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* ============================================================
+   NAVBAR MÓVIL — MENÚ MEJORADO (ACTUALIZADO A BLANCO PREMIUM)
+   ============================================================ */
+@media (max-width: 991.98px) {
+    body {
+        padding-top: 90px !important;
+    }
+
+    .navbar,
+    .navbar-scrolled,
+    .navbar-white,
+    .navbar-transparent {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 90px !important;
+        min-height: 90px !important;
+        max-height: 90px !important;
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        background-image: none !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
+        z-index: 99999 !important;
+        transform: none !important;
+        display: flex !important;
+        align-items: center !important;
+        padding: 0 !important;
+        overflow: visible !important;
+    }
+
+    .navbar .container-fluid {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        height: 90px !important;
+        min-height: 90px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .logo-container {
+        min-width: auto !important;
+        width: auto !important;
+        height: 90px !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        flex-shrink: 0 !important;
+    }
+
+    .logo-light { display: none !important; }
+
+    .logo-dark {
+        display: block !important;
+        height: 75px !important;
+        width: auto !important;
+        object-fit: contain !important;
+        transform: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        vertical-align: middle !important;
+    }
+
+    .navbar-toggler {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: 1px solid rgba(196, 143, 48, 0.4) !important;
+        padding: 6px 10px !important;
+        margin: 0 !important;
+        background-color: transparent !important;
+        height: auto !important;
+        align-self: center !important;
+        flex-shrink: 0 !important;
+        z-index: 100000 !important;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 3px rgba(196, 143, 48, 0.2) !important;
+    }
+
+    /* Fondo del contenedor colapsable cambiado de Café a Blanco Premium */
+    .navbar-collapse {
+        background: #ffffff !important;
+        position: fixed !important;
+        top: 90px !important;
+        left: 0 !important;
+        width: 100% !important;
+        padding: 0 !important;
+        box-shadow: 0 15px 35px rgba(74, 45, 0, 0.08) !important;
+        border-top: 2px solid var(--gold) !important;
+        max-height: calc(100vh - 90px) !important;
+        overflow-y: auto !important;
+        z-index: 99998 !important;
+    }
+
+    .navbar-nav {
+        align-items: center !important;
+        gap: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 12px 0 !important;
+    }
+
+    /* Separadores de ítems adaptados a contraste sobre fondo blanco */
+    .navbar-nav .nav-item {
+        width: 100% !important;
+        text-align: center !important;
+        border-bottom: 1px solid rgba(196, 143, 48, 0.1) !important;
+    }
+
+    .navbar-nav .nav-item:last-of-type {
+        border-bottom: none !important;
+    }
+
+    /* Links principales cambiados de blanco a café oscuro corporativo */
+    .navbar .nav-link {
+        color: var(--dark-coffee) !important;
+        text-shadow: none !important;
+        padding: 16px 24px !important;
+        width: 100% !important;
+        font-size: 0.9rem !important;
+        font-weight: 500 !important; /* Begun SANS Medium */
+        letter-spacing: 0.5px !important;
+        display: block !important;
+        text-align: center !important;
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link.active-gold {
+        color: var(--gold) !important;
+        background: rgba(196, 143, 48, 0.05) !important;
+    }
+
+    .navbar .nav-link::after {
+        display: none !important;
+    }
+
+    /* Submenús desplegables en móvil con sutil fondo crema para jerarquía */
+    .navbar .dropdown-menu {
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: relative !important;
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+        background: #FDFBF7 !important;
+        transform: none !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        backdrop-filter: none !important;
+        display: none !important;
+        max-height: 0 !important;
+        overflow: hidden !important;
+        transition: max-height 0.3s ease !important;
+    }
+
+    .navbar .dropdown-menu.show {
+        display: block !important;
+        max-height: 400px !important;
+    }
+
+    /* Sub-ítems cambiados a café oscuro para legibilidad perfecta */
+    .navbar .dropdown-item {
+        color: var(--dark-coffee) !important;
+        font-size: 0.85rem !important;
+        font-weight: 400 !important;
+        padding: 12px 24px !important;
+        text-align: center !important;
+        border-bottom: none !important;
+    }
+
+    .navbar .dropdown-item:hover {
+        color: var(--gold) !important;
+        background: rgba(196, 143, 48, 0.05) !important;
+        padding-left: 24px !important;
+    }
+
+    .navbar .dropdown-divider {
+        border-color: rgba(196, 143, 48, 0.1) !important;
+        margin: 2px 24px !important;
+    }
+
+    .navbar-nav .nav-item.dropdown > .nav-link::before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 4px;
+        background: var(--gold);
+        border-radius: 50%;
+        margin-right: 8px;
+        vertical-align: middle;
+        opacity: 0.7;
+    }
+
+    /* Sección de redes sociales móvil adaptada al fondo claro */
+    .social-icons-mobile {
+        border-top: 1px solid rgba(196, 143, 48, 0.15) !important;
+        padding: 20px 0 !important;
+        margin-top: 8px !important;
+    }
+
+    .social-icons-mobile .nav-social-link i {
+        color: #004C45 !important; /* Preserva el color verde institucional solicitado previamente */
+        font-size: 1.3rem !important;
+    }
+
+    .social-icons-mobile .nav-social-link:hover i {
+        color: var(--gold) !important;
+    }
+}
+
+/* ============================================================
+   TARJETAS, SEDES Y ARQUITECTURA TIPOGRÁFICA EDITORIAL
+   ============================================================ */
 .card-minimal {
     background: #ffffff;
     border-radius: 15px;
     height: 100%;
     transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     border: 2px solid #eef0f2 !important;
-
-    /* FIX CRUCIAL: Permitimos que elementos absolutos (badges) se muestren por fuera */
-    overflow: visible !important;
+    overflow: hidden !important;
 }
 
-/* 2. Configuración para Tarjetas de Planes (Diseño sin Imagen Superior) */
-.card-minimal:not(.card-with-image) {
+.card-minimal:not(.card-featured) {
     padding: 3rem 2.5rem !important;
     border-top: 4px solid #dcdfe3 !important;
 }
 
-.card-minimal:not(.card-with-image):hover {
+.card-minimal:not(.card-featured):hover {
     border-top-color: var(--gold) !important;
-    border-left-color: #eef0f2 !important;
-    border-right-color: #eef0f2 !important;
-    border-bottom-color: #eef0f2 !important;
     transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(59, 48, 36, 0.08) !important;
+    box-shadow: 0 12px 30px rgba(74, 45, 0, 0.08) !important;
 }
 
-/* 3. Configuración para Plan Excelencia (Destacado) */
-.card-minimal.card-featured {
-    background-color: #fff9f0 !important;
-    border-top-color: var(--gold) !important;
-    transform: scale(1.05);
-    z-index: 2;
-}
-
-.card-minimal.card-featured:hover {
-    transform: scale(1.07) translateY(-5px) !important;
-    box-shadow: 0 15px 35px rgba(201, 169, 110, 0.18) !important;
-}
-
-/* 4. Variación para Tarjetas de Asistencia (Con Imagen Superior) */
-.card-minimal.card-with-image {
-    padding: 0 !important;
-    overflow: hidden !important; /* Mantiene recortadas las esquinas superiores de la foto */
-}
-
-.card-minimal.card-with-image .p-4 {
-    padding: 2rem 2.2rem !important;
-}
-
-.card-minimal.card-with-image:hover {
-    border: 2px solid var(--gold) !important;
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(201, 169, 110, 0.15) !important;
-}
-
-.card-minimal.card-with-image .image-wrapper img {
-    transition: none !important;
-}
-
-.card-minimal.card-with-image:hover .image-wrapper img {
-    transform: none !important;
-}
-
-.card-with-image:hover .bi-shield-check,
-.card-with-image:hover .bi-flower1,
-.card-with-image:hover .bi-geo-alt {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
-
-/* ============================================================
-   PÁGINA SEDES Y PÁGINAS LEGALES
-   ============================================================ */
 .card-info-sede {
     background: #ffffff !important;
     padding: 2.5rem;
@@ -335,30 +541,25 @@ body {
     border: 2px solid #eef0f2 !important;
     border-bottom: 4px solid #dcdfe3 !important;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.04) !important;
+}
+
+/* --- ESTILO BASE PARA LOS ÍCONOS DE LAS SEDES --- */
+.card-info-sede i {
+    color: var(--brand-green, #004C45) !important; /* Verde oficial por defecto */
+    transition: color 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important; /* Transición suave */
+    display: inline-block;
 }
 
 .card-info-sede:hover {
     border: 2px solid var(--gold) !important;
     border-bottom: 4px solid var(--gold) !important;
     transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(201, 169, 110, 0.15) !important;
+    box-shadow: 0 15px 35px rgba(196, 143, 48, 0.15) !important;
 }
 
-.card-info-sede:hover .bi-geo-alt-fill {
-    color: var(--gold) !important;
-    transform: scale(1.1);
-}
-
-.card-info-sede .bi-geo-alt-fill {
-    transition: all 0.3s ease;
-}
-
-.sedes-header, .legal-header {
-    background-color: var(--dark-coffee) !important;
-    padding: 120px 0 80px !important;
-    text-align: center;
-    color: #ffffff !important;
+/* El ícono cambia a dorado al mismo tiempo que la tarjeta se eleva */
+.card-info-sede:hover i {
+    color: var(--gold, #C48F30) !important;
 }
 
 .sedes-header {
@@ -368,90 +569,371 @@ body {
     background-position: center !important;
 }
 
-.sedes-header .hero-title, .legal-header .hero-title {
-    font-family: var(--font-serif);
-    color: #ffffff !important;
-}
-
-.map-container-wrapper {
-    height: 500px !important;
-    position: relative;
-    border: 1px solid rgba(197, 168, 97, 0.2);
-    background-color: #f0f0f0;
-    overflow: hidden;
-}
-
-.map-overlay-tag {
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    background: white;
-    padding: 12px 25px;
-    border-radius: 50px;
-    z-index: 10;
-    border-left: 5px solid var(--gold);
-}
-
-.info-label {
-    display: block;
-    font-weight: 700;
-    color: var(--gold);
-    text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 1px;
-    margin-top: 15px;
-    margin-bottom: 5px;
-}
-
-.card-info-sede p {
-    color: var(--dark-coffee);
-    margin-bottom: 10px;
-    line-height: 1.5;
-    font-size: 0.95rem;
-}
-
-.btn-volver {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 35px !important;
-    min-width: 200px;
-    border-radius: 50px !important;
-    border: 1.5px solid var(--dark-coffee) !important;
-    transition: all 0.3s ease;
-}
 
 /* ============================================================
-   UTILIDADES VISUALES Y BOTONES PREMIUM
+   LA LUZ — COMPONENTE MAPA PREMIUM (SEDES SINCRONIZADAS)
    ============================================================ */
-.text-gold { color: var(--gold) !important; }
-.badge-recommended {
-    background-color: var(--gold) !important;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+.map-container-wrapper {
+    position: relative;
+    height: 500px; /* Altura ideal balanceada y elegante */
+    border: 1px solid rgba(196, 143, 48, 0.2);
+    background-color: #ffffff;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.gold-line {
-    background-color: var(--gold) !important;
-    height: 2px;
-    margin-top: 10px;
-}
-.section-padding { padding: 100px 0; }
-.section-title { font-family: var(--font-serif); font-weight: 400; }
-.section-title em { font-style: italic; color: var(--gold); }
 
-.link-legal {
-    color: rgba(255, 255, 255, 0.5) !important;
-    transition: all 0.3s ease-in-out;
-    text-decoration: none !important;
-    font-size: 0.85rem;
+/* El mapa entero gana profundidad al hacer hover */
+.map-container-wrapper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 50px rgba(74, 45, 0, 0.12) !important;
 }
-.link-legal:hover {
-    color: #ffffff !important;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+
+/* Filtro de color premium para que el mapa combine con la paleta editorial */
+.map-container-wrapper iframe {
+    border: 0;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(0.4) contrast(1.05) sepia(0.12);
+    transition: filter 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* El mapa recupera todo su color natural fluidamente al interactuar */
+.map-container-wrapper:hover iframe {
+    filter: grayscale(0) contrast(1.1) sepia(0);
+}
+
+/* Diseño de la insignia flotante al estilo de hotelería de lujo */
+.map-overlay-tag {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-left: 3px solid var(--gold);
+    padding: 14px 28px !important;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(74, 45, 0, 0.05);
+    z-index: 5;
+    transition: all 0.4s ease;
+}
+
+.map-container-wrapper:hover .map-overlay-tag {
+    background: #ffffff !important;
+    box-shadow: 0 12px 35px rgba(196, 143, 48, 0.15);
+    transform: translateX(4px);
+}
+
+/* Estilización tipográfica interna de la insignia */
+.map-overlay-tag p {
+    font-family: var(--font-sans);
+    color: var(--dark-coffee) !important;
+    font-size: 0.75rem !important;
+    font-weight: 600; /* Mapeado a Begun SANS Semibold */
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* El ícono de ubicación respira con el color institucional */
+.map-overlay-tag p i {
+    color: var(--gold) !important;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease;
+}
+
+.map-container-wrapper:hover .map-overlay-tag p i {
+    transform: scale(1.15) translateY(-1px);
+}
+
+/* Ajustes responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .map-container-wrapper {
+        height: 380px; /* Reduce la altura adaptativamente en móviles */
+    }
+}
+
+/* --- LÍNEAS EDITORIALES DE LUJO --- */
+.display-serif {
+    font-family: var(--font-serif); /* ZCOOL XiaoWei Regular */
+    color: var(--dark-coffee);
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+}
+
+.section-main-title {
+    font-family: var(--font-serif); /* ZCOOL XiaoWei Regular */
+    color: var(--dark-coffee);
+    font-size: 3.5rem !important;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.label-badge-gold {
+    font-family: var(--font-sans);
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 1.1rem !important;
+    font-weight: 700; /* Begun SANS Bold */
+    display: inline-block;
+    margin-bottom: 0.8rem;
+}
+
+.premium-diamond-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold) 50%, transparent);
+    position: relative;
+    margin: 1.5rem auto 2.5rem;
+}
+
+.premium-diamond-divider::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
 }
 
 @media (max-width: 768px) {
-    .section-padding { padding: 60px 0; }
+    .section-main-title { font-size: 2.2rem !important; text-align: center; }
+    .label-badge-gold { font-size: 0.85rem !important; text-align: center; display: block; }
 }
 
+/* ============================================================
+   LA LUZ — SECCIÓN DIGITAL Y COMPONENTES DE PLANES
+   ============================================================ */
+.section-digital-bg {
+    background: linear-gradient(135deg, #fdfbf7 0%, #f5f0e6 100%);
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.decorative-icon-large {
+    font-size: 30rem;
+    color: var(--gold);
+}
+
+.decorative-flower {
+    transform: translate(15%, 15%);
+}
+
+.decorative-flower .decorative-icon-large {
+    font-size: 25rem;
+}
+
+.card-digital-management {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 25px;
+    border: 1px solid rgba(196, 143, 48, 0.25);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card-digital-management:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(74, 45, 0, 0.12) !important;
+    border-color: var(--gold);
+}
+
+.card-watermark {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    font-size: 10rem;
+    color: rgba(196, 143, 48, 0.04);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.image-wrapper-premium {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.img-interactive {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.card-digital-management:hover .img-interactive {
+    transform: scale(1.05);
+}
+
+.card-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.45));
+    z-index: 1;
+}
+
+/* --- BOTONES DE ACCIÓN --- */
+.btn-gold, .btn-laluz {
+    font-family: var(--font-sans);
+    padding: 1rem 2rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 600; /* Begun SANS Semibold */
+    letter-spacing: 2px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: #ffffff !important;
+    border: 1px solid var(--gold);
+}
+
+.btn-gold:hover {
+    background: transparent;
+    color: var(--gold) !important;
+    transform: scale(1.03);
+}
+
+.btn-laluz.btn-outline-dark {
+    border: 2px solid var(--dark-coffee) !important;
+    background: transparent;
+    color: var(--dark-coffee) !important;
+}
+
+.btn-laluz.btn-outline-dark:hover {
+    background: var(--dark-coffee) !important;
+    color: #ffffff !important;
+    transform: scale(1.03);
+}
+
+/* --- PLAN DESTACADO (EXCELENCIA) --- */
+.card-minimal.card-featured {
+    background-color: #fff9f0 !important;
+    border-top: 4px solid var(--gold) !important;
+    border-left: 2px solid var(--gold) !important;
+    border-right: 2px solid var(--gold) !important;
+    border-bottom: 2px solid var(--gold) !important;
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 15px 35px rgba(196, 143, 48, 0.15) !important;
+}
+
+@media (max-width: 991.98px) {
+    .card-minimal.card-featured {
+        transform: scale(1);
+        margin: 25px 0;
+    }
+}
+
+/* --- COMPONENTES ADICIONALES (HERO & CAROUSEL) --- */
+.hero-zen {
+    background-color: #fdfbf7;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 25vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 0;
+}
+.hero-slide.active { opacity: 1; }
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(74, 45, 0, 0.05) 100%);
+    z-index: 1;
+}
+
+/* Carrusel de Aliados */
+.section-allies-wrapper {
+    display: block;
+    clear: both;
+    padding-top: 60px;
+    padding-bottom: 65px;
+    background-color: #fdfbf7;
+}
+
+.allies-slider {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: #ffffff;
+    padding: 40px 0;
+    box-shadow: 0 15px 40px rgba(74, 45, 0, 0.04);
+    border-top: 1px solid rgba(196, 143, 48, 0.15);
+    border-bottom: 1px solid rgba(196, 143, 48, 0.15);
+}
+
+.allies-slider::before, .allies-slider::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+}
+.allies-slider::before { top: 0; left: 0; background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%); }
+.allies-slider::after { top: 0; right: 0; background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%); }
+
+.allies-track {
+    display: flex;
+    width: calc(250px * 15);
+    animation: scrollInfinite 25s linear infinite;
+    will-change: transform;
+}
+
+.ally-logo {
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ally-logo img {
+    max-width: 160px;
+    height: auto;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.allies-slider:hover .allies-track { animation-play-state: paused; }
+
+@keyframes scrollInfinite {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 5)); }
+}
+
+/* --- UTILIDADES GENERALES --- */
+.border-radius-10 { border-radius: 10px !important; }
+.max-w-600 { max-width: 600px; }
+.text-coffee { color: var(--dark-coffee) !important; }
+.text-gold { color: var(--gold) !important; }
+.bg-gold { background-color: var(--gold) !important; }
+.tracking-widest { letter-spacing: 3px; }

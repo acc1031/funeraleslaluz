@@ -5,60 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Luz Asistencia Integral</title>
 
-    <!-- Boostrap-->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Agrega esto en tu fragmento head si falta -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Iconos -->
     <link rel="icon" type="image/png" th:href="@{/img/Luz.png}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+          rel="stylesheet">
 
-    <!-- Estilos -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" th:href="@{/css/style-contacto.css}">
     <link rel="stylesheet" th:href="@{/css/layout-global.css}">
     <link rel="stylesheet" th:href="@{/css/botones.css}">
+    <link rel="stylesheet" th:href="@{/css/obituarios.css}">
+    <link rel="stylesheet" th:href="@{/css/conmemoraciones.css}">
 
-    <!-- Imagenes-->
     <link rel="preload" as="image" href="/img/dogBanner.png">
-
 </head>
 <body>
 
 <nav th:fragment="navbar"
      th:with="isWhite=${isWhite ?: false}"
-     th:class="'navbar navbar-expand-lg fixed-top ' + (${isWhite} ? 'navbar-white' : '')"
-     data-aos="fade-down"
-     data-aos-duration="1000">
+     th:class="'navbar navbar-expand-lg fixed-top py-0 ' + (${isWhite} ? 'navbar-white' : '')">
 
     <div class="container-fluid px-lg-5">
-        <!-- LADO IZQUIERDO: Logo y un contenedor de balance -->
-        <div class="d-flex align-items-center" style="min-width: 250px;">
+        <div class="d-flex align-items-center logo-container">
             <a class="navbar-brand me-0 p-0" th:href="@{/}">
-                <!-- Logo Blanco -->
                 <img th:src="@{/img/logoluzblanco.png}" alt="Logo La Luz Blanco" class="nav-logo logo-light">
-
-                <!-- Logo Color -->
                 <img th:src="@{/img/logo-laluz1.png}" alt="Logo La Luz Color" class="nav-logo logo-dark">
             </a>
         </div>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <!-- CENTRO Y DERECHA -->
         <div class="collapse navbar-collapse" id="navbarNav">
-            <!-- Menú Central: mx-auto lo centra perfectamente si los lados pesan lo mismo -->
             <ul class="navbar-nav mx-auto align-items-center">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle px-3 small fw-bold" href="#" role="button"
-                       data-bs-toggle="dropdown"
+                       data-bs-toggle="dropdown" aria-expanded="false"
                        th:classappend="${currentUri != null && (currentUri.contains('planes') || currentUri.contains('prevision-empresarial'))} ? 'active-gold' : ''">
-                        Previsión</a>
+                        Previsión
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" th:href="@{/planes}">Planes</a></li>
                         <li><a class="dropdown-item" th:href="@{/prevision-empresarial}">Previsión Empresarial</a></li>
@@ -66,42 +56,47 @@
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle px-3 small fw-bold" href="#" role="button"
-                       data-bs-toggle="dropdown"
+                       data-bs-toggle="dropdown" aria-expanded="false"
                        th:classappend="${currentUri != null && currentUri.contains('servicios')} ? 'active-gold' : ''">
-                    Servicios</a>
+                        Servicios
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" th:href="@{/servicios/atencion-inmediata}">Atención Inmediata</a></li>
-                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" th:href="@{/servicios/tradicionales}">Servicios Tradicionales</a></li>
                         <li><a class="dropdown-item" th:href="@{/servicios/internacionales}">Servicios Internacionales</a></li>
                         <li><a class="dropdown-item" th:href="@{/servicios/conmemoraciones}">Conmemoraciones</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3 small fw-bold"
-                       href="https://laluzasistencialweb.piscotics.com:9060/PiscoWebObituario/Obituarios">Obituarios</a>
+                    <a class="nav-link px-3 small fw-bold" th:href="@{/obituarios}"
+                       th:classappend="${currentUri != null && currentUri.contains('obituarios')} ? 'active-gold' : ''">
+                        Obituarios
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3 small fw-bold"
-                       th:href="@{/mascotas}"
+                    <a class="nav-link px-3 small fw-bold" th:href="@{/mascotas}"
                        th:classappend="${currentUri != null && currentUri.contains('mascotas')} ? 'active-gold' : ''">
-                    Mascotas</a>
+                        Mascotas
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link px-3 small fw-bold"
-                       th:href="@{/sedes}"
+                    <a class="nav-link px-3 small fw-bold" th:href="@{/sedes}"
                        th:classappend="${currentUri != null && currentUri.contains('sedes')} ? 'active-gold' : ''">
-                    Sedes</a>
+                        Sedes
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link px-3 small fw-bold" th:href="@{/contacto}"
                        th:classappend="${currentUri != null && currentUri.contains('contacto')} ? 'active-gold' : ''">
-                    Contáctenos</a>
+                        Contáctenos
+                    </a>
                 </li>
             </ul>
 
-            <!-- BLOQUE DERECHO: Redes Sociales (Mismo ancho que el bloque del logo) -->
-            <div class="d-none d-lg-flex justify-content-end align-items-center" style="min-width: 250px;">
+            <div class="d-none d-lg-flex justify-content-end align-items-center social-container">
                 <div class="d-flex gap-4 social-icons-nav">
                     <a href="https://www.facebook.com/laluzasistencia/" target="_blank" class="nav-social-link p-0">
                         <i class="bi bi-facebook fs-5"></i>
@@ -109,10 +104,23 @@
                     <a href="https://www.instagram.com/laluzasistencia/" target="_blank" class="nav-social-link p-0">
                         <i class="bi bi-instagram fs-5"></i>
                     </a>
-                    <a href="https://www.linkedin.com/company/la-luz-asistencia-integral" target="_blank" class="nav-social-link p-0">
+                    <a href="https://www.linkedin.com/company/la-luz-asistencia-integral" target="_blank"
+                       class="nav-social-link p-0">
                         <i class="bi bi-linkedin fs-5"></i>
                     </a>
                 </div>
+            </div>
+
+            <div class="d-flex d-lg-none justify-content-center gap-4 py-3 border-top mt-3 social-icons-mobile" style="border-color: rgba(196, 143, 48, 0.2) !important;">
+                <a href="https://www.facebook.com/laluzasistencia/" target="_blank" class="nav-social-link" style="color: var(--dark-coffee);">
+                    <i class="bi bi-facebook fs-4"></i>
+                </a>
+                <a href="https://www.instagram.com/laluzasistencia/" target="_blank" class="nav-social-link" style="color: var(--dark-coffee);">
+                    <i class="bi bi-instagram fs-4"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/la-luz-asistencia-integral" target="_blank" class="nav-social-link" style="color: var(--dark-coffee);">
+                    <i class="bi bi-linkedin fs-4"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -121,7 +129,6 @@
 <script>
     window.addEventListener('scroll', function () {
         const navbar = document.querySelector('.navbar');
-        // Solo ejecuta el cambio si NO es la navbar blanca fija
         if (!navbar.classList.contains('navbar-white')) {
             if (window.scrollY > 50) {
                 navbar.classList.add('navbar-scrolled');
@@ -132,60 +139,103 @@
     });
 </script>
 
-<footer th:fragment="footer" class="py-5 bg-dark text-white mt-5">
+<footer th:fragment="footer" class="py-5 mt-5" style="background-color: #E3ECEA; color: #4A2D00;">
     <div class="container">
         <div class="row gy-4 mb-4">
+
             <div class="col-lg-4 text-center text-lg-start">
-                <h2 style="font-family: var(--font-serif); color: var(--gold);">LA LUZ</h2>
-                <p class="small text-white-50 mt-3 pe-lg-4">
-                    Brindamos respaldo profesional y calidez humana para proteger lo que más importa en los momentos
-                    difíciles.
+                <h2 style="font-family: var(--font-serif); color: #004C45; font-weight: 600;">LA LUZ</h2>
+                <p class="small mt-3 pe-lg-4" style="color: rgba(74, 45, 0, 0.75); line-height: 1.6;">
+                    Brindamos respaldo profesional y calidez humana para proteger lo que más importa en los momentos difíciles.
                 </p>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <h5 class="mb-3"
-                    style="font-family: var(--font-sans); font-size: 1rem; color: var(--gold); letter-spacing: 1px; text-transform: uppercase;">
-                    Sede Bogotá
-                </h5>
-                <ul class="list-unstyled text-white-50 small">
+
+            <div class="col-lg-4 col-md-6 d-none d-lg-block">
+                <h5 class="mb-3 footer-section-title" style="color: #4A2D00; font-weight: 700;">Sede Bogotá</h5>
+                <ul class="list-unstyled small footer-info-list" style="color: rgba(74, 45, 0, 0.85);">
                     <li class="mb-2"><strong>Dirección:</strong> Calle 33 A No. 13-31 Centro Internacional</li>
                     <li class="mb-2"><strong>Teléfonos Fijos:</strong> <br> (601) 7462112 - (601) 2454714</li>
-                    <li class="mb-2"><strong>Celulares:</strong> <br> 310 5729883 - 310 8167656 <br> 311 4811691 - 310
-                        3969356
-                    </li>
+                    <li class="mb-2"><strong>Celulares:</strong> <br> 310 5729883 - 310 8167656 <br> 311 4811691 - 310 3969356</li>
                     <li class="mb-2"><strong>Email:</strong> <br> comercial@laluzasistenciaintegral.com</li>
                 </ul>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <h5 class="mb-3"
-                    style="font-family: var(--font-sans); font-size: 1rem; color: var(--gold); letter-spacing: 1px; text-transform: uppercase;">
-                    Sede La Calera
-                </h5>
-                <ul class="list-unstyled text-white-50 small">
+
+            <div class="col-lg-4 col-md-6 d-none d-lg-block">
+                <h5 class="mb-3 footer-section-title" style="color: #4A2D00; font-weight: 700;">Sede La Calera</h5>
+                <ul class="list-unstyled small footer-info-list" style="color: rgba(74, 45, 0, 0.85);">
                     <li class="mb-2"><strong>Dirección:</strong> Carrera 3 No. 2-13 Avenida Paseo Real</li>
                     <li class="mb-2"><strong>Celulares:</strong> <br> 310 5729883 - 310 8167656 <br> 311 4811691</li>
                     <li class="mb-2"><strong>Email:</strong> <br> servicioalcliente@funeraleslaluz.com</li>
                 </ul>
             </div>
-        </div>
-        <hr style="border-color: rgba(255, 255, 255, 0.1);">
 
-        <div class="row align-items-center pt-3">
-            <div class="col-md-6 text-center text-md-start">
-<!--                <p class="small text-white-50 mb-0">© 2026 Asistencia Integral. Todos los derechos reservados.</p>-->
-                <p class="small text-white-50 mb-0">© 2026 Andres Contreras. Todos los derechos reservados.</p>
+            <div class="col-12 d-lg-none mt-4">
+                <div class="accordion accordion-flush footer-accordion" id="accordionFooter">
+
+                    <div class="accordion-item bg-transparent" style="border-color: rgba(74, 45, 0, 0.15) !important;">
+                        <h2 class="accordion-header" id="headingBogota">
+                            <button class="accordion-button collapsed bg-transparent py-3 px-0 small fw-bold text-uppercase tracking-wider"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseBogota"
+                                    aria-expanded="false" aria-controls="collapseBogota"
+                                    style="box-shadow: none; color: #4A2D00 !important;">
+                                <i class="bi bi-geo-alt me-2" style="color: #004C45;"></i> Sede Bogotá
+                            </button>
+                        </h2>
+                        <div id="collapseBogota" class="accordion-collapse collapse" aria-labelledby="headingBogota"
+                             data-bs-parent="#accordionFooter">
+                            <div class="accordion-body px-0 py-3 small border-top" style="border-color: rgba(74, 45, 0, 0.1) !important; color: rgba(74, 45, 0, 0.85);">
+                                <p class="mb-2"><strong>Dirección:</strong> Calle 33 A No. 13-31 Centro Internacional</p>
+                                <p class="mb-2"><strong>Teléfonos Fijos:</strong> (601) 7462112 - (601) 2454714</p>
+                                <p class="mb-2"><strong>Celulares:</strong> 310 5729883 - 310 8167656 - 311 4811691</p>
+                                <p class="mb-0"><strong>Email:</strong> comercial@laluzasistenciaintegral.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item bg-transparent" style="border-color: rgba(74, 45, 0, 0.15) !important;">
+                        <h2 class="accordion-header" id="headingCalera">
+                            <button class="accordion-button collapsed bg-transparent py-3 px-0 small fw-bold text-uppercase tracking-wider"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseCalera"
+                                    aria-expanded="false" aria-controls="collapseCalera"
+                                    style="box-shadow: none; color: #4A2D00 !important;">
+                                <i class="bi bi-geo-alt me-2" style="color: #004C45;"></i> Sede La Calera
+                            </button>
+                        </h2>
+                        <div id="collapseCalera" class="accordion-collapse collapse" aria-labelledby="headingCalera"
+                             data-bs-parent="#accordionFooter">
+                            <div class="accordion-body px-0 py-3 small border-top" style="border-color: rgba(74, 45, 0, 0.1) !important; color: rgba(74, 45, 0, 0.85);">
+                                <p class="mb-2"><strong>Dirección:</strong> Carrera 3 No. 2-13 Avenida Paseo Real</p>
+                                <p class="mb-2"><strong>Celulares:</strong> 310 5729883 - 310 8167656 - 311 4811691</p>
+                                <p class="mb-0"><strong>Email:</strong> servicioalcliente@funeraleslaluz.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
-                <a th:href="@{/proteccion-datos}" class="link-legal"
-                   style="transition: 0.3s;" onmouseover="this.style.color='var(--gold)'"
-                   onmouseout="this.style.color=''">
+
+        </div>
+
+        <hr style="border-color: rgba(74, 45, 0, 0.15);">
+
+        <div class="row d-flex flex-column-reverse flex-md-row align-items-center pt-3 small footer-bottom" style="color: rgba(74, 45, 0, 0.75);">
+            <div class="col-md-4 text-center text-md-start mt-3 mt-md-0">
+                <p class="mb-0">© 2026 La Luz Asistencia Integral. All rights reserved.</p>
+            </div>
+
+            <div class="col-md-4 text-center my-2 my-md-0">
+                <p class="mb-0">Powered by <strong style="color: #004C45;">@Andres Contreras</strong></p>
+            </div>
+
+            <div class="col-md-4 text-center text-md-end">
+                <a th:href="@{/proteccion-datos}" class="link-legal d-inline-block pb-2 pb-md-0" style="color: #4A2D00; text-decoration: none; font-weight: 500;">
                     Política de Protección de Datos
                 </a>
             </div>
         </div>
     </div>
 
-    <a href="https://wa.me/571234567890?text=Hola,%20deseo%20recibir%20más%20información."
+    <a href="https://wa.me/573103969356?text=Hola,%20deseo%20recibir%20más%20información."
        class="btn-whatsapp-fixed"
        target="_blank"
        rel="noopener noreferrer"
@@ -194,11 +244,52 @@
     </a>
 </footer>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const isMobile = () => window.innerWidth < 992;
+
+        document.querySelectorAll('.navbar-nav .nav-item.dropdown > .nav-link').forEach(function (toggle) {
+            toggle.addEventListener('click', function (e) {
+                if (!isMobile()) return;
+
+                e.preventDefault();
+                e.stopPropagation();
+
+                const parentItem = this.closest('.nav-item.dropdown');
+                const menu = parentItem.querySelector('.dropdown-menu');
+                const isOpen = menu.classList.contains('show');
+
+                document.querySelectorAll('.navbar-nav .dropdown-menu.show').forEach(function (openMenu) {
+                    openMenu.classList.remove('show');
+                    openMenu.closest('.nav-item.dropdown').querySelector('.nav-link').classList.remove('dropdown-open');
+                });
+
+                if (!isOpen) {
+                    menu.classList.add('show');
+                    this.classList.add('dropdown-open');
+                }
+            });
+        });
+
+        const navbarCollapse = document.getElementById('navbarNav');
+        if (navbarCollapse) {
+            navbarCollapse.addEventListener('hidden.bs.collapse', function () {
+                document.querySelectorAll('.navbar-nav .dropdown-menu.show').forEach(function (menu) {
+                    menu.classList.remove('show');
+                });
+                document.querySelectorAll('.navbar-nav .nav-link.dropdown-open').forEach(function (link) {
+                    link.classList.remove('dropdown-open');
+                });
+            });
+        }
+    });
+</script>
+
 <th:block th:fragment="scripts">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ once: true, duration: 800, offset: 50 });
+        AOS.init({once: true, duration: 800, offset: 50});
     </script>
 </th:block>
 

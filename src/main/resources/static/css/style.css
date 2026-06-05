@@ -1,205 +1,81 @@
 /* ============================================================
-   LA LUZ — COMPONENTES Y SECCIONES
+   LA LUZ — CONFIGURACIÓN GLOBAL Y VARIABLES (ACTUALIZADO CON MANUAL DE MARCA)
    ============================================================ */
+:root {
+    /* Paleta Oficial del Manual de Marca */
+    --brand-dark-brown: #4A2D00;   /* Pantone 4625C - Café Profundo */
+    --brand-medium-brown: #91611E; /* Pantone 1395C - Café Medio */
+    --brand-gold: #C48F30;         /* Pantone 7510C - Ocre/Dorado Principal */
+    --brand-light-gold: #EACB8D;   /* Pantone 7403C - Dorado Claro/Crema */
+    --brand-green: #004C45;        /* Pantone 3302C - Verde Institucional */
 
-/* --- HERO DINÁMICO --- */
-.hero-zen {
-    background-color: #fdfbf7; /* El color crema de tu marca para que no sea gris */
-    height: 100vh;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 25vh;
-    position: relative;
-    overflow: hidden;
+    /* Mapeo de Variables del Sistema */
+    --gold: var(--brand-gold);
+    --dark-coffee: var(--brand-dark-brown);
+    --font-serif: 'Lora', serif;
 }
 
-.hero-slide {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center; /* Mejorado para centrar el paisaje */
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
-    z-index: 0;
-}
-.hero-slide.active { opacity: 1; }
+/* --- CLASES DE UTILIDAD ADICIONALES PARA EL VERDE DE MARCA --- */
+.text-brand-green { color: var(--brand-green) !important; }
+.bg-brand-green { background-color: var(--brand-green) !important; }
 
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(59, 48, 36, 0.05) 100%);
-    z-index: 1;
+/* --- CORRECCIONES ARQUITECTÓNICAS (BADGES FLOATING) --- */
+.row.align-items-stretch {
+    overflow: visible !important;
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-}
-
-.hero-title {
-    font-family: var(--font-serif);
-    font-weight: 400;
-    letter-spacing: -1px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-}
-/*------------------------------------------------------------------------------------------------*/
-/*TEXTO*/
-.text-gold { color: var(--gold); }
-.tracking-widest { letter-spacing: 5px; }
-
-.gold-line-premium {
-    width: 60px;
-    height: 1px; /* Más fina es más elegante */
-    background: var(--gold);
-    position: relative;
-}
-
-/* Un pequeño detalle: un rombo en medio de la línea */
-.gold-line-premium::after {
-    content: "";
-    position: absolute;
-    top: -3px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    width: 8px;
-    height: 8px;
-    background: var(--gold);
-}
-/* ============================================================
-   CARRUSEL INFALIBLE DE ALIADOS ESTRATÉGICOS
-   ============================================================ */
-
-.section-allies-wrapper {
-    display: block;
-    clear: both;
-    margin-top: 0 !important;
-    padding-top: 60px;
-    padding-bottom: 65px;
-    background-color: #fdfbf7;   /* Fondo crema general de la sección */
-}
-
-.allies-slider {
-    width: 100%;
-    max-width: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    overflow: hidden; /* Oculta los logos que se salen de la pantalla */
-
-    /* El Recuadro Atractivo de borde a borde */
-    background: #ffffff;
-    padding: 40px 0;
-    border-radius: 0;
-    box-shadow: 0 15px 40px rgba(59, 48, 36, 0.04);
-    border-top: 1px solid rgba(197, 160, 89, 0.15);
-    border-bottom: 1px solid rgba(197, 160, 89, 0.15);
-}
-
-/* Sombreado degradado elegante en los extremos */
-.allies-slider::before,
-.allies-slider::after {
-    content: "";
-    height: 100%;
-    position: absolute;
-    width: 150px;
-    z-index: 2;
+[data-aos] {
     pointer-events: none;
 }
-
-.allies-slider::before {
-    top: 0;
-    left: 0;
-    background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.allies-slider::after {
-    top: 0;
-    right: 0;
-    background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-/* EL RIEL: Contiene los 15 logos en total (3 tandas de 5) */
-.allies-track {
-    display: flex;
-    /* Ancho exacto: 250px por cada uno de los 15 logos */
-    width: calc(250px * 15);
-    animation: scrollInfinite 25s linear infinite; /* Velocidad constante y fluida */
-    will-change: transform;
-}
-
-.ally-logo {
-    width: 250px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.ally-logo img {
-    max-width: 160px;
-    height: auto;
-    opacity: 0.9;
-    transition: all 0.3s ease;
-}
-
-.ally-logo img:hover {
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* Pausar animación cuando abres el modal o pasas el cursor */
-.allies-slider:hover .allies-track {
-    animation-play-state: paused;
-}
-
-/* MATEMÁTICA EXACTA: Al completarse el primer bloque de 5 logos (250px * 5 = 1250px),
-   la animación se resetea al 0% instantáneamente. Al ser idéntico al tercer bloque,
-   el ojo humano no percibe el salto. */
-@keyframes scrollInfinite {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-250px * 5));
-    }
+[data-aos].aos-animate {
+    pointer-events: auto;
+    overflow: visible !important;
 }
 
 
-/* --- NUEVA ARQUITECTURA TIPOGRÁFICA Y DIRECCIÓN DE ARTE --- */
+/* ============================================================
+   COMPONENTES CORE — TEXTO, BOTONES Y DIVISORES
+   ============================================================ */
 
-/* --- NUEVA ARQUITECTURA TIPOGRÁFICA Y DIRECCIÓN DE ARTE (LETRAS MÁS GRANDES) --- */
-
-/* Corrección del punto de clase y optimización de renderizado */
+/* --- ARQUITECTURA TIPOGRÁFICA --- */
 .display-serif {
     font-family: var(--font-serif), Georgia, serif;
-    color: #3b3024;
+    color: var(--dark-coffee);
     line-height: 1.2;
     -webkit-font-smoothing: antialiased;
 }
 
-/* Título principal unificado para las secciones de la Landing — AUMENTADO */
 .section-main-title {
     font-family: var(--font-serif), Georgia, serif;
-    color: #3b3024;
-    font-size: 3.8rem !important; /* Ajustado para que sea grande, legible y elegante */
+    color: var(--dark-coffee);
+    font-size: 3.8rem !important;
     font-weight: 400;
     letter-spacing: -0.5px;
     line-height: 1.2;
 }
 
-/* Etiquetas superiores pequeñas tipo "Editorial de Lujo" — AUMENTADO */
 .label-badge-gold {
     color: var(--gold);
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-size: 1.1rem !important; /* Un tamaño con mucha más presencia arriba */
+    font-size: 1.1rem !important;
     font-weight: 700;
     display: inline-block;
     margin-bottom: 0.8rem;
 }
 
-/* Divisor elegante con rombo integrado */
+.text-gold { color: var(--gold); }
+.tracking-widest { letter-spacing: 5px; }
+.line-height-relaxed { line-height: 1.6; }
+.max-w-600 { max-width: 600px; }
+
+.text-justify {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+/* --- ELEMENTOS DE BALANCE VISUAL --- */
 .premium-diamond-divider {
     width: 80px;
     height: 1px;
@@ -219,48 +95,23 @@
     background: var(--gold);
 }
 
-/* Línea de balance arquitectónico para la sección Asistencia (Asimétrica) */
-.title-side-line {
-    width: 100%;
+.gold-line-premium {
+    width: 60px;
     height: 1px;
-    background: rgba(197, 160, 89, 0.25);
-    display: inline-block;
+    background: var(--gold);
+    position: relative;
 }
 
-/* Control de espacios de las secciones */
-.text-allies-header {
-    margin-top: 40px !important;
-    margin-bottom: 35px;
+.gold-line-premium::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
 }
-
-.section-allies-wrapper {
-    display: block;
-    clear: both;
-    margin-top: 0 !important;
-    padding-top: 60px;
-    padding-bottom: 65px;
-    background-color: #fdfbf7;
-}
-
-/* Responsivo impecable para móviles — AJUSTADO EN PROPORCIÓN */
-@media (max-width: 768px) {
-    .section-main-title {
-        font-size: 2.2rem !important; /* Subió de 1.85rem para que no quede pequeño en celulares */
-        text-align: center !important;
-    }
-    .label-badge-gold {
-        font-size: 0.8rem;
-        text-align: center !important;
-        display: block;
-    }
-    .text-start {
-        text-align: center !important;
-    }
-}
-
-
-
-
 
 .gold-divider {
     width: 60px;
@@ -268,20 +119,20 @@
     background: var(--gold);
 }
 
-.tracking-widest {
-    letter-spacing: 3px;
+.gold-line {
+    width: 50px;
+    height: 2px;
+    background: var(--gold);
+    margin: 20px 0;
 }
 
-/* Animación matemática exacta para bucle infinito sin saltos */
-@keyframes scrollInfinite {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-250px * 5)); /* Salta fluidamente al repetido del 1er logo */
-    }
+.title-side-line {
+    width: 100%;
+    height: 1px;
+    background: rgba(200, 145, 50, 0.25); /* Actualizado a opacidad de --brand-gold */
+    display: inline-block;
 }
-/*------------------------------------------------------------------------------------------------*/
+
 /* --- BOTONES PREMIUM --- */
 .btn-premium, .btn-gold, .btn-outline, .btn-cafe-outline, .btn-laluz {
     padding: 1rem 2rem;
@@ -306,7 +157,7 @@
 .btn-gold:hover {
     background: transparent;
     color: var(--gold) !important;
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
 .btn-outline {
@@ -318,7 +169,18 @@
 .btn-outline:hover {
     background: #ffffff !important;
     color: #4a4a4a !important;
-    transform: scale(1.1);
+    transform: scale(1.03);
+}
+
+.btn-laluz.btn-outline-dark {
+    border: 1px solid var(--dark-coffee);
+    background: transparent;
+    color: var(--dark-coffee);
+}
+
+.btn-laluz.btn-outline-dark:hover {
+    background: var(--dark-coffee);
+    color: #ffffff !important;
 }
 
 .btn-premium {
@@ -328,96 +190,131 @@
     border-radius: 4px;
 }
 
-.btn-premium:active {
-    transform: scale(0.95);
-}
+.btn-premium:active { transform: scale(0.95); }
 
-/* --- TARJETAS (CARDS) GENERALES — EFECTO BORDE DORADO --- */
-.card-minimal {
-    background: #ffffff;
-    padding: 0 !important; /* Permitimos que el image-wrapper toque los bordes superiores */
-    border-radius: 15px;
-    overflow: hidden; /* Clave: hace que el borde dorado rodee perfectamente la imagen */
 
-    /* Estado inicial: Marco invisible/grisáceo perimetral para evitar saltos */
-    border: 2px solid #eef0f2 !important;
+/* ============================================================
+   ESTILOS DE SECCIONES ESPECÍFICAS
+   ============================================================ */
 
-    height: 100%;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-/* El padding interno ahora se lo damos a los textos para no romper la imagen */
-.card-minimal .p-4 {
-    padding: 2rem 2.2rem !important;
-}
-
-/* Efecto Hover Inteligente en todo el contorno */
-.card-minimal:hover {
-    border: 2px solid var(--gold) !important; /* Se enciende por completo el marco */
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(59, 48, 36, 0.12) !important;
-}
-
-/* Efecto de Zoom sutil en la imagen superior cuando se hace Hover en la tarjeta */
-.card-minimal .image-wrapper img {
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.card-minimal:hover .image-wrapper img {
-    transform: scale(1.06);
-}
-
-/* Interacción con los íconos internos */
-.card-minimal:hover .bi-shield-check,
-.card-minimal:hover .bi-flower1,
-.card-minimal:hover .bi-geo-alt {
-    transform: scale(1.1);
-    transition: transform 0.3s ease;
-}
-
-/* --- COMPONENTES VISUALES --- */
-.image-wrapper-premium {
-    width: 100%;
-    height: 180px;
+/* --- HERO ZEN DINÁMICO --- */
+.hero-zen {
+    background-color: #fdfbf7;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 25vh;
+    position: relative;
     overflow: hidden;
-    border-radius: 15px;
-    margin-bottom: 1.5rem;
-    border: 1px solid rgba(197, 168, 97, 0.2);
 }
 
-.image-wrapper-premium img {
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 0;
+}
+.hero-slide.active { opacity: 1; }
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(74, 45, 0, 0.05) 100%); /* Actualizado a opacidad de --brand-dark-brown */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
 }
 
-.img-interactive:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+.hero-title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
-.gold-line {
-    width: 50px;
-    height: 2px;
-    background: var(--gold);
-    margin: 20px 0;
+/* --- HERO SERVICIOS TRADICIONALES --- */
+/*noinspection CssUnknownTarget*/
+.hero-tradicionales {
+    min-height: 55vh;
+    /*noinspection CssUnknownTarget*/
+    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('/img/portada-tradicionales.jpg') center/cover no-repeat;
+    margin-top: 76px;
+    padding: 60px 20px;
 }
 
-.counter {
-    display: inline-block;
-    min-width: 0.6em;
-    font-variant-numeric: tabular-nums;
+.label-hero-gold {
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-weight: 600;
 }
 
-/* --- SECCIONES ESPECIALES --- */
-.section-padding {
-    padding: 100px 0;
+.title-hero-serif { font-family: var(--font-serif); }
+.desc-hero { max-width: 650px; }
+
+/* --- SECCIÓN GESTIÓN DIGITAL Y CARENCIAS --- */
+.section-digital-bg {
+    background-color: #fdfbf7;
 }
 
-.bg-dark {
-    background-color: var(--dark-coffee) !important;
+.card-digital-management {
+    background: #ffffff;
+    border-radius: 15px;
+    border: 1px solid rgba(200, 145, 50, 0.12); /* Actualizado con el nuevo dorado */
+    overflow: hidden;
+    padding: 3rem !important;
+    transition: all 0.4s ease;
 }
+
+.card-digital-management:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(74, 45, 0, 0.08) !important; /* Actualizado con el nuevo café oscuro */
+}
+
+.card-watermark {
+    position: absolute;
+    bottom: -15px;
+    right: -10px;
+    font-size: 8rem;
+    color: rgba(200, 145, 50, 0.03); /* Actualizado con el nuevo dorado */
+    z-index: 0;
+    pointer-events: none;
+}
+
+.decorative-icon-large {
+    font-size: 12rem;
+    color: var(--gold);
+}
+
+.carencia-box {
+    background-color: #fdfbf7;
+    border: 1px solid rgba(200, 145, 50, 0.15); /* Actualizado con el nuevo dorado */
+}
+
+.carencia-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* --- CONTENEDORES DE SECCIÓN GENERALES --- */
+.section-padding { padding: 100px 0; }
+.bg-dark { background-color: var(--dark-coffee) !important; }
+.bg-cream-premium { background-color: var(--cream, #fbfaf8); }
+.bg-dark-cta { background-color: var(--dark-coffee, #4A2D00); }
+.title-section-dark { color: var(--dark-coffee); font-family: var(--font-serif); font-weight: 400; }
+.title-card-coffee { color: var(--dark-coffee); }
+.title-cta-serif { font-family: var(--font-serif); }
+.desc-section { max-width: 500px; }
+.desc-cta { max-width: 550px; letter-spacing: 1px; }
+.btn-cta-premium { font-size: 0.85rem; letter-spacing: 2px; transition: 0.3s; }
 
 .sedes-header, .legal-header {
     background-size: cover;
@@ -433,36 +330,169 @@
     position: relative;
 }
 
-/* --- DROPDOWNS --- */
-.dropdown-menu {
-    border-radius: 0;
-    border-top: 3px solid var(--gold) !important;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+/* ============================================================
+   ESTILOS DE TARJETAS (CARDS)
+   ============================================================ */
+
+/* --- TARJETAS MINIMALISTAS GENERALES --- */
+.card-minimal {
+    background: #ffffff;
+    padding: 0 !important;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid #eef0f2 !important;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.dropdown-item:hover {
-    background-color: var(--dark-coffee);
-    color: var(--gold) !important;
-    padding-left: 2rem;
+.card-minimal .p-4 {
+    padding: 2rem 2.2rem !important;
 }
-/*-----------------------------------------------------------------------------------------------*/
-/* --- ESTILOS DE ALIADOS --- */
+
+/* SOLUCIÓN AL BADGE FLOTANTE */
+.card-minimal.card-featured {
+    overflow: visible !important;
+}
+
+.card-minimal:hover {
+    border: 2px solid var(--gold) !important;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(74, 45, 0, 0.12) !important; /* Actualizado con el nuevo café oscuro */
+}
+
+/* EFECTOS INTERACTIVOS INTERNOS */
+.card-minimal .image-wrapper img {
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card-minimal:hover .image-wrapper img {
+    transform: scale(1.06);
+}
+
+.card-minimal:hover .bi-shield-check,
+.card-minimal:hover .bi-flower1,
+.card-minimal:hover .bi-geo-alt {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* --- COMPONENTES DE IMÁGENES Y HOVERS --- */
+.image-wrapper-premium {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(200, 145, 50, 0.2); /* Actualizado con el nuevo dorado */
+}
+
+.image-wrapper-premium img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.img-interactive:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+}
+
+.card-img-wrapper {
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.img-side-protocol {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+}
+
+.badge-fase {
+    font-size: 0.7rem;
+    background-color: rgba(74, 45, 0, 0.85) !important; /* Actualizado con el nuevo café oscuro */
+}
+
+.transform-transition {
+    transition: transform 0.5s ease;
+    object-fit: cover;
+}
+
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1) !important;
+}
+
+.card-hover:hover .transform-transition {
+    transform: scale(1.06);
+}
+
+
+/* ============================================================
+   CARRUSEL DE ALIADOS ESTRATÉGICOS
+   ============================================================ */
+.section-allies-wrapper {
+    display: block;
+    clear: both;
+    margin-top: 0 !important;
+    padding-top: 60px;
+    padding-bottom: 65px;
+    background-color: #fdfbf7;
+}
+
+.text-allies-header {
+    margin-top: 40px !important;
+    margin-bottom: 35px;
+}
 
 .allies-slider {
     width: 100%;
-    margin: 0 auto;
+    max-width: 100%;
     position: relative;
     display: flex;
     align-items: center;
-    overflow: hidden; /* Asegura que nada sobresalga */
+    overflow: hidden;
+    background: #ffffff;
+    padding: 40px 0;
+    box-shadow: 0 15px 40px rgba(74, 45, 0, 0.04); /* Sombra suavizada con café de marca */
+    border-top: 1px solid rgba(200, 145, 50, 0.15);  /* Bordes integrados con el nuevo dorado */
+    border-bottom: 1px solid rgba(200, 145, 50, 0.15);
+}
+
+.allies-slider::before,
+.allies-slider::after {
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.allies-slider::before {
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.allies-slider::after {
+    top: 0;
+    right: 0;
+    background: linear-gradient(to left, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
 }
 
 .allies-track {
     display: flex;
-    /* 250px * 10 logos = 2500px */
-    width: calc(250px * 10);
-    animation: scroll 35s linear infinite;
-    /* Aceleración de hardware para suavidad total */
+    width: calc(250px * 15);
+    animation: scrollInfinite 25s linear infinite;
     will-change: transform;
 }
 
@@ -475,10 +505,9 @@
 }
 
 .ally-logo img {
-    max-width: 160px; /* Tamaño optimizado */
+    max-width: 160px;
     height: auto;
-    filter: none; /* ELIMINADO EL GRIS para ver colores reales */
-    opacity: 0.9; /* Un toque sutil de transparencia para elegancia */
+    opacity: 0.9;
     transition: all 0.3s ease;
 }
 
@@ -487,25 +516,139 @@
     transform: scale(1.1);
 }
 
-/* Animación de desplazamiento: Se mueve exactamente la mitad del ancho total */
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* Desplazamos solo el primer bloque (5 logos): 250px * 5 = 1250px */
-        transform: translateX(calc(-250px * 5));
-    }
-}
-
-/* Pausar al pasar el mouse para que el usuario pueda ver bien los logos */
 .allies-slider:hover .allies-track {
     animation-play-state: paused;
 }
-/*-----------------------------------------------------------------------------------------------*/
 
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
+@keyframes scrollInfinite {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 5)); }
+}
+
+
+/* ============================================================
+   OTROS COMPONENTES
+   ============================================================ */
+.counter {
+    display: inline-block;
+    min-width: 0.6em;
+    font-variant-numeric: tabular-nums;
+}
+
+.dropdown-menu {
+    border-radius: 0;
+    border-top: 3px solid var(--gold) !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.dropdown-item:hover {
+    background-color: var(--dark-coffee);
+    color: var(--gold) !important;
+    padding-left: 2rem;
+}
+
+
+/* ============================================================
+   MEDIA QUERIES — RESPONSIVO Y ADAPTACIONES MÓVILES
+   ============================================================ */
+
+@media (min-width: 992px) {
+    .card-img-wrapper.wrapper-large {
+        height: 280px;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    .section-digital-bg .position-absolute,
+    .decorative-icon-large,
+    .decorative-flower {
+        display: none !important;
+    }
+
+    .section-main-title {
+        font-size: calc(1.6rem + 1.2vw) !important;
+        text-align: center !important;
+        line-height: 1.3 !important;
+        padding: 0 15px;
+    }
+
+    .label-badge-gold {
+        font-size: 0.78rem !important;
+        letter-spacing: 3px !important;
+        text-align: center !important;
+        display: block;
+        margin-bottom: 0.4rem;
+    }
+
+    .text-start {
+        text-align: center !important;
+    }
     .hero-title { font-size: 2rem; }
-    .section-padding { padding: 60px 0; }
+    .section-padding { padding: 50px 0; }
+
+    .card-digital-management {
+        padding: 2rem 1.5rem !important;
+    }
+
+    .overflow-hidden-mobile {
+        overflow: hidden !important;
+    }
+
+    .carencia-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: left;
+        padding-left: 10%;
+    }
+
+    .hero-tradicionales {
+        min-height: 45vh;
+        padding: 40px 15px;
+    }
+    .hero-tradicionales h1 {
+        font-size: 2rem !important;
+    }
+    .text-justify {
+        text-align: left;
+        font-size: 1rem;
+    }
+    .img-side-protocol {
+        height: 280px;
+    }
+    .btn-call-action, .btn-cta-premium {
+        width: 100%;
+        text-align: center;
+    }
+    .title-section-dark {
+        font-size: 1.75rem !important;
+    }
+    .title-cta-serif {
+        font-size: 1.5rem !important;
+    }
+    .btn-cta-premium {
+        padding: 15px 20px !important;
+    }
+
+    .row.align-items-stretch > [class*="col-"] {
+        margin-bottom: 2.5rem;
+    }
+
+    .row.align-items-stretch > [class*="col-"]:last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+    .hero-tradicionales {
+        min-height: 40vh;
+    }
+    .card-img-wrapper {
+        height: 180px;
+    }
+    .carencia-grid {
+        padding-left: 5%;
+    }
 }
