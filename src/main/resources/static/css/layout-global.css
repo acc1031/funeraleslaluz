@@ -563,10 +563,8 @@ body {
 }
 
 .sedes-header {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("https://images.unsplash.com/photo-1518135714426-c18f5ffb6f4d?&fit=crop&h=1000&w=2000&q=80") !important;
     background-size: cover !important;
-    background-position: center !important;
+    background-position: center 60% !important;
 }
 
 

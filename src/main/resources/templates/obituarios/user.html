@@ -4,630 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Homenajes - Usuarios</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Lora:wght@400;500&display=swap"
-          rel="stylesheet">
+    <link url="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
 
-    <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="icon" type="image/png" th:href="@{/img/Luz.png}">
 
-        :root {
-            --gold: #c9a84c;
-            --gold-light: rgba(201, 168, 76, 0.12);
-            --gold-mid: rgba(201, 168, 76, 0.25);
-            --sidebar-bg: #0f1117;
-            --sidebar-w: 240px;
-            --text-dark: #1c1f26;
-            --text-mid: #6b7280;
-            --text-light: #9ca3af;
-            --surface: #ffffff;
-            --bg: #f4f5f7;
-            --border: #e8eaed;
-            --radius-card: 14px;
-            --radius-btn: 40px;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: var(--bg);
-            color: var(--text-dark);
-            min-height: 100vh;
-        }
-
-        /* Botón de Hamburguesa para Móvil */
-        .menu-toggle {
-            display: none;
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            background: var(--sidebar-bg);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 1.2rem;
-            z-index: 1000;
-            cursor: pointer;
-        }
-
-        /* ── SIDEBAR ─────────────────────────────── */
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: var(--sidebar-w);
-            height: 100vh;
-            background: var(--sidebar-bg);
-            display: flex;
-            flex-direction: column;
-            padding: 28px 18px;
-            z-index: 100;
-            border-right: 1px solid rgba(255, 255, 255, 0.04);
-            transition: transform 0.3s ease;
-        }
-
-        .sidebar-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding-bottom: 24px;
-            margin-bottom: 24px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .brand-icon {
-            width: 34px;
-            height: 34px;
-            background: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .brand-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 0.95rem;
-            color: rgba(255, 255, 255, 0.85);
-            font-weight: 500;
-            line-height: 1.2;
-        }
-
-        .brand-sub {
-            font-size: 0.65rem;
-            color: rgba(255, 255, 255, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            display: block;
-        }
-
-        .nav-section-label {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: rgba(255, 255, 255, 0.2);
-            padding: 0 10px;
-            margin-bottom: 6px;
-            margin-top: 18px;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 9px 12px;
-            border-radius: 9px;
-            color: rgba(255, 255, 255, 0.45);
-            text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 400;
-            transition: all 0.2s;
-            margin-bottom: 2px;
-        }
-
-        .nav-link:hover {
-            color: rgba(255, 255, 255, 0.8);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .nav-link.active {
-            color: var(--gold);
-            background: var(--gold-light);
-            font-weight: 500;
-        }
-
-        .nav-badge {
-            margin-left: auto;
-            background: rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.6rem;
-            font-weight: 700;
-            padding: 2px 7px;
-            border-radius: 20px;
-        }
-
-        .sidebar-footer {
-            margin-top: auto;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px 10px;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--gold-mid);
-            color: var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: 600;
-        }
-
-        .footer-name {
-            font-size: 0.78rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .footer-role {
-            font-size: 0.65rem;
-            color: rgba(255, 255, 255, 0.25);
-            margin-top: 3px;
-            display: block;
-        }
-
-        .nav-link-logout {
-            margin-left: auto;
-            color: rgba(248, 113, 113, 0.5);
-            font-size: 15px;
-            text-decoration: none;
-        }
-
-        .nav-link-logout:hover {
-            color: #f87171;
-        }
-
-        /* ── LAYOUT ───────────────────────────────── */
-        .main {
-            margin-left: var(--sidebar-w);
-            min-height: 100vh;
-            padding: 36px 32px;
-            transition: margin 0.3s ease;
-        }
-
-        .page-header {
-            margin-bottom: 28px;
-        }
-
-        .page-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .page-sub {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            margin-top: 4px;
-        }
-
-        /* ── GRID PRINCIPAL ──────────────────────── */
-        .content-grid {
-            display: grid;
-            grid-template-columns: 420px 1fr;
-            gap: 28px;
-            align-items: start;
-        }
-
-        /* ── FORM CARD ────────────────────────────── */
-        .form-card {
-            background: var(--surface);
-            border-radius: var(--radius-card);
-            border: 1px solid var(--border);
-            padding: 32px 28px;
-            position: sticky;
-            top: 24px;
-        }
-
-        .module-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--gold-light);
-            color: var(--gold);
-            font-size: 0.65rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            margin-bottom: 14px;
-        }
-
-        .form-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .form-desc {
-            font-size: 0.78rem;
-            color: var(--text-light);
-            margin-bottom: 22px;
-        }
-
-        .divider {
-            height: 1px;
-            background: var(--border);
-            margin-bottom: 22px;
-        }
-
-        .field-group {
-            margin-bottom: 16px;
-        }
-
-        .field-label {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.77rem;
-            font-weight: 500;
-            color: var(--text-mid);
-            margin-bottom: 6px;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 11px 14px;
-            border: 1px solid var(--border);
-            border-radius: 9px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.83rem;
-            color: var(--text-dark);
-            background: #fafafa;
-            outline: none;
-            transition: all 0.2s;
-        }
-
-        .form-input:focus {
-            border-color: var(--gold);
-            background: #fff;
-            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
-        }
-
-        .select-input {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 14px center;
-            background-size: 14px;
-            padding-right: 40px;
-        }
-
-        .form-info-box {
-            background: #f8fafc;
-            border-left: 3px solid var(--gold);
-            padding: 10px 12px;
-            border-radius: 4px 8px 8px 4px;
-            font-size: 0.72rem;
-            color: var(--text-mid);
-            margin-bottom: 16px;
-            line-height: 1.4;
-        }
-
-        .btn-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 24px;
-        }
-
-        .btn {
-            padding: 11px 18px;
-            border-radius: var(--radius-btn);
-            font-size: 0.83rem;
-            font-weight: 500;
-            cursor: pointer;
-            border: none;
-            transition: all 0.2s;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--text-mid);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            border-color: #c0c5cf;
-            color: var(--text-dark);
-        }
-
-        .btn-primary {
-            background: var(--text-dark);
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background: #2a2f3a;
-            transform: translateY(-1px);
-        }
-
-        /* ── PANELS Y TARJETAS DE USUARIOS ────────── */
-        .cards-panel {
-            background: var(--surface);
-            border-radius: var(--radius-card);
-            border: 1px solid var(--border);
-            padding: 30px 26px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .panel-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 24px;
-            padding-bottom: 18px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .panel-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
-
-        .panel-sub {
-            font-size: 0.78rem;
-            color: var(--text-light);
-            margin-top: 4px;
-        }
-
-        .status-pill {
-            background: var(--text-dark);
-            color: #fff;
-            font-size: 0.72rem;
-            font-weight: 500;
-            padding: 6px 14px;
-            border-radius: 40px;
-        }
-
-        .cards-scroll {
-            max-height: 710px;
-            overflow-y: auto;
-            padding-right: 8px;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 16px;
-        }
-
-        .user-card {
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 22px 20px;
-            background: #fdfdfe;
-            transition: all 0.25s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-width: 0;
-        }
-
-        .user-card:hover {
-            border-color: #c9a84c;
-            box-shadow: 0 6px 20px rgba(201, 168, 76, 0.06);
-            transform: translateY(-2px);
-        }
-
-        .card-top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .user-badge-role {
-            font-size: 0.65rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            padding: 3px 8px;
-            border-radius: 6px;
-            background: #f1f5f9;
-            color: #475569;
-        }
-
-        .user-badge-role.admin-type {
-            background: #fef3c7;
-            color: #d97706;
-        }
-
-        .card-btn-delete {
-            color: var(--text-light);
-            background: transparent;
-            border: none;
-            padding: 6px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .card-btn-delete:hover {
-            color: #ef4444;
-            background: #fef2f2;
-        }
-
-        .user-info-meta {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
-
-        .user-avatar-circle {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--gold-light);
-            color: var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-
-        .user-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.05rem;
-            font-weight: 500;
-            color: var(--text-dark);
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .user-username-tag {
-            font-size: 0.72rem;
-            color: var(--text-light);
-        }
-
-        .card-details {
-            border-top: 1px dashed var(--border);
-            padding-top: 12px;
-            margin-bottom: 16px;
-        }
-
-        .detail-row {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 6px;
-            font-size: 0.78rem;
-            align-items: center;
-        }
-
-        .detail-key {
-            color: var(--text-light);
-            font-weight: 500;
-            width: 55px;
-            flex-shrink: 0;
-        }
-
-        .detail-val {
-            color: var(--text-dark);
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .card-actions {
-            margin-top: auto;
-        }
-
-        .card-btn-edit {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            width: 100%;
-            padding: 9px 12px;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-decoration: none;
-            border: 1px solid rgba(201, 168, 76, 0.25);
-            color: #94711c;
-            background: var(--gold-light);
-            transition: all 0.2s;
-        }
-
-        .card-btn-edit:hover {
-            background: rgba(201, 168, 76, 0.2);
-            border-color: var(--gold);
-            color: #785b14;
-        }
-
-        /* Personalización de scrollbars */
-        .cards-scroll::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        .cards-scroll::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        .cards-scroll::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 10px;
-        }
-
-        /* ── REGLAS DE MEDIA QUERY (RESPONSIVE) ── */
-        @media (max-width: 1024px) {
-            .menu-toggle {
-                display: block; /* Muestra el botón de hamburguesa */
-            }
-
-            .sidebar {
-                transform: translateX(-100%); /* Oculta la barra lateral de la pantalla */
-            }
-
-            /* Clase dinámica que agregará JavaScript al presionar el botón */
-            .sidebar.active {
-                transform: translateX(0);
-            }
-
-            .main {
-                margin-left: 0; /* Quita el margen del menú en pantallas chicas */
-                padding: 70px 16px 20px 16px; /* Deja espacio superior para el botón */
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr; /* Cambia a una sola columna (Formulario arriba, lista abajo) */
-                gap: 20px;
-            }
-
-            .form-card {
-                position: static; /* El formulario deja de estar pegajoso (sticky) en móvil */
-                padding: 22px 18px;
-            }
-
-            .cards-panel {
-                padding: 22px 16px;
-            }
-
-            .cards-scroll {
-                max-height: none; /* Que el scroll sea el natural de la pantalla móvil */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .cards-grid {
-                grid-template-columns: 1fr; /* Tarjetas de usuario ocupan el 100% en pantallas extra chicas */
-            }
-            .btn-row {
-                grid-template-columns: 1fr; /* Botones de cancelar y guardar uno sobre otro */
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -638,7 +21,7 @@
 <nav class="sidebar" id="sidebarMenu">
     <div class="sidebar-brand">
         <div class="brand-icon">
-            <img th:src="@{/img/Luz.png}" alt="Logo" style="width: 100%; height: 100%; object-fit: contain;">
+            <img th:src="@{/img/Luz.png}" alt="Logo La Luz" style="width: 100%; height: 100%; object-fit: contain;">
         </div>
         <div class="brand-name">
             Homenajes
@@ -659,13 +42,18 @@
         <span class="nav-badge" th:text="${usuariosRegistrados != null ? usuariosRegistrados.size() : 0}">0</span>
     </a>
 
+
+
     <div class="sidebar-footer">
         <div class="avatar">AD</div>
         <div class="footer-info">
             <span class="footer-name">Admin</span>
             <span class="footer-role">Operador</span>
         </div>
-        <a th:href="@{/obituarios}" class="nav-link-logout" title="Salir"><i class="bi bi-box-arrow-right"></i></a>
+        <a th:href="@{/obituarios/usuarios/logout}" class="nav-link-logout" title="Cerrar Sesión de Forma Segura">
+            <i class="bi bi-box-arrow-right" style="font-size: 24px;"></i>
+        </a>
+
     </div>
 </nav>
 
@@ -674,20 +62,20 @@
     <div class="page-header">
         <div>
             <h1 class="page-title">Gestión de Seguridad</h1>
-            <p class="page-sub">Control de accesos, credenciales y roles del ecosistema</p>
+            <p class="page-sub">Control de accesos, credenciales y roles del ecosistema operativo</p>
         </div>
     </div>
 
     <div class="alerts-container" style="max-width: 1200px; margin: 0 auto 20px auto;">
         <div class="alert alert-success" th:if="${success}"
-             style="background-color: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; padding: 12px 16px; border-radius: 8px; display: flex; align-items: center; gap: 10px; font-size: 14px; margin-bottom: 15px;">
-            <i class="bi bi-check-circle-fill"></i>
+             style="background-color: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; padding: 12px 16px; border-radius: 8px; display: flex; align-items: center; gap: 10px; font-size: 14px; margin-bottom: 15px; font-family: var(--font-sans);">
+            <i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
             <span th:text="${success}">Operación realizada con éxito.</span>
         </div>
 
         <div class="alert alert-danger" th:if="${error}"
-             style="background-color: #fef2f2; border: 1px solid #fee2e2; color: #991b1b; padding: 12px 16px; border-radius: 8px; display: flex; align-items: center; gap: 10px; font-size: 14px; margin-bottom: 15px;">
-            <i class="bi bi-exclamation-triangle-fill"></i>
+             style="background-color: #fef2f2; border: 1px solid #fee2e2; color: #991b1b; padding: 12px 16px; border-radius: 8px; display: flex; align-items: center; gap: 10px; font-size: 14px; margin-bottom: 15px; font-family: var(--font-sans);">
+            <i class="bi bi-exclamation-triangle-fill" style="color: #ef4444;"></i>
             <span th:text="${error}">Ocurrió un error inesperado.</span>
         </div>
     </div>
@@ -699,36 +87,36 @@
 
             <span class="module-tag"><i class="bi bi-shield-lock"></i> Seguridad</span>
             <h2 class="form-title">Registrar Operador</h2>
-            <p class="form-desc">Crea cuentas nuevas o actualiza credenciales existentes</p>
+            <p class="form-desc">Crea cuentas nuevas o actualiza credenciales existentes en la plataforma</p>
             <div class="divider"></div>
 
             <div class="form-info-box" th:if="*{id != null}">
-                <i class="bi bi-info-circle"></i>
+                <i class="bi bi-info-circle" style="color: var(--gold);"></i>
                 <strong>Modo Edición:</strong> Si dejas el espacio de la contraseña en blanco, se conservará la clave actual.
             </div>
 
             <div class="field-group">
-                <label for="nombre" class="field-label"><i class="bi bi-person"></i> Nombre</label>
+                <label for="nombre" class="field-label"><i class="bi bi-person" style="color: var(--gold);"></i> Nombre</label>
                 <input type="text" id="nombre" th:field="*{nombre}" class="form-input" placeholder="Ej: Carlos" required>
             </div>
 
             <div class="field-group">
-                <label for="apellido" class="field-label"><i class="bi bi-person"></i> Apellido</label>
+                <label for="apellido" class="field-label"><i class="bi bi-person" style="color: var(--gold);"></i> Apellido</label>
                 <input type="text" id="apellido" th:field="*{apellido}" class="form-input" placeholder="Ej: Mendoza" required>
             </div>
 
             <div class="field-group">
-                <label for="username" class="field-label"><i class="bi bi-person-badge"></i> Nombre de Usuario (Login)</label>
+                <label for="username" class="field-label"><i class="bi bi-person-badge" style="color: var(--gold);"></i> Nombre de Usuario (Login)</label>
                 <input type="text" id="username" th:field="*{correo}" class="form-input" placeholder="Ej: cmendoza" required th:readonly="*{id != null}">
             </div>
 
             <div class="field-group">
-                <label for="password" class="field-label"><i class="bi bi-key"></i> Contraseña de Acceso</label>
+                <label for="password" class="field-label"><i class="bi bi-key" style="color: var(--gold);"></i> Contraseña de Acceso</label>
                 <input type="password" id="password" th:field="*{contrasena}" class="form-input" placeholder="••••••••" th:required="*{id == null}">
             </div>
 
             <div class="field-group">
-                <label for="rol" class="field-label"><i class="bi bi-sliders"></i> Rol asignado</label>
+                <label for="rol" class="field-label"><i class="bi bi-sliders" style="color: var(--gold);"></i> Rol asignado</label>
                 <select id="rol" th:field="*{rol}" class="form-input select-input" required>
                     <option value="OPERADOR">Operador estándar</option>
                     <option value="ADMINISTRADOR">Administrador global</option>
@@ -747,7 +135,7 @@
             <div class="panel-header">
                 <div>
                     <h3 class="panel-title">Usuarios en Plataforma</h3>
-                    <p class="panel-sub">Cuentas con autorización activa para ingresar al sistema</p>
+                    <p class="panel-sub">Cuentas con autorización activa para ingresar al sistema operativo</p>
                 </div>
                 <span class="status-pill" th:text="${usuariosRegistrados != null ? usuariosRegistrados.size() + ' Activos' : '0 Activos'}">0 Activos</span>
             </div>
@@ -779,7 +167,7 @@
                             <div class="card-details">
                                 <div class="detail-row">
                                     <span class="detail-key">Estado:</span>
-                                    <span class="detail-val" style="color: #10b981; font-weight: 500;">● Habilitado</span>
+                                    <span class="detail-val" style="color: #10b981; font-weight: 600;">● Habilitado</span>
                                 </div>
                                 <div class="detail-row">
                                     <span class="detail-key">Ingreso:</span>
@@ -802,13 +190,11 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Pequeño script JS nativo para abrir/cerrar el menú en celular de forma limpia
     const menuBtn = document.getElementById('menuBtn');
     const sidebarMenu = document.getElementById('sidebarMenu');
 
     menuBtn.addEventListener('click', () => {
         sidebarMenu.classList.toggle('active');
-        // Cambia el icono de hamburguesa a una 'X' cuando esté abierto
         const icon = menuBtn.querySelector('i');
         if (sidebarMenu.classList.contains('active')) {
             icon.className = 'bi bi-x-lg';
@@ -817,7 +203,6 @@
         }
     });
 
-    // Cerrar el menú si se hace clic fuera de él en pantallas móviles
     document.addEventListener('click', (e) => {
         if (window.innerWidth <= 1024) {
             if (!sidebarMenu.contains(e.target) && !menuBtn.contains(e.target) && sidebarMenu.classList.contains('active')) {

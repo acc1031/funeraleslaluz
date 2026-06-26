@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface IUserService {
 
+
     public List<Usuario> listUser(); // Listar
 
     public Usuario searchUserById(Long idUser); // Buscar por Id

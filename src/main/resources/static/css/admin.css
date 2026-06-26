@@ -1,35 +1,49 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ============================================================
+   LA LUZ — HOJA DE ESTILOS DEL PANEL INSTITUCIONAL (ESPRESSO)
+   ============================================================ */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 :root {
-    /* Paleta Oficial del Manual de Marca */
-    --brand-green: #004C45;        /* Pantone 3302C - Verde Institucional */
+    /* Paleta Oficial del Manual de Marca (Sincronizada con Tema Café Espresso) */
+    --brand-dark-brown: #211300;   /* Café Ultra Profundo / Espresso Premium */
+    --brand-medium-brown: #734C16; /* Café Medio balanceado */
     --brand-gold: #C48F30;         /* Pantone 7510C - Ocre/Dorado Principal */
-    --brand-dark-brown: #4A2D00;   /* Pantone 4625C - Café Profundo */
+    --brand-light-gold: #EACB8D;   /* Pantone 7403C - Dorado Claro/Crema */
+    --brand-soft-cream: #F5EFE6;   /* Crema Suave para fondos de detalles internos */
 
     /* Variables del Sistema Sincronizadas */
     --gold: var(--brand-gold);
-    --gold-light: rgba(196, 143, 48, 0.12);
-    --gold-mid: rgba(196, 143, 48, 0.25);
-    --sidebar-bg: var(--brand-green);
-    --sidebar-w: 240px;
-    --text-dark: #1A1E24;
-    --text-mid: #6b7280;
-    --text-light: #9ca3af;
+    --gold-light: rgba(196, 143, 48, 0.08);
+    --gold-mid: rgba(196, 143, 48, 0.18);
+    --sidebar-bg: #140B00;
+    --sidebar-w: 260px;
+    --dark-coffee: var(--brand-dark-brown);
+    --text-dark: var(--brand-dark-brown);
+    --text-mid: #555c66;
+    --text-light: #8e96a3;
     --surface: #ffffff;
-    --bg: #f4f5f7;
-    --border: #e8eaed;
-    --radius-card: 14px;
+    --bg: #F9F7F2;
+    --border: rgba(196, 143, 48, 0.15);
+    --radius-card: 15px;
     --radius-btn: 40px;
+
+    /* Sistema de Fuentes Oficiales */
+    --font-serif: 'ZCOOL XiaoWei', serif;
+    --font-sans: 'Begun SANS', 'Montserrat', sans-serif;
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: var(--font-sans);
     background: var(--bg);
     color: var(--text-dark);
     min-height: 100vh;
 }
 
-/* ── SIDEBAR (CON MARCA DE AGUA CORPORATIVA) ── */
+/* ── SIDEBAR (CAFÉ PROFUNDO CON MARCA DE AGUA) ── */
 .sidebar {
     position: fixed;
     left: 0; top: 0;
@@ -39,19 +53,17 @@ body {
     display: flex;
     flex-direction: column;
     padding: 28px 18px;
-    z-index: 100;
-    border-right: 1px solid rgba(255,255,255,0.04);
+    z-index: 1050;
+    border-right: 1px solid rgba(196, 143, 48, 0.1);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    overflow: hidden; /* Evita que el logo de fondo genere scrollbars */
+    overflow: hidden;
 }
 
-/* Pseudo-elemento para el isotipo de la luz en marca de agua */
 .sidebar::before {
     content: '';
     position: absolute;
     inset: 0;
-    /* Trazo vectorial SVG de la flama/luz estilizada en baja opacidad */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M50,100 C15,85 5,55 30,22 C37,14 46,5 50,0 C54,5 63,14 70,22 C95,55 85,85 50,100 Z M50,92 C72,78 78,52 62,32 C56,24 51,14 50,8 C49,14 44,24 38,32 C22,52 28,78 50,92 Z' fill='none' stroke='rgba(255,255,255,0.035)' stroke-width='0.75'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpath d='M50,100 C15,85 5,55 30,22 C37,14 46,5 50,0 C54,5 63,14 70,22 C95,55 85,85 50,100 Z M50,92 C72,78 78,52 62,32 C56,24 51,14 50,8 C49,14 44,24 38,32 C22,52 28,78 50,92 Z' fill='none' stroke='rgba(255,255,255,0.025)' stroke-width='0.75'/%3E%3C/svg%3E");
     background-size: 160% 105%;
     background-position: center bottom -15px;
     background-repeat: no-repeat;
@@ -59,7 +71,6 @@ body {
     z-index: 0;
 }
 
-/* Asegura el orden visual de los contenidos por encima de la marca de agua */
 .sidebar-brand,
 .nav-section-label,
 .nav-link,
@@ -71,80 +82,84 @@ body {
 .sidebar-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     padding-bottom: 24px;
     margin-bottom: 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .brand-icon {
-    width: 34px; height: 34px;
-    background: var(--gold);
-    border-radius: 9px;
+    width: 36px; height: 36px;
+    background: transparent;
     display: flex; align-items: center; justify-content: center;
-    font-size: 15px;
-    color: var(--brand-green);
     flex-shrink: 0;
 }
 
 .brand-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.9);
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: #ffffff;
     font-weight: 500;
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
 .brand-sub {
+    font-family: var(--font-sans);
     font-size: 0.65rem;
-    color: rgba(255,255,255,0.35);
+    color: var(--brand-light-gold);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     display: block;
+    margin-top: 2px;
+    font-weight: 500;
 }
 
 .nav-section-label {
+    font-family: var(--font-sans);
     font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: rgba(255,255,255,0.25);
+    color: rgba(255, 255, 255, 0.3);
     padding: 0 10px;
-    margin-bottom: 6px;
-    margin-top: 18px;
+    margin-bottom: 8px;
+    margin-top: 20px;
+    font-weight: 600;
 }
 
 .nav-link {
+    font-family: var(--font-sans);
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 9px 12px;
-    border-radius: 9px;
-    color: rgba(255,255,255,0.55);
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
-    font-size: 0.82rem;
-    font-weight: 400;
-    transition: all 0.2s;
-    margin-bottom: 2px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    margin-bottom: 4px;
 }
 
 .nav-link:hover {
-    color: rgba(255,255,255,0.9);
-    background: rgba(255,255,255,0.06);
+    color: #ffffff;
+    background: rgba(196, 143, 48, 0.1);
 }
 
 .nav-link.active {
     color: var(--gold);
     background: var(--gold-light);
-    font-weight: 500;
+    font-weight: 600;
+    border-left: 2px solid var(--gold);
 }
 
 .nav-badge {
     margin-left: auto;
     background: var(--gold);
-    color: var(--brand-green);
-    font-size: 0.6rem;
+    color: #ffffff;
+    font-size: 0.65rem;
     font-weight: 700;
-    padding: 2px 7px;
+    padding: 2px 8px;
     border-radius: 20px;
 }
 
@@ -153,88 +168,96 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 10px;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 14px 10px 0 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .avatar {
-    width: 32px; height: 32px;
+    width: 34px; height: 34px;
     border-radius: 50%;
-    background: var(--gold-mid);
-    color: var(--gold);
+    background: var(--gold);
+    color: #ffffff;
     display: flex; align-items: center; justify-content: center;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 600;
 }
 
-.footer-name { font-size: 0.78rem; color: rgba(255,255,255,0.7); }
-.footer-role { font-size: 0.65rem; color: rgba(255,255,255,0.3); margin-top: 3px; display: block; }
+.footer-name { font-size: 0.8rem; color: rgba(255, 255, 255, 0.8); font-weight: 500; }
+.footer-role { font-size: 0.65rem; color: var(--brand-light-gold); margin-top: 2px; display: block; }
 
+/* Icono Salir Agrandado y Alineado */
 .nav-link-logout {
     margin-left: auto;
-    color: rgba(248,113,113,0.6);
-    font-size: 15px;
+    color: rgba(248, 113, 113, 0.6);
     text-decoration: none;
+    transition: color 0.2s;
+    display: inline-flex;
+    align-items: center;
+}
+.nav-link-logout i {
+    font-size: 22px; /* Tamaño más grande para el icono */
 }
 .nav-link-logout:hover { color: #f87171; }
 
-/* Toggle Mobile Button */
+/* Botón Hamburguesa de Escritorio oculto */
 .menu-toggle {
     display: none;
     position: fixed;
-    top: 16px;
-    right: 16px;
+    top: 20px;
+    right: 20px;
     background: var(--sidebar-bg);
     color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(196, 143, 48, 0.3);
     padding: 10px 14px;
     border-radius: 8px;
     font-size: 1.25rem;
-    z-index: 1001;
+    z-index: 1100;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: background 0.3s ease;
 }
+.menu-toggle:hover { background: var(--dark-coffee); }
 
-/* ── LAYOUT ───────────────────────────────── */
+/* ── LAYOUT GENERAL ───────────────────────── */
 .main {
     margin-left: var(--sidebar-w);
     min-height: 100vh;
-    padding: 36px 32px;
+    padding: 40px 36px;
+    transition: margin 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.page-header {
-    margin-bottom: 28px;
-}
+.page-header { margin-bottom: 32px; }
 
 .page-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6rem;
-    font-weight: 500;
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    font-weight: 400;
     color: var(--text-dark);
 }
 
 .page-sub {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     color: var(--text-light);
     margin-top: 4px;
 }
 
-/* ── GRID PRINCIPAL ──────────────────────── */
+/* ── GRID DE CONTENIDO ───────────────────── */
 .content-grid {
     display: grid;
-    grid-template-columns: 420px 1fr;
-    gap: 28px;
+    grid-template-columns: 440px 1fr;
+    gap: 32px;
     align-items: start;
 }
 
-/* ── FORM CARD ────────────────────────────── */
+/* ── TARJETA DE FORMULARIO ────────────────── */
 .form-card {
     background: var(--surface);
     border-radius: var(--radius-card);
     border: 1px solid var(--border);
-    padding: 32px 28px;
+    padding: 36px 32px;
     position: sticky;
-    top: 24px;
+    top: 30px;
+    box-shadow: 0 10px 30px rgba(33, 19, 0, 0.02);
 }
 
 .module-tag {
@@ -243,153 +266,167 @@ body {
     gap: 6px;
     background: var(--gold-light);
     color: var(--gold);
-    font-size: 0.65rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    padding: 4px 10px;
+    letter-spacing: 1.5px;
+    padding: 5px 12px;
     border-radius: 20px;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
 .form-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    font-weight: 500;
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 400;
     color: var(--text-dark);
 }
 
 .form-desc {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: var(--text-light);
-    margin-bottom: 22px;
+    margin-bottom: 24px;
 }
 
 .divider {
     height: 1px;
     background: var(--border);
-    margin-bottom: 22px;
+    margin-bottom: 24px;
 }
 
-.field-group { margin-bottom: 16px; }
+.field-group { margin-bottom: 18px; }
 
 .field-label {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.77rem;
-    font-weight: 500;
-    color: var(--text-mid);
-    margin-bottom: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
 }
 
 .form-input {
     width: 100%;
-    padding: 11px 14px;
+    padding: 12px 16px;
     border: 1px solid var(--border);
-    border-radius: 9px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.83rem;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
     color: var(--text-dark);
-    background: #fafafa;
+    background: #fafbfc;
     outline: none;
-    transition: all 0.2s;
+    transition: all 0.25s ease;
 }
 
 .form-input:focus {
     border-color: var(--gold);
     background: #fff;
-    box-shadow: 0 0 0 3px rgba(196, 143, 48, 0.1);
+    box-shadow: 0 0 0 3px rgba(196, 143, 48, 0.12);
 }
 
-.form-input-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 16px;
+.select-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23C48F30'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 14px;
+    padding-right: 40px;
 }
 
-textarea.form-input { resize: vertical; min-height: 75px; }
+.form-info-box {
+    background: var(--bg);
+    border-left: 3px solid var(--gold);
+    padding: 12px;
+    border-radius: 4px 8px 8px 4px;
+    font-size: 0.75rem;
+    color: var(--dark-coffee);
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
 
 .btn-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-top: 24px;
+    gap: 14px;
+    margin-top: 26px;
 }
 
 .btn {
-    padding: 11px 18px;
+    padding: 12px 20px;
     border-radius: var(--radius-btn);
-    font-size: 0.83rem;
-    font-weight: 500;
+    font-size: 0.85rem;
+    font-weight: 600;
     cursor: pointer;
     border: none;
-    transition: all 0.2s;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 7px;
+    gap: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .btn-secondary {
     background: transparent;
-    color: var(--brand-dark-brown); /* Café Profundo para máxima elegancia */
-    border: 1px solid var(--brand-gold); /* Borde Ocre/Dorado */
+    color: var(--text-mid);
+    border: 1px solid var(--border);
+}
+.btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--brand-dark-brown);
+    background: #ffffff;
 }
 
-.btn-secondary:hover {
-    border-color: var(--brand-gold);
-    background: var(--gold-light); /* Fondo sutil dorado */
-    color: var(--brand-dark-brown);
-}
 .btn-primary {
-    background: var(--brand-green); /* Verde Institucional */
+    background: var(--brand-dark-brown);
     color: #fff;
 }
-
 .btn-primary:hover {
-    background: #003631; /* Verde institucional más profundo */
+    background: #0f0800;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 76, 69, 0.15);
+    box-shadow: 0 5px 15px rgba(33, 19, 0, 0.25);
 }
 
-/* ── PANELS Y SCROLLBARS ── */
+/* ── CONTENEDOR Y TARJETAS GLOBALES ── */
 .cards-panel {
     background: var(--surface);
     border-radius: var(--radius-card);
     border: 1px solid var(--border);
-    padding: 30px 26px;
+    padding: 36px 32px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 10px 30px rgba(33, 19, 0, 0.02);
 }
 
 .panel-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 24px;
-    padding-bottom: 18px;
+    margin-bottom: 26px;
+    padding-bottom: 20px;
     border-bottom: 1px solid var(--border);
 }
 
 .panel-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-family: var(--font-serif);
+    font-size: 1.45rem;
+    font-weight: 400;
     color: var(--text-dark);
 }
 
-.panel-sub { font-size: 0.78rem; color: var(--text-light); margin-top: 4px; }
+.panel-sub { font-size: 0.8rem; color: var(--text-light); margin-top: 4px; }
 
 .status-pill {
-    background: var(--text-dark);
+    background: var(--brand-dark-brown);
     color: #fff;
-    font-size: 0.72rem;
-    font-weight: 500;
-    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 16px;
     border-radius: 40px;
+    letter-spacing: 0.5px;
 }
 
 .cards-scroll {
@@ -401,41 +438,60 @@ textarea.form-input { resize: vertical; min-height: 75px; }
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
+    gap: 18px;
 }
 
-.obit-card {
+/* Estilos de Tarjetas unificados */
+.obit-card, .user-card {
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 22px 20px;
-    background: #fdfdfe;
-    transition: all 0.25s ease;
+    padding: 24px 22px;
+    background: #ffffff;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-width: 0;
 }
 
-.obit-card:hover {
+.obit-card:hover, .user-card:hover {
     border-color: var(--gold);
-    box-shadow: 0 6px 20px rgba(196, 143, 48, 0.06);
-    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(196, 143, 48, 0.08);
+    transform: translateY(-3px);
 }
 
 .card-top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
 }
 
 .card-spark {
-    width: 30px; height: 30px;
+    width: 34px; height: 34px;
     border-radius: 50%;
     background: var(--gold-light);
     display: flex; align-items: center; justify-content: center;
-    font-size: 13px;
+    font-size: 14px;
     color: var(--gold);
+    border: 1px solid rgba(196, 143, 48, 0.2);
+}
+
+.user-badge-role {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: var(--brand-soft-cream);
+    color: var(--brand-medium-brown);
+    letter-spacing: 0.5px;
+}
+
+.user-badge-role.admin-type {
+    background: #fff4e0;
+    color: var(--brand-medium-brown);
+    border: 1px solid rgba(115, 76, 22, 0.15);
 }
 
 .card-btn-delete {
@@ -445,74 +501,126 @@ textarea.form-input { resize: vertical; min-height: 75px; }
     padding: 6px;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
-
 .card-btn-delete:hover {
     color: #ef4444;
     background: #fef2f2;
 }
 
+/* Meta info de Usuarios */
+.user-info-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.user-avatar-circle {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    background: var(--gold-light);
+    color: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid rgba(196, 143, 48, 0.2);
+}
+
+.user-name {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--text-dark);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-username-tag {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-family: var(--font-sans);
+}
+
+/* Detalles y filas internos */
 .card-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    font-weight: 500;
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 400;
     color: var(--text-dark);
     margin-bottom: 4px;
-    line-height: 1.3;
+    line-height: 1.2;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .card-date {
-    font-size: 0.72rem;
-    color: var(--text-light);
-    font-weight: 500;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    color: var(--brand-gold);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     margin-bottom: 16px;
 }
 
 .card-details {
+    background: var(--brand-soft-cream);
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 16px;
+}
+
+.user-card .card-details {
+    background: transparent;
     border-top: 1px dashed var(--border);
-    border-bottom: 1px dashed var(--border);
-    padding: 12px 0;
-    margin-bottom: 14px;
+    border-radius: 0;
+    padding: 14px 0 0 0;
+    margin-bottom: 18px;
 }
 
 .detail-row {
     display: flex;
+    justify-content: space-between;
     gap: 8px;
-    margin-bottom: 6px;
-    font-size: 0.78rem;
+    margin-bottom: 8px;
+    font-size: 0.82rem;
     align-items: center;
 }
-
 .detail-row:last-child { margin-bottom: 0; }
 
 .detail-key {
-    color: var(--text-light);
+    font-family: var(--font-sans);
+    color: var(--brand-medium-brown);
     font-weight: 500;
     flex-shrink: 0;
     width: 65px;
 }
+.user-card .detail-key { color: var(--text-light); width: 55px; }
 
 .detail-val {
+    font-family: var(--font-sans);
     color: var(--text-dark);
-    font-weight: 400;
+    font-weight: 600;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: right;
 }
+.user-card .detail-val { text-align: left; font-weight: 400; }
 
 .card-quote {
-    font-size: 0.74rem;
-    color: #555e70;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    color: var(--text-mid);
     font-style: italic;
     line-height: 1.45;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     flex-grow: 1;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -520,71 +628,149 @@ textarea.form-input { resize: vertical; min-height: 75px; }
     overflow: hidden;
 }
 
+/* Acciones en Tarjetas */
 .card-actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin-top: auto;
 }
+.user-card .card-actions { grid-template-columns: 1fr; }
 
-.card-btn {
-    padding: 8px 12px;
+.card-btn, .card-btn-edit {
+    padding: 10px 14px;
     border-radius: 30px;
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 600;
     text-align: center;
     text-decoration: none;
     border: 1px solid var(--border);
     color: var(--text-mid);
-    background: #fafafa;
-    transition: all 0.2s;
+    background: transparent;
+    transition: all 0.25s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .card-btn:hover {
-    border-color: #cbd5e1;
-    background: #f1f5f9;
+    border-color: var(--brand-gold);
+    background: #ffffff;
     color: var(--text-dark);
 }
 
 .card-btn-edit {
     border-color: rgba(196, 143, 48, 0.25);
-    color: #94711c;
+    color: #8c6411;
     background: var(--gold-light);
 }
-
 .card-btn-edit:hover {
-    background: rgba(196, 143, 48, 0.2);
-    border-color: var(--gold);
-    color: #785b14;
+    background: var(--gold-mid);
+    border-color: var(--brand-gold);
+    color: var(--brand-dark-brown);
 }
 
-/* Empty State */
+/* Varios */
 .empty-state { padding: 60px 20px; text-align: center; }
 .empty-icon { font-size: 2.5rem; color: var(--text-light); margin-bottom: 12px; display: block; }
-.empty-title { font-size: 0.9rem; color: var(--text-mid); font-weight: 500; margin-bottom: 4px; }
-.empty-desc { font-size: 0.78rem; color: var(--text-light); max-width: 260px; margin: 0 auto; line-height: 1.5; }
+.empty-title { font-family: var(--font-serif); font-size: 1.1rem; color: var(--text-dark); font-weight: 400; margin-bottom: 4px; }
+.empty-desc { font-family: var(--font-sans); font-size: 0.8rem; color: var(--text-light); max-width: 260px; margin: 0 auto; line-height: 1.5; }
 
-/* Scrollbars */
 .cards-scroll::-webkit-scrollbar { width: 5px; }
 .cards-scroll::-webkit-scrollbar-track { background: transparent; }
-.cards-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+.cards-scroll::-webkit-scrollbar-thumb { background: var(--brand-light-gold); border-radius: 10px; }
 
-/* Support Responsive */
-@media (max-width: 1024px) {
-    .menu-toggle { display: block; }
-    .sidebar { transform: translateX(-100%); z-index: 1000; }
-    .sidebar.active { transform: translateX(0); }
-    .main { margin-left: 0; padding: 80px 16px 24px 16px; }
-    .content-grid { grid-template-columns: 1fr; gap: 24px; }
-    .form-card { position: static; padding: 24px 20px; }
-    .cards-scroll { max-height: none; overflow-y: visible; padding-right: 0; }
+/* ============================================================
+   AJUSTES CRÍTICOS PARA MENÚ HAMBURGUESA MÓVIL
+   ============================================================ */
+
+/* Asegura el centrado y tamaño del icono dentro de la hamburguesa */
+.menu-toggle i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    line-height: 1;
 }
 
+/* Forzar que el menú sea visible en pantallas grandes (Escritorio) */
+@media (min-width: 1025px) {
+    .sidebar {
+        transform: translateX(0) !important; /* Mantiene el menú visible */
+    }
+    .menu-toggle {
+        display: none !important; /* Oculta la hamburguesa por completo */
+    }
+}
+
+
+/* ============================================================
+   SECCIÓN RESPONSIVE INTEGRADA (MEDIA QUERIES)
+   ============================================================ */
+
+/* Tablets y Pantallas Medianas (Hasta 1024px) */
+@media (max-width: 1024px) {
+    .menu-toggle {
+        display: block; /* Muestra la hamburguesa */
+    }
+    .sidebar {
+        transform: translateX(-100%);
+        z-index: 1060;
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    .main {
+        margin-left: 0;
+        padding: 80px 20px 24px 20px;
+    }
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    .form-card {
+        position: static;
+        padding: 28px 22px;
+    }
+    .cards-panel {
+        padding: 28px 22px;
+    }
+    .cards-scroll {
+        max-height: none;
+        overflow-y: visible;
+        padding-right: 0;
+    }
+}
+
+/* Teléfonos Inteligentes y pantallas pequeñas (Hasta 576px) */
 @media (max-width: 576px) {
-    .btn-row { grid-template-columns: 1fr; gap: 10px; }
-    .card-actions { grid-template-columns: 1fr; }
+    .page-title {
+        font-size: 1.8rem;
+    }
+    .panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .status-pill {
+        align-self: flex-start;
+    }
+    .cards-grid {
+        grid-template-columns: 1fr; /* Una columna de tarjetas en móviles */
+    }
+    .btn-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .card-actions {
+        grid-template-columns: 1fr !important; /* Fuerza los botones a apilarse verticalmente */
+        gap: 8px;
+    }
+    .form-card, .cards-panel {
+        padding: 22px 16px;
+    }
 }

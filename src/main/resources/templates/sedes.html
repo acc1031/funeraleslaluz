@@ -12,10 +12,13 @@
 <!-- Encabezado de la Página -->
 <!-- Encabezado de la Página con la Fachada Real (image_248ce2.jpg) -->
 <header class="sedes-header"
-        th:style="|background-image: linear-gradient(rgba(43, 35, 31, 0.65), rgba(43, 35, 31, 0.50)), url('@{/img/Fachada Sitio.jpg}'); background-position: center 60%; background-size: cover;|">
+        th:style="|background-image: linear-gradient(rgba(43, 35, 31, 0.65), rgba(43, 35, 31, 0.50)), url('@{/img/sedesBanner.png}'); background-position: center 60%; background-size: cover;|">
     <div class="container" data-aos="fade-up">
-        <h1 class="hero-title" style="text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);">Presencia Regional</h1>
-        <h2 class="hero-title" style="font-family: var(--font-serif); text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);">
+        <!-- CORREGIDO: Letra blanca y sombra oscura para contraste -->
+        <h1 class="hero-title" style="color: #ffffff; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);">Presencia Regional</h1>
+
+        <!-- CORREGIDO: Letra blanca, tipografía serif y sombra oscura -->
+        <h2 class="hero-title" style="color: #ffffff; font-family: var(--font-serif); text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);">
             Nuestras <em>Sedes</em>
         </h2>
         <div class="gold-line mx-auto mt-4" style="width: 80px; background-color: var(--gold);"></div>
@@ -57,7 +60,7 @@
 
             </div>
         </div>
-        <!-- TARJETAS DE INFORMACIÓN (image_69424e.png) -->
+        <!-- TARJETAS DE INFORMACIÓN DE SEDES (Optimizado) -->
         <div class="row mt-5 g-4 justify-content-center">
 
             <!-- Sede Bogotá Norte -->
@@ -65,49 +68,60 @@
                 <div class="card-info-sede shadow-sm">
                     <div class="text-center mb-4">
                         <i class="bi bi-geo-alt-fill fs-2 mb-2 clan-icon-calera"></i>
-                        <h4 class="fw-bold" style="color: var(--dark-coffee);">Sede Bogotá Norte</h4>
-                        <p class="text-muted small">Ubicación estratégica en el Centro Internacional</p>
-                        <div class="gold-line mx-auto" style="width: 50px;"></div>
+                        <h4 class="sede-title">Sede Bogotá Norte</h4>
+                        <p class="sede-subtitle">Ubicación estratégica en el Centro Internacional</p>
+                        <div class="gold-line mx-auto"></div>
                     </div>
 
-                    <span class="info-label">Dirección:</span>
-                    <p>Calle 33 A No. 13-31 Centro Internacional</p>
+                    <div class="info-group">
+                        <span class="info-label">Dirección</span>
+                        <p class="info-value">Calle 33 A No. 13-31 Centro Internacional</p>
+                    </div>
 
-                    <span class="info-label">Teléfonos Fijos:</span>
-                    <p>(601) 17462112 - (601) 7946551</p>
+                    <div class="info-group">
+                        <span class="info-label">Teléfonos Fijos</span>
+                        <p class="info-value">(601) 17462112 - (601) 7946551</p>
+                    </div>
 
-                    <span class="info-label">Celulares:</span>
-                    <p>310 5729883 - 310 8167656<br>311 4811691 - 310 3969356</p>
+                    <div class="info-group">
+                        <span class="info-label">Celulares</span>
+                        <p class="info-value">310 5729883 - 310 8167656<br>311 4811691 - 310 3969356</p>
+                    </div>
 
-                    <span class="info-label">Email:</span>
-                    <p class="text-break">comercial@laluzasistenciaintegral.com</p>
+                    <div class="info-group">
+                        <span class="info-label">Email</span>
+                        <p class="info-value text-break">comercial@laluzasistenciaintegral.com</p>
+                    </div>
                 </div>
             </div>
-
-
 
             <!-- Sede La Calera -->
             <div class="col-md-5" data-aos="fade-right">
                 <div class="card-info-sede shadow-sm">
                     <div class="text-center mb-4">
-                        <i class="bi bi-geo-alt-fill fs-2 mb-2" style="color: var(--dark-coffee);"></i>
-                        <h4 class="fw-bold" style="color: var(--dark-coffee);">Sede La Calera</h4>
-                        <p class="text-muted small">Atención inmediata en el casco urbano</p>
-                        <div class="gold-line mx-auto" style="width: 50px;"></div>
+                        <i class="bi bi-geo-alt-fill fs-2 mb-2" style="color: var(--laluz-dark);"></i>
+                        <h4 class="sede-title">Sede La Calera</h4>
+                        <p class="sede-subtitle">Atención inmediata en el casco urbano</p>
+                        <div class="gold-line mx-auto"></div>
                     </div>
 
-                    <span class="info-label">Dirección:</span>
-                    <p>Carrera 3 No. 2-13 Avenida Paseo Real</p>
+                    <div class="info-group">
+                        <span class="info-label">Dirección</span>
+                        <p class="info-value">Carrera 3 No. 2-13 Avenida Paseo Real</p>
+                    </div>
 
-                    <span class="info-label">Celulares:</span>
-                    <p>310 5729883 - 310 8167656<br>311 4811691</p>
+                    <div class="info-group">
+                        <span class="info-label">Celulares</span>
+                        <p class="info-value">310 5729883 - 310 8167656<br>311 4811691</p>
+                    </div>
 
-                    <span class="info-label">Email:</span>
-                    <p class="text-break">servicioalcliente@funeraleslaluz.com</p>
+                    <div class="info-group">
+                        <span class="info-label">Email</span>
+                        <p class="info-value text-break">servicioalcliente@funeraleslaluz.com</p>
+                    </div>
                 </div>
             </div>
-
-
+        </div>
 
         </div>
     </div>

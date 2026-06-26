@@ -1,11 +1,13 @@
 package funeraleslaluz.com.controlador;
 
+import funeraleslaluz.com.modelo.EmailContacto;
 import funeraleslaluz.com.servicio.AsistenciaService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
 public class WebController {
@@ -44,7 +46,13 @@ public class WebController {
     }
 
     @GetMapping("/contacto")
-    public String mostrarContacto() {
+    public String mostrarContacto(Model model, HttpServletRequest request) {
+        // 1. Forzamos la creación de la sesión HTTP usando el parámetro inyectado 'request'
+        request.getSession(true);
+
+        // 2. Pasamos el objeto con el mismo nombre que espera tu HTML: "emailContacto"
+        model.addAttribute("emailContacto", new EmailContacto());
+
         return "contacto";
     }
 

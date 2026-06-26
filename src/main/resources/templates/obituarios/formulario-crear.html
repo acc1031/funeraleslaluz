@@ -40,13 +40,17 @@
         Usuarios
     </a>
 
+
     <div class="sidebar-footer">
         <div class="avatar">AD</div>
         <div class="footer-info">
             <span class="footer-name">Admin</span>
             <span class="footer-role">Operador</span>
         </div>
-        <a th:href="@{/obituarios}" class="nav-link-logout" title="Salir"><i class="bi bi-box-arrow-right"></i></a>
+        <a th:href="@{/obituarios}" class="nav-link-logout" title="Salir">
+            <!-- Definimos el tamaño exacto con font-size -->
+            <i class="bi bi-box-arrow-right" style="font-size: 24px;"></i>
+        </a>
     </div>
 </nav>
 

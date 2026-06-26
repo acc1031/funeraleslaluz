@@ -56,5 +56,11 @@ public class ObituarioController {
         return "redirect:/obituarios/crear";
     }
 
+    @GetMapping("/chat")
+    public String verPanelChat() {
+        // Retorna la nueva plantilla de administración del chat
+        return "obituarios/chat-admin";
+    }
+
 
 }

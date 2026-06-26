@@ -5,6 +5,8 @@ import funeraleslaluz.com.repositorio.EmailRepository;
 import funeraleslaluz.com.servicio.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -15,6 +17,9 @@ public class ContactoController {
 
     @Autowired
     private EmailService emailService;
+
+
+
 
     @PostMapping("/contacto/enviar")
     public String enviarFormulario(@ModelAttribute EmailContacto contacto, RedirectAttributes redirectAttrs) {
