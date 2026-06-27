@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -14,40 +15,50 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        // Retornamos la implementación estándar de BCrypt
         return new BCryptPasswordEncoder();
     }
-
-
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                // 1. REGLAS DE ACCESO SELECTIVAS
+                // 1. CABECERAS DE SEGURIDAD (Protección contra Clickjacking y XSS)
+                .headers(headers -> headers
+                        .frameOptions(frame -> frame.deny()) // Evita que metan tu web en un <iframe> falso
+                )
+
+                // 2. CONFIGURACIÓN EXPLICITA DE CSRF
+                // Esto le dice a Spring cómo manejar los tokens de seguridad en los formularios públicos
+                .csrf(csrf -> csrf
+                        .csrfTokenRepository(new HttpSessionCsrfTokenRepository())
+                )
+
+                // 3. REGLAS DE ACCESO SELECTIVAS
                 .authorizeHttpRequests(auth -> auth
-                        // 🔒 PRIMERO: Las únicas rutas que requieren estar logueado (Panel de control)
-                        .requestMatchers("/obituarios/crear").authenticated()
+                        // Estáticos primero para optimizar rendimiento
+                        .requestMatchers("/css/**", "/js/**", "/img/**", "/webjars/**").permitAll()
+
+                        // Rutas públicas explícitas y Websockets
+                        .requestMatchers("/", "/obituarios", "/obituarios/usuarios/login", "/ws-chat/**").permitAll()
+
+                        // 🔒 Rutas Privadas (Panel de Control de Obituarios)
                         .requestMatchers("/obituarios/crear/**").authenticated()
                         .requestMatchers("/obituarios/usuarios/**").authenticated()
                         .requestMatchers("/obituarios/guardar/**").authenticated()
                         .requestMatchers("/obituarios/eliminar/**").authenticated()
-                        .requestMatchers("/css/**", "/js/**", "/img/**", "/webjars/**").permitAll()
-                        .requestMatchers("/", "/obituarios", "/obituarios/usuarios/login", "/ws-chat/**").permitAll() // <-- AGREGAR /ws-chat/** AQUÍ
 
-                        // 🔓 SEGUNDO: ¡Todo lo demás en la web es de acceso público!
-                        // Esto incluye la raíz (/), ver obituarios públicos, estilos, imágenes, etc.
+                        // 🔓 ¡Todo lo demás en la web es público! (Servicios, Contacto, Planes, etc.)
                         .anyRequest().permitAll()
                 )
 
-                // 2. CONFIGURACIÓN DEL FORMULARIO DE ACCESO
+                // 4. CONFIGURACIÓN DEL FORMULARIO DE ACCESO
                 .formLogin(form -> form
-                        .loginPage("/obituarios/usuarios/login") // Tu vista de login (signup.html)
-                        .loginProcessingUrl("/obituarios/usuarios/login") // URL interna donde Spring procesa el POST
-                        .defaultSuccessUrl("/obituarios/crear", true) // Al loguearse con éxito, entra directo al creador
+                        .loginPage("/obituarios/usuarios/login")
+                        .loginProcessingUrl("/obituarios/usuarios/login")
+                        .defaultSuccessUrl("/obituarios/crear", true)
                         .permitAll()
                 )
 
-                // 3. CONTROL DE SALIDA (LOGOUT)
+                // 5. CONTROL DE SALIDA (LOGOUT)
                 .logout(logout -> logout
                         .logoutUrl("/obituarios/usuarios/logout")
                         .logoutSuccessUrl("/obituarios/usuarios/login?logout=true")
