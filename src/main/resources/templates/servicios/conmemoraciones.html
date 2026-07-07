@@ -209,66 +209,6 @@
     </div>
 </section>
 
-<!-- Sección 3: Formulario de contacto -->
-<section id="contacto" class="py-5 bg-white">
-    <div class="container py-4">
-        <div class="row g-5 justify-content-center">
-            <div class="col-lg-10 bg-light p-3 p-md-5 shadow-sm border" style="border-radius: 4px;">
-                <div class="row g-4">
-                    <div class="col-md-5 pe-md-4">
-                        <h4 class="mb-3" style="font-family: var(--font-serif); color: var(--dark-coffee);">
-                            ¿Desea cotizar o recibir más información?
-                        </h4>
-                        <p class="text-muted small">
-                            Déjenos sus datos y un asesor exequial especializado se comunicará con usted de forma
-                            prioritaria en los próximos minutos.
-                        </p>
-                        <hr class="my-4 text-muted opacity-25">
-                        <div class="d-flex align-items-start gap-3">
-                            <i class="bi bi-shield-check text-success fs-3 flex-shrink-0"></i>
-                            <span class="small text-muted">Su información será tratada bajo absoluta confidencialidad
-                                y protección de datos.</span>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <form th:action="@{/contacto/enviar}" method="POST" class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label small fw-bold text-muted text-uppercase">Nombre Completo</label>
-                                <input type="text" class="form-control rounded-0 form-control-lg fs-6"
-                                       placeholder="Ej. Juan Pérez" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label small fw-bold text-muted text-uppercase">Teléfono / Celular</label>
-                                <input type="tel" class="form-control rounded-0 form-control-lg fs-6"
-                                       placeholder="Ej. 300 123 4567" required>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label small fw-bold text-muted text-uppercase">Correo Electrónico</label>
-                                <input type="email" class="form-control rounded-0 form-control-lg fs-6"
-                                       placeholder="juan.perez@example.com" required>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label small fw-bold text-muted text-uppercase">¿En qué podemos ayudarle?</label>
-                                <select class="form-select rounded-0 form-control-lg fs-6">
-                                    <option selected disabled>Seleccione una opción...</option>
-                                    <option>Necesito asistencia por fallecimiento inmediato</option>
-                                    <option>Deseo cotizar planes a futuro (Prenecesidad)</option>
-                                    <option>Información general de servicios de Conmemoración</option>
-                                </select>
-                            </div>
-                            <div class="col-12 mt-4 text-end">
-                                <button type="submit"
-                                        class="btn btn-dark rounded-0 px-4 py-2 text-uppercase fw-bold shadow-sm w-100 w-md-auto">
-                                    Enviar Solicitud
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <!-- Sección 4: CTA final -->
 <section class="py-5 text-white" style="background-color: var(--dark-coffee, #2b231f);">

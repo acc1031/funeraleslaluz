@@ -90,7 +90,8 @@
     border-radius: var(--border-radius);
     padding: 28px 22px;
     box-shadow: 0 4px 20px rgba(74, 45, 0, 0.03); /* Sombra sutil basada en el café oscuro */
-    border: 1px solid #edf2f7;
+    /* CORREGIDO: Borde cálido en lugar de gris azulado (#edf2f7) */
+    border: 1px solid #EACB8D;
     text-align: center;
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -150,8 +151,9 @@
 }
 
 .service-details {
-    border-top: 1px dashed #e2e8f0;
-    border-bottom: 1px dashed #e2e8f0;
+    /* CORREGIDO: Líneas punteadas en tono crema cálido en lugar de gris azulado (#e2e8f0) */
+    border-top: 1px dashed rgba(234, 203, 141, 0.6);
+    border-bottom: 1px dashed rgba(234, 203, 141, 0.6);
     padding: 15px 0;
     margin-bottom: 20px;
     text-align: left;
@@ -176,7 +178,8 @@
 }
 
 .detail-value {
-    color: #64748b;
+    /* CORREGIDO: Texto en café medio suave (basado en #91611E) en lugar de gris pizarra azulado (#64748b) */
+    color: #91611E;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -186,7 +189,8 @@
 .obituario-quote {
     font-style: italic;
     margin-bottom: 24px;
-    color: #64748b;
+    /* CORREGIDO: El mensaje u oración en café medio con opacidad para que sea suave pero cálido */
+    color: rgba(145, 97, 30, 0.85);
     font-size: 0.8rem;
     line-height: 1.4;
 }
@@ -196,7 +200,7 @@
     width: 100%;
     padding: 11px;
     background-color: transparent;
-    border: 1px solid var(--laluz-gold); /* Actualizado a Dorado para mayor finura visual */
+    border: 1px solid var(--laluz-gold);
     color: var(--brand-medium-brown);
     border-radius: 25px;
     font-size: 0.85rem;
@@ -215,7 +219,6 @@
     border-color: var(--brand-gold);
     box-shadow: 0 4px 12px rgba(196, 143, 48, 0.2);
 }
-
 /* ============================================================
    4. BANNER PREVISIÓN (ACTUALIZADO CON EL VERDE INSTITUCIONAL)
    ============================================================ */

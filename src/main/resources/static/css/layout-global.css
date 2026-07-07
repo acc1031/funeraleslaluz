@@ -935,3 +935,97 @@ body {
 .text-gold { color: var(--gold) !important; }
 .bg-gold { background-color: var(--gold) !important; }
 .tracking-widest { letter-spacing: 3px; }
+
+/*------------------------------------------------ PROTECCION DE DATOS ------------------------------------------------*/
+/* --- Estilos para el Header de Páginas Legales --- */
+.legal-header {
+    /* Fondo con degradado sofisticado usando el Verde Esmeralda y Marrón Oscuro corporativos */
+    background: linear-gradient(135deg, #004C45 0%, #4A2D00 100%);
+    padding: 80px 0 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sutil marca de agua de fondo para dar textura institucional */
+.legal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(234, 203, 141, 0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+    pointer-events: none;
+}
+
+/* Etiqueta superior (Ley) */
+.legal-header .legal-label {
+    display: inline-block;
+    font-family: 'Begun SANS', 'Segoe UI', sans-serif;
+    color: #EACB8D; /* Tono crema suave corporativo */
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    padding: 4px 16px;
+    border: 1px solid rgba(234, 203, 141, 0.3);
+    border-radius: 20px;
+    background-color: rgba(0, 76, 69, 0.4);
+}
+
+/* Título Principal (H1) */
+.legal-header .hero-title {
+    font-family: 'ZCOOL XiaoWei', 'Lora', serif; /* Tipografía Serif elegante de la marca */
+    color: #FFFFFF;
+    font-size: 2.8rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 0;
+    letter-spacing: 0.5px;
+}
+
+/* Resalte del título (Tratamiento de Datos) */
+.legal-header .hero-title span {
+    font-style: italic;
+    color: #C48F30; /* Dorado principal de la marca */
+    display: block; /* O inline-block si prefieres todo en una sola línea en pantallas grandes */
+    font-weight: normal;
+}
+
+/* Línea divisoria dorada */
+.legal-header .gold-line {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #C48F30, transparent);
+    margin: 24px auto;
+}
+
+/* Fecha de actualización */
+.legal-header .update-date {
+    font-family: 'Begun SANS', 'Segoe UI', sans-serif;
+    color: rgba(254, 254, 254, 0.7); /* Blanco suavizado */
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-bottom: 0;
+    letter-spacing: 0.5px;
+}
+
+/* --- Ajustes Responsivos (Media Queries) --- */
+@media (max-width: 768px) {
+    .legal-header {
+        padding: 60px 0 45px 0;
+    }
+
+    .legal-header .hero-title {
+        font-size: 2rem;
+    }
+
+    .legal-header .legal-label {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------------*/

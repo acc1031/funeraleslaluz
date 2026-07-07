@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head}">
     <title>Nuestros Homenajes - La Luz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
 </head>
 
 <body>
@@ -17,22 +18,24 @@
         <h6 class="text-uppercase mb-3" style="color: var(--gold); letter-spacing: 3px;">Estamos para apoyarlo</h6>
         <h1 class="display-3 fw-bold mb-4" style="font-family: var(--font-serif);">Obituarios</h1>
         <p class="lead">Acompañamos a las familias en la memoria de sus seres queridos</p>
-<!--        <a th:href="@{/obituarios/usuarios/login}"-->
-<!--           class="btn btn-sm text-white px-3 py-2 mt-2"-->
-<!--           style="background-color: var(&#45;&#45;gold); border-radius: 20px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.3px;">-->
-<!--            + Registrar Homenaje-->
-<!--        </a>-->
+        <!--        <a th:href="@{/obituarios/usuarios/login}"-->
+        <!--           class="btn btn-sm text-white px-3 py-2 mt-2"-->
+        <!--           style="background-color: var(&#45;&#45;gold); border-radius: 20px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.3px;">-->
+        <!--            + Registrar Homenaje-->
+        <!--        </a>-->
     </div>
 </section>
 
 <main class="obituarios-panel">
 
     <!-- Banner Previsión -->
-    <div class="card prevision-banner-container border-0 shadow-sm overflow-hidden mb-4" data-aos="fade-up" data-aos-delay="150">
+    <div class="card prevision-banner-container border-0 shadow-sm overflow-hidden mb-4" data-aos="fade-up"
+         data-aos-delay="150">
         <div class="row g-0 align-items-center">
             <div class="col-md-6 col-lg-7">
                 <img th:src="@{/img/bannerLuz.png}" src="/static/img/bannerLuz.png"
-                     class="img-fluid w-100 h-100 object-fit-cover mobile-banner-img" alt="Banner Previsión Exequial La Luz">
+                     class="img-fluid w-100 h-100 object-fit-cover mobile-banner-img"
+                     alt="Banner Previsión Exequial La Luz">
             </div>
             <div class="col-md-6 col-lg-5 p-4 bg-white">
                 <div class="prevision-content mb-3">
@@ -40,7 +43,8 @@
                         <span class="prevision-icon me-2 fs-3">🛡️</span>
                         <h4 class="mb-0 fw-bold" style="color: #0b2240;">Adquiere tu plan de previsión exequial</h4>
                     </div>
-                    <p class="text-muted small">Asegura la tranquilidad y el respaldo integral para quienes más amas hoy.</p>
+                    <p class="text-muted small">Asegura la tranquilidad y el respaldo integral para quienes más amas
+                        hoy.</p>
                 </div>
                 <a href="https://wa.me/573228241484" target="_blank"
                    class="btn btn-primary btn-prevision-action w-100 py-2 fw-semibold shadow-sm">
@@ -105,7 +109,7 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <script>
-    AOS.init({ duration: 800, once: true, easing: 'ease-out-quad' });
+    AOS.init({duration: 800, once: true, easing: 'ease-out-quad'});
 </script>
 
 <script>
