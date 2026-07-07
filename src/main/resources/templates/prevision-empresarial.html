@@ -7,100 +7,113 @@
 
 <div th:replace="~{fragments/layout :: navbar(isWhite=true)}"></div>
 
-<!-- SECCIÓN DE GESTIÓN Y SOLUCIONES DIGITALES CORPORATIVAS -->
-<section class="section-padding position-relative overflow-hidden section-digital-bg">
+<!-- SECCIÓN DE GESTIÓN Y SOLUCIONES DIGITALES CORPORATIVAS (SOLO BANNER OSCURO) -->
+<section class="position-relative overflow-hidden section-digital-bg">
 
-    <div class="position-absolute top-0 start-0 opacity-5 z-0">
-        <i class="bi bi-building decorative-icon-large"></i>
-    </div>
-    <div class="position-absolute bottom-0 end-0 opacity-10 decorative-flower z-0">
-        <i class="bi bi-shield-check decorative-icon-large"></i>
-    </div>
+    <!-- PARTE SUPERIOR: ENCABEZADO ESTILO HERO PREMIUM -->
+    <div class="container text-center pt-4 position-relative z-1">
+        <div class="mb-2" data-aos="fade-up">
+            <!-- Badge encapsulado con borde -->
+            <span class="pve-hero-badge">Convenios Empresariales</span>
 
-    <div class="container position-relative z-1">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <span class="label-badge-gold">Soluciones Corporativas</span>
-            <h2 class="section-main-title mt-2">Protección institucional a un clic</h2>
-            <div class="premium-diamond-divider"></div>
-            <p class="text-muted mx-auto mt-3 max-w-600">
+            <!-- Título con combinación Serif Blanco + Dorado Itálico -->
+            <h2 class="pve-hero-title">
+                Protección institucional <em class="text-gold-fix">a un clic</em>
+            </h2>
+
+            <!-- Línea divisoria minimalista -->
+            <div class="pve-hero-divider"></div>
+
+            <!-- Texto de soporte en alta legibilidad -->
+            <p class="pve-hero-lead mx-auto mt-3">
                 Optimice la gestión de bienestar de su organización. Administre la protección de su capital humano de forma ágil y segura desde cualquier plataforma.
             </p>
         </div>
+    </div>
+</section> <!-- SE CIERRA AQUÍ para aislar por completo el color verde -->
 
+<!-- PARTE INFERIOR: CONTENEDOR CLARO DE LAS TARJETAS (FUERA DEL SECTOR OSCURO) -->
+<div class="pve-cards-light-zone position-relative">
+    <div class="container pve-cards-overlap-container">
+        <div class="row g-4 justify-content-center">
 
-
-        <div class="row g-5 justify-content-center">
             <!-- TARJETA 1: AFILIACIÓN EN LÍNEA -->
             <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="card-digital-management p-0 h-100 position-relative text-center d-flex flex-column shadow-lg bg-white" style="border-radius: 15px; overflow: hidden; border: 2px solid rgba(234, 203, 141, 0.4);">
+                <div class="card-digital-management h-100 position-relative text-center d-flex flex-column">
                     <i class="bi bi-briefcase card-watermark"></i>
 
-                    <div class="image-wrapper-premium position-relative mb-0" style="border-radius: 0; border: none; height: 220px;">
-                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
-                             alt="Equipo corporativo protegido por La Luz"
-                             class="img-fluid img-interactive" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="card-image-overlay"></div>
-                        <div class="position-absolute bottom-0 start-0 p-4 z-2">
-                            <span class="badge bg-white text-dark rounded-pill px-3 py-2 fw-bold shadow-sm small text-uppercase tracking-wider" style="font-size: 0.7rem;">Afiliación para Empleados</span>
+                    <div class="card-content flex-grow-1 position-relative z-1 p-4">
+                        <!-- Contenedor de imagen limpio, igual al individual -->
+                        <div class="image-wrapper-premium mb-4 position-relative" style="overflow: hidden; border-radius: 12px; height: 220px;">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1200"
+                                 alt="Equipo corporativo protegido por La Luz"
+                                 class="img-fluid img-interactive" style="width: 100%; height: 100%; object-fit: cover;">
+
+                            <!-- Badge flotando exclusivamente sobre la esquina de la imagen -->
+                            <div class="position-absolute bottom-0 start-0 m-3 z-3">
+                                <span class="badge bg-white text-dark rounded-pill px-3 py-2 fw-bold shadow-sm small text-uppercase tracking-wider" style="font-size: 0.65rem;">
+                                    Afiliación para Empleados
+                                </span>
+                            </div>
                         </div>
+
+                        <h3 class="mb-3 display-serif h4 fw-semibold mt-2">Afiliación en Línea</h3>
+                        <p class="text-muted small mb-4 lh-lg px-2">
+                            El espacio digital diseñado para que el personal de su empresa realice el registro e ingreso al convenio colectivo de manera inmediata, ágil y 100% digital.
+                        </p>
                     </div>
 
-                    <div class="p-4 flex-grow-1 position-relative z-1 d-flex flex-column justify-content-between">
-                        <div>
-                            <h3 class="mb-3 display-serif h4 fw-semibold mt-2">Afiliación en Línea</h3>
-                            <p class="text-muted small mb-4 lh-lg">
-                                El espacio digital diseñado para que el personal de su empresa realice el registro e ingreso al convenio colectivo de manera inmediata, ágil y 100% digital.
-                            </p>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://laluzasistencialweb.piscotics.com:9074/#/homeFree"
-                               target="_blank"
-                               class="btn-gold text-uppercase tracking-widest fw-bold w-100 py-3 text-decoration-none">
-                                Afiliarse al Convenio
-                            </a>
-                        </div>
+                    <div class="card-content mt-auto position-relative z-1 p-4 pt-0">
+                        <a href="https://laluzasistencialweb.piscotics.com:9074/#/homeFree"
+                           target="_blank"
+                           class="btn-gold text-uppercase tracking-wider fw-bold w-100 py-3 text-decoration-none d-block">
+                            Afiliarse al Convenio
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- TARJETA 2: CONSULTA WEB Y PAGO DE PLANES -->
             <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="card-digital-management p-0 h-100 position-relative text-center d-flex flex-column shadow-lg bg-white" style="border-radius: 15px; overflow: hidden; border: 2px solid rgba(234, 203, 141, 0.4);">
+                <div class="card-digital-management h-100 position-relative text-center d-flex flex-column">
                     <i class="bi bi-person-check card-watermark"></i>
 
-                    <div class="image-wrapper-premium position-relative mb-0" style="border-radius: 0; border: none; height: 220px;">
-                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1200"
-                             alt="Gestión administrativa y financiera empresarial"
-                             class="img-fluid img-interactive" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div class="card-image-overlay"></div>
-                        <div class="position-absolute bottom-0 start-0 p-4 z-2">
-                            <span class="badge bg-white text-dark rounded-pill px-3 py-2 fw-bold shadow-sm small text-uppercase tracking-wider" style="font-size: 0.7rem;">Consulta y Pagos</span>
+                    <div class="card-content flex-grow-1 position-relative z-1 p-4">
+                        <!-- Contenedor de imagen limpio, igual al individual -->
+                        <div class="image-wrapper-premium mb-4 position-relative" style="overflow: hidden; border-radius: 12px; height: 220px;">
+                            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1200"
+                                 alt="Gestión administrativa y financiera empresarial"
+                                 class="img-fluid img-interactive" style="width: 100%; height: 100%; object-fit: cover;">
+
+                            <!-- Badge flotando exclusivamente sobre la esquina de la imagen -->
+                            <div class="position-absolute bottom-0 start-0 m-3 z-3">
+                                <span class="badge bg-white text-dark rounded-pill px-3 py-2 fw-bold shadow-sm small text-uppercase tracking-wider" style="font-size: 0.65rem;">
+                                    Consulta y Pagos
+                                </span>
+                            </div>
                         </div>
+
+                        <h3 class="mb-3 display-serif h4 fw-semibold mt-2">Consulta Web y Pago de Planes</h3>
+                        <p class="text-muted small mb-4 lh-lg px-2">
+                            Acceda al estado de cuenta institucional de su empresa, consulte la liquidación de sus planes colectivos y realice los pagos mensuales de forma segura.
+                        </p>
                     </div>
 
-                    <div class="p-4 flex-grow-1 position-relative z-1 d-flex flex-column justify-content-between">
-                        <div>
-                            <h3 class="mb-3 display-serif h4 fw-semibold mt-2">Consulta Web y Pago de Planes</h3>
-                            <p class="text-muted small mb-4 lh-lg">
-                                Acceda al estado de cuenta institucional de su empresa, consulte la liquidación de sus planes colectivos y realice los pagos mensuales de forma segura.
-                            </p>
-                        </div>
-                        <div class="mt-auto">
-                            <a href="https://laluzasistencialweb.piscotics.com:9091/"
-                               target="_blank"
-                               class="btn-cafe-outline text-uppercase tracking-widest fw-bold w-100 py-3 text-decoration-none">
-                                Consultar y Pagar Planes
-                            </a>
-                        </div>
+                    <div class="card-content mt-auto position-relative z-1 p-4 pt-0">
+                        <a href="https://laluzasistencialweb.piscotics.com:9091/"
+                           target="_blank"
+                           class="btn-cafe-outline text-uppercase tracking-wider fw-bold w-100 py-3 text-decoration-none d-block">
+                            Consultar y Pagar Planes
+                        </a>
                     </div>
                 </div>
             </div>
+
         </div>
-
-
-
     </div>
-</section>
+</div>
+
+
 
 <!-- SECCIÓN: PLANES EXEQUIALES CORPORATIVOS -->
 <section class="section-padding bg-white">
@@ -127,16 +140,14 @@
                 </div>
             </div>
 
-            <!-- PLAN EMPRESARIAL EXCELENCIA (DESTACADO - CORREGIDO) -->
+            <!-- PLAN EMPRESARIAL EXCELENCIA (DESTACADO) -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <!-- Se añade overflow: visible para que el badge no se corte -->
                 <div class="card-minimal card-featured p-4 h-100 border-top border-3 position-relative shadow-lg border-radius-10" style="overflow: visible !important;">
                     <div class="position-absolute top-0 start-50 translate-middle" style="z-index: 10; width: max-content;">
                         <span class="badge bg-gold text-white px-3 py-2 rounded-pill shadow-sm text-uppercase fw-bold tracking-wider" style="font-size: 0.65rem;">
                             Más Recomendado
                         </span>
                     </div>
-                    <!-- Cambiado de mt-3 a mt-4 para dar espacio interno respirable -->
                     <div class="text-center mb-4 mt-4">
                         <h4 class="fw-bold text-uppercase small tracking-widest text-muted">Solución</h4>
                         <h3 class="display-serif">Excelencia Corporativa</h3>
@@ -170,7 +181,6 @@
 
 <div th:replace="~{fragments/layout :: footer}"></div>
 
-<!-- Reemplazo del bloque de scripts mediante fragmento centralizado de Thymeleaf -->
 <th:block th:replace="~{fragments/layout :: scripts}"></th:block>
 
 </body>

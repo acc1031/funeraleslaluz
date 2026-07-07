@@ -1,0 +1,117 @@
+/* --- ENCABEZADO OSCURO (BANNER HERO) --- */
+.section-digital-bg {
+    position: relative !important;
+    background: linear-gradient(135deg, #003631 0%, #004C45 40%, #2A1D08 100%) !important;
+    padding: 0 !important; /* Limpiamos paddings globales para controlarlo por zonas internas */
+}
+
+/* Badge con borde fino */
+.pve-hero-badge {
+    font-family: 'Montserrat', sans-serif !important;
+    color: #EACB8D !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 3px !important;
+    border: 1px solid rgba(234, 203, 141, 0.4) !important;
+    padding: 6px 22px !important;
+    border-radius: 50px !important;
+    display: inline-block !important;
+    background-color: rgba(0, 34, 30, 0.6) !important;
+    margin-top: 50px;
+    margin-bottom: 20px !important;
+}
+
+/* Título Serif Blanco */
+.pve-hero-title {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif !important;
+    color: #FFFFFF !important;
+    font-size: 3rem !important;
+    font-weight: 500 !important;
+    line-height: 1.2 !important;
+}
+
+/* Énfasis en Dorado Cursivo */
+.pve-hero-title em {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif !important;
+    font-style: italic !important;
+    color: #C48F30 !important;
+}
+
+/* Divisor Dorado */
+.pve-hero-divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #C48F30, transparent) !important;
+    margin: 20px auto !important;
+}
+
+/* Texto de Soporte Claro */
+.pve-hero-lead {
+    font-family: 'Montserrat', sans-serif !important;
+    color: #F0F0F0 !important;
+    font-size: 0.98rem !important;
+    line-height: 1.8 !important;
+    max-width: 680px !important;
+    opacity: 0.95;
+}
+
+/* --- ZONA INFERIOR CLARA (Aísla las tarjetas del fondo oscuro) --- */
+.pve-cards-light-zone {
+    background-color: #FAF9F6 !important; /* Fondo claro institucional de transición */
+    border-top: 1px solid rgba(234, 203, 141, 0.15);
+}
+
+
+/* --- BANNER HERO CORPORATIVO --- */
+.section-digital-bg {
+    position: relative !important;
+    background: linear-gradient(135deg, #003631 0%, #004C45 40%, #1c261f 100%) !important;
+    padding: 70px 0 160px 0 !important; /* Más padding abajo para dar espacio al solape */
+}
+
+/* --- NUEVO CONTENEDOR DE TRANSICIÓN CON SOLAPE --- */
+.pve-cards-light-zone {
+    /* Un degradado sutil de fondo que va de un gris-arena muy suave a blanco puro */
+    background: linear-gradient(to bottom, #fcfbfa 0%, #ffffff 100%) !important;
+    position: relative !important;
+    padding-bottom: 80px !important;
+}
+
+/* Contenedor que empuja las tarjetas hacia adentro del bloque verde */
+.pve-cards-overlap-container {
+    margin-top: -110px !important; /* Sube las tarjetas para morder el banner oscuro */
+    position: relative !important;
+    z-index: 15 !important;
+}
+
+/* --- REFINAMIENTO DE LAS TARJETAS --- */
+.card-digital-management {
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    /* Reducimos a 1px para un look minimalista y sofisticado */
+    border: 1px solid #eef0f2 !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s ease,
+    border-color 0.3s ease !important;
+    box-shadow: 0 15px 35px rgba(0, 34, 30, 0.06) !important;
+}
+
+/* --- EFECTO HOVER PREMIUM CON BORDE FINO --- */
+.card-digital-management:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 22px 45px rgba(196, 143, 48, 0.12) !important;
+
+    /* Mantiene el grosor de 1px pero transiciona al dorado sutil de la imagen */
+    border-color: #c48f30 !important;
+}
+
+/* Ajuste del contenedor de la imagen dentro de la tarjeta */
+.image-wrapper-premium img {
+    border-radius: 12px !important;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.card-digital-management:hover .image-wrapper-premium img {
+    transform: scale(1.03) !important;
+}

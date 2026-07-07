@@ -8,48 +8,56 @@
 <nav th:replace="~{fragments/layout :: navbar(isWhite=true)}"></nav>
 
 <!-- SECCIÓN DE GESTIÓN Y AFILIACIÓN DIGITAL -->
-<section class="section-padding position-relative overflow-hidden section-digital-bg">
+<!-- El degradado corporativo vive únicamente en la zona del banner superior -->
+<!-- SECCIÓN DE GESTIÓN Y AFILIACIÓN DIGITAL -->
+<section class="position-relative overflow-hidden section-digital-bg">
 
-    <!-- Elementos Decorativos de Fondo -->
-    <div class="position-absolute top-0 start-0 opacity-5 z-0">
-        <i class="bi bi-intersect decorative-icon-large"></i>
-    </div>
-    <div class="position-absolute bottom-0 end-0 opacity-10 decorative-flower z-0">
-        <i class="bi bi-flower1 decorative-icon-large"></i>
-    </div>
+    <!-- ZONA SUPERIOR: ENCABEZADO PREMIUM (BANNER OSCURO) -->
+    <div class="container text-center pt-4 position-relative z-1">
+        <div class="mb-2" data-aos="fade-up">
+            <!-- Badge encapsulado -->
+            <span class="pve-hero-badge">Previsión a un clic</span>
 
-    <div class="container position-relative z-1">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <span class="label-badge-gold d-block mb-2">Previsión a un clic</span>
-            <h2 class="section-main-title">Gestión y Afiliación Digital</h2>
-            <div class="premium-diamond-divider"></div>
+            <!-- Título -->
+            <h2 class="pve-hero-title">
+                Gestión y <em class="text-gold-fix">Afiliación Digital</em>
+            </h2>
+
+            <!-- Línea divisoria -->
+            <div class="pve-hero-divider"></div>
         </div>
+    </div>
+</section>
 
+<!-- ZONA INFERIOR CLARA: AQUÍ SUCEDE EL EFECTO SOLAPE -->
+<div class="pve-cards-light-zone position-relative">
+    <div class="container pve-cards-overlap-container">
         <div class="row g-4 justify-content-center">
+
             <!-- Tarjeta: Afiliación en Línea -->
-            <div class="col-lg-5 col-md-6" data-aos="fade-right">
-                <div class="card-digital-management h-100 position-relative text-center d-flex flex-column shadow-lg">
+            <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-digital-management h-100 position-relative text-center d-flex flex-column">
+                    <!-- Marca de agua interna original -->
                     <i class="bi bi-person-plus card-watermark"></i>
 
-                    <div class="card-content flex-grow-1 position-relative z-1">
-                        <div class="image-wrapper-premium mb-4">
+                    <div class="card-content flex-grow-1 position-relative z-1 p-4">
+                        <div class="image-wrapper-premium mb-4" style="overflow: hidden; border-radius: 12px;">
                             <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=800"
                                  alt="Protección Familiar La Luz"
-                                 class="img-fluid shadow-sm img-interactive">
+                                 class="img-fluid shadow-sm img-interactive" style="width: 100%; object-fit: cover;">
                         </div>
 
-                        <h3 class="mb-3 display-serif fw-semibold">Afiliación en Línea</h3>
+                        <h3 class="mb-3 display-serif fw-semibold h4">Afiliación en Línea</h3>
                         <p class="text-muted small mb-4 lh-lg px-2">
-                            La tranquilidad de los que más amas no puede esperar. Únete a nuestra familia <strong>La
-                            Luz</strong> con un proceso 100% digital, seguro y desde la comodidad de su hogar.
+                            La tranquilidad de los que más amas no puede esperar. Únete a nuestra familia <strong>La Luz</strong> con un proceso 100% digital, seguro y desde la comodidad de su hogar.
                         </p>
                     </div>
 
-                    <!-- BOTÓN UNIFICADO PRIMARIO (DORADO SÓLIDO) -->
-                    <div class="card-content mt-auto position-relative z-1">
+                    <!-- Botón Dorado Sólido -->
+                    <div class="card-content mt-auto position-relative z-1 p-4 pt-0">
                         <a href="https://laluzasistencialweb.piscotics.com:9074/#/homeFree"
                            target="_blank"
-                           class="btn-gold w-100 text-decoration-none">
+                           class="btn-gold w-100 text-decoration-none py-3 d-block text-uppercase tracking-wider fw-bold">
                             Afiliarme Ahora
                         </a>
                     </div>
@@ -57,46 +65,46 @@
             </div>
 
             <!-- Tarjeta: Pagos y Consulta Web -->
-            <div class="col-lg-5 col-md-6" data-aos="fade-left">
-                <div class="card-digital-management h-100 position-relative text-center d-flex flex-column shadow-lg">
+            <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-digital-management h-100 position-relative text-center d-flex flex-column">
+                    <!-- Marca de agua interna original -->
                     <i class="bi bi-credit-card card-watermark"></i>
 
-                    <div class="card-content flex-grow-1 position-relative z-1">
-                        <div class="image-wrapper-premium mb-4">
+                    <div class="card-content flex-grow-1 position-relative z-1 p-4">
+                        <div class="image-wrapper-premium mb-4" style="overflow: hidden; border-radius: 12px;">
                             <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=800"
                                  alt="Pago seguro digital La Luz"
-                                 class="img-fluid shadow-sm img-interactive">
+                                 class="img-fluid shadow-sm img-interactive" style="width: 100%; object-fit: cover;">
                         </div>
 
-                        <h3 class="mb-3 display-serif fw-semibold">Consulta y Pago Web</h3>
+                        <h3 class="mb-3 display-serif fw-semibold h4">Consulta y Pago Web</h3>
                         <p class="text-muted small mb-4 lh-lg px-2">
-                            Gestione su plan de previsión sin filas. Consulte el estado de su afiliación, verifique sus
-                            beneficiarios o realice el pago de su cuota mensual de forma ágil.
+                            Gestione su plan de previsión sin filas. Consulte el estado de su afiliación, verifique sus beneficiarios o realice el pago de su cuota mensual de forma ágil.
                         </p>
                     </div>
 
-                    <!-- BOTÓN UNIFICADO SECUNDARIO (OUTLINE CAFÉ) -->
-                    <div class="card-content mt-auto position-relative z-1">
+                    <!-- Botón Outline Café -->
+                    <div class="card-content mt-auto position-relative z-1 p-4 pt-0">
                         <a href="https://laluzasistencialweb.piscotics.com:9091/"
                            target="_blank"
-                           class="btn-cafe-outline w-100 text-decoration-none">
+                           class="btn-cafe-outline w-100 text-decoration-none py-3 d-block text-uppercase tracking-wider fw-bold">
                             Realizar Pago
                         </a>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
-</section>
+</div>
 
-<!-- SECCIÓN DE PLANES - PREVISIÓN EXEQUIAL -->
+<!-- SECCIÓN DE PLANES - PREVISIÓN EXEQUIAL (Se mantiene impecable e independiente) -->
 <section class="section-padding bg-white overflow-hidden-mobile">
     <div class="container">
         <div class="text-center mb-5" data-aos="fade-up">
             <span class="label-badge-gold d-block">Nuestros Planes</span>
             <h2 class="section-main-title">Previsión Exequial Individual</h2>
-            <p class="text-muted mx-auto mt-3 max-w-600 px-3">Protección integral para ti y hasta 7 familiares menores
-                de 65 años.</p>
+            <p class="text-muted mx-auto mt-3 max-w-600 px-3">Protección integral para ti y hasta 7 familiares menores de 65 años.</p>
             <div class="premium-diamond-divider"></div>
         </div>
 
@@ -108,26 +116,19 @@
                         <h3 class="display-serif">Ejecutivo</h3>
                     </div>
                     <ul class="list-unstyled mb-4 small ps-2">
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Destino final hasta <strong>1.0
-                            SMMLV</strong></li>
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Titular + 7 Beneficiarios
-                        </li>
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Salas de velación estándar
-                        </li>
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Seguro de vida Titular ($1M)
-                        </li>
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Trámites legales y traslados
-                        </li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Destino final hasta <strong>1.0 SMMLV</strong></li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Titular + 7 Beneficiarios</li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Salas de velación estándar</li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Seguro de vida Titular ($1M)</li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Trámites legales y traslados</li>
                     </ul>
                 </div>
             </div>
 
             <div class="col-lg-4 col-md-6 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
                 <div class="card-minimal card-featured p-4 h-100 border-top border-3 position-relative shadow-lg border-radius-10">
-                    <div class="position-absolute top-0 start-50 translate-middle"
-                         style="z-index: 10; width: max-content;">
-                        <span class="badge bg-gold text-white px-3 py-2 rounded-pill shadow-sm text-uppercase fw-bold tracking-wider"
-                              style="font-size: 0.65rem;">
+                    <div class="position-absolute top-0 start-50 translate-middle" style="z-index: 10; width: max-content;">
+                        <span class="badge bg-gold text-white px-3 py-2 rounded-pill shadow-sm text-uppercase fw-bold tracking-wider" style="font-size: 0.65rem;">
                             Más Recomendado
                         </span>
                     </div>
@@ -136,16 +137,11 @@
                         <h3 class="display-serif">Excelencia</h3>
                     </div>
                     <ul class="list-unstyled mb-4 small ps-2">
-                        <li class="mb-3"><i class="bi bi-star-fill me-2 text-gold"></i> Destino final hasta <strong>1.5
-                            SMMLV</strong></li>
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Titular + 7 Beneficiarios
-                        </li>
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> <strong>Salas VIP /
-                            Preferenciales</strong></li>
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Seguro de vida Titular ($1M)
-                        </li>
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Cobertura nacional completa
-                        </li>
+                        <li class="mb-3"><i class="bi bi-star-fill me-2 text-gold"></i> Destino final hasta <strong>1.5 SMMLV</strong></li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Titular + 7 Beneficiarios</li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> <strong>Salas VIP / Preferenciales</strong></li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Seguro de vida Titular ($1M)</li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Cobertura nacional completa</li>
                     </ul>
                 </div>
             </div>
@@ -157,17 +153,11 @@
                         <h3 class="display-serif">Preferencial</h3>
                     </div>
                     <ul class="list-unstyled mb-4 small ps-2">
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Destino final hasta <strong>1.2
-                            SMMLV</strong></li>
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Titular + 7 Beneficiarios
-                        </li>
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Salas de velación
-                            preferenciales
-                        </li>
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Seguro de vida Titular ($1M)
-                        </li>
-                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Tanatopraxia y cofre premium
-                        </li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Destino final hasta <strong>1.2 SMMLV</strong></li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Titular + 7 Beneficiarios</li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Salas de velación preferenciales</li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Seguro de vida Titular ($1M)</li>
+                        <li class="mb-3"><i class="bi bi-check2-circle me-2 text-gold"></i> Tanatopraxia y cofre premium</li>
                     </ul>
                 </div>
             </div>
@@ -178,14 +168,10 @@
                 <div class="carencia-box p-4 rounded-3 shadow-sm">
                     <h5 class="small fw-bold text-uppercase mb-3 tracking-widest text-coffee">Tiempos de Carencia</h5>
                     <div class="carencia-grid text-muted small">
-                        <div class="carencia-item"><i class="bi bi-clock me-1 text-gold"></i> Accidente: <strong>Inmediato
-                            (24h)</strong></div>
-                        <div class="carencia-item"><i class="bi bi-clock me-1 text-gold"></i> Muerte Natural: <strong>60
-                            días</strong></div>
-                        <div class="carencia-item"><i class="bi bi-clock me-1 text-gold"></i> Mayores 65 años: <strong>120
-                            días</strong></div>
-                        <div class="carencia-item"><i class="bi bi-clock me-1 text-gold"></i> Enf. Terminal: <strong>180
-                            días</strong></div>
+                        <div class="carencia-item"><i class="bi bi-clock me-1 text-gold"></i> Accidente: <strong>Inmediato (24h)</strong></div>
+                        <div class="carencia-item"><i class="bi bi-clock me-1 text-gold"></i> Muerte Natural: <strong>60 días</strong></div>
+                        <div class="carencia-item"><i class="bi bi-clock me-1 text-gold"></i> Mayores 65 años: <strong>120 días</strong></div>
+                        <div class="carencia-item"><i class="bi bi-clock me-1 text-gold"></i> Enf. Terminal: <strong>180 días</strong></div>
                     </div>
                 </div>
             </div>
