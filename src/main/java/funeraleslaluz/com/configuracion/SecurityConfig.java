@@ -34,8 +34,8 @@ public class SecurityConfig {
 
                 // 3. REGLAS DE ACCESO SELECTIVAS
                 .authorizeHttpRequests(auth -> auth
-                        // Estáticos primero para optimizar rendimiento
-                        .requestMatchers("/css/**", "/js/**", "/img/**", "/webjars/**").permitAll()
+                        // Estáticos optimizados (¡CORREGIDO: Agregado /pdf/** para permitir el catálogo!)
+                        .requestMatchers("/css/**", "/js/**", "/img/**", "/pdf/**", "/webjars/**").permitAll()
 
                         // Rutas públicas explícitas y Websockets
                         .requestMatchers("/", "/obituarios", "/obituarios/usuarios/login", "/ws-chat/**").permitAll()
