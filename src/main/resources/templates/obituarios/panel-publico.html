@@ -10,7 +10,6 @@
 
 <div th:replace="~{fragments/layout :: navbar(isWhite=true)}"></div>
 
-<!-- Banner Hero -->
 <section class="obituarios-hero position-relative d-flex align-items-center justify-content-center"
          th:style="|background: url('@{/img/obituarios.png}') center/cover;|">
     <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0,0,0,0.5);"></div>
@@ -18,17 +17,11 @@
         <h6 class="text-uppercase mb-3" style="color: var(--gold); letter-spacing: 3px;">Estamos para apoyarlo</h6>
         <h1 class="display-3 fw-bold mb-4" style="font-family: var(--font-serif);">Obituarios</h1>
         <p class="lead">Acompañamos a las familias en la memoria de sus seres queridos</p>
-        <!--        <a th:href="@{/obituarios/usuarios/login}"-->
-        <!--           class="btn btn-sm text-white px-3 py-2 mt-2"-->
-        <!--           style=background-color: var(&#45;&#45;gold); border-radius: 20px; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.3px;">-->
-        <!--            + Registrar Homenaje-->
-        <!--        </a>-->
     </div>
 </section>
 
 <main class="obituarios-panel">
 
-    <!-- Banner Previsión -->
     <div class="card prevision-banner-container border-0 shadow-sm overflow-hidden mb-4" data-aos="fade-up"
          data-aos-delay="150">
         <div class="row g-0 align-items-center">
@@ -54,20 +47,17 @@
         </div>
     </div>
 
-    <!-- Buscador -->
     <div class="search-container mt-3" data-aos="fade-up" data-aos-delay="100">
         <input type="text" id="panelSearch" placeholder="Buscar por nombre o apellido..." onkeyup="buscarObituario()">
     </div>
 
-    <!-- Grid de tarjetas -->
     <div class="obituarios-grid" id="panelGrid" data-aos="fade-up" data-aos-delay="200">
 
         <div class="text-center w-100 py-5" th:if="${#lists.isEmpty(obituarios)}">
             <p class="text-muted small">No hay homenajes registrados en este momento.</p>
         </div>
 
-        <div class="obituario-card" th:each="ob : ${obituarios}"
-             th:attr="data-name=${#strings.toLowerCase(ob.nombreCompleto)}">
+        <div class="obituario-card" th:each="ob : ${obituarios}" th:attr="data-name=${#strings.toLowerCase(ob.nombreCompleto)}">
             <div>
                 <div class="card-top-bar">
                     <div class="card-spark">
@@ -97,11 +87,91 @@
                    th:if="${ob.mensajeHomenaje != null and !ob.mensajeHomenaje.isEmpty()}"
                    th:text="'&ldquo;' + ${ob.mensajeHomenaje} + '&rdquo;'"></p>
             </div>
-            <a href="#" class="btn-condolencia">Enviar Condolencia</a>
+
+            <!-- Contenedor oculto en la tarjeta que almacena las condolencias reales traídas por JPA -->
+            <div class="condolencias-fuente d-none">
+                <div th:if="${#lists.isEmpty(ob.condolencias)}" class="col-12 text-center py-3">
+                    <p class="text-muted small italic mb-0">No hay condolencias registradas en este momento. Sé el primero en dejar un mensaje de apoyo.</p>
+                </div>
+                <div th:unless="${#lists.isEmpty(ob.condolencias)}" th:each="con : ${ob.condolencias}" class="col-md-6 col-12">
+                    <div class="p-3 shadow-sm h-100" style="background-color: #f5eedc; border-radius: 12px; border-left: 4px solid #bc9541; text-align: left;">
+                        <h6 class="fw-bold mb-1 small text-dark" th:text="${con.remitente}">Familia Pérez</h6>
+                        <p class="text-muted small mb-0 font-italic" th:text="'&ldquo;' + ${con.mensaje} + '&rdquo;'">"Mensaje"</p>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button"
+                    class="btn-condolencia btn w-100 mt-2 text-white fw-medium"
+                    style="background-color: #bc9541; border-radius: 25px; transition: all 0.3s;"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalCondolencias"
+                    th:attr="data-id=${ob.id}, data-nombre=${ob.nombreCompleto}">
+                Enviar Condolencia
+            </button>
         </div>
 
     </div>
 </main>
+
+<div class="modal fade" id="modalCondolencias" tabindex="-1" aria-labelledby="modalCondolenciasLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow-lg" style="background-color: #fcf9f2; border-radius: 20px; border: 2px solid #e0d0b0 !important;">
+
+            <div class="modal-header border-0 text-center d-flex flex-column position-relative pt-4 pb-2">
+                <div class="mb-2">
+                    <img th:src="@{/img/Luz.png}" src="/static/img/Luz.png" alt="Logo" style="height: 40px; filter: sepia(0.5) hue-rotate(5deg) saturate(2);">
+                </div>
+                <h4 class="modal-title fw-bold" id="modalCondolenciasLabel" style="font-family: var(--font-serif); color: #4a3b2c;">
+                    Homenaje a <span id="modalNombreFallecido" style="color: #bc9541;">...</span>
+                </h4>
+                <p class="text-muted small mb-0">Muro de Recuerdos y Condolencias</p>
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close" style="filter: sepia(1);"></button>
+            </div>
+
+            <div class="modal-body px-4">
+
+                <div class="mb-4">
+                    <h6 class="text-uppercase small fw-bold mb-3" style="color: #a4843b; letter-spacing: 1px;">Condolencias Recibidas</h6>
+
+                    <!-- Contenedor dinámico controlado por JavaScript -->
+                    <div class="row g-3" id="contenedorCondolencias">
+                        <!-- Aquí se inyectarán las condolencias reales -->
+                    </div>
+                </div>
+
+                <hr style="border-top: 1px dashed #e0d0b0; opacity: 1;">
+
+                <div class="mt-3">
+                    <h5 class="text-center text-uppercase fs-6 fw-bold mb-3" style="color: #bc9541; letter-spacing: 2px;">Escribe tu Condolencia</h5>
+
+                    <form th:action="@{/obituarios/condolencia/guardar}" method="POST">
+                        <input type="hidden" name="obituarioId" id="modalObituarioId">
+
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-uppercase" style="color: #61503e; font-size: 0.75rem;">Tu Nombre</label>
+                            <input type="text" name="remitente" class="form-control" placeholder="Ej. Juan Pérez" required
+                                   style="background-color: #fbf7ed; border: 1px solid #dcd1ba; border-radius: 10px; padding: 10px;">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold text-uppercase" style="color: #61503e; font-size: 0.75rem;">Tu Mensaje</label>
+                            <textarea name="mensaje" class="form-control" rows="3" placeholder="Comparte un recuerdo o palabras de apoyo..." required
+                                      style="background-color: #fbf7ed; border: 1px solid #dcd1ba; border-radius: 10px; resize: none; padding: 10px;"></textarea>
+                        </div>
+
+                        <div class="text-center pb-2">
+                            <button type="submit" class="btn w-100 py-2 text-white fw-bold text-uppercase"
+                                    style="background-color: #bc9541; border-radius: 25px; letter-spacing: 1px; box-shadow: 0 4px 6px rgba(188,149,65,0.2);">
+                                Publicar Condolencia
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <div th:replace="~{fragments/layout :: footer}"></div>
 
@@ -132,6 +202,29 @@
         cards.forEach(card => {
             const name = card.getAttribute('data-name');
             card.style.display = (name && name.includes(query)) ? 'flex' : 'none';
+        });
+    }
+</script>
+
+<script>
+    const modalCondolencias = document.getElementById('modalCondolencias');
+    if (modalCondolencias) {
+        modalCondolencias.addEventListener('show.bs.modal', function (event) {
+            const boton = event.relatedTarget;
+
+            const idObituario = boton.getAttribute('data-id');
+            const nombreFallecido = boton.getAttribute('data-nombre');
+
+            document.getElementById('modalNombreFallecido').textContent = nombreFallecido;
+            document.getElementById('modalObituarioId').value = idObituario;
+
+            // Encontrar la tarjeta del obituario que corresponde a este botón
+            const tarjeta = boton.closest('.obituario-card');
+            // Obtener el HTML precargado por Thymeleaf desde la base de datos
+            const fuenteCondolencias = tarjeta.querySelector('.condolencias-fuente').innerHTML;
+
+            // Inyectar las cajitas de condolencias reales en el contenedor del modal
+            document.getElementById('contenedorCondolencias').innerHTML = fuenteCondolencias;
         });
     }
 </script>

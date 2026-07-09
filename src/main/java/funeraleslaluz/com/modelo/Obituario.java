@@ -28,6 +28,11 @@ public class Obituario {
     private String cementerio;
     private String mensajeHomenaje;
 
+    // AGREGA ESTO:
+    @jakarta.persistence.OneToMany(mappedBy = "obituario", cascade = jakarta.persistence.CascadeType.ALL, orphanRemoval = true)
+    private java.util.List<Condolencia> condolencias = new java.util.ArrayList<>();
+
+
     public String getNombreCompleto() {
         return this.nombreCompleto;
     }
