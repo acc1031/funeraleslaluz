@@ -83,7 +83,7 @@ public class EmailService {
                             "</div>";
 
             helper.setText(htmlMsg, true);
-            helper.setTo("santicontreras400@gmail.com");
+            helper.setTo("laluzasistenciaintegral@gmail.com");
             helper.setSubject("⚠️ LEAD WEB: " + nombre);
 
             // Aquí vinculamos la imagen local al 'cid:logoLaLuz' del HTML
