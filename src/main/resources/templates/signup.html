@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ingreso al Sistema - La Luz Asistencia Integral</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="family">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" th:href="@{/img/Luz.png}">
 
     <style>
@@ -48,11 +48,37 @@
             border-radius: 16px;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
             border: 1px solid var(--border-color);
+            position: relative; /* Necesario para ubicar el botón de volver en la esquina */
+        }
+
+        /* Estilo del Botón Regresar */
+        .btn-back-home {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid transparent;
+        }
+
+        .btn-back-home:hover {
+            color: var(--primary-color);
+            background-color: #f1f5f9;
+            border-color: var(--border-color);
         }
 
         .brand-header {
             text-align: center;
             margin-bottom: 32px;
+            margin-top: 15px; /* Pequeño espacio para que no choque con el botón de regresar */
         }
 
         .brand-logo {
@@ -166,6 +192,10 @@
 
 <div class="login-container">
     <div class="login-card">
+
+        <a th:href="@{/}" class="btn-back-home">
+            <i class="bi bi-arrow-left"></i> Volver al sitio
+        </a>
 
         <div class="brand-header">
             <div style="width: 70px; height: 70px; margin: 0 auto 12px auto;">

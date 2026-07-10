@@ -46,6 +46,39 @@
         .simulated-body {
             padding: 20px;
         }
+
+        /* ==========================================================================
+           MÓDULO RESPONSIVE (Celulares y Tablets)
+           ========================================================================== */
+        @media (max-width: 992px) {
+            .content-grid-custom {
+                grid-template-columns: 1fr; /* Pasa de 2 columnas a 1 sola en cascada */
+                gap: 20px;
+            }
+
+            .preview-scroll-container {
+                padding: 20px; /* Reduce espacio interno innecesario en pantallas pequeñas */
+            }
+
+            .main {
+                padding: 20px 15px !important; /* Ajusta los márgenes generales del contenedor principal */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .panel-header {
+                text-align: center;
+            }
+            .panel-header .panel-title {
+                font-size: 1.1rem !important;
+            }
+            .simulated-body {
+                padding: 16px !important; /* Optimización del espacio de la tarjeta previsualizada */
+            }
+            .simulated-img-box {
+                height: 130px; /* Reducción proporcional del banner en pantallas de celulares chicos */
+            }
+        }
     </style>
 </head>
 <body>

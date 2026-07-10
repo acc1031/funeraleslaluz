@@ -36,8 +36,12 @@ public class SecurityConfig {
                         // Estáticos totalmente públicos
                         .requestMatchers("/css/**", "/js/**", "/img/**", "/pdf/**", "/webjars/**").permitAll()
 
+
                         // Rutas de la web pública (Landing, obituarios públicos, WebSocket y login)
+                        // Rutas públicas explícitas, Websockets y ahora ¡Formulario de Contacto!
                         .requestMatchers("/", "/obituarios", "/obituarios/usuarios/login", "/ws-chat/**").permitAll()
+                        .requestMatchers("/contacto/**").permitAll() // 🔓 ¡Habilita la visualización y el envío del formulario!
+
 
                         // 🔒 REGLA DE ORO: Todo lo que esté bajo /obituarios/... requiere autenticación,
                         // EXCEPTO las rutas públicas que ya declaramos arriba.
