@@ -203,7 +203,23 @@
 }
 
 /*--------------------------------------------------------------------*/
-/* BOTÓN WHATSAPP FIXED (Mantiene verde nativo por usabilidad) */
+/* Definición de la animación de flotado vertical (sube y baja) */
+@keyframes flotadoSuave {
+    0% {
+        transform: translateY(0px);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+    50% {
+        transform: translateY(-8px); /* Sube 8 píxeles */
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* La sombra se expande al despegarse */
+    }
+    100% {
+        transform: translateY(0px);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* BOTÓN WHATSAPP FIXED */
 .btn-whatsapp-fixed {
     position: fixed;
     bottom: 20px;
@@ -217,15 +233,25 @@
     align-items: center;
     justify-content: center;
     font-size: 32px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     z-index: 9999;
-    transition: all 0.3s ease;
+
+    /* Agregamos la animación: dura 3 segundos, es fluida (ease-in-out) e infinita */
+    animation: flotadoSuave 3s ease-in-out infinite;
+    /* Mantiene la transición suave para los cambios de color */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* COMPORTAMIENTO AL PASAR EL CURSOR */
 .btn-whatsapp-fixed:hover {
     background-color: #20ba5a;
-    transform: scale(1.1);
     color: #fff;
+
+    /* Pausamos la animación de subida/bajada para que el usuario pueda hacer clic cómodamente */
+    animation-play-state: paused;
+
+    /* Aplicamos un ligero zoom de atención al congelarse */
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 /*--------------------------------------------------------------------*/
@@ -265,3 +291,27 @@
     box-shadow: 0 4px 8px rgba(74, 45, 0, 0.1) !important;
 }
 /*--------------------------------------------------------------------*/
+/*BOTONES INFORMATIVOS DE MASCOTAS*/
+
+/* Transición global para que el movimiento y el cambio de color sean suaves */
+.btn-cta-contact {
+    transition: all 0.3s ease-in-out !important;
+}
+
+/* Efecto Hover general (Efecto de elevación/zoom) */
+.btn-cta-contact:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Cambios de color específicos al pasar el cursor */
+.btn-whatsapp-cta:hover {
+    background-color: #1ebd58 !important; /* Verde un poco más brillante */
+    border-color: #1ebd58 !important;
+}
+
+.btn-phone-cta:hover {
+    background-color: #143561 !important; /* Azul corporativo un toque más claro/vivo */
+    border-color: #143561 !important;
+}
+

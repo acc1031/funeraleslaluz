@@ -26,7 +26,7 @@
          data-aos-delay="150">
         <div class="row g-0 align-items-center">
             <div class="col-md-6 col-lg-7">
-                <img th:src="@{/img/prevision-exequial-banner.jpg}" src="/static/img/bannerLuz.png"
+                <img th:src="@{/img/prevision-exequial-banner.jpg(v=${#strings.randomAlphanumeric(5)})}" src="/static/img/bannerLuz.png"
                      class="img-fluid w-100 h-100 object-fit-cover mobile-banner-img"
                      alt="Banner Previsión Exequial La Luz">
             </div>
@@ -66,7 +66,7 @@
                 </div>
 
                 <h3 class="deceased-name" th:text="${ob.nombreCompleto}">Nombre Fallecido</h3>
-                <div class="deceased-dates" th:text="${ob.fechaFallecimiento}">2026-05-29</div>
+                <div class="deceased-dates" th:text="${#temporals.format(ob.fechaFallecimiento, 'dd ''de'' MMMM, yyyy - hh:mm a')}">30 de mayo, 2026 - 06:35 AM</div>
 
                 <div class="service-details">
                     <div class="detail-row">
@@ -75,7 +75,7 @@
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Exequias:</span>
-                        <span class="detail-value text-truncate" th:text="${ob.fechaExequias}">Fecha</span>
+                        <span class="detail-value text-truncate" th:text="${#temporals.format(ob.fechaExequias, 'dd/MM/yyyy hh:mm a')}">Fecha</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Destino:</span>

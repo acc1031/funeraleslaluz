@@ -27,26 +27,27 @@ public class SecurityConfig {
                 )
 
                 // 2. CONFIGURACIÓN EXPLICITA DE CSRF
-                // Esto le dice a Spring cómo manejar los tokens de seguridad en los formularios públicos
                 .csrf(csrf -> csrf
                         .csrfTokenRepository(new HttpSessionCsrfTokenRepository())
                 )
 
                 // 3. REGLAS DE ACCESO SELECTIVAS
                 .authorizeHttpRequests(auth -> auth
-                        // Estáticos optimizados (¡CORREGIDO: Agregado /pdf/** para permitir el catálogo!)
+                        // Estáticos totalmente públicos
                         .requestMatchers("/css/**", "/js/**", "/img/**", "/pdf/**", "/webjars/**").permitAll()
 
-                        // Rutas públicas explícitas y Websockets
+                        // Rutas de la web pública (Landing, obituarios públicos, WebSocket y login)
                         .requestMatchers("/", "/obituarios", "/obituarios/usuarios/login", "/ws-chat/**").permitAll()
 
-                        // 🔒 Rutas Privadas (Panel de Control de Obituarios)
+                        // 🔒 REGLA DE ORO: Todo lo que esté bajo /obituarios/... requiere autenticación,
+                        // EXCEPTO las rutas públicas que ya declaramos arriba.
                         .requestMatchers("/obituarios/crear/**").authenticated()
+                        .requestMatchers("/obituarios/banner/**").authenticated()  // <-- ¡CORREGIDO! Protege la vista y la subida
                         .requestMatchers("/obituarios/usuarios/**").authenticated()
                         .requestMatchers("/obituarios/guardar/**").authenticated()
                         .requestMatchers("/obituarios/eliminar/**").authenticated()
 
-                        // 🔓 ¡Todo lo demás en la web es público! (Servicios, Contacto, Planes, etc.)
+                        // 🔓 ¡Todo lo demás en la web (Contacto, Planes, etc.) es público!
                         .anyRequest().permitAll()
                 )
 

@@ -103,7 +103,33 @@
                         </div>
                     </div>
 
-                    <a href="/contacto" class="btn-gold-outline">Solicitar información</a>
+                    <div class="d-flex flex-column flex-sm-row gap-2 align-items-stretch align-items-sm-center mt-3">
+                        <!-- CTA Principal (Formulario o Cotizador) -->
+                        <a href="/contacto" class="btn btn-gold-outline fw-semibold px-4 flex-grow-1">
+                            Solicitar Información
+                        </a>
+
+                        <!-- Botón Directo a WhatsApp -->
+                        <a href="https://wa.me/573228241484?text=Hola,%20deseo%20información%20sobre%20el%20Plan%20Huella%20de%20Luz"
+                           target="_blank"
+                           class="btn btn-success d-flex align-items-center justify-content-center px-3"
+                           style="background-color: #25D366; border-color: #25D366; transition: all 0.3s ease;"
+                           onmouseover="this.style.backgroundColor='#1ebd58'; this.style.borderColor='#1ebd58'; this.style.transform='scale(1.05)';"
+                           onmouseout="this.style.backgroundColor='#25D366'; this.style.borderColor='#25D366'; this.style.transform='scale(1)';"
+                           title="Escríbenos por WhatsApp">
+                            <i class="bi bi-whatsapp fs-5 text-white"></i> <span class="d-sm-none ms-2 text-white">WhatsApp</span>
+                        </a>
+
+                        <!-- Botón Directo a Llamada -->
+                        <a href="tel:+573228241484"
+                           class="btn btn-primary d-flex align-items-center justify-content-center px-3"
+                           style="background-color: #0b2240; border-color: #0b2240; transition: all 0.3s ease;"
+                           onmouseover="this.style.backgroundColor='#143561'; this.style.borderColor='#143561'; this.style.transform='scale(1.05)';"
+                           onmouseout="this.style.backgroundColor='#0b2240'; this.style.borderColor='#0b2240'; this.style.transform='scale(1)';"
+                           title="Llamar ahora">
+                            <i class="bi bi-telephone-fill fs-5 text-white"></i> <span class="d-sm-none ms-2 text-white">Llamar</span>
+                        </a>
+                    </div>
                 </div>
 
             </div>

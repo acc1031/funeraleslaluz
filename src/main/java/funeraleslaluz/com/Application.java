@@ -24,7 +24,7 @@ public class Application {
 
 				// Mapeo exacto con los nuevos atributos de tu entidad Usuario
 				admin.setNombre("admin");
-				admin.setContrasena(passwordEncoder.encode("admin123")); // Hasheo BCrypt automático
+					admin.setContrasena(passwordEncoder.encode("L4.luZ_20!25*")); // Hasheo BCrypt automático
 				admin.setRol("ROLE_ADMIN");
 				admin.setNombre("Administrador");
 				admin.setApellido("Inicial");

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Homenajes - Banner Previsión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <link rel="icon" type="image/png" th:href="@{/img/Luz.png}">
+    <style>
+        /* Ajustes de balance nativos basados en tu panel operativo */
+        .content-grid-custom {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 30px;
+            align-items: start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .preview-scroll-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #eef0f2;
+            padding: 30px;
+        }
+        .simulated-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #f2eade;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            max-width: 420px;
+            margin: 20px auto 0 auto;
+        }
+        .simulated-img-box {
+            width: 100%;
+            height: 155px;
+            overflow: hidden;
+        }
+        .simulated-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .simulated-body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<button class="menu-toggle" id="menuBtn">
+    <i class="bi bi-list"></i>
+</button>
+
+<nav class="sidebar" id="sidebarMenu">
+    <div class="sidebar-brand">
+        <div class="brand-icon">
+            <img th:src="@{/img/Luz.png}" alt="Logo La Luz" style="width: 100%; height: 100%; object-fit: contain;">
+        </div>
+        <div class="brand-name">
+            Homenajes
+            <span class="brand-sub">Panel Admin</span>
+        </div>
+    </div>
+
+    <div class="nav-section-label">Principal</div>
+    <a th:href="@{/obituarios/crear}" class="nav-link">
+        <i class="bi bi-plus-circle nav-icon"></i>
+        Crear Obituario
+    </a>
+
+    <div class="nav-section-label">Administración</div>
+    <a th:href="@{/obituarios/usuarios}" class="nav-link">
+        <i class="bi bi-people nav-icon"></i>
+        Usuarios
+    </a>
+
+    <a th:href="@{/obituarios/banner}" class="nav-link active">
+        <i class="bi bi-image nav-icon"></i>
+        Banner Principal
+    </a>
+
+    <div class="sidebar-footer">
+        <div class="avatar">AD</div>
+        <div class="footer-info">
+            <span class="footer-name">Admin</span>
+            <span class="footer-role">Operador</span>
+        </div>
+        <a th:href="@{/obituarios/usuarios/logout}" class="nav-link-logout" title="Cerrar Sesión de Forma Segura">
+            <i class="bi bi-box-arrow-right" style="font-size: 24px;"></i>
+        </a>
+    </div>
+</nav>
+
+<main class="main">
+
+    <div class="page-header">
+        <div>
+            <h1 class="page-title">Panel Operativo</h1>
+            <p class="page-sub">Gestión de homenajes y elementos públicos de la plataforma</p>
+        </div>
+    </div>
+
+    <div class="alerts-container" style="max-width: 1200px; margin: 0 auto 20px auto;">
+        <div class="alert alert-success" th:if="${success}"
+             style="background-color: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; padding: 12px 16px; border-radius: 8px; display: flex; align-items: center; gap: 10px; font-size: 14px; margin-bottom: 15px;">
+            <i class="bi bi-check-circle-fill" style="color: #10b981;"></i>
+            <span th:text="${success}">¡Imagen actualizada correctamente!</span>
+        </div>
+    </div>
+
+    <div class="content-grid-custom">
+
+        <form th:action="@{/obituarios/banner/guardar}" method="POST" enctype="multipart/form-data" class="form-card">
+            <span class="module-tag"><i class="bi bi-palette"></i> Módulo Diseño</span>
+            <h2 class="form-title">Registrar Banner</h2>
+            <p class="form-desc">Inserción y actualización de publicidad en plataforma</p>
+            <div class="divider"></div>
+
+            <div class="field-group">
+                <label for="imagenBanner" class="field-label">
+                    <i class="bi bi-image" style="color: var(--gold);"></i> Archivo del Banner
+                </label>
+                <input type="file" id="imagenBanner" name="file" class="form-input" accept="image/*" required>
+            </div>
+
+            <div class="field-group">
+                <label for="tituloBanner" class="field-label">Título Comercial</label>
+                <input type="text" id="tituloBanner" name="titulo" class="form-input" placeholder="Ej: Adquiere tu plan de previsión exequial">
+            </div>
+
+            <div class="field-group">
+                <label for="subtituloBanner" class="field-label">Descripción Breve</label>
+                <input type="text" id="subtituloBanner" name="subtitulo" class="form-input" placeholder="Ej: Asegura la tranquilidad y el respaldo integral...">
+            </div>
+
+            <div class="btn-row">
+                <button type="submit" class="btn btn-primary" style="width: 100%; text-transform: uppercase; font-weight: 600;">
+                    Publicar Banner
+                </button>
+            </div>
+        </form>
+
+        <div class="preview-scroll-container" style="background-color: #ffffff; border-radius: 16px; padding: 30px; border: 1px solid rgba(0, 0, 0, 0.03); box-shadow: 0 4px 24px rgba(0, 0, 0, 0.01);">
+
+            <div class="panel-header" style="border-bottom: 1px solid #f3f4f6; padding-bottom: 16px; margin-bottom: 24px;">
+                <h3 class="panel-title" style="font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 600; color: #1a1a1a; margin: 0 0 4px 0;">Tarjetas en Plataforma</h3>
+                <p class="panel-sub" style="font-family: 'Inter', sans-serif; color: #8c8c8c; font-size: 0.85rem; margin: 0;">Listado síncrono del estado de la tarjeta en la web pública</p>
+            </div>
+
+            <div class="simulated-card" style="background: #ffffff; border-radius: 16px; border: 1px solid #f2eade; overflow: hidden; box-shadow: 0 10px 25px rgba(188, 149, 65, 0.04); max-width: 400px; margin: 0 auto; transition: all 0.3s ease;">
+
+                <div class="simulated-img-box" style="width: 100%; height: 160px; overflow: hidden; position: relative;">
+                    <img th:src="@{/img/prevision-exequial-banner.jpg}" alt="Previsión Exequial" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+
+                <div class="simulated-body" style="padding: 24px; background-color: #ffffff;">
+
+                    <div class="d-flex align-items-start mb-2" style="gap: 8px;">
+                        <i class="bi bi-shield-check" style="color: #bc9541; font-size: 1.2rem; line-height: 1.2;"></i>
+                        <h5 class="mb-0 fw-bold" style="color: #0b2240; font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 700; line-height: 1.3;">
+                            Adquiere tu plan de previsión exequial
+                        </h5>
+                    </div>
+
+                    <p class="text-muted style-text" style="font-family: 'Inter', sans-serif; color: #6c757d; font-size: 0.85rem; line-height: 1.5; margin-bottom: 20px;">
+                        Asegura la tranquilidad y el respaldo integral para quienes más amas hoy.
+                    </p>
+
+                    <a href="#" class="btn w-100 text-white fw-semibold"
+                       style="background-color: #bc9541; color: #ffffff !important; border: none; border-radius: 50px; padding: 11px 20px; font-size: 0.85rem; letter-spacing: 0.5px; text-transform: uppercase; display: inline-block; text-align: center; text-decoration: none; box-shadow: 0 4px 12px rgba(188, 149, 65, 0.2); transition: all 0.2s ease;"
+                       onclick="return false;"
+                       onmouseover="this.style.backgroundColor='#a37f33'; this.style.color='#ffffff'; this.style.transform='translateY(-1px)';"
+                       onmouseout="this.style.backgroundColor='#bc9541'; this.style.color='#ffffff'; this.style.transform='translateY(0)';">
+                        Solicitar Información
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+
+    menuBtn.addEventListener('click', () => {
+        sidebarMenu.classList.toggle('active');
+        const icon = menuBtn.querySelector('i');
+        icon.className = sidebarMenu.classList.contains('active') ? 'bi bi-x-lg' : 'bi bi-list';
+    });
+</script>
+</body>
+</html>
