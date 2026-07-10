@@ -99,8 +99,11 @@
         </div>
 
         <div class="row g-4">
+
+            <!-- 1. ATENCIÓN INMEDIATA -->
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="card-portfolio h-100 position-relative border-0 shadow-sm overflow-hidden">
+                <!-- Se añade estilo de borde transparente para la transición suave -->
+                <div class="card-portfolio h-100 position-relative shadow-sm overflow-hidden" style="border: 1px solid transparent;">
                     <div class="img-wrapper" style="height: 200px; overflow: hidden;">
                         <img th:src="@{/img/atencion-inmediata.png}"
                              class="img-fluid w-100 h-100 portfolio-img" style="object-fit: cover;" alt="Atención Inmediata">
@@ -113,8 +116,10 @@
                 </div>
             </div>
 
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="250">
-                <div class="card-portfolio h-100 position-relative border-0 shadow-sm overflow-hidden">
+            <!-- 2. HOMENAJES DE VIDA -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <!-- Se añade estilo de borde transparente para la transición suave -->
+                <div class="card-portfolio h-100 position-relative shadow-sm overflow-hidden" style="border: 1px solid transparent;">
                     <div class="img-wrapper" style="height: 200px; overflow: hidden;">
                         <img th:src="@{/img/homenajes.png}"
                              class="img-fluid w-100 h-100 portfolio-img" style="object-fit: cover;" alt="Homenajes de Vida">
@@ -127,8 +132,10 @@
                 </div>
             </div>
 
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="card-portfolio h-100 position-relative border-0 shadow-sm overflow-hidden">
+            <!-- 3. PREVISIÓN EXEQUIAL -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <!-- Se añade estilo de borde transparente para la transición suave -->
+                <div class="card-portfolio h-100 position-relative shadow-sm overflow-hidden" style="border: 1px solid transparent;">
                     <div class="img-wrapper" style="height: 200px; overflow: hidden;">
                         <img th:src="@{/img/prevision-individual.jpg}"
                              class="img-fluid w-100 h-100 portfolio-img" style="object-fit: cover;" alt="Previsión Exequial">
@@ -140,6 +147,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -148,8 +156,8 @@
     <div class="container py-3" data-aos="fade-up">
         <h4 class="fw-normal mb-2" style="font-family: var(--font-serif); font-size: 1.8rem;">¿Requiere una Repatriación Inmediata?</h4>
         <p class="text-white-50 small mb-4">Central de atención global disponible las 24 horas del día, los 365 días del año.</p>
-        <a href="tel:+576017462112" class="btn-emergencia-intl text-uppercase">
-            <i class="bi bi-telephone-outbound me-2"></i> Contactar Coordinador Central
+        <a href="tel:+573105583230" class="btn-emergencia-intl text-uppercase">
+            <i class="bi bi-telephone-outbound me-2"></i> Llama al +57 310 558 3230
         </a>
     </div>
 </section>
@@ -206,6 +214,16 @@
         color: #ffffff;
         box-shadow: 0 10px 20px rgba(201, 169, 110, 0.2);
     }
+
+    .card-portfolio {
+        transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-portfolio:hover {
+        border-color: var(--gold) !important;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    }
+
 </style>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
