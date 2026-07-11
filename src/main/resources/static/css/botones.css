@@ -315,3 +315,14 @@
     border-color: #143561 !important;
 }
 
+.btn-condolencia {
+    background-color: #bc9541;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+/* El efecto al pasar el mouse utilizando el café del manual */
+.btn-condolencia:hover {
+    background-color: #4A2D00 !important; /* El café de tu manual */
+    color: #ffffff; /* Asegura que el texto se mantenga blanco */
+}
