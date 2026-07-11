@@ -26,7 +26,8 @@
          data-aos-delay="150">
         <div class="row g-0 align-items-center">
             <div class="col-md-6 col-lg-7">
-                <img th:src="@{/img/prevision-exequial-banner.jpg(v=${#strings.randomAlphanumeric(5)})}" src="/static/img/bannerLuz.png"
+                <img th:src="@{/img/prevision-exequial-banner.jpg(v=${#strings.randomAlphanumeric(5)})}"
+                     src="/static/img/bannerLuz.png"
                      class="img-fluid w-100 h-100 object-fit-cover mobile-banner-img"
                      alt="Banner Previsión Exequial La Luz">
             </div>
@@ -53,11 +54,12 @@
 
     <div class="obituarios-grid" id="panelGrid" data-aos="fade-up" data-aos-delay="200">
 
-        <div class="text-center w-100 py-5" th:if="${#lists.isEmpty(obituarios)}">
+        <div class="text-center w-100 py-5" th:if="${#lists.isEmpty(obituarios)}" style="grid-column: 1 / -1;">
             <p class="text-muted small">No hay homenajes registrados en este momento.</p>
         </div>
 
-        <div class="obituario-card" th:each="ob : ${obituarios}" th:attr="data-name=${#strings.toLowerCase(ob.nombreCompleto)}">
+        <div class="obituario-card" th:each="ob : ${obituarios}"
+             th:attr="data-name=${#strings.toLowerCase(ob.nombreCompleto)}">
             <div>
                 <div class="card-top-bar">
                     <div class="card-spark">
@@ -66,7 +68,10 @@
                 </div>
 
                 <h3 class="deceased-name" th:text="${ob.nombreCompleto}">Nombre Fallecido</h3>
-                <div class="deceased-dates" th:text="${#temporals.format(ob.fechaFallecimiento, 'dd ''de'' MMMM, yyyy - hh:mm a')}">30 de mayo, 2026 - 06:35 AM</div>
+                <div class="deceased-dates"
+                     th:text="${#temporals.format(ob.fechaFallecimiento, 'dd ''de'' MMMM, yyyy - hh:mm a')}">30 de mayo,
+                    2026 - 06:35 AM
+                </div>
 
                 <div class="service-details">
                     <div class="detail-row">
@@ -75,7 +80,8 @@
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Exequias:</span>
-                        <span class="detail-value text-truncate" th:text="${#temporals.format(ob.fechaExequias, 'dd/MM/yyyy hh:mm a')}">Fecha</span>
+                        <span class="detail-value text-truncate"
+                              th:text="${#temporals.format(ob.fechaExequias, 'dd/MM/yyyy hh:mm a')}">Fecha</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Destino:</span>
@@ -91,12 +97,16 @@
             <!-- Contenedor oculto en la tarjeta que almacena las condolencias reales traídas por JPA -->
             <div class="condolencias-fuente d-none">
                 <div th:if="${#lists.isEmpty(ob.condolencias)}" class="col-12 text-center py-3">
-                    <p class="text-muted small italic mb-0">No hay condolencias registradas en este momento. Sé el primero en dejar un mensaje de apoyo.</p>
+                    <p class="text-muted small italic mb-0">No hay condolencias registradas en este momento. Sé el
+                        primero en dejar un mensaje de apoyo.</p>
                 </div>
-                <div th:unless="${#lists.isEmpty(ob.condolencias)}" th:each="con : ${ob.condolencias}" class="col-md-6 col-12">
-                    <div class="p-3 shadow-sm h-100" style="background-color: #f5eedc; border-radius: 12px; border-left: 4px solid #bc9541; text-align: left;">
+                <div th:unless="${#lists.isEmpty(ob.condolencias)}" th:each="con : ${ob.condolencias}"
+                     class="col-md-6 col-12">
+                    <div class="p-3 shadow-sm h-100"
+                         style="background-color: #f5eedc; border-radius: 12px; border-left: 4px solid #bc9541; text-align: left;">
                         <h6 class="fw-bold mb-1 small text-dark" th:text="${con.remitente}">Familia Pérez</h6>
-                        <p class="text-muted small mb-0 font-italic" th:text="'&ldquo;' + ${con.mensaje} + '&rdquo;'">"Mensaje"</p>
+                        <p class="text-muted small mb-0 font-italic" th:text="'&ldquo;' + ${con.mensaje} + '&rdquo;'">
+                            "Mensaje"</p>
                     </div>
                 </div>
             </div>
@@ -114,25 +124,31 @@
     </div>
 </main>
 
-<div class="modal fade" id="modalCondolencias" tabindex="-1" aria-labelledby="modalCondolenciasLabel" aria-hidden="true">
+<div class="modal fade" id="modalCondolencias" tabindex="-1" aria-labelledby="modalCondolenciasLabel"
+     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-        <div class="modal-content border-0 shadow-lg" style="background-color: #fcf9f2; border-radius: 20px; border: 2px solid #e0d0b0 !important;">
+        <div class="modal-content border-0 shadow-lg"
+             style="background-color: #fcf9f2; border-radius: 20px; border: 2px solid #e0d0b0 !important;">
 
             <div class="modal-header border-0 text-center d-flex flex-column position-relative pt-4 pb-2">
                 <div class="mb-2">
-                    <img th:src="@{/img/Luz.png}" src="/static/img/Luz.png" alt="Logo" style="height: 40px; filter: sepia(0.5) hue-rotate(5deg) saturate(2);">
+                    <img th:src="@{/img/Luz.png}" src="/static/img/Luz.png" alt="Logo"
+                         style="height: 40px; filter: sepia(0.5) hue-rotate(5deg) saturate(2);">
                 </div>
-                <h4 class="modal-title fw-bold" id="modalCondolenciasLabel" style="font-family: var(--font-serif); color: #4a3b2c;">
+                <h4 class="modal-title fw-bold" id="modalCondolenciasLabel"
+                    style="font-family: var(--font-serif); color: #4a3b2c;">
                     Homenaje a <span id="modalNombreFallecido" style="color: #bc9541;">...</span>
                 </h4>
                 <p class="text-muted small mb-0">Muro de Recuerdos y Condolencias</p>
-                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close" style="filter: sepia(1);"></button>
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal"
+                        aria-label="Close" style="filter: sepia(1);"></button>
             </div>
 
             <div class="modal-body px-4">
 
                 <div class="mb-4">
-                    <h6 class="text-uppercase small fw-bold mb-3" style="color: #a4843b; letter-spacing: 1px;">Condolencias Recibidas</h6>
+                    <h6 class="text-uppercase small fw-bold mb-3" style="color: #a4843b; letter-spacing: 1px;">
+                        Condolencias Recibidas</h6>
 
                     <!-- Contenedor dinámico controlado por JavaScript -->
                     <div class="row g-3" id="contenedorCondolencias">
@@ -143,19 +159,24 @@
                 <hr style="border-top: 1px dashed #e0d0b0; opacity: 1;">
 
                 <div class="mt-3">
-                    <h5 class="text-center text-uppercase fs-6 fw-bold mb-3" style="color: #bc9541; letter-spacing: 2px;">Escribe tu Condolencia</h5>
+                    <h5 class="text-center text-uppercase fs-6 fw-bold mb-3"
+                        style="color: #bc9541; letter-spacing: 2px;">Escribe tu Condolencia</h5>
 
                     <form th:action="@{/obituarios/condolencia/guardar}" method="POST">
                         <input type="hidden" name="obituarioId" id="modalObituarioId">
 
                         <div class="mb-3">
-                            <label class="form-label small fw-bold text-uppercase" style="color: #61503e; font-size: 0.75rem;">Tu Nombre</label>
-                            <input type="text" name="remitente" class="form-control" placeholder="Ej. Juan Pérez" required
+                            <label class="form-label small fw-bold text-uppercase"
+                                   style="color: #61503e; font-size: 0.75rem;">Tu Nombre</label>
+                            <input type="text" name="remitente" class="form-control" placeholder="Ej. Juan Pérez"
+                                   required
                                    style="background-color: #fbf7ed; border: 1px solid #dcd1ba; border-radius: 10px; padding: 10px;">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label small fw-bold text-uppercase" style="color: #61503e; font-size: 0.75rem;">Tu Mensaje</label>
-                            <textarea name="mensaje" class="form-control" rows="3" placeholder="Comparte un recuerdo o palabras de apoyo..." required
+                            <label class="form-label small fw-bold text-uppercase"
+                                   style="color: #61503e; font-size: 0.75rem;">Tu Mensaje</label>
+                            <textarea name="mensaje" class="form-control" rows="3"
+                                      placeholder="Comparte un recuerdo o palabras de apoyo..." required
                                       style="background-color: #fbf7ed; border: 1px solid #dcd1ba; border-radius: 10px; resize: none; padding: 10px;"></textarea>
                         </div>
 
