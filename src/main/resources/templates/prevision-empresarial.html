@@ -63,10 +63,12 @@
                         </p>
                     </div>
 
+                    <!-- Botón Protegido (Sin URL expuesta en el HTML base) -->
                     <div class="card-content mt-auto position-relative z-1 p-4 pt-0">
-                        <a href="https://laluzasistencialweb.piscotics.com:9074/#/homeFree"
+                        <a href="#"
                            target="_blank"
-                           class="btn-gold text-uppercase tracking-wider fw-bold w-100 py-3 text-decoration-none d-block">
+                           data-secure-action="afiliacion-corp"
+                           class="btn-secure-redirect btn-gold text-uppercase tracking-wider fw-bold w-100 py-3 text-decoration-none d-block">
                             Afiliarse al Convenio
                         </a>
                     </div>
@@ -99,10 +101,12 @@
                         </p>
                     </div>
 
+                    <!-- Botón Protegido (Sin URL expuesta en el HTML base) -->
                     <div class="card-content mt-auto position-relative z-1 p-4 pt-0">
-                        <a href="https://laluzasistencialweb.piscotics.com:9091/"
+                        <a href="#"
                            target="_blank"
-                           class="btn-cafe-outline text-uppercase tracking-wider fw-bold w-100 py-3 text-decoration-none d-block">
+                           data-secure-action="pagos-corp"
+                           class="btn-secure-redirect btn-cafe-outline text-uppercase tracking-wider fw-bold w-100 py-3 text-decoration-none d-block">
                             Consultar y Pagar Planes
                         </a>
                     </div>
@@ -126,12 +130,12 @@
 
             <!-- PLAN EMPRESARIAL EJECUTIVO -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="card-minimal p-4 h-100 border-top border-3 shadow-sm border-radius-10 bg-white pt-5">
+                <div class="card-minimal p-4 h-100 border-top border-3 shadow-sm border-radius-10 bg-white pt-5 d-flex flex-column">
                     <div class="text-center mb-4">
                         <h4 class="fw-bold text-uppercase small tracking-widest text-muted" style="letter-spacing: 0.15em;">Plan</h4>
                         <h3 class="display-serif mt-2" style="font-size: 1.75rem;">Ejecutivo Pyme</h3>
                     </div>
-                    <ul class="list-unstyled mb-3 small ps-3 pe-2" style="line-height: 1.6;">
+                    <ul class="list-unstyled mb-3 small ps-3 pe-2 flex-grow-1" style="line-height: 1.6;">
                         <li class="mb-3 d-flex align-items-start">
                             <i class="bi bi-check2-circle me-3 text-gold"></i>
                             <span>Destino final hasta <strong>1.0 SMMLV</strong></span>
@@ -150,7 +154,7 @@
 
             <!-- PLAN EMPRESARIAL EXCELENCIA (DESTACADO) -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="card-minimal card-featured p-4 h-100 border border-gold border-3 position-relative shadow-lg rounded-4 pt-5" style="overflow: visible !important; background-color: #fdf8f2;">
+                <div class="card-minimal card-featured p-4 h-100 border border-gold border-3 position-relative shadow-lg rounded-4 pt-5 d-flex flex-column" style="overflow: visible !important; background-color: #fdf8f2;">
 
                     <!-- Badge Superior Centrado de forma Absoluta -->
                     <div class="position-absolute top-0 start-50 translate-middle" style="z-index: 10; width: max-content;">
@@ -163,7 +167,7 @@
                         <h4 class="fw-bold text-uppercase small tracking-widest text-muted" style="letter-spacing: 0.15em;">Plan</h4>
                         <h3 class="display-serif fw-normal mt-2" style="color: #4a3319; font-size: 1.85rem;">Excelencia Corporativa</h3>
                     </div>
-                    <ul class="list-unstyled mb-3 small ps-3 pe-2" style="line-height: 1.6;">
+                    <ul class="list-unstyled mb-3 small ps-3 pe-2 flex-grow-1" style="line-height: 1.6;">
                         <li class="mb-3 d-flex align-items-start">
                             <i class="bi bi-star-fill me-3" style="color: #c48b33;"></i>
                             <span>Destino final hasta <strong>1.5 SMMLV</strong></span>
@@ -186,12 +190,12 @@
 
             <!-- PLAN EMPRESARIAL PREFERENCIAL -->
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="card-minimal p-4 h-100 border-top border-3 shadow-sm border-radius-10 bg-white pt-5">
+                <div class="card-minimal p-4 h-100 border-top border-3 shadow-sm border-radius-10 bg-white pt-5 d-flex flex-column">
                     <div class="text-center mb-4">
                         <h4 class="fw-bold text-uppercase small tracking-widest text-muted" style="letter-spacing: 0.15em;">Plan</h4>
                         <h3 class="display-serif mt-2" style="font-size: 1.75rem;">Preferencial Institucional</h3>
                     </div>
-                    <ul class="list-unstyled mb-3 small ps-3 pe-2" style="line-height: 1.6;">
+                    <ul class="list-unstyled mb-3 small ps-3 pe-2 flex-grow-1" style="line-height: 1.6;">
                         <li class="mb-3 d-flex align-items-start">
                             <i class="bi bi-check2-circle me-3 text-gold"></i>
                             <span>Destino final hasta <strong>1.2 SMMLV</strong></span>
@@ -212,10 +216,34 @@
     </div>
 </section>
 
-
 <div th:replace="~{fragments/layout :: footer}"></div>
 
 <th:block th:replace="~{fragments/layout :: scripts}"></th:block>
+
+<!-- LOGIC COMPONENT: PROTECCIÓN DE ENDPOINTS (ANTI-INSPECCIÓN CTRL + U) -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Diccionario seguro mapeado con las acciones semánticas
+        const secureEndpoints = {
+            "afiliacion-corp": "https://laluzasistencialweb.piscotics.com:9074/#/homeFree",
+            "pagos-corp": "https://laluzasistencialweb.piscotics.com:9091/"
+        };
+
+        // Interceptación de eventos de redirección corporativa
+        document.querySelectorAll(".btn-secure-redirect").forEach(function (element) {
+            element.addEventListener("click", function (event) {
+                event.preventDefault(); // Detener navegación nativa al '#'
+
+                const actionKey = this.getAttribute("data-secure-action");
+                const targetUrl = secureEndpoints[actionKey];
+
+                if (targetUrl) {
+                    window.open(targetUrl, '_blank', 'noopener,noreferrer');
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

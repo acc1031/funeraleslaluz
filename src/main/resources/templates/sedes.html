@@ -1,140 +1,313 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head}">
-    <title>Nuestras Sedes | La Luz</title>
-</head>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto - La Luz Asistencia Integral</title>
 
-<body style="padding-top: 100px;">
+    <!-- Estilos Externos e Iconos -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="icon" type="image/png" href="/img/Luz.png">
+
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+    <!-- Hojas de Estilo del Proyecto (Unificadas) -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style-contacto.css">
+    <link rel="stylesheet" href="/css/layout-global.css">
+    <link rel="stylesheet" href="/css/botones.css">
+    <link rel="stylesheet" href="/css/obituarios.css">
+    <link rel="stylesheet" href="/css/conmemoraciones.css">
+    <link rel="stylesheet" href="/css/prevision.css">
+
+    <link rel="preload" as="image" href="/img/dogBanner.png" />
+</head>
+<body class="bg-cream-bg">
 
 <!-- Navbar -->
-<div th:replace="~{fragments/layout :: navbar(isWhite=true)}"></div>
-
-<!-- Encabezado de la Página -->
-<!-- Encabezado de la Página con la Fachada Real (image_248ce2.jpg) -->
-<header class="sedes-header"
-        th:style="|background-image: linear-gradient(rgba(43, 35, 31, 0.65), rgba(43, 35, 31, 0.50)), url('@{/img/sedesBanner.png}'); background-position: center 60%; background-size: cover;|">
-    <div class="container" data-aos="fade-up">
-        <!-- CORREGIDO: Letra blanca y sombra oscura para contraste -->
-        <h1 class="hero-title" style="color: #ffffff; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);">Presencia Regional</h1>
-
-        <!-- CORREGIDO: Letra blanca, tipografía serif y sombra oscura -->
-        <h2 class="hero-title" style="color: #ffffff; font-family: var(--font-serif); text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);">
-            Nuestras <em>Sedes</em>
-        </h2>
-        <div class="gold-line mx-auto mt-4" style="width: 80px; background-color: var(--gold);"></div>
-    </div>
-</header>
-
-<!-- SECCIÓN: MAPA UNIFICADO -->
-<section class="section-padding bg-cream">
-    <div class="container">
-        <div class="text-center mb-5" data-aos="fade-up">
-            <h2 class="label mb-2" style="letter-spacing: 4px;">Red de Asistencia Integral</h2>
-            <h1 class="section-title"
-                style="font-family: var(--font-serif); font-size: 3rem; color: var(--dark-coffee);">
-                Nuestra Presencia en <em>Cundinamarca</em>
-            </h1>
-            <div class="gold-line mx-auto mt-3" style="width: 100px; height: 3px;"></div>
+<nav class="navbar navbar-expand-lg fixed-top py-0 navbar-white">
+    <div class="container-fluid px-lg-5">
+        <div class="d-flex align-items-center logo-container">
+            <a class="navbar-brand me-0 p-0" href="/">
+                <img src="/img/logoluzblanco.png" alt="Logo La Luz Blanco" class="nav-logo logo-light">
+                <img src="/img/logo-laluz1.png" alt="Logo La Luz Color" class="nav-logo logo-dark">
+            </a>
         </div>
 
-        <!-- CONTENEDOR DE MAPA PREMIUM: SEDES SINCRONIZADAS -->
-        <div class="row shadow-lg rounded-4 overflow-hidden g-0 map-container-wrapper" data-aos="zoom-in">
-            <div class="col-12 position-relative w-100 h-100">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <!-- Iframe con filtro cinemático controlado por CSS -->
-                <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d85834.73516544522!2d-74.05351865!3d4.7001254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sFunerales+La+Luz+Calle+100+y+Funeraria+Avellaneda+La+Calera!5e0!3m2!1ses!2sco!4v1715000000000!5m2!1ses!2sco"
-                        width="100%"
-                        height="100%"
-                        allowfullscreen=""
-                        loading="lazy"
-                        title="Sedes Sincronizadas La Luz">
-                </iframe>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto align-items-center">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle px-3 small fw-bold" href="#" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">Previsión</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/planes">Planes</a></li>
+                        <li><a class="dropdown-item" href="/prevision-empresarial">Previsión Empresarial</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle px-3 small fw-bold" href="#" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/servicios/atencion-inmediata">Atención Inmediata</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="/servicios/tradicionales">Servicios Tradicionales</a></li>
+                        <li><a class="dropdown-item" href="/servicios/internacionales">Servicios Internacionales</a></li>
+                        <li><a class="dropdown-item" href="/servicios/conmemoraciones">Conmemoraciones</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a class="nav-link px-3 small fw-bold" href="/obituarios">Obituarios</a></li>
+                <li class="nav-item"><a class="nav-link px-3 small fw-bold" href="/mascotas">Mascotas</a></li>
+                <li class="nav-item"><a class="nav-link px-3 small fw-bold" href="/sedes">Sedes</a></li>
+                <li class="nav-item"><a class="nav-link px-3 small fw-bold active-gold" href="/contacto">Contáctenos</a></li>
+            </ul>
 
-                <!-- Etiqueta Flotante de Lujo con Efecto Glassmorphism -->
-                <div class="map-overlay-tag d-none d-md-block">
-                    <p class="mb-0 text-uppercase">
-                        <i class="bi bi-geo-alt-fill"></i> Sedes Sincronizadas
+            <!-- Redes Sociales Escritorio -->
+            <div class="d-none d-lg-flex justify-content-end align-items-center social-container">
+                <div class="d-flex gap-4 social-icons-nav">
+                    <a href="https://www.facebook.com/laluzasistencia/" target="_blank" class="nav-social-link p-0"><i class="bi bi-facebook fs-5"></i></a>
+                    <a href="https://www.instagram.com/laluzasistencia/" target="_blank" class="nav-social-link p-0"><i class="bi bi-instagram fs-5"></i></a>
+                    <a href="https://www.linkedin.com/company/la-luz-asistencia-integral" target="_blank" class="nav-social-link p-0"><i class="bi bi-linkedin fs-5"></i></a>
+                </div>
+            </div>
+
+            <!-- Redes Sociales Móvil -->
+            <div class="d-flex d-lg-none justify-content-center gap-4 py-3 border-top mt-3 social-icons-mobile" style="border-color: rgba(196, 143, 48, 0.2) !important;">
+                <a href="https://www.facebook.com/laluzasistencia/" target="_blank" class="nav-social-link" style="color: var(--dark-coffee);"><i class="bi bi-facebook fs-4"></i></a>
+                <a href="https://www.instagram.com/laluzasistencia/" target="_blank" class="nav-social-link" style="color: var(--dark-coffee);"><i class="bi bi-instagram fs-4"></i></a>
+                <a href="https://www.linkedin.com/company/la-luz-asistencia-integral" target="_blank" class="nav-social-link" style="color: var(--dark-coffee);"><i class="bi bi-linkedin fs-4"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<main class="contact-hero pt-5 pb-5">
+    <div class="container mt-4">
+        <div class="row align-items-stretch g-5">
+
+            <!-- Sección Izquierda: Branding -->
+            <div class="col-lg-5 d-flex flex-column justify-content-center" data-aos="fade-right">
+                <span class="label-zen d-block mb-2">Apoyo Inmediato</span>
+                <h1 class="title-premium mb-4">Tu tranquilidad es <br><i>nuestra prioridad.</i></h1>
+                <div class="position-relative mb-4">
+                    <div class="organic-image-container">
+                        <img src="https://images.unsplash.com/photo-1573497019236-17f8177b81e8?auto=format&fit=crop&q=80&w=1000" alt="Asesora La Luz">
+                    </div>
+                </div>
+                <div class="zen-message-block">
+                    <div class="zen-line"></div>
+                    <p class="text-description-premium">
+                        Brindamos <span class="highlight-gold">asistencia profesional</span> con la calidez humana que estos momentos requieren. Estamos aquí para guiarte, cuidando cada detalle con absoluta serenidad.
                     </p>
                 </div>
-
             </div>
-        </div>
-        <!-- TARJETAS DE INFORMACIÓN DE SEDES (Optimizado) -->
-        <div class="row mt-5 g-4 justify-content-center">
 
-            <!-- Sede Bogotá Norte -->
-            <div class="col-md-5" data-aos="fade-left">
-                <div class="card-info-sede shadow-sm">
-                    <div class="text-center mb-4">
-                        <i class="bi bi-geo-alt-fill fs-2 mb-2 clan-icon-calera"></i>
-                        <h4 class="sede-title">Sede Bogotá Norte</h4>
-                        <p class="sede-subtitle">Ubicación estratégica en el Centro Internacional</p>
-                        <div class="gold-line mx-auto"></div>
+            <!-- Sección Derecha: Formulario -->
+            <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1200">
+                <div class="contact-form-wrapper bg-white shadow-lg border-radius-20">
+                    <div class="assistance-card shadow-sm">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-circle bg-dark-coffee text-white me-3"><i class="bi bi-headset"></i></div>
+                                <div>
+                                    <h5 class="assistance-title mb-0">Línea de Asistencia 24 Horas</h5>
+                                    <small class="text-gold fw-semibold">Soporte permanente 7 días a la semana</small>
+                                </div>
+                            </div>
+                            <div class="assistance-numbers text-md-end">
+                                <a href="tel:+576017462112" class="phone-main">(601) 746 2112</a>
+                                <a href="tel:3105729883" class="phone-sub">+57 310 572 9883</a>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="info-group">
-                        <span class="info-label" style="font-weight:bold">Dirección</span>
-                        <p class="info-value">Calle 33 A No. 13-31 Centro Internacional</p>
-                    </div>
+                    <h2 class="display-serif h4 mb-4 text-dark-coffee" style="font-weight: 600;">Envíanos un mensaje</h2>
 
-                    <div class="info-group">
-                        <span class="info-label" style="font-weight:bold">Teléfonos Fijos</span>
-                        <p class="info-value">(601) 17462112 - (601) 7946551</p>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label" style="font-weight:bold">Celulares</span>
-                        <p class="info-value">310 5729883 - 310 8167656<br>311 4811691 - 310 3969356</p>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label" style="font-weight:bold">Email</span>
-                        <p class="info-value text-break">comercial@laluzasistenciaintegral.com</p>
-                    </div>
+                    <!-- PROTEGIDO: Acción limpia y CSRF gestionado dinámicamente por Spring Security/Thymeleaf -->
+                    <form th:action="@{/contacto/enviar}" method="POST">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label field-label">Nombre Completo</label>
+                                <input type="text" name="nombre" class="form-control custom-input" placeholder="Ej: Juan Pérez" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label field-label">Teléfono Celular</label>
+                                <input type="tel" name="telefono" class="form-control custom-input" placeholder="Número de contacto" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label field-label">Correo Electrónico</label>
+                                <input type="email" name="email" class="form-control custom-input" placeholder="tu@email.com" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label field-label">¿En qué podemos asesorarte?</label>
+                                <textarea name="mensaje" class="form-control custom-input" rows="3" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                            </div>
+                            <div class="col-12 my-2">
+                                <div class="form-check custom-checkbox">
+                                    <input class="form-check-input" type="checkbox" id="policy" required>
+                                    <label class="form-check-label small text-muted style-policy" for="policy">
+                                        Acepto la&nbsp;<a href="#" class="text-gold fw-bold text-decoration-none" data-bs-toggle="modal" data-bs-target="#modalPoliticas">política de tratamiento de datos</a>.
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-gold-submit w-40 y-10 text-uppercase fw-bold">
+                                    <i class="bi bi-send-fill me-2"></i> Enviar Solicitud de Apoyo
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            <!-- Sede La Calera -->
-            <div class="col-md-5" data-aos="fade-right">
-                <div class="card-info-sede shadow-sm">
-                    <div class="text-center mb-4">
-                        <i class="bi bi-geo-alt-fill fs-2 mb-2" style="color: var(--laluz-dark);"></i>
-                        <h4 class="sede-title">Sede La Calera</h4>
-                        <p class="sede-subtitle">Atención inmediata en el casco urbano</p>
-                        <div class="gold-line mx-auto"></div>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label" style="font-weight:bold">Dirección</span>
-                        <p class="info-value">Carrera 3 No. 2-13 Avenida Paseo Real</p>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label" style="font-weight:bold">Celulares</span>
-                        <p class="info-value">310 5729883 - 310 8167656<br>311 4811691</p>
-                    </div>
-
-                    <div class="info-group">
-                        <span class="info-label" style="font-weight:bold">Email</span>
-                        <p class="info-value text-break">servicioalcliente@funeraleslaluz.com</p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         </div>
     </div>
-</section>
+</main>
+
+<!-- Modal de Políticas -->
+<div class="modal fade" id="modalPoliticas" tabindex="-1" aria-labelledby="modalPoliticasLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content border-0" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(74, 45, 0, 0.15); background-color: #ffffff;">
+            <div class="modal-header text-white" style="border-top-left-radius: 16px; border-top-right-radius: 16px; background-color: #004C45; padding: 20px; border-bottom: 3px solid #C48F30;">
+                <h5 class="modal-title" id="modalPoliticasLabel" style="font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1.25rem; color: #ffffff;">
+                    <i class="bi bi-shield-check me-2" style="color: #EACB8D;"></i> Política de Tratamiento de Datos
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body" style="font-size: 0.9rem; line-height: 1.6; color: #4A2D00; padding: 25px; max-height: 420px; background-color: #faf8f5;">
+                <p class="fw-bold mb-3" style="color: #4A2D00; font-size: 0.95rem;">Autorización de Tratamiento de Datos Personales</p>
+                <p class="mb-3" style="opacity: 0.9;">
+                    En cumplimiento de las disposiciones vigentes sobre protección de datos personales (Ley Habeas Data), <strong>La Luz Asistencia Integral</strong> informa que los datos recolectados en esta plataforma serán tratados de manera confidencial y bajo estrictos estándares de seguridad tecnológica.
+                </p>
+                <h6 class="fw-semibold mt-4 mb-2" style="color: #C48F30; font-family: 'Montserrat', sans-serif;">1. Finalidad y Uso de la Información</h6>
+                <p class="mb-3" style="opacity: 0.9;">
+                    La recolección de sus datos personales (Nombre Completo, Teléfono Celular y Correo Electrónico) tiene como único objetivo procesar y atender de forma personalizada su solicitud de apoyo, brindar asesoría comercial respecto a nuestros planes de previsión exequial y coordinar las actividades de asistencia solicitadas por el usuario.
+                </p>
+                <h6 class="fw-semibold mt-4 mb-2" style="color: #C48F30; font-family: 'Montserrat', sans-serif;">2. Seguridad y Almacenamiento</h6>
+                <p class="mb-3" style="opacity: 0.9;">
+                    Implementamos medidas técnicas, humanas y administrativas indispensables para otorgar total seguridad a los registros, evitando su adulteración, pérdida, consulta, uso o acceso no autorizado. Los datos se alojan de forma segura dentro de nuestra infraestructura operativa interna.
+                </p>
+                <h6 class="fw-semibold mt-4 mb-2" style="color: #C48F30; font-family: 'Montserrat', sans-serif;">3. Derechos del Titular</h6>
+                <p class="mb-3" style="opacity: 0.9;">
+                    Como titular de la información, usted conserva en todo momento el derecho a conocer, actualizar, rectificar y solicitar la supresión de sus datos personales de nuestras bases de datos, revocando la presente autorización mediante comunicación directa a través de nuestros canales oficiales de atención.
+                </p>
+                <h6 class="fw-semibold mt-4 mb-2" style="color: #C48F30; font-family: 'Montserrat', sans-serif;">4. Vigencia de los Datos</h6>
+                <p class="mb-1" style="opacity: 0.9;">
+                    Los datos personales proporcionados se conservarán en nuestros sistemas durante el tiempo que sea estrictamente necesario para dar respuesta a su gestión o para cumplir con los requerimientos legales y contables correspondientes a los servicios de previsión asistencial prestados por la entidad.
+                </p>
+            </div>
+            <div class="modal-footer" style="border-top: 1px solid #f2eade; padding: 15px 25px; background-color: #faf8f5;">
+                <button type="button" class="btn text-white fw-semibold" data-bs-dismiss="modal"
+                        style="background-color: #C48F30; border-radius: 50px; padding: 8px 24px; font-size: 0.85rem; border: none; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 12px rgba(196, 143, 48, 0.2);"
+                        onmouseover="this.style.backgroundColor='#91611E';"
+                        onmouseout="this.style.backgroundColor='#C48F30';">
+                    Entendido
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Footer -->
-<div th:replace="~{fragments/layout :: footer}"></div>
+<footer class="py-5 mt-5" style="background-color: #E3ECEA; color: #4A2D00;">
+    <div class="container">
+        <div class="row gy-4 mb-4">
+            <div class="col-lg-4 text-center text-lg-start">
+                <h2 style="font-family: var(--font-serif); color: #004C45; font-weight: 600;">LA LUZ</h2>
+                <p class="small mt-3 pe-lg-4" style="color: rgba(74, 45, 0, 0.75); line-height: 1.6;">
+                    Brindamos respaldo profesional y calidez humana para proteger lo que más importa en los momentos difíciles.
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-6 d-none d-lg-block">
+                <h5 class="mb-3 footer-section-title" style="color: #4A2D00; font-weight: 700;">Sede Bogotá</h5>
+                <ul class="list-unstyled small footer-info-list" style="color: rgba(74, 45, 0, 0.85);">
+                    <li class="mb-2"><strong>Dirección:</strong> Calle 33 A No. 13-31 Centro Internacional</li>
+                    <li class="mb-2"><strong>Teléfonos Fijos:</strong> <br> (601) 7462112 - (601) 2454714</li>
+                    <li class="mb-2"><strong>Celulares:</strong> <br> 310 5729883 - 310 8167656 <br> 311 4811691 - 310 3969356</li>
+                    <li class="mb-2"><strong>Email:</strong> <br> comercial@laluzasistenciaintegral.com</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6 d-none d-lg-block">
+                <h5 class="mb-3 footer-section-title" style="color: #4A2D00; font-weight: 700;">Sede La Calera</h5>
+                <ul class="list-unstyled small footer-info-list" style="color: rgba(74, 45, 0, 0.85);">
+                    <li class="mb-2"><strong>Dirección:</strong> Carrera 3 No. 2-13 Avenida Paseo Real</li>
+                    <li class="mb-2"><strong>Celulares:</strong> <br> 310 5729883 - 310 8167656 <br> 311 4811691</li>
+                    <li class="mb-2"><strong>Email:</strong> <br> servicioalcliente@funeraleslaluz.com</li>
+                </ul>
+            </div>
+            <div class="col-12 d-lg-none mt-4">
+                <div class="accordion accordion-flush footer-accordion" id="accordionFooter">
+                    <div class="accordion-item bg-transparent" style="border-color: rgba(74, 45, 0, 0.15) !important;">
+                        <h2 class="accordion-header" id="headingBogota">
+                            <button class="accordion-button collapsed bg-transparent py-3 px-0 small fw-bold text-uppercase tracking-wider"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseBogota"
+                                    aria-expanded="false" aria-controls="collapseBogota"
+                                    style="box-shadow: none; color: #4A2D00 !important;">
+                                <i class="bi bi-geo-alt me-2" style="color: #004C45;"></i> Sede Bogotá
+                            </button>
+                        </h2>
+                        <div id="collapseBogota" class="accordion-collapse collapse" aria-labelledby="headingBogota" data-bs-parent="#accordionFooter">
+                            <div class="accordion-body px-0 py-3 small border-top" style="border-color: rgba(74, 45, 0, 0.1) !important; color: rgba(74, 45, 0, 0.85);">
+                                <p class="mb-2"><strong>Dirección:</strong> Calle 33 A No. 13-31 Centro Internacional</p>
+                                <p class="mb-2"><strong>Teléfonos Fijos:</strong> (601) 7462112 - (601) 2454714</p>
+                                <p class="mb-2"><strong>Celulares:</strong> 310 5729883 - 310 8167656 - 311 4811691</p>
+                                <p class="mb-0"><strong>Email:</strong> comercial@laluzasistenciaintegral.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-transparent" style="border-color: rgba(74, 45, 0, 0.15) !important;">
+                        <h2 class="accordion-header" id="headingCalera">
+                            <button class="accordion-button collapsed bg-transparent py-3 px-0 small fw-bold text-uppercase tracking-wider"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseCalera"
+                                    aria-expanded="false" aria-controls="collapseCalera"
+                                    style="box-shadow: none; color: #4A2D00 !important;">
+                                <i class="bi bi-geo-alt me-2" style="color: #004C45;"></i> Sede La Calera
+                            </button>
+                        </h2>
+                        <div id="collapseCalera" class="accordion-collapse collapse" aria-labelledby="headingCalera" data-bs-parent="#accordionFooter">
+                            <div class="accordion-body px-0 py-3 small border-top" style="border-color: rgba(74, 45, 0, 0.1) !important; color: rgba(74, 45, 0, 0.85);">
+                                <p class="mb-2"><strong>Dirección:</strong> Carrera 3 No. 2-13 Avenida Paseo Real</p>
+                                <p class="mb-2"><strong>Celulares:</strong> 310 5729883 - 310 8167656 - 311 4811691</p>
+                                <p class="mb-0"><strong>Email:</strong> servicioalcliente@funeraleslaluz.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="border-color: rgba(74, 45, 0, 0.15);">
+        <div class="row d-flex flex-column-reverse flex-md-row align-items-center pt-3 small footer-bottom" style="color: rgba(74, 45, 0, 0.75);">
+            <div class="col-md-4 text-center text-md-start mt-3 mt-md-0">
+                <p class="mb-0">© 2026 La Luz Asistencia Integral. All rights reserved.</p>
+            </div>
+            <div class="col-md-4 text-center my-2 my-md-0">
+                <p class="mb-0">Powered by <strong style="color: #004C45;">@Andres Contreras</strong></p>
+            </div>
+            <div class="col-md-4 text-center text-md-end">
+                <a href="/proteccion-datos" class="link-legal d-inline-block pb-2 pb-md-0" style="color: #4A2D00; text-decoration: none; font-weight: 500;">
+                    Política de Protección de Datos
+                </a>
+            </div>
+        </div>
+    </div>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({duration: 1000, once: true, easing: 'ease-out-quad'});
-</script>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/573103969356?text=Hola,%20deseo%20recibir%20m%C3%A1s%20informaci%C3%B3n."
+       class="btn-whatsapp-fixed" target="_blank" rel="noopener noreferrer" title="Contáctanos por WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+</footer>
+
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init({once: true});</script>
 </body>
 </html>

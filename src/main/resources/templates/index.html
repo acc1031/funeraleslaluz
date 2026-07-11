@@ -12,7 +12,7 @@
 <!-- SECCIÓN PRIMERA IMAGEN (HERO) -->
 <section class="hero-zen">
     <!-- CORREGIDO: Solo el primer slide arranca con 'active' para evitar conflictos de renderizado -->
-    <div class="hero-slide active" style="background-image: url('/img/paisaje-luz.jpg');"></div>
+    <div class="hero-slide active" style="background-image: url('/img/paisaje-luz.webp');"></div>
     <div class="hero-slide" style="background-image: url('/img/paisaje3.jpg');"></div>
     <div class="hero-slide" style="background-image: url('/img/dog.png');"></div>
 
@@ -38,7 +38,7 @@
 </section>
 
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
-<!-- SECCIÓN CARRUSEL CONVENIOS (CORREGIDO: 15 LOGOS PARA CICLO INFINITO SEGURO) -->
+<!-- SECCIÓN CARRUSEL CONVENIOS (PROTEGIDA ANTI CTRL+U) -->
 <section class="section-allies-wrapper">
     <div class="container text-center text-allies-header">
         <span class="label-badge-gold">Nuestros Convenios</span>
@@ -48,73 +48,55 @@
     <div class="allies-slider">
         <div class="allies-track">
             <!-- SET ORIGINAL (1 al 5) -->
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="FEIS" data-coordinator="Jonathan Martinez" data-commercial="Jairo Aponte"
-                 data-phone-1="(+57) 310 572 9883" data-phone-2="(+57) 310 987 6543">
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="feis">
                 <img src="/img/aliados/feis-logo.png" alt="FEIS" loading="eager">
             </div>
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="Ministerio de Defensa" data-coordinator="Jonathan Martinez"
-                 data-commercial="Claudia Perilla"
-                 data-phone-1="(+57) 310 572 9883" data-phone-2="(+57) 322 8241484">
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="mindefensa">
                 <img src="/img/aliados/MinDefensa_(Colombia)_logo.png" alt="MinDefensa" loading="eager">
             </div>
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="Fuerzas Militares" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla"
-                 data-phone-1="(+57) 310 572 9883" data-phone-2="(+57) 322 824 1484">
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="fuerzas">
                 <img src="/img/aliados/fuerzasMilitares.svg" alt="Fuerzas Militares" loading="eager">
             </div>
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="CREMIL" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla"
-                 data-phone-1="(+57) 310 572 9883" data-phone-2="(+57) 322 824 1484">
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="cremil">
                 <img src="/img/aliados/cremil.png" alt="CREMIL" loading="eager">
             </div>
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="CASUR" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla"
-                 data-phone-1="(+57) 310 572 9883" data-phone-2="(+57) 322 824 1484">
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="casur">
                 <img src="/img/aliados/casur.png" alt="CASUR" loading="eager">
             </div>
 
             <!-- PRIMER DUPLICADO (6 al 10) -->
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="FEIS" data-coordinator="Jonathan Martinez" data-commercial="Jairo Aponte"
-                 data-phone-1="(+57) 310 572 9883" data-phone-2="(+57) 310 987 6543">
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="feis">
                 <img src="/img/aliados/feis-logo.png" alt="FEIS" loading="eager">
             </div>
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="Ministerio de Defensa" data-coordinator="Jonathan Martinez"
-                 data-commercial="Claudia Perilla" data-phone-1="(+57) 312 445 6900" data-phone-2="(+57) 322 824 1484">
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="mindefensa_dup">
                 <img src="/img/aliados/MinDefensa_(Colombia)_logo.png" alt="MinDefensa" loading="eager">
             </div>
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="Fuerzas Militares" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla"
-                 data-phone-1="(+57) 310 572 9883" data-phone-2="(+57) 322 824 1484">
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="fuerzas">
                 <img src="/img/aliados/fuerzasMilitares.svg" alt="Fuerzas Militares" loading="eager">
             </div>
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="CREMIL" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla"
-                 data-phone-1="(+57) 310 572 9883" data-phone-2="(+57) 322 824 1484">
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="cremil">
                 <img src="/img/aliados/cremil.png" alt="CREMIL" loading="eager">
             </div>
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="CASUR" data-coordinator="Jonathan Martinez" data-commercial="Claudia Perilla"
-                 data-phone-1="(+57) 310 396 9356" data-phone-2="(+57) 322 824 1484">
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="casur_dup">
                 <img src="/img/aliados/casur.png" alt="CASUR" loading="eager">
             </div>
 
-            <!-- SEGUNDO DUPLICADO (11 al 15 - Esencial para rellenar espacios de renderizado fluido) -->
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="FEIS"><img src="/img/aliados/feis-logo.png" alt="FEIS" loading="eager"></div>
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="Ministerio de Defensa"><img src="/img/aliados/MinDefensa_(Colombia)_logo.png"
-                                                        alt="MinDefensa" loading="eager"></div>
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="Fuerzas Militares"><img src="/img/aliados/fuerzasMilitares.svg" alt="Fuerzas Militares"
-                                                    loading="eager"></div>
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="CREMIL"><img src="/img/aliados/cremil.png" alt="CREMIL" loading="eager"></div>
-            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal"
-                 data-ally="CASUR"><img src="/img/aliados/casur.png" alt="CASUR" loading="eager"></div>
+            <!-- SEGUNDO DUPLICADO (11 al 15) -->
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="feis">
+                <img src="/img/aliados/feis-logo.png" alt="FEIS" loading="eager">
+            </div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="mindefensa">
+                <img src="/img/aliados/MinDefensa_(Colombia)_logo.png" alt="MinDefensa" loading="eager">
+            </div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="fuerzas">
+                <img src="/img/aliados/fuerzasMilitares.svg" alt="Fuerzas Militares" loading="eager">
+            </div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="cremil">
+                <img src="/img/aliados/cremil.png" alt="CREMIL" loading="eager">
+            </div>
+            <div class="ally-logo" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#allyContactModal" data-key="casur">
+                <img src="/img/aliados/casur.png" alt="CASUR" loading="eager">
+            </div>
         </div>
     </div>
 </section>
@@ -126,14 +108,12 @@
              style="border-radius: 16px; border: 1px solid rgba(197, 169, 110, 0.2); background-color: #ffffff; box-shadow: 0 15px 45px rgba(59, 48, 36, 0.1);">
             <div class="modal-header border-0 pb-0" style="padding: 24px 24px 10px;">
                 <h5 class="modal-title fw-bold" id="modalAllyName"
-                    style="font-family: var(--font-sans); color: var(--dark-coffee); font-size: 1.25rem;">Atención
-                    Convenio</h5>
+                    style="font-family: var(--font-sans); color: var(--dark-coffee); font-size: 1.25rem;">Atención Convenio</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                         style="font-size: 0.8rem; filter: sepia(1) saturate(2) hue-rotate(10deg);"></button>
             </div>
             <div class="modal-body" style="padding: 10px 24px 24px;">
-                <p class="text-muted small mb-4" style="font-family: var(--font-sans);">Equipo de atención preferencial
-                    asignado para este convenio institucional:</p>
+                <p class="text-muted small mb-4" style="font-family: var(--font-sans);">Equipo de atención preferencial asignado para este convenio institucional:</p>
 
                 <div class="row g-3">
                     <div class="col-12">
@@ -196,41 +176,29 @@
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
             <div class="card-minimal h-100 position-relative shadow-sm d-flex flex-column justify-content-between">
                 <div>
-                    <!-- Imagen del Plan/Servicio -->
                     <div class="image-wrapper" style="height: 220px; overflow: hidden; border-radius: 10px 10px 0 0;">
                         <img th:src="@{/img/catalogo.png}"
                              class="img-fluid w-100 h-100" style="object-fit: cover;"
                              alt="Catálogo de Planes Exequiales" loading="lazy">
                     </div>
-
-                    <!-- Contenido Informativo -->
                     <div class="p-4">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <i class="bi bi-journal-bookmark-fill fs-3 text-gold"></i>
                             <span class="badge rounded-pill bg-light text-dark small px-2 py-1"
                                   style="border: 1px solid var(--gold); font-size: 0.75rem;">Portafolio</span>
                         </div>
-
-                        <h4 style="font-family: var(--font-serif); color: var(--dark-coffee);" class="mb-2">Catalogo
-                            General</h4>
-                        <p class="text-muted small">Explore nuestro catálogo de soluciones de previsión. Diseñamos
-                            homenajes dignos con cobertura integral, asistencia 24/7 y total respaldo para la
-                            tranquilidad de su hogar.</p>
-
+                        <h4 style="font-family: var(--font-serif); color: var(--dark-coffee);" class="mb-2">Catalogo General</h4>
+                        <p class="text-muted small">Explore nuestro catálogo de soluciones de previsión. Diseñamos homenajes dignos con cobertura integral, asistencia 24/7 y total respaldo para la tranquilidad de su hogar.</p>
                     </div>
                 </div>
-
-                <!-- Enlace de Acción en la parte inferior -->
                 <div class="px-4 pb-4-custom" style="padding: 0 1.5rem 1.5rem 1.5rem;">
                     <hr class="my-3 opacity-10">
-                    <h6 class="label mb-3" style="font-size: 0.7rem; letter-spacing: 1px; color: var(--gold);">CONOZCA
-                        NUESTRO PORTAFOLIO</h6>
+                    <h6 class="label mb-3" style="font-size: 0.7rem; letter-spacing: 1px; color: var(--gold);">CONOZCA NUESTRO PORTAFOLIO</h6>
                     <a th:href="@{/img/pdf/catalogo-exequias.pdf}"
                        target="_blank"
                        rel="noopener noreferrer"
                        class="stretched-link text-decoration-none small fw-bold text-gold">
                         Visualizar Catálogo PDF →
-                    </a>
                     </a>
                 </div>
             </div>
@@ -245,12 +213,9 @@
                 <div class="p-4">
                     <i class="bi bi-flower1 fs-2 text-gold mb-2 d-block"></i>
                     <h4 style="font-family: var(--font-serif); color: var(--dark-coffee);">Homenajes de Vida</h4>
-                    <p class="text-muted small">Despedidas dignas y personalizadas que honran la memoria y el legado de
-                        sus seres queridos.</p>
+                    <p class="text-muted small">Despedidas dignas y personalizadas que honran la memoria y el legado de sus seres queridos.</p>
                     <hr class="my-3 opacity-10">
-                    <h6 class="label mb-3" style="font-size: 0.7rem; letter-spacing: 1px; color: var(--gold);">EN
-                        MEMORIA DE TU SER QUERIDO</h6>
-                    <!-- Se eliminó target="_blank" y rel="..." -->
+                    <h6 class="label mb-3" style="font-size: 0.7rem; letter-spacing: 1px; color: var(--gold);">EN MEMORIA DE TU SER QUERIDO</h6>
                     <a th:href="@{/obituarios}"
                        class="stretched-link text-decoration-none small fw-bold text-gold">
                         Ver Obituarios
@@ -259,7 +224,6 @@
             </div>
         </div>
 
-        <!-- Tarjeta 3: Catálogo de Cofres con visualización de PDF -->
         <div class="col-md-4" data-aos="fade-up" data-aos-delay="500">
             <div class="card-minimal h-100 position-relative shadow-sm">
                 <div class="image-wrapper" style="height: 200px; overflow: hidden; border-radius: 10px 10px 0 0;">
@@ -268,17 +232,11 @@
                          alt="Catálogo de Cofres" loading="lazy">
                 </div>
                 <div class="p-4">
-
-                    <!-- Icono cambiado a un archivo/pdf para mejor intuición del usuario -->
                     <i class="bi bi-file-earmark-pdf fs-2 text-gold mb-2 d-block"></i>
                     <h4 style="font-family: var(--font-serif); color: var(--dark-coffee);">Catálogo de Cofres</h4>
-                    <p class="text-muted small">Conozca nuestra línea exclusiva de cofres fúnebres elaborados con altos
-                        estándares de calidad, madera seleccionada y finos acabados.</p>
+                    <p class="text-muted small">Conozca nuestra línea exclusiva de cofres fúnebres elaborados con altos estándares de calidad, madera seleccionada y finos acabados.</p>
                     <hr class="my-3 opacity-10">
-                    <h6 class="label mb-3" style="font-size: 0.7rem; letter-spacing: 1px; color: var(--gold);">VARIEDAD
-                        Y ELEGANCIA</h6>
-
-                    <!-- MODIFICACIÓN: Apunta al PDF estático y añade target="_blank" -->
+                    <h6 class="label mb-3" style="font-size: 0.7rem; letter-spacing: 1px; color: var(--gold);">VARIEDAD Y ELEGANCIA</h6>
                     <a th:href="@{/img/pdf/portafolio-cofres.pdf}"
                        target="_blank"
                        rel="noopener noreferrer"
@@ -308,8 +266,7 @@
                     <h6 class="label mb-2 text-gold text-uppercase"
                         style="letter-spacing: 2px; font-size: 0.8rem; font-weight: 700;">Nuestra Red</h6>
                     <h2 class="display-5 mb-4"
-                        style="font-family: var(--font-serif); color: var(--dark-coffee); font-weight: 600;">Cobertura
-                        Nacional Total</h2>
+                        style="font-family: var(--font-serif); color: var(--dark-coffee); font-weight: 600;">Cobertura Nacional Total</h2>
                 </div>
 
                 <div class="p-4 mb-4"
@@ -381,7 +338,6 @@
         </div>
 
         <div class="row align-items-stretch justify-content-center g-4 text-center">
-
             <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
                 <div class="px-3 partner-logo-wrapper d-flex flex-column justify-content-between h-100">
                     <div class="d-flex align-items-center justify-content-center flex-grow-1" style="min-height: 110px;">
@@ -409,7 +365,6 @@
                     </small>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
@@ -460,7 +415,60 @@
         setInterval(nextSlide, 5000);
     });
 
-    // Control Dinámico del Modal de Convenios
+    // DICIONARIO PROTEGIDO EN MEMORIA DE CLIENTE (Oculto de Ctrl+U)
+    const secureAlliesData = {
+        "feis": {
+            ally: "FEIS",
+            coordinator: "Jonathan Martinez",
+            commercial: "Jairo Aponte",
+            phone1: "(+57) 310 572 9883",
+            phone2: "(+57) 310 987 6543"
+        },
+        "mindefensa": {
+            ally: "Ministerio de Defensa",
+            coordinator: "Jonathan Martinez",
+            commercial: "Claudia Perilla",
+            phone1: "(+57) 310 572 9883",
+            phone2: "(+57) 322 8241484"
+        },
+        "mindefensa_dup": {
+            ally: "Ministerio de Defensa",
+            coordinator: "Jonathan Martinez",
+            commercial: "Claudia Perilla",
+            phone1: "(+57) 312 445 6900",
+            phone2: "(+57) 322 824 1484"
+        },
+        "fuerzas": {
+            ally: "Fuerzas Militares",
+            coordinator: "Jonathan Martinez",
+            commercial: "Claudia Perilla",
+            phone1: "(+57) 310 572 9883",
+            phone2: "(+57) 322 824 1484"
+        },
+        "cremil": {
+            ally: "CREMIL",
+            coordinator: "Jonathan Martinez",
+            commercial: "Claudia Perilla",
+            phone1: "(+57) 310 572 9883",
+            phone2: "(+57) 322 824 1484"
+        },
+        "casur": {
+            ally: "CASUR",
+            coordinator: "Jonathan Martinez",
+            commercial: "Claudia Perilla",
+            phone1: "(+57) 310 572 9883",
+            phone2: "(+57) 322 824 1484"
+        },
+        "casur_dup": {
+            ally: "CASUR",
+            coordinator: "Jonathan Martinez",
+            commercial: "Claudia Perilla",
+            phone1: "(+57) 310 396 9356",
+            phone2: "(+57) 322 824 1484"
+        }
+    };
+
+    // Control Dinámico Seguro del Modal de Convenios
     document.addEventListener("DOMContentLoaded", () => {
         const allyModalEl = document.getElementById('allyContactModal');
         if (!allyModalEl) return;
@@ -476,23 +484,36 @@
             const logo = event.relatedTarget;
             if (!logo) return;
 
-            const ally = logo.getAttribute('data-ally');
-            const coordinator = logo.getAttribute('data-coordinator');
-            const commercial = logo.getAttribute('data-commercial');
-            const phone1 = logo.getAttribute('data-phone-1');
-            const phone2 = logo.getAttribute('data-phone-2');
+            // Extrae la llave del diccionario seguro
+            const key = logo.getAttribute('data-key');
+            const data = secureAlliesData[key] || {
+                ally: logo.querySelector('img')?.getAttribute('alt') || "Convenio",
+                coordinator: "-", commercial: "-", phone1: "", phone2: ""
+            };
 
-            if (modalAllyName) modalAllyName.innerText = `Convenio — ${ally}`;
-            if (modalCoordinatorName) modalCoordinatorName.innerText = coordinator;
-            if (modalCommercialName) modalCommercialName.innerText = commercial;
+            if (modalAllyName) modalAllyName.innerText = `Convenio — ${data.ally}`;
+            if (modalCoordinatorName) modalCoordinatorName.innerText = data.coordinator;
+            if (modalCommercialName) modalCommercialName.innerText = data.commercial;
 
-            if (modalPhone1 && phone1) {
-                modalPhone1.href = `tel:${phone1.replace(/\s+/g, '')}`;
-                modalPhone1.innerText = phone1;
+            if (modalPhone1) {
+                if (data.phone1) {
+                    modalPhone1.href = `tel:${data.phone1.replace(/\s+/g, '')}`;
+                    modalPhone1.innerText = data.phone1;
+                    modalPhone1.style.display = "inline";
+                } else {
+                    modalPhone1.innerText = "";
+                    modalPhone1.removeAttribute('href');
+                }
             }
-            if (modalPhone2 && phone2) {
-                modalPhone2.href = `tel:${phone2.replace(/\s+/g, '')}`;
-                modalPhone2.innerText = phone2;
+            if (modalPhone2) {
+                if (data.phone2) {
+                    modalPhone2.href = `tel:${data.phone2.replace(/\s+/g, '')}`;
+                    modalPhone2.innerText = data.phone2;
+                    modalPhone2.style.display = "inline";
+                } else {
+                    modalPhone2.innerText = "";
+                    modalPhone2.removeAttribute('href');
+                }
             }
 
             if (alliesTrack) {
