@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head}">
     <!-- Pre-carga prioritaria del Banner del Hero para mejorar el LCP -->
-    <link rel="preload" as="image" href="/img/paisaje-luz.jpg">
+    <link rel="preload" as="image" th:href="@{/img/paisaje-luz.webp}" fetchpriority="high">
 </head>
 <body>
 
@@ -10,10 +10,10 @@
 
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- SECCIÓN PRIMERA IMAGEN (HERO) -->
-<section class="hero-zen">
-    <div class="hero-slide active" style="background-image: url('/img/paisaje-luz.webp');"></div>
-    <div class="hero-slide" style="background-image: url('/img/paisaje3.webp');"></div>
-    <div class="hero-slide" style="background-image: url('/img/dog.webp');"></div>
+<section class="hero-zen" style="background-color: rgb(36, 48, 40);">
+    <div class="hero-slide active" th:style="|background-image: url('@{/img/paisaje-luz.webp}');|"></div>
+    <div class="hero-slide" th:style="|background-image: url('@{/img/paisaje3.webp}');|"></div>
+    <div class="hero-slide" th:style="|background-image: url('@{/img/dog.webp}');|"></div>
 
     <div class="hero-overlay"></div>
 

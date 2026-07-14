@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head}"></head>
+<link rel="preload" as="image" th:href="@{/img/traslado-funebre.webp}" fetchpriority="high">
 <body class="bg-light">
 
 <div th:replace="~{fragments/layout :: navbar(isWhite=true)}"></div>
 
-<!-- Banner Hero -->
-<section class="position-relative d-flex align-items-center justify-content-center hero-page-banner"
-         th:style="|height: 50vh; background: url('@{/img/traslado-funebre.webp}') center/cover;|">
-
-    <div class="position-absolute top-0 start-0 w-100 h-100" style="background-color: rgba(0, 0, 0, 0.5);"></div>
+<section class="position-relative d-flex align-items-center justify-content-center"
+         th:style="|height: 50vh; min-height: 350px; margin-top: 76px; background: linear-gradient(rgba(36,48,40,0.65), rgba(36,48,40,0.65)), rgb(36, 48, 40) url('@{/img/traslado-funebre.webp}') center/cover no-repeat;|">
 
     <div class="container position-relative text-center text-white" data-aos="fade-up">
         <h6 class="text-uppercase mb-3" style="color: var(--gold); letter-spacing: 3px;" data-aos="fade-down">Estamos para apoyarlo</h6>
         <h1 class="display-3 fw-bold mb-4" style="font-family: var(--font-serif);">Atención Inmediata 24/7</h1>
-        <p class="lead" data-aos="fade-up" data-aos-delay="200">Un acompañamiento humano y profesional en los momentos más difíciles.</p>
+        <p class="lead mb-0" data-aos="fade-up" data-aos-delay="200">Un acompañamiento humano y profesional en los momentos más difíciles.</p>
     </div>
 </section>
 

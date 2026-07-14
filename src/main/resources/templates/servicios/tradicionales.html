@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/layout :: head}">
+    <!-- Pon esto en el <head> de tradicionales.html -->
+    <link rel="preload" as="image" th:href="@{/img/portada-tradicionales.webp}" fetchpriority="high">
 </head>
 <body class="bg-light d-flex flex-column min-vh-100">
 
 <div th:replace="~{fragments/layout :: navbar(isWhite=true)}"></div>
 
-<!-- Hero Section Adaptable -->
-<section class="hero-tradicionales position-relative d-flex align-items-center justify-content-center">
+<!-- Hero  -->
+<section class="position-relative d-flex align-items-center justify-content-center"
+         th:style="|height: 50vh; min-height: 350px; margin-top: 76px; background: linear-gradient(rgba(36,48,40,0.65), rgba(36,48,40,0.65)), rgb(36, 48, 40) url('@{/img/portada-tradicionales.webp}') center/cover no-repeat;|">
+
     <div class="container position-relative text-center text-white" data-aos="fade-up">
-        <h6 class="text-uppercase mb-3 tracking-widest label-hero-gold">Homenajes a la vida</h6>
-        <h1 class="display-3 fw-light mb-3 title-hero-serif">Servicios Funerarios Tradicionales</h1>
-        <p class="lead mx-auto opacity-90 desc-hero">Un protocolo integral diseñado con la distinción, el respeto y la solemnidad que su ser querido merece.</p>
+        <h6 class="text-uppercase mb-3" style="color: var(--gold); letter-spacing: 3px; font-weight: 600;">
+            Homenajes a la vida
+        </h6>
+        <h1 class="display-3 fw-light mb-3" style="font-family: var(--font-serif);">
+            Servicios Funerarios Tradicionales
+        </h1>
+        <p class="lead mx-auto opacity-90" style="max-width: 700px;">
+            Un protocolo integral diseñado con la distinción, el respeto y la solemnidad que su ser querido merece.
+        </p>
     </div>
 </section>
 
