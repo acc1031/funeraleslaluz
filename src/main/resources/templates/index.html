@@ -3,19 +3,32 @@
 <head th:replace="~{fragments/layout :: head}">
     <!-- Pre-carga prioritaria del Banner del Hero para mejorar el LCP -->
     <link rel="preload" as="image" th:href="@{/img/paisaje-luz.webp}" fetchpriority="high">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EHFTMHCVFS"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
 
-        gtag('config', 'G-EHFTMHCVFS');
-    </script>
 </head>
 <body>
 
 <div th:replace="~{fragments/layout :: navbar}"></div>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "La Luz Asistencia Integral",
+        "url": "https://www.laluzasistencia.com/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.laluzasistencia.com/buscar?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        },
+        "hasPart": [
+            { "@type": "SiteNavigationElement", "name": "Planes", "url": "https://www.laluzasistencia.com/planes" },
+            { "@type": "SiteNavigationElement", "name": "Servicios", "url": "https://www.laluzasistencia.com/servicios" },
+            { "@type": "SiteNavigationElement", "name": "Obituarios", "url": "https://www.laluzasistencia.com/obituarios" },
+            { "@type": "SiteNavigationElement", "name": "Sedes", "url": "https://www.laluzasistencia.com/sedes" },
+            { "@type": "SiteNavigationElement", "name": "Contacto", "url": "https://www.laluzasistencia.com/contacto" }
+        ]
+    }
+</script>
 
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------->
 <!-- SECCIÓN PRIMERA IMAGEN (HERO) -->
@@ -568,19 +581,38 @@
             });
         }
     });
+</script>
 
+<!-- GOOGLE ANALYTICS -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EHFTMHCVFS"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-EHFTMHCVFS');
+</script>
+<!-- SCRIPTS DE INICIALIZACIÓN -->
+<script>
+    AOS.init({ duration: 1000, once: true, easing: 'ease-out-quad' });
 
-    /<script>
-    // Registro de clics en convenios para GA4
+    // Scroll Navbar
+    window.addEventListener('scroll', function () {
+        const navbar = document.querySelector('.navbar');
+        if (navbar) {
+            if (window.scrollY > 50) navbar.classList.add('navbar-scrolled');
+            else navbar.classList.remove('navbar-scrolled');
+        }
+    });
+
+    // Eventos de clic para Analytics (Rastreo de convenios)
     document.querySelectorAll('[data-bs-toggle="modal"]').forEach(item => {
         item.addEventListener('click', function() {
-            const convenio = this.getAttribute('data-key');
-            gtag('event', 'click_convenio', {
-                'convenio_nombre': convenio
-            });
+            gtag('event', 'click_convenio', { 'convenio_nombre': this.getAttribute('data-key') });
         });
     });
+
+    // ... (Mantén aquí el resto de tus scripts: Slider Hero, Diccionario de Convenios y Dropdown Fix) ...
 </script>
-</script>
+
 </body>
 </html>
