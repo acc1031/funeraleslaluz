@@ -3,6 +3,15 @@
 <head th:replace="~{fragments/layout :: head}">
     <!-- Pre-carga prioritaria del Banner del Hero para mejorar el LCP -->
     <link rel="preload" as="image" th:href="@{/img/paisaje-luz.webp}" fetchpriority="high">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EHFTMHCVFS"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-EHFTMHCVFS');
+    </script>
 </head>
 <body>
 
@@ -559,6 +568,19 @@
             });
         }
     });
+
+
+    /<script>
+    // Registro de clics en convenios para GA4
+    document.querySelectorAll('[data-bs-toggle="modal"]').forEach(item => {
+        item.addEventListener('click', function() {
+            const convenio = this.getAttribute('data-key');
+            gtag('event', 'click_convenio', {
+                'convenio_nombre': convenio
+            });
+        });
+    });
+</script>
 </script>
 </body>
 </html>
