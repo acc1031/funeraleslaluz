@@ -78,25 +78,34 @@
                 <div class="service-details">
                     <div class="detail-row">
                         <span class="detail-label">Velación:</span>
-                        <span class="detail-value text-truncate" th:text="${ob.salaVelacion}">Sala</span>
+                        <span class="detail-value" style="white-space: pre-wrap;" th:text="${ob.salaVelacion}">Sala</span>
                     </div>
                     <div class="detail-row">
                         <span class="detail-label">Exequias:</span>
-                        <span class="detail-value text-truncate"
-                              th:text="${#temporals.format(ob.fechaExequias, 'dd/MM/yyyy hh:mm a')}">Fecha</span>
+                        <span class="detail-value" th:text="${#temporals.format(ob.fechaExequias, 'dd/MM/yyyy hh:mm a')}">Fecha</span>
                     </div>
-                    <div class="detail-row">
+
+                    <div class="detail-row" th:if="${ob.iglesia != null and !ob.iglesia.isEmpty()}">
+                        <span class="detail-label">Iglesia:</span>
+                        <span class="detail-value" style="white-space: pre-wrap;" th:text="${ob.iglesia}">Parque o Iglesia</span>
+                    </div>
+
+                    <div class="detail-row" th:if="${ob.destino != null and !ob.destino.isEmpty()}">
                         <span class="detail-label">Destino:</span>
-                        <span class="detail-value text-truncate" th:text="${ob.cementerio}">Destino</span>
+                        <span class="detail-value" style="white-space: pre-wrap;" th:text="${ob.destino}">Destino</span>
+                    </div>
+
+                    <div class="detail-row" th:if="${(ob.iglesia == null or ob.iglesia.isEmpty()) and ob.cementerio != null and !ob.cementerio.isEmpty()}">
+                        <span class="detail-label">Destino:</span>
+                        <span class="detail-value" style="white-space: pre-wrap;" th:text="${ob.cementerio}">Cementerio viejo</span>
                     </div>
                 </div>
 
-                <p class="obituario-quote text-muted small"
+                <p class="obituario-quote text-muted small" style="white-space: pre-wrap;"
                    th:if="${ob.mensajeHomenaje != null and !ob.mensajeHomenaje.isEmpty()}"
-                   th:text="'&ldquo;' + ${ob.mensajeHomenaje} + '&rdquo;'"></p>
+                   th:utext="'&ldquo;' + ${ob.mensajeHomenaje} + '&rdquo;'"></p>
             </div>
 
-            <!-- Contenedor oculto en la tarjeta que almacena las condolencias reales traídas por JPA -->
             <div class="condolencias-fuente d-none">
                 <div th:if="${#lists.isEmpty(ob.condolencias)}" class="col-12 text-center py-3">
                     <p class="text-muted small italic mb-0">No hay condolencias registradas en este momento. Sé el

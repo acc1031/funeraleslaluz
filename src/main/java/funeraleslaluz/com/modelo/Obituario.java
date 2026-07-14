@@ -22,10 +22,15 @@ public class Obituario {
     private Long id;
 
     private String nombreCompleto;
-    private LocalDateTime fechaFallecimiento;
+    private LocalDateTime fechaFallecimiento; // Se mantiene para el control de fechas internas
     private LocalDateTime fechaExequias;
     private String salaVelacion;
-    private String cementerio;
+
+    // Campos de destino (Todos disponibles)
+    private String cementerio; // Conservado para compatibilidad y registros previos
+    private String iglesia;     // Nuevo: Campo opcional para Parque/Cementerio
+    private String destino;    // Nuevo: Campo opcional para el Destino Final (ej: Cremación)
+
     private String mensajeHomenaje;
 
     // AGREGA ESTO:

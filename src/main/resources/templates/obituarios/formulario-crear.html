@@ -52,7 +52,6 @@
             <span class="footer-role">Operador</span>
         </div>
         <a th:href="@{/obituarios}" class="nav-link-logout" title="Salir">
-            <!-- Definimos el tamaño exacto con font-size -->
             <i class="bi bi-box-arrow-right" style="font-size: 24px;"></i>
         </a>
     </div>
@@ -67,6 +66,7 @@
     </div>
 
     <div class="content-grid">
+        <!-- FORMULARIO OPTIMIZADO CON TEXTAREAS -->
         <form th:action="@{/obituarios/guardar}" th:object="${obituario}" method="POST" class="form-card">
             <input type="hidden" th:field="*{id}"/>
 
@@ -75,37 +75,49 @@
             <p class="form-desc">Inserción y actualización de obituarios en plataforma</p>
             <div class="divider"></div>
 
+            <!-- 1. NOMBRE -->
             <div class="field-group">
                 <label for="nombre" class="field-label"><i class="bi bi-person"></i> Nombre del fallecido</label>
                 <input type="text" id="nombre" th:field="*{nombreCompleto}" class="form-input" placeholder="Ej: Helena Mendieta de Castro" required>
             </div>
 
-            <div class="form-input-stack">
-                <div>
-                    <label for="fechaFall" class="field-label"><i class="bi bi-calendar-event"></i> Fallecimiento</label>
-                    <input type="datetime-local" id="fechaFall" th:field="*{fechaFallecimiento}" class="form-input" required>
-                </div>
-                <div>
-                    <label for="fechaExeq" class="field-label"><i class="bi bi-calendar-check"></i> Exequias</label>
-                    <input type="datetime-local" id="fechaExeq" th:field="*{fechaExequias}" class="form-input" required>
-                </div>
+            <!-- 2. FECHA DE EXEQUIAS -->
+            <div class="field-group">
+                <label for="fechaExeq" class="field-label"><i class="bi bi-calendar-check"></i> Fecha y Hora de Exequias</label>
+                <input type="datetime-local" id="fechaExeq" th:field="*{fechaExequias}" class="form-input" required>
             </div>
 
+            <!-- 3. SALA VELACIÓN -->
             <div class="field-group">
                 <label for="velacion" class="field-label"><i class="bi bi-geo-alt"></i> Sala de velación</label>
-                <input type="text" id="velacion" th:field="*{salaVelacion}" class="form-input" placeholder="Ej: Sala de la Paz — Sede Central" required>
+                <textarea id="velacion" th:field="*{salaVelacion}" class="form-input" rows="2"
+                          placeholder="Ej: Sala de la Paz&#10;Sede Central" required style="resize: vertical;"></textarea>
             </div>
 
+            <!-- 4. Iglesia  (OPCIONAL) -->
             <div class="field-group">
-                <label for="cementerio" class="field-label"><i class="bi bi-building"></i> Parque / Destino</label>
-                <input type="text" id="cementerio" th:field="*{cementerio}" class="form-input" placeholder="Ej: Cremación Campos de Luz" required>
+                <label for="iglesia" class="field-label"><i class="bi bi-building"></i> Parque o Iglesia (Opcional)</label>
+                <input type="text" id="iglesia" th:field="*{iglesia}" class="form-input" placeholder="Ej: Cementerio Distrital del Norte o Iglesia Santa Ana">
             </div>
 
+            <!-- 5. DESTINO FINAL (OPCIONAL) -->
             <div class="field-group">
-                <label for="mensaje" class="field-label"><i class="bi bi-quote"></i> Mensaje de homenaje</label>
-                <textarea id="mensaje" th:field="*{mensajeHomenaje}" class="form-input" rows="3"
-                          placeholder="Ej: Su luz no se apaga, se transforma en un recuerdo eterno…"></textarea>
+                <label for="destino" class="field-label"><i class="bi bi-patch-question"></i> Destino final (Opcional)</label>
+                <input type="text" id="destino" th:field="*{destino}" class="form-input" placeholder="Ej: Cremación o Inhumación">
             </div>
+
+            <!-- 6. MENSAJE -->
+            <div class="field-group">
+                <label for="mensaje" class="field-label"><i class="bi bi-quote"></i> Mensaje de homenaje (Opcional)</label>
+                <textarea id="mensaje"
+                          th:field="*{mensajeHomenaje}"
+                          class="form-input"
+                          rows="3"
+                          style="white-space: pre-wrap; resize: vertical;"></textarea>
+            </div>
+
+            <!-- Campo oculto para conservar 'cementerio' heredado si se edita un registro viejo -->
+            <input type="hidden" th:field="*{cementerio}" />
 
             <div class="btn-row">
                 <a th:href="@{/obituarios}" class="btn btn-secondary">
@@ -117,6 +129,7 @@
             </div>
         </form>
 
+        <!-- PANEL DE VISTA PREVIA CON RESPETO A SALTOS DE LÍNEA -->
         <div class="cards-panel">
             <div class="panel-header">
                 <div>
@@ -151,10 +164,11 @@
                             <h3 class="card-name" th:text="${item.nombreCompleto}" th:title="${item.nombreCompleto}">Nombre Completo</h3>
                             <div class="card-date" th:text="${#temporals.format(item.fechaFallecimiento, 'dd MMM yyyy · HH:mm')}">01 jun 2026 · 12:00</div>
 
+                            <!-- Agregado 'white-space: pre-wrap;' en los valores de la vista previa -->
                             <div class="card-details">
                                 <div class="detail-row">
                                     <span class="detail-key">Velación:</span>
-                                    <span class="detail-val" th:text="${item.salaVelacion}" th:title="${item.salaVelacion}">Sala</span>
+                                    <span class="detail-val" style="white-space: pre-wrap;" th:text="${item.salaVelacion}" th:title="${item.salaVelacion}">Sala</span>
                                 </div>
                                 <div class="detail-row">
                                     <span class="detail-key">Exequias:</span>
@@ -162,11 +176,11 @@
                                 </div>
                                 <div class="detail-row">
                                     <span class="detail-key">Destino:</span>
-                                    <span class="detail-val" th:text="${item.cementerio}" th:title="${item.cementerio}">Destino</span>
+                                    <span class="detail-val" style="white-space: pre-wrap;" th:text="${item.cementerio}" th:title="${item.cementerio}">Destino</span>
                                 </div>
                             </div>
 
-                            <p class="card-quote"
+                            <p class="card-quote" style="white-space: pre-wrap;"
                                th:if="${item.mensajeHomenaje != null and !item.mensajeHomenaje.isEmpty()}"
                                th:utext="'&ldquo;' + ${item.mensajeHomenaje} + '&rdquo;'"></p>
                         </div>
