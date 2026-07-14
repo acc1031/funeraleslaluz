@@ -115,7 +115,8 @@
                 <p class="text-muted small mb-4" style="font-family: var(--font-sans);">Equipo de atención preferencial asignado para este convenio institucional:</p>
 
                 <div class="row g-3">
-                    <div class="col-12">
+                    <!-- Se agrega ID containerCoordinator para ocultar dinámicamente -->
+                    <div class="col-12" id="containerCoordinator">
                         <div class="p-3 rounded-3"
                              style="background-color: var(--cream); border-left: 3px solid var(--gold);">
                             <span class="d-block text-uppercase text-gold fw-bold mb-1"
@@ -337,7 +338,8 @@
         </div>
 
         <div class="row align-items-stretch justify-content-center g-4 text-center">
-            <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
+            <!-- Cambiado col-6 a col-12 -->
+            <div class="col-12 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
                 <div class="px-3 partner-logo-wrapper d-flex flex-column justify-content-between h-100">
                     <div class="d-flex align-items-center justify-content-center flex-grow-1" style="min-height: 110px;">
                         <img th:src="@{/img/logos/remanso.png}" alt="Corporación Remanso - Socio Fundador"
@@ -351,7 +353,8 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
+            <!-- Cambiado col-6 a col-12 -->
+            <div class="col-12 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
                 <div class="px-3 partner-logo-wrapper d-flex flex-column justify-content-between h-100">
                     <div class="d-flex align-items-center justify-content-center flex-grow-1" style="min-height: 110px;">
                         <img th:src="@{/img/logos/asistencia-internacional.png}" alt="Servicio de Repatriación Global"
@@ -415,12 +418,11 @@
     });
 
     // DICIONARIO PROTEGIDO EN MEMORIA DE CLIENTE (Oculto de Ctrl+U)
+    // Se removió coordinador y phone1 de FEIS
     const secureAlliesData = {
         "feis": {
             ally: "FEIS",
-            coordinator: "Jonathan Martinez",
             commercial: "Jairo Aponte",
-            phone1: "(+57) 310 572 9883",
             phone2: "(+57) 310 987 6543"
         },
         "mindefensa": {
@@ -491,8 +493,16 @@
             };
 
             if (modalAllyName) modalAllyName.innerText = `Convenio — ${data.ally}`;
-            if (modalCoordinatorName) modalCoordinatorName.innerText = data.coordinator;
             if (modalCommercialName) modalCommercialName.innerText = data.commercial;
+
+            // Control dinámico de la visibilidad de la sección del Coordinador
+            const containerCoordinator = document.getElementById('containerCoordinator');
+            if (data.coordinator) {
+                if (containerCoordinator) containerCoordinator.style.display = "block";
+                if (modalCoordinatorName) modalCoordinatorName.innerText = data.coordinator;
+            } else {
+                if (containerCoordinator) containerCoordinator.style.display = "none";
+            }
 
             if (modalPhone1) {
                 if (data.phone1) {
