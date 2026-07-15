@@ -16,9 +16,9 @@ public class WebController {
     private AsistenciaService asistenciaService;
 
     @GetMapping("/")
-    public String index(HttpServletRequest request) {
-        // Aseguramos la sesión para evitar problemas con CSRF/Spring Security en el home
+    public String index(Model model, HttpServletRequest request) {
         request.getSession(true);
+        model.addAttribute("currentUri", request.getRequestURI()); // <--- Agrega esto
         return "index";
     }
 
