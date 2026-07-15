@@ -18,7 +18,8 @@ public class WebController {
     @GetMapping("/")
     public String index(Model model, HttpServletRequest request) {
         request.getSession(true);
-        model.addAttribute("currentUri", request.getRequestURI()); // <--- Agrega esto
+        model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Inicio - La Luz Asistencia Integral");
         return "index";
     }
 
@@ -26,6 +27,7 @@ public class WebController {
     public String planes(Model model, HttpServletRequest request) {
         request.getSession(true);
         model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Prevision Individual - La Luz Asistencia Integral");
         return "planes";
     }
 
@@ -33,6 +35,7 @@ public class WebController {
     public String verPrevisionEmpresarial(Model model, HttpServletRequest request) {
         request.getSession(true);
         model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Previsión Empresarial - La Luz Asistencia Integral");
         model.addAttribute("prevision-empresarial", asistenciaService.obtenerTodosLosPlanes());
         return "prevision-empresarial";
     }
@@ -41,6 +44,7 @@ public class WebController {
     public String verMascotas(Model model, HttpServletRequest request) {
         request.getSession(true);
         model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Mascotas - La Luz Asistencia Integral");
         return "mascotas";
     }
 
@@ -48,6 +52,7 @@ public class WebController {
     public String mostrarSedes(Model model, HttpServletRequest request) {
         request.getSession(true);
         model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Nuestras Sedes - La Luz Asistencia Integral");
         return "sedes";
     }
 
@@ -56,6 +61,7 @@ public class WebController {
         // 1. Forzamos la creación de la sesión HTTP usando el parámetro inyectado 'request'
         request.getSession(true);
         model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Contacto - La Luz Asistencia Integral");
 
         // 2. Pasamos el objeto con el mismo nombre que espera tu HTML: "emailContacto"
         model.addAttribute("emailContacto", new EmailContacto());
@@ -71,6 +77,7 @@ public class WebController {
     public String atencionInmediata(Model model, HttpServletRequest request) {
         request.getSession(true);
         model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Necesidad Inmediata  - La Luz ");
         return "servicios/atencion-inmediata";
     }
 
@@ -78,6 +85,7 @@ public class WebController {
     public String serviciosTradicionales(Model model, HttpServletRequest request) {
         request.getSession(true);
         model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Servicios Tradicionales - La Luz ");
         return "servicios/tradicionales";
     }
 
@@ -85,6 +93,7 @@ public class WebController {
     public String serviciosPersonalizados(Model model, HttpServletRequest request) {
         request.getSession(true);
         model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Servicios Personalizados - La Luz ");
         return "servicios/personalizados";
     }
 
@@ -92,6 +101,7 @@ public class WebController {
     public String serviciosInternacionales(Model model, HttpServletRequest request) {
         request.getSession(true);
         model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Servicios de Repatriacion - La Luz ");
         return "servicios/internacionales";
     }
 
@@ -100,6 +110,7 @@ public class WebController {
         // Forzamos la creación de la sesión antes de que Thymeleaf empiece a renderizar
         request.getSession(true);
         model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Conmemoración - La Luz ");
         return "servicios/conmemoraciones";
     }
 
@@ -107,6 +118,7 @@ public class WebController {
     public String repatriacion(Model model, HttpServletRequest request) {
         request.getSession(true);
         model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Servicio de Repatriación - La Luz ");
         return "servicios/repatriacion";
     }
 
@@ -118,6 +130,7 @@ public class WebController {
     public String proteccionDatos(Model model, HttpServletRequest request) {
         request.getSession(true);
         model.addAttribute("currentUri", request.getRequestURI());
+        model.addAttribute("title", "Protección de Datos Personales - La Luz ");
         return "proteccion-datos";
     }
 }

@@ -38,6 +38,7 @@ public class ObituarioController {
     @GetMapping
     public String verPanelPublico(Model model) {
         model.addAttribute("obituarios", obituarioRepository.findAllByOrderByFechaFallecimientoDesc());
+        model.addAttribute("title", "Obiturarios - La Luz Asistencia Integral");
         return "obituarios/panel-publico";
     }
 

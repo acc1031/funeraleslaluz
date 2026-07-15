@@ -32,8 +32,9 @@ public class UsuarioController {
     }
 
     @GetMapping("/login")
-    public String mostrarLogin() {
+    public String mostrarLogin(Model model) {
         // Asegúrate de que este apunte a tu plantilla de login (vimos que usabas 'login' o 'signup')
+        model.addAttribute("title", "Inicio de Sesión - La Luz Asistencia Integral");
         return "signup";
     }
 
