@@ -77,6 +77,13 @@
     text-decoration: none;
 }
 
+.btn-gold:hover {
+    background-color: #2A1D08 !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease 0s;
+    border: 1px solid var(--gold);
+}
+
 /* Animación al pasar el puntero (Hover) */
 .btn-outline-dark:hover {
     background-color: var(--dark-coffee) !important;
