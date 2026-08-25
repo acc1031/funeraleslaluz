@@ -115,3 +115,13 @@
 .card-digital-management:hover .image-wrapper-premium img {
     transform: scale(1.03) !important;
 }
+
+.excelencia{
+
+    margin-left: 60px;
+}
+
+.excelencia li{
+    font-size: 16px !important;
+}
+
