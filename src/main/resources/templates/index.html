@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="~{fragments/layout :: head}">
+<head th:replace="~{fragments/layout :: head(title='Inicio - La Luz Asistencia Integral')}">
     <!-- Pre-carga prioritaria del Banner del Hero para mejorar el LCP -->
     <link rel="icon" type="image/png" sizes="48x48" th:href="@{/img/Luz.png}">
     <link rel="preload" as="image" th:href="@{/img/paisaje-luz.webp}" fetchpriority="high">
